@@ -1,0 +1,653 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >StatefulFiltersInitiator</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/table-stateful-filters.service.ts</code>
+        </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#sessionPersistence" >sessionPersistence</a>
+                            </li>
+                            <li>
+                                <a href="#tableConfig" >tableConfig</a>
+                            </li>
+                            <li>
+                                <a href="#tableName" >tableName</a>
+                            </li>
+                            <li>
+                                <a href="#tableSource" >tableSource</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#updateQueryParams" >updateQueryParams</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sessionPersistence"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>sessionPersistence</b></span>
+                        <a href="#sessionPersistence"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/table-stateful-filters.service.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tableConfig"></a>
+                    <span class="name">
+                        <span ><b>tableConfig</b></span>
+                        <a href="#tableConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/services/table-stateful-filters.service.ts:10</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tableName"></a>
+                    <span class="name">
+                        <span ><b>tableName</b></span>
+                        <a href="#tableName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/services/table-stateful-filters.service.ts:9</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tableSource"></a>
+                    <span class="name">
+                        <span ><b>tableSource</b></span>
+                        <a href="#tableSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>LocalDataSource</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/table-stateful-filters.service.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateQueryParams"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>updateQueryParams</b></span>
+                        <a href="#updateQueryParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/table-stateful-filters.service.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { LocalDataSource } from &#x27;ng2-smart-table&#x27;;
+import { LocalStorageUtilWrapperService } from &#x27;./local-storage-util-wrapper.service&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { ActivatedRoute, Params, Router } from &#x27;@angular/router&#x27;;
+import { convertObjectToMap } from &#x27;../utils/object-utils&#x27;;
+
+export class StatefulFiltersInitiator {
+  tableName: string;
+  tableConfig: any;
+  tableSource: LocalDataSource;
+  updateQueryParams?: boolean &#x3D; false;
+  sessionPersistence?: boolean &#x3D; false;
+}
+
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+export class TableStatefulFiltersService {
+  private LOCAL_STORAGE_KEY &#x3D; &#x27;tableFiltersStates&#x27;;
+
+  // This map will store the state of all the filters which need to be applied
+  private tableStates: Map&lt;string, Map&lt;string, any&gt;&gt; &#x3D; new Map&lt;
+    string,
+    Map&lt;string, any&gt;
+  &gt;();
+
+  // Stores the observables for all the table sources against the tableNames
+  private tableObservers: Map&lt;string, Observable&lt;any&gt;&gt; &#x3D; new Map&lt;
+    string,
+    Observable&lt;any&gt;
+  &gt;();
+
+  // Stores all the source of the tables by reference so that the filters
+  // can be applied directly from the service itself using a generic function
+  private tableSources: Map&lt;string, LocalDataSource&gt; &#x3D; new Map&lt;
+    string,
+    LocalDataSource
+  &gt;();
+
+  // Set to store all the tables for which changes need to reflected in the URL as query params
+  private URLtoBeProcessedFor: Set&lt;string&gt; &#x3D; new Set&lt;string&gt;();
+
+  constructor(
+    private localStorageWrapperService: LocalStorageUtilWrapperService,
+    private router: Router,
+    private _route: ActivatedRoute,
+  ) {}
+
+  // Adds an entry to the tableStates map when a component is initialized
+  initializeRecording(args: StatefulFiltersInitiator) {
+    // Required to avoid ambiguity
+    if (args.updateQueryParams) {
+      this.URLtoBeProcessedFor.add(args.tableName);
+    }
+    this.getFilterStateFromLocalStorage(args.tableName);
+
+    if (!this.tableStates?.has(args.tableName)) {
+      let filterStateMap &#x3D; new Map&lt;string, any&gt;();
+      Object.keys(args.tableConfig?.columns).forEach((colConfig) &#x3D;&gt; {
+        filterStateMap.set(colConfig, null);
+      });
+      this.tableStates.set(args.tableName, filterStateMap);
+    }
+
+    if (!args.sessionPersistence) {
+      this.tableStates.get(args.tableName)?.clear();
+    }
+
+    this.processQueryParams(args.tableName);
+    this.tableSources.set(args.tableName, args.tableSource);
+    this.tableObservers.set(args.tableName, args.tableSource.onChanged());
+    this.recordFilterState(args.tableName);
+    this.setForFirstLoad(args.tableName, args.tableConfig);
+  }
+
+  // Checks if the table has just loaded and if there are any filters present and applies them if needed
+  setForFirstLoad(tableName: string, tableConfig: any) {
+    const subscription &#x3D; this.tableObservers
+      .get(tableName)
+      .subscribe((changes) &#x3D;&gt; {
+        this.tableObservers.delete(tableName);
+        if (changes.action &#x3D;&#x3D;&#x3D; &#x27;load&#x27;) {
+          if (!this.tableObservers.get(tableName)) {
+            subscription.unsubscribe();
+          }
+          this.applyFilters(tableName, tableConfig);
+        }
+      });
+  }
+
+  // Whenever there are any changes inside any tables which is using this service,
+  // we update the state here and in the local storage
+  recordFilterState(tableName: string) {
+    this.tableObservers.get(tableName).subscribe((change) &#x3D;&gt; {
+      if (change?.action &#x3D;&#x3D;&#x3D; &#x27;filter&#x27;) {
+        const currentTableStates &#x3D;
+          this.getFilterStateFromLocalStorage(tableName);
+        currentTableStates.clear();
+        change?.filter?.filters?.forEach((filter) &#x3D;&gt; {
+          if (filter?.search?.length) {
+            currentTableStates.set(filter?.field, filter?.search);
+          } else {
+            currentTableStates.delete(filter?.field);
+          }
+        });
+        this.tableStates.set(tableName, currentTableStates);
+        this.localStorageWrapperService.set(
+          this.LOCAL_STORAGE_KEY,
+          this.serializeMap(this.tableStates),
+        );
+        this.addQueryParamsToRoute(tableName);
+      }
+    });
+  }
+
+  // Fetches previously recorded states of all the filters from local storage
+  fetchPreviousStatesFromLocalStorage(): Map&lt;string, Map&lt;string, any&gt;&gt; {
+    const storedData &#x3D; this.localStorageWrapperService.get(
+      this.LOCAL_STORAGE_KEY,
+    );
+    if (!storedData) {
+      return new Map&lt;string, Map&lt;string, any&gt;&gt;();
+    }
+
+    let filtersMap &#x3D; new Map&lt;string, Map&lt;string, any&gt;&gt;();
+    Object.keys(storedData).forEach((tableName) &#x3D;&gt; {
+      filtersMap.set(tableName, convertObjectToMap(storedData[tableName]));
+    });
+    return filtersMap;
+  }
+
+  // Returns previously stored state for a particular tableName
+  getFilterStateFromLocalStorage(tableName: string) {
+    if (
+      !this.tableStates.size ||
+      !(this.tableStates.get(tableName) instanceof Map)
+    ) {
+      this.tableStates &#x3D; this.fetchPreviousStatesFromLocalStorage();
+    }
+    return this.tableStates.get(tableName);
+  }
+
+  // Take the source of the table and apply the filters to it
+  applyFilters(tableName: string, tableConfig: any) {
+    const source &#x3D; this.tableSources.get(tableName);
+    const filtersMap &#x3D; this.getFilterStateFromLocalStorage(tableName);
+    function getFiltersArray(map: Map&lt;string, any&gt;) {
+      let resultArray: { field: string; search: string }[] &#x3D; [];
+      Array.from(map?.keys()).forEach((colName: string) &#x3D;&gt; {
+        if (map.get(colName)?.length) {
+          resultArray.push({
+            field: colName,
+            search: map.get(colName),
+          });
+        }
+      });
+      return resultArray;
+    }
+
+    // Filters array should only have names from columns
+    let filtersArray &#x3D; getFiltersArray(filtersMap);
+
+    // Create a set of all the available columns from the tableConfig
+    // and only allow the query params which are actually associated to
+    // the table config, this will get rid of all the invalid query params
+    const columnSet: Set&lt;string&gt; &#x3D; new Set&lt;string&gt;();
+    Object.keys(tableConfig?.columns)?.forEach((colName) &#x3D;&gt;
+      columnSet.add(colName),
+    );
+    filtersArray &#x3D; filtersArray.filter((filter) &#x3D;&gt; columnSet.has(filter.field));
+
+    // Apply the filters on the source
+    source.setFilter(filtersArray);
+    this.addQueryParamsToRoute(tableName);
+  }
+
+  // Adds query params to the URL based on the applied filters
+  addQueryParamsToRoute(tableName: string) {
+    if (!this.URLtoBeProcessedFor.has(tableName)) {
+      return;
+    }
+    const filtersMap &#x3D; this.getFilterStateFromLocalStorage(tableName);
+    const queryParams: Params &#x3D; Object.fromEntries(filtersMap.entries());
+    this.router.navigate([], {
+      relativeTo: this._route,
+      queryParams,
+    });
+  }
+
+  // Process query params if present and create a map of the same and add it to tableStates
+  // Query params would take precedence and if they are present we&#x27;ll flush out the data we might
+  // have stored before this
+  processQueryParams(tableName: string) {
+    if (!this.URLtoBeProcessedFor.has(tableName)) {
+      return;
+    }
+    const queryParams &#x3D; this._route.snapshot.queryParamMap;
+    if (!queryParams?.keys?.length) {
+      return;
+    }
+    this.tableStates.get(tableName)?.clear();
+    Array.from(queryParams?.keys).forEach((columnName) &#x3D;&gt; {
+      if (!this.tableStates.has(tableName)) {
+        this.tableStates.set(tableName, new Map&lt;string, any&gt;());
+      }
+      this.tableStates
+        .get(tableName)
+        .set(columnName, queryParams.get(columnName));
+    });
+  }
+
+  // Adds a prefix to the name of the table to avoid clashes with other keys from other components
+  getLocalTableNameKey(tableName: string) {
+    return &#x60;filterState_${tableName}&#x60;;
+  }
+
+  // Serialize the Map of Map
+  serializeMap(map: Map&lt;string, Map&lt;string, any&gt;&gt;): {
+    [key: string]: { [innerKey: string]: any };
+  } {
+    const serializedValue: { [key: string]: { [innerKey: string]: any } } &#x3D; {};
+    map.forEach((innerMap: any, innerKey) &#x3D;&gt; {
+      serializedValue[innerKey] &#x3D; {};
+      if (innerMap instanceof Map) {
+        innerMap.forEach((innerValue, innerValueKey) &#x3D;&gt; {
+          serializedValue[innerKey][innerValueKey] &#x3D; innerValue;
+        });
+      } else {
+        for (const innerValueKey in innerMap) {
+          if (innerMap.hasOwnProperty(innerValueKey)) {
+            serializedValue[innerKey][innerValueKey] &#x3D; innerMap[innerValueKey];
+          }
+        }
+      }
+    });
+    return serializedValue;
+  }
+
+  // Flush all the data out for the stateful filters from local storage
+  flushFilterStates() {
+    this.localStorageWrapperService.remove(this.LOCAL_STORAGE_KEY);
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'StatefulFiltersInitiator.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

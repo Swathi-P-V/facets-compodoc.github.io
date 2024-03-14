@@ -1,0 +1,1520 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  GetGitHistoryForResourceUsingGETParams</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/ui-dropdowns-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Parameters for getGitHistoryForResourceUsingGET</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#clusterId" 
+>
+                                            clusterId
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#resourceName" 
+>
+                                            resourceName
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#resourceType" 
+>
+                                            resourceType
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="clusterId"></a>
+                                        <span class="name "><b>clusterId</b>
+                                            <a href="#clusterId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>clusterId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>clusterId</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="resourceName"></a>
+                                        <span class="name "><b>resourceName</b>
+                                            <a href="#resourceName">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>resourceName:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>resourceName</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="resourceType"></a>
+                                        <span class="name "><b>resourceType</b>
+                                            <a href="#resourceType">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>resourceType:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>resourceType</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpHeaders,
+} from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { BlueprintFile } from &#x27;../models/blueprint-file&#x27;;
+import { RBACEntity } from &#x27;../models/rbacentity&#x27;;
+import { StackGitLog } from &#x27;../models/stack-git-log&#x27;;
+import { ClusterResourcesResponse } from &#x27;../models/cluster-resources-response&#x27;;
+import { AllRegionsAndAZ } from &#x27;../models/all-regions-and-az&#x27;;
+
+/**
+ * Ui Dropdowns Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class UiDropdownsControllerService extends __BaseService {
+  static readonly getAllResourcesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/cluster/{clusterId}/resources&#x27;;
+  static readonly getAllResourcesByClusterUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/cluster/{clusterId}/resources-info&#x27;;
+  static readonly getResourceByClusterIdUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/cluster/{clusterId}/{resourceType}/{resourceName}/resource-info&#x27;;
+  static readonly getAllPermissionsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/getAllPermissions&#x27;;
+  static readonly syncClusterHistoryUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/logs/cluster/{clusterId}&#x27;;
+  static readonly getGitHistoryForResourceUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/logs/cluster/{clusterId}/resourceName/{resourceName}/resourceType/{resourceType}&#x27;;
+  static readonly syncSubstackGitHistoryUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/logs/substack&#x27;;
+  static readonly getLogsUsingGET1Path &#x3D;
+    &#x27;/cc-ui/v1/dropdown/logs/{clusterName}&#x27;;
+  static readonly getReleaseStreamsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/releaseStreams&#x27;;
+  static readonly getRolePermissionsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/rolePermissions/{role}&#x27;;
+  static readonly getAllResourcesForAllClusterOfStackUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/stack/{stackName}/all-cluster-resources&#x27;;
+  static readonly getAllResourcesByStackUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/stack/{stackName}/resources-info&#x27;;
+  static readonly getAllClusterResourcesByStackUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/stack/{stackName}/{resourceType}/{resourceName}/cluster-resources-info&#x27;;
+  static readonly getResourceByStackUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/stack/{stackName}/{resourceType}/{resourceName}/resource-info&#x27;;
+  static readonly getAllVCSUsingGETPath &#x3D; &#x27;/cc-ui/v1/dropdown/vcs&#x27;;
+  static readonly getRegionsUsingGETPath &#x3D; &#x27;/cc-ui/v1/dropdown/{cloud}/regions&#x27;;
+  static readonly getApplicationListByClusterIdAndResourceNameUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/dropdown/{clusterId}/{resourceType}&#x27;;
+
+  constructor(config: __Configuration, http: HttpClient) {
+    super(config, http);
+  }
+
+  /**
+   * getAllResources
+   * @param params The &#x60;UiDropdownsControllerService.GetAllResourcesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;excludeSubstackResources&#x60;: excludeSubstackResources
+   *
+   * @return OK
+   */
+  getAllResourcesUsingGETResponse(
+    params: UiDropdownsControllerService.GetAllResourcesUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;{ [key: string]: Array&lt;string&gt; }&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.excludeSubstackResources !&#x3D; null)
+      __params &#x3D; __params.set(
+        &#x27;excludeSubstackResources&#x27;,
+        params.excludeSubstackResources.toString(),
+      );
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/dropdown/cluster/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resources&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{ [key: string]: Array&lt;string&gt; }&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllResources
+   * @param params The &#x60;UiDropdownsControllerService.GetAllResourcesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;excludeSubstackResources&#x60;: excludeSubstackResources
+   *
+   * @return OK
+   */
+  getAllResourcesUsingGET(
+    params: UiDropdownsControllerService.GetAllResourcesUsingGETParams,
+  ): __Observable&lt;{ [key: string]: Array&lt;string&gt; }&gt; {
+    return this.getAllResourcesUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as { [key: string]: Array&lt;string&gt; }),
+    );
+  }
+
+  /**
+   * getAllResourcesByCluster
+   * @param params The &#x60;UiDropdownsControllerService.GetAllResourcesByClusterUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;includeSubstack&#x60;: includeSubstack
+   *
+   * - &#x60;includeContent&#x60;: includeContent
+   *
+   * @return OK
+   */
+  getAllResourcesByClusterUsingGETResponse(
+    params: UiDropdownsControllerService.GetAllResourcesByClusterUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;BlueprintFile&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.includeSubstack !&#x3D; null)
+      __params &#x3D; __params.set(
+        &#x27;includeSubstack&#x27;,
+        params.includeSubstack.toString(),
+      );
+    if (params.includeContent !&#x3D; null)
+      __params &#x3D; __params.set(
+        &#x27;includeContent&#x27;,
+        params.includeContent.toString(),
+      );
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/dropdown/cluster/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resources-info&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;BlueprintFile&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllResourcesByCluster
+   * @param params The &#x60;UiDropdownsControllerService.GetAllResourcesByClusterUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;includeSubstack&#x60;: includeSubstack
+   *
+   * - &#x60;includeContent&#x60;: includeContent
+   *
+   * @return OK
+   */
+  getAllResourcesByClusterUsingGET(
+    params: UiDropdownsControllerService.GetAllResourcesByClusterUsingGETParams,
+  ): __Observable&lt;Array&lt;BlueprintFile&gt;&gt; {
+    return this.getAllResourcesByClusterUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;BlueprintFile&gt;),
+    );
+  }
+
+  /**
+   * getResourceByClusterId
+   * @param params The &#x60;UiDropdownsControllerService.GetResourceByClusterIdUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;includeContent&#x60;: includeContent
+   *
+   * @return OK
+   */
+  getResourceByClusterIdUsingGETResponse(
+    params: UiDropdownsControllerService.GetResourceByClusterIdUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;BlueprintFile&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.includeContent !&#x3D; null)
+      __params &#x3D; __params.set(
+        &#x27;includeContent&#x27;,
+        params.includeContent.toString(),
+      );
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/dropdown/cluster/${encodeURIComponent(
+          String(params.clusterId),
+        )}/${encodeURIComponent(
+          String(params.resourceType),
+        )}/${encodeURIComponent(String(params.resourceName))}/resource-info&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;BlueprintFile&gt;;
+      }),
+    );
+  }
+  /**
+   * getResourceByClusterId
+   * @param params The &#x60;UiDropdownsControllerService.GetResourceByClusterIdUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;includeContent&#x60;: includeContent
+   *
+   * @return OK
+   */
+  getResourceByClusterIdUsingGET(
+    params: UiDropdownsControllerService.GetResourceByClusterIdUsingGETParams,
+  ): __Observable&lt;BlueprintFile&gt; {
+    return this.getResourceByClusterIdUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as BlueprintFile),
+    );
+  }
+
+  /**
+   * getAllPermissions
+   * @return OK
+   */
+  getAllPermissionsUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;RBACEntity&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/dropdown/getAllPermissions&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;RBACEntity&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllPermissions
+   * @return OK
+   */
+  getAllPermissionsUsingGET(): __Observable&lt;Array&lt;RBACEntity&gt;&gt; {
+    return this.getAllPermissionsUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;RBACEntity&gt;),
+    );
+  }
+
+  /**
+   * syncClusterHistory
+   * @param clusterId clusterId
+   */
+  syncClusterHistoryUsingPOSTResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/dropdown/logs/cluster/${encodeURIComponent(
+          String(clusterId),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * syncClusterHistory
+   * @param clusterId clusterId
+   */
+  syncClusterHistoryUsingPOST(clusterId: string): __Observable&lt;null&gt; {
+    return this.syncClusterHistoryUsingPOSTResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * getGitHistoryForResource
+   * @param params The &#x60;UiDropdownsControllerService.GetGitHistoryForResourceUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getGitHistoryForResourceUsingGETResponse(
+    params: UiDropdownsControllerService.GetGitHistoryForResourceUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;StackGitLog&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/dropdown/logs/cluster/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resourceName/${encodeURIComponent(
+          String(params.resourceName),
+        )}/resourceType/${encodeURIComponent(String(params.resourceType))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;StackGitLog&gt;;
+      }),
+    );
+  }
+  /**
+   * getGitHistoryForResource
+   * @param params The &#x60;UiDropdownsControllerService.GetGitHistoryForResourceUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getGitHistoryForResourceUsingGET(
+    params: UiDropdownsControllerService.GetGitHistoryForResourceUsingGETParams,
+  ): __Observable&lt;StackGitLog&gt; {
+    return this.getGitHistoryForResourceUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as StackGitLog),
+    );
+  }
+
+  /**
+   * syncSubstackGitHistory
+   * @param params The &#x60;UiDropdownsControllerService.SyncSubstackGitHistoryUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;substackName&#x60;: substackName
+   *
+   * - &#x60;forceSync&#x60;: forceSync
+   */
+  syncSubstackGitHistoryUsingPOSTResponse(
+    params: UiDropdownsControllerService.SyncSubstackGitHistoryUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.substackName !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;substackName&#x27;, params.substackName.toString());
+    if (params.forceSync !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;forceSync&#x27;, params.forceSync.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/dropdown/logs/substack&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * syncSubstackGitHistory
+   * @param params The &#x60;UiDropdownsControllerService.SyncSubstackGitHistoryUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;substackName&#x60;: substackName
+   *
+   * - &#x60;forceSync&#x60;: forceSync
+   */
+  syncSubstackGitHistoryUsingPOST(
+    params: UiDropdownsControllerService.SyncSubstackGitHistoryUsingPOSTParams,
+  ): __Observable&lt;null&gt; {
+    return this.syncSubstackGitHistoryUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * getLogs
+   * @param clusterName clusterName
+   * @return OK
+   */
+  getLogsUsingGET1Response(
+    clusterName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;StackGitLog&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/dropdown/logs/${encodeURIComponent(String(clusterName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;StackGitLog&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getLogs
+   * @param clusterName clusterName
+   * @return OK
+   */
+  getLogsUsingGET1(clusterName: string): __Observable&lt;Array&lt;StackGitLog&gt;&gt; {
+    return this.getLogsUsingGET1Response(clusterName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;StackGitLog&gt;),
+    );
+  }
+
+  /**
+   * getReleaseStreams
+   * @return OK
+   */
+  getReleaseStreamsUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;string&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/dropdown/releaseStreams&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;string&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getReleaseStreams
+   * @return OK
+   */
+  getReleaseStreamsUsingGET(): __Observable&lt;Array&lt;string&gt;&gt; {
+    return this.getReleaseStreamsUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;string&gt;),
+    );
+  }
+
+  /**
+   * getRolePermissions
+   * @param role role
+   * @return OK
+   */
+  getRolePermissionsUsingGETResponse(
+    role: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;RBACEntity&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/dropdown/rolePermissions/${encodeURIComponent(
+          String(role),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;RBACEntity&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getRolePermissions
+   * @param role role
+   * @return OK
+   */
+  getRolePermissionsUsingGET(role: string): __Observable&lt;Array&lt;RBACEntity&gt;&gt; {
+    return this.getRolePermissionsUsingGETResponse(role).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;RBACEntity&gt;),
+    );
+  }
+
+  /**
+   * getAllResourcesForAllClusterOfStack
+   * @param stackName stackName
+   * @return OK
+   */
+  getAllResourcesForAllClusterOfStackUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ClusterResourcesResponse&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/dropdown/stack/${encodeURIComponent(
+          String(stackName),
+        )}/all-cluster-resources&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ClusterResourcesResponse&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllResourcesForAllClusterOfStack
+   * @param stackName stackName
+   * @return OK
+   */
+  getAllResourcesForAllClusterOfStackUsingGET(
+    stackName: string,
+  ): __Observable&lt;Array&lt;ClusterResourcesResponse&gt;&gt; {
+    return this.getAllResourcesForAllClusterOfStackUsingGETResponse(
+      stackName,
+    ).pipe(__map((_r) &#x3D;&gt; _r.body as Array&lt;ClusterResourcesResponse&gt;));
+  }
+
+  /**
+   * getAllResourcesByStack
+   * @param params The &#x60;UiDropdownsControllerService.GetAllResourcesByStackUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;includeContent&#x60;: includeContent
+   *
+   * - &#x60;branch&#x60;: branch
+   *
+   * @return OK
+   */
+  getAllResourcesByStackUsingGETResponse(
+    params: UiDropdownsControllerService.GetAllResourcesByStackUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;BlueprintFile&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.includeContent !&#x3D; null)
+      __params &#x3D; __params.set(
+        &#x27;includeContent&#x27;,
+        params.includeContent.toString(),
+      );
+    if (params.branch !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;branch&#x27;, params.branch.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/dropdown/stack/${encodeURIComponent(
+          String(params.stackName),
+        )}/resources-info&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;BlueprintFile&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllResourcesByStack
+   * @param params The &#x60;UiDropdownsControllerService.GetAllResourcesByStackUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;includeContent&#x60;: includeContent
+   *
+   * - &#x60;branch&#x60;: branch
+   *
+   * @return OK
+   */
+  getAllResourcesByStackUsingGET(
+    params: UiDropdownsControllerService.GetAllResourcesByStackUsingGETParams,
+  ): __Observable&lt;Array&lt;BlueprintFile&gt;&gt; {
+    return this.getAllResourcesByStackUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;BlueprintFile&gt;),
+    );
+  }
+
+  /**
+   * getAllClusterResourcesByStack
+   * @param params The &#x60;UiDropdownsControllerService.GetAllClusterResourcesByStackUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * @return OK
+   */
+  getAllClusterResourcesByStackUsingGETResponse(
+    params: UiDropdownsControllerService.GetAllClusterResourcesByStackUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;BlueprintFile&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/dropdown/stack/${encodeURIComponent(
+          String(params.stackName),
+        )}/${encodeURIComponent(
+          String(params.resourceType),
+        )}/${encodeURIComponent(
+          String(params.resourceName),
+        )}/cluster-resources-info&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;BlueprintFile&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllClusterResourcesByStack
+   * @param params The &#x60;UiDropdownsControllerService.GetAllClusterResourcesByStackUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * @return OK
+   */
+  getAllClusterResourcesByStackUsingGET(
+    params: UiDropdownsControllerService.GetAllClusterResourcesByStackUsingGETParams,
+  ): __Observable&lt;Array&lt;BlueprintFile&gt;&gt; {
+    return this.getAllClusterResourcesByStackUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;BlueprintFile&gt;),
+    );
+  }
+
+  /**
+   * getResourceByStack
+   * @param params The &#x60;UiDropdownsControllerService.GetResourceByStackUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;branch&#x60;: branch
+   *
+   * @return OK
+   */
+  getResourceByStackUsingGETResponse(
+    params: UiDropdownsControllerService.GetResourceByStackUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;BlueprintFile&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.branch !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;branch&#x27;, params.branch.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/dropdown/stack/${encodeURIComponent(
+          String(params.stackName),
+        )}/${encodeURIComponent(
+          String(params.resourceType),
+        )}/${encodeURIComponent(String(params.resourceName))}/resource-info&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;BlueprintFile&gt;;
+      }),
+    );
+  }
+  /**
+   * getResourceByStack
+   * @param params The &#x60;UiDropdownsControllerService.GetResourceByStackUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;branch&#x60;: branch
+   *
+   * @return OK
+   */
+  getResourceByStackUsingGET(
+    params: UiDropdownsControllerService.GetResourceByStackUsingGETParams,
+  ): __Observable&lt;BlueprintFile&gt; {
+    return this.getResourceByStackUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as BlueprintFile),
+    );
+  }
+
+  /**
+   * getAllVCS
+   * @return OK
+   */
+  getAllVCSUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;string&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/dropdown/vcs&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;string&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllVCS
+   * @return OK
+   */
+  getAllVCSUsingGET(): __Observable&lt;Array&lt;string&gt;&gt; {
+    return this.getAllVCSUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;string&gt;),
+    );
+  }
+
+  /**
+   * getRegions
+   * @param cloud cloud
+   * @return OK
+   */
+  getRegionsUsingGETResponse(
+    cloud: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;AllRegionsAndAZ&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/dropdown/${encodeURIComponent(String(cloud))}/regions&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;AllRegionsAndAZ&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getRegions
+   * @param cloud cloud
+   * @return OK
+   */
+  getRegionsUsingGET(cloud: string): __Observable&lt;Array&lt;AllRegionsAndAZ&gt;&gt; {
+    return this.getRegionsUsingGETResponse(cloud).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;AllRegionsAndAZ&gt;),
+    );
+  }
+
+  /**
+   * getApplicationListByClusterIdAndResourceName
+   * @param params The &#x60;UiDropdownsControllerService.GetApplicationListByClusterIdAndResourceNameUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getApplicationListByClusterIdAndResourceNameUsingGETResponse(
+    params: UiDropdownsControllerService.GetApplicationListByClusterIdAndResourceNameUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;string&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/dropdown/${encodeURIComponent(
+          String(params.clusterId),
+        )}/${encodeURIComponent(String(params.resourceType))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;string&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getApplicationListByClusterIdAndResourceName
+   * @param params The &#x60;UiDropdownsControllerService.GetApplicationListByClusterIdAndResourceNameUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getApplicationListByClusterIdAndResourceNameUsingGET(
+    params: UiDropdownsControllerService.GetApplicationListByClusterIdAndResourceNameUsingGETParams,
+  ): __Observable&lt;Array&lt;string&gt;&gt; {
+    return this.getApplicationListByClusterIdAndResourceNameUsingGETResponse(
+      params,
+    ).pipe(__map((_r) &#x3D;&gt; _r.body as Array&lt;string&gt;));
+  }
+}
+
+module UiDropdownsControllerService {
+  /**
+   * Parameters for getAllResourcesUsingGET
+   */
+  export interface GetAllResourcesUsingGETParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * excludeSubstackResources
+     */
+    excludeSubstackResources?: boolean;
+  }
+
+  /**
+   * Parameters for getAllResourcesByClusterUsingGET
+   */
+  export interface GetAllResourcesByClusterUsingGETParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * includeSubstack
+     */
+    includeSubstack?: boolean;
+
+    /**
+     * includeContent
+     */
+    includeContent?: boolean;
+  }
+
+  /**
+   * Parameters for getResourceByClusterIdUsingGET
+   */
+  export interface GetResourceByClusterIdUsingGETParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * includeContent
+     */
+    includeContent?: boolean;
+  }
+
+  /**
+   * Parameters for getGitHistoryForResourceUsingGET
+   */
+  export interface GetGitHistoryForResourceUsingGETParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for syncSubstackGitHistoryUsingPOST
+   */
+  export interface SyncSubstackGitHistoryUsingPOSTParams {
+    /**
+     * substackName
+     */
+    substackName: string;
+
+    /**
+     * forceSync
+     */
+    forceSync: boolean;
+  }
+
+  /**
+   * Parameters for getAllResourcesByStackUsingGET
+   */
+  export interface GetAllResourcesByStackUsingGETParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * includeContent
+     */
+    includeContent?: boolean;
+
+    /**
+     * branch
+     */
+    branch?: string;
+  }
+
+  /**
+   * Parameters for getAllClusterResourcesByStackUsingGET
+   */
+  export interface GetAllClusterResourcesByStackUsingGETParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+  }
+
+  /**
+   * Parameters for getResourceByStackUsingGET
+   */
+  export interface GetResourceByStackUsingGETParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+
+    /**
+     * branch
+     */
+    branch?: string;
+  }
+
+  /**
+   * Parameters for getApplicationListByClusterIdAndResourceNameUsingGET
+   */
+  export interface GetApplicationListByClusterIdAndResourceNameUsingGETParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+}
+
+export { UiDropdownsControllerService };
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'GetGitHistoryForResourceUsingGETParams.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

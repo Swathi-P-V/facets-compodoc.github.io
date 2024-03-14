@@ -1,0 +1,901 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  ToggleReleaseUsingPOSTParams</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/stack-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Parameters for toggleReleaseUsingPOST</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#stackName" 
+>
+                                            stackName
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#toggleRelease" 
+>
+                                            toggleRelease
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="stackName"></a>
+                                        <span class="name "><b>stackName</b>
+                                            <a href="#stackName">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>stackName:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>stackName</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="toggleRelease"></a>
+                                        <span class="name "><b>toggleRelease</b>
+                                            <a href="#toggleRelease">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>toggleRelease:         <code><a href="../interfaces/ToggleRelease.html" target="_self" >ToggleRelease</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/ToggleRelease.html" target="_self" >ToggleRelease</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>toggleRelease</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { HttpClient, HttpRequest, HttpResponse, HttpHeaders } from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { Stack } from &#x27;../models/stack&#x27;;
+import { ClusterTask } from &#x27;../models/cluster-task&#x27;;
+import { ClusterTaskRequest } from &#x27;../models/cluster-task-request&#x27;;
+import { Substack } from &#x27;../models/substack&#x27;;
+import { AbstractCluster } from &#x27;../models/abstract-cluster&#x27;;
+import { ToggleRelease } from &#x27;../models/toggle-release&#x27;;
+
+/**
+ * Stack Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class StackControllerService extends __BaseService {
+  static readonly getStacksUsingGETPath &#x3D; &#x27;/cc/v1/stacks/&#x27;;
+  static readonly createStackUsingPOSTPath &#x3D; &#x27;/cc/v1/stacks/&#x27;;
+  static readonly createClusterTasksUsingPOSTPath &#x3D; &#x27;/cc/v1/stacks/clusterTask&#x27;;
+  static readonly getClusterTasksUsingGETPath &#x3D; &#x27;/cc/v1/stacks/clusterTask/{stackName}&#x27;;
+  static readonly getSubstacksUsingGETPath &#x3D; &#x27;/cc/v1/stacks/substack&#x27;;
+  static readonly getSubstackUsingGETPath &#x3D; &#x27;/cc/v1/stacks/substack/{substackName}&#x27;;
+  static readonly createSubstackUsingPOSTPath &#x3D; &#x27;/cc/v1/stacks/substack/{substackName}&#x27;;
+  static readonly updateStackUsingPUTPath &#x3D; &#x27;/cc/v1/stacks/{stackName}&#x27;;
+  static readonly getClustersUsingGETPath &#x3D; &#x27;/cc/v1/stacks/{stackName}/clusters&#x27;;
+  static readonly reloadStackUsingGETPath &#x3D; &#x27;/cc/v1/stacks/{stackName}/reload&#x27;;
+  static readonly toggleReleaseUsingPOSTPath &#x3D; &#x27;/cc/v1/stacks/{stackName}/toggleRelease&#x27;;
+
+  constructor(
+    config: __Configuration,
+    http: HttpClient
+  ) {
+    super(config, http);
+  }
+
+  /**
+   * getStacks
+   * @return OK
+   */
+  getStacksUsingGETResponse(): __Observable&lt;__StrictHttpResponse&lt;Array&lt;Stack&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc/v1/stacks/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;
+      });
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter(_r &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Stack&gt;&gt;;
+      })
+    );
+  }
+  /**
+   * getStacks
+   * @return OK
+   */
+  getStacksUsingGET(): __Observable&lt;Array&lt;Stack&gt;&gt; {
+    return this.getStacksUsingGETResponse().pipe(
+      __map(_r &#x3D;&gt; _r.body as Array&lt;Stack&gt;)
+    );
+  }
+
+  /**
+   * createStack
+   * @param stack stack
+   * @return OK
+   */
+  createStackUsingPOSTResponse(stack: Stack): __Observable&lt;__StrictHttpResponse&lt;Stack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; stack;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc/v1/stacks/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;
+      });
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter(_r &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Stack&gt;;
+      })
+    );
+  }
+  /**
+   * createStack
+   * @param stack stack
+   * @return OK
+   */
+  createStackUsingPOST(stack: Stack): __Observable&lt;Stack&gt; {
+    return this.createStackUsingPOSTResponse(stack).pipe(
+      __map(_r &#x3D;&gt; _r.body as Stack)
+    );
+  }
+
+  /**
+   * createClusterTasks
+   * @param taskRequest taskRequest
+   * @return OK
+   */
+  createClusterTasksUsingPOSTResponse(taskRequest: ClusterTaskRequest): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ClusterTask&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; taskRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc/v1/stacks/clusterTask&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;
+      });
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter(_r &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ClusterTask&gt;&gt;;
+      })
+    );
+  }
+  /**
+   * createClusterTasks
+   * @param taskRequest taskRequest
+   * @return OK
+   */
+  createClusterTasksUsingPOST(taskRequest: ClusterTaskRequest): __Observable&lt;Array&lt;ClusterTask&gt;&gt; {
+    return this.createClusterTasksUsingPOSTResponse(taskRequest).pipe(
+      __map(_r &#x3D;&gt; _r.body as Array&lt;ClusterTask&gt;)
+    );
+  }
+
+  /**
+   * getClusterTasks
+   * @param stackName stackName
+   * @return OK
+   */
+  getClusterTasksUsingGETResponse(stackName: string): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ClusterTask&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc/v1/stacks/clusterTask/${encodeURIComponent(String(stackName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;
+      });
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter(_r &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ClusterTask&gt;&gt;;
+      })
+    );
+  }
+  /**
+   * getClusterTasks
+   * @param stackName stackName
+   * @return OK
+   */
+  getClusterTasksUsingGET(stackName: string): __Observable&lt;Array&lt;ClusterTask&gt;&gt; {
+    return this.getClusterTasksUsingGETResponse(stackName).pipe(
+      __map(_r &#x3D;&gt; _r.body as Array&lt;ClusterTask&gt;)
+    );
+  }
+
+  /**
+   * getSubstacks
+   * @param stackName stackName
+   * @return OK
+   */
+  getSubstacksUsingGETResponse(stackName: string): __Observable&lt;__StrictHttpResponse&lt;Array&lt;Substack&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc/v1/stacks/substack&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;
+      });
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter(_r &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Substack&gt;&gt;;
+      })
+    );
+  }
+  /**
+   * getSubstacks
+   * @param stackName stackName
+   * @return OK
+   */
+  getSubstacksUsingGET(stackName: string): __Observable&lt;Array&lt;Substack&gt;&gt; {
+    return this.getSubstacksUsingGETResponse(stackName).pipe(
+      __map(_r &#x3D;&gt; _r.body as Array&lt;Substack&gt;)
+    );
+  }
+
+  /**
+   * getSubstack
+   * @param params The &#x60;StackControllerService.GetSubstackUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;substackName&#x60;: substackName
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * @return OK
+   */
+  getSubstackUsingGETResponse(params: StackControllerService.GetSubstackUsingGETParams): __Observable&lt;__StrictHttpResponse&lt;Substack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc/v1/stacks/substack/${encodeURIComponent(String(params.substackName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;
+      });
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter(_r &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Substack&gt;;
+      })
+    );
+  }
+  /**
+   * getSubstack
+   * @param params The &#x60;StackControllerService.GetSubstackUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;substackName&#x60;: substackName
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * @return OK
+   */
+  getSubstackUsingGET(params: StackControllerService.GetSubstackUsingGETParams): __Observable&lt;Substack&gt; {
+    return this.getSubstackUsingGETResponse(params).pipe(
+      __map(_r &#x3D;&gt; _r.body as Substack)
+    );
+  }
+
+  /**
+   * createSubstack
+   * @param params The &#x60;StackControllerService.CreateSubstackUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;substackName&#x60;: substackName
+   *
+   * - &#x60;subStack&#x60;: subStack
+   *
+   * @return OK
+   */
+  createSubstackUsingPOSTResponse(params: StackControllerService.CreateSubstackUsingPOSTParams): __Observable&lt;__StrictHttpResponse&lt;Substack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.subStack;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc/v1/stacks/substack/${encodeURIComponent(String(params.substackName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;
+      });
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter(_r &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Substack&gt;;
+      })
+    );
+  }
+  /**
+   * createSubstack
+   * @param params The &#x60;StackControllerService.CreateSubstackUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;substackName&#x60;: substackName
+   *
+   * - &#x60;subStack&#x60;: subStack
+   *
+   * @return OK
+   */
+  createSubstackUsingPOST(params: StackControllerService.CreateSubstackUsingPOSTParams): __Observable&lt;Substack&gt; {
+    return this.createSubstackUsingPOSTResponse(params).pipe(
+      __map(_r &#x3D;&gt; _r.body as Substack)
+    );
+  }
+
+  /**
+   * updateStack
+   * @param params The &#x60;StackControllerService.UpdateStackUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;stack&#x60;: stack
+   *
+   * @return OK
+   */
+  updateStackUsingPUTResponse(params: StackControllerService.UpdateStackUsingPUTParams): __Observable&lt;__StrictHttpResponse&lt;Stack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.stack;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl + &#x60;/cc/v1/stacks/${encodeURIComponent(String(params.stackName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;
+      });
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter(_r &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Stack&gt;;
+      })
+    );
+  }
+  /**
+   * updateStack
+   * @param params The &#x60;StackControllerService.UpdateStackUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;stack&#x60;: stack
+   *
+   * @return OK
+   */
+  updateStackUsingPUT(params: StackControllerService.UpdateStackUsingPUTParams): __Observable&lt;Stack&gt; {
+    return this.updateStackUsingPUTResponse(params).pipe(
+      __map(_r &#x3D;&gt; _r.body as Stack)
+    );
+  }
+
+  /**
+   * getClusters
+   * @param stackName stackName
+   * @return OK
+   */
+  getClustersUsingGETResponse(stackName: string): __Observable&lt;__StrictHttpResponse&lt;Array&lt;AbstractCluster&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc/v1/stacks/${encodeURIComponent(String(stackName))}/clusters&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;
+      });
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter(_r &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;AbstractCluster&gt;&gt;;
+      })
+    );
+  }
+  /**
+   * getClusters
+   * @param stackName stackName
+   * @return OK
+   */
+  getClustersUsingGET(stackName: string): __Observable&lt;Array&lt;AbstractCluster&gt;&gt; {
+    return this.getClustersUsingGETResponse(stackName).pipe(
+      __map(_r &#x3D;&gt; _r.body as Array&lt;AbstractCluster&gt;)
+    );
+  }
+
+  /**
+   * reloadStack
+   * @param stackName stackName
+   * @return OK
+   */
+  reloadStackUsingGETResponse(stackName: string): __Observable&lt;__StrictHttpResponse&lt;Stack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc/v1/stacks/${encodeURIComponent(String(stackName))}/reload&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;
+      });
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter(_r &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Stack&gt;;
+      })
+    );
+  }
+  /**
+   * reloadStack
+   * @param stackName stackName
+   * @return OK
+   */
+  reloadStackUsingGET(stackName: string): __Observable&lt;Stack&gt; {
+    return this.reloadStackUsingGETResponse(stackName).pipe(
+      __map(_r &#x3D;&gt; _r.body as Stack)
+    );
+  }
+
+  /**
+   * toggleRelease
+   * @param params The &#x60;StackControllerService.ToggleReleaseUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;toggleRelease&#x60;: toggleRelease
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * @return OK
+   */
+  toggleReleaseUsingPOSTResponse(params: StackControllerService.ToggleReleaseUsingPOSTParams): __Observable&lt;__StrictHttpResponse&lt;ToggleRelease&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.toggleRelease;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc/v1/stacks/${encodeURIComponent(String(params.stackName))}/toggleRelease&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;
+      });
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter(_r &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ToggleRelease&gt;;
+      })
+    );
+  }
+  /**
+   * toggleRelease
+   * @param params The &#x60;StackControllerService.ToggleReleaseUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;toggleRelease&#x60;: toggleRelease
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * @return OK
+   */
+  toggleReleaseUsingPOST(params: StackControllerService.ToggleReleaseUsingPOSTParams): __Observable&lt;ToggleRelease&gt; {
+    return this.toggleReleaseUsingPOSTResponse(params).pipe(
+      __map(_r &#x3D;&gt; _r.body as ToggleRelease)
+    );
+  }
+}
+
+module StackControllerService {
+
+  /**
+   * Parameters for getSubstackUsingGET
+   */
+  export interface GetSubstackUsingGETParams {
+
+    /**
+     * substackName
+     */
+    substackName: string;
+
+    /**
+     * stackName
+     */
+    stackName: string;
+  }
+
+  /**
+   * Parameters for createSubstackUsingPOST
+   */
+  export interface CreateSubstackUsingPOSTParams {
+
+    /**
+     * substackName
+     */
+    substackName: string;
+
+    /**
+     * subStack
+     */
+    subStack: Substack;
+  }
+
+  /**
+   * Parameters for updateStackUsingPUT
+   */
+  export interface UpdateStackUsingPUTParams {
+
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * stack
+     */
+    stack: Stack;
+  }
+
+  /**
+   * Parameters for toggleReleaseUsingPOST
+   */
+  export interface ToggleReleaseUsingPOSTParams {
+
+    /**
+     * toggleRelease
+     */
+    toggleRelease: ToggleRelease;
+
+    /**
+     * stackName
+     */
+    stackName: string;
+  }
+}
+
+export { StackControllerService }
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ToggleReleaseUsingPOSTParams.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

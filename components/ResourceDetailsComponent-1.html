@@ -1,0 +1,4010 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ResourceDetailsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/resource-center/resource-details/resource-details.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-resource-details</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./resource-details.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./resource-details.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allowedFlavoursForIngress" >allowedFlavoursForIngress</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#blueGreenPromoteConfirmation" >blueGreenPromoteConfirmation</a>
+                            </li>
+                            <li>
+                                <a href="#cloud" >cloud</a>
+                            </li>
+                            <li>
+                                <a href="#cluster" >cluster</a>
+                            </li>
+                            <li>
+                                <a href="#clusterId" >clusterId</a>
+                            </li>
+                            <li>
+                                <a href="#clusterState" >clusterState</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#enableDisableConfirmation" >enableDisableConfirmation</a>
+                            </li>
+                            <li>
+                                <a href="#enableDisableLoader" >enableDisableLoader</a>
+                            </li>
+                            <li>
+                                <a href="#finalTabs" >finalTabs</a>
+                            </li>
+                            <li>
+                                <a href="#getEnvInformation" >getEnvInformation</a>
+                            </li>
+                            <li>
+                                <a href="#getKubernetesPods" >getKubernetesPods</a>
+                            </li>
+                            <li>
+                                <a href="#getResourceInfo" >getResourceInfo</a>
+                            </li>
+                            <li>
+                                <a href="#handleBack" >handleBack</a>
+                            </li>
+                            <li>
+                                <a href="#headerActionButtons" >headerActionButtons</a>
+                            </li>
+                            <li>
+                                <a href="#headingIcons" >headingIcons</a>
+                            </li>
+                            <li>
+                                <a href="#historyResourceStatus" >historyResourceStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#httpSubscriber" >httpSubscriber</a>
+                            </li>
+                            <li>
+                                <a href="#isBlueGreenInPreview" >isBlueGreenInPreview</a>
+                            </li>
+                            <li>
+                                <a href="#isClusterRunning" >isClusterRunning</a>
+                            </li>
+                            <li>
+                                <a href="#isResourceQueued" >isResourceQueued</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isResourceQueuedObserver" >isResourceQueuedObserver</a>
+                            </li>
+                            <li>
+                                <a href="#isSelectiveReleaseSupported" >isSelectiveReleaseSupported</a>
+                            </li>
+                            <li>
+                                <a href="#overrideCompleteSub" >overrideCompleteSub</a>
+                            </li>
+                            <li>
+                                <a href="#pageHeaderDescription" >pageHeaderDescription</a>
+                            </li>
+                            <li>
+                                <a href="#pageHeadingTextAsLink" >pageHeadingTextAsLink</a>
+                            </li>
+                            <li>
+                                <a href="#pageLoader" >pageLoader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#podsSubscriber" >podsSubscriber</a>
+                            </li>
+                            <li>
+                                <a href="#previousComponent" >previousComponent</a>
+                            </li>
+                            <li>
+                                <a href="#promoteLoader" >promoteLoader</a>
+                            </li>
+                            <li>
+                                <a href="#redirectionMap" >redirectionMap</a>
+                            </li>
+                            <li>
+                                <a href="#redirectTab" >redirectTab</a>
+                            </li>
+                            <li>
+                                <a href="#resourceContent" >resourceContent</a>
+                            </li>
+                            <li>
+                                <a href="#resourceInfo" >resourceInfo</a>
+                            </li>
+                            <li>
+                                <a href="#resourceName" >resourceName</a>
+                            </li>
+                            <li>
+                                <a href="#resourceStatus" >resourceStatus</a>
+                            </li>
+                            <li>
+                                <a href="#resourceStatusProps" >resourceStatusProps</a>
+                            </li>
+                            <li>
+                                <a href="#resourceType" >resourceType</a>
+                            </li>
+                            <li>
+                                <a href="#resourceTypeIcon" >resourceTypeIcon</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#rootUrl" >rootUrl</a>
+                            </li>
+                            <li>
+                                <a href="#routerSubscription" >routerSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#showHighlighterForMoreActions" >showHighlighterForMoreActions</a>
+                            </li>
+                            <li>
+                                <a href="#stackName" >stackName</a>
+                            </li>
+                            <li>
+                                <a href="#supportedResourceTypes" >supportedResourceTypes</a>
+                            </li>
+                            <li>
+                                <a href="#tabsOtherResources" >tabsOtherResources</a>
+                            </li>
+                            <li>
+                                <a href="#updatePromoteButtonStatus" >updatePromoteButtonStatus</a>
+                            </li>
+                            <li>
+                                <a href="#updateTabsStatus" >updateTabsStatus</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#enableDisableResource" >enableDisableResource</a>
+                            </li>
+                            <li>
+                                <a href="#getClusterState" >getClusterState</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getResourceStatus" >getResourceStatus</a>
+                            </li>
+                            <li>
+                                <a href="#getTabs" >getTabs</a>
+                            </li>
+                            <li>
+                                <a href="#goToConfigPage" >goToConfigPage</a>
+                            </li>
+                            <li>
+                                <a href="#handlePageActions" >handlePageActions</a>
+                            </li>
+                            <li>
+                                <a href="#initializeSubscribers" >initializeSubscribers</a>
+                            </li>
+                            <li>
+                                <a href="#isBlueGreenDeployment" >isBlueGreenDeployment</a>
+                            </li>
+                            <li>
+                                <a href="#makeAllAPICalls" >makeAllAPICalls</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageLoad" >OnPageLoad</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onPromoteSuccess" >onPromoteSuccess</a>
+                            </li>
+                            <li>
+                                <a href="#openEnableDisableConfirmDialog" >openEnableDisableConfirmDialog</a>
+                            </li>
+                            <li>
+                                <a href="#openInDesigner" >openInDesigner</a>
+                            </li>
+                            <li>
+                                <a href="#openPromoteConfirmation" >openPromoteConfirmation</a>
+                            </li>
+                            <li>
+                                <a href="#promoteBlueGreenPreview" >promoteBlueGreenPreview</a>
+                            </li>
+                            <li>
+                                <a href="#redirectToReleaseResource" >redirectToReleaseResource</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#refreshIconsAndButtons" >refreshIconsAndButtons</a>
+                            </li>
+                            <li>
+                                <a href="#setHeaderButtonsAndIcons" >setHeaderButtonsAndIcons</a>
+                            </li>
+                            <li>
+                                <a href="#setHeaderTextLink" >setHeaderTextLink</a>
+                            </li>
+                            <li>
+                                <a href="#subscribeToOverrideEvent" >subscribeToOverrideEvent</a>
+                            </li>
+                            <li>
+                                <a href="#updateTabsWithIngressTab" >updateTabsWithIngressTab</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageInit" >OnPageInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_route: ActivatedRoute, router: Router, uiCommonClusterService: <a href="../injectables/UiCommonClusterControllerService.html" target="_self">UiCommonClusterControllerService</a>, dropdownControllerService: <a href="../injectables/UiDropdownsControllerService.html" target="_self">UiDropdownsControllerService</a>, uiDeploymentControllerService: <a href="../injectables/UiDeploymentControllerService.html" target="_self">UiDeploymentControllerService</a>, dialogService: NbDialogService, resourceDetailsService: <a href="../injectables/ResourceDetailsService.html" target="_self">ResourceDetailsService</a>, resourceHistoryService: <a href="../injectables/ResourceHistoryService.html" target="_self">ResourceHistoryService</a>, httpClient: HttpClient, uiApplicationControllerService: <a href="../injectables/UiApplicationControllerService.html" target="_self">UiApplicationControllerService</a>, actionEventEmitterService: <a href="../injectables/ActionEventEmitterService.html" target="_self">ActionEventEmitterService</a>, contextUpdatesService: <a href="../injectables/ContextUpdatesService.html" target="_self">ContextUpdatesService</a>, customToastService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>, onAPIErrorService: <a href="../injectables/OnAPIErrorService.html" target="_self">OnAPIErrorService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:108</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiCommonClusterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiCommonClusterControllerService.html" target="_self" >UiCommonClusterControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dropdownControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiDropdownsControllerService.html" target="_self" >UiDropdownsControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiDeploymentControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiDeploymentControllerService.html" target="_self" >UiDeploymentControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NbDialogService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>resourceDetailsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ResourceDetailsService.html" target="_self" >ResourceDetailsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>resourceHistoryService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ResourceHistoryService.html" target="_self" >ResourceHistoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>httpClient</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiApplicationControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiApplicationControllerService.html" target="_self" >UiApplicationControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>actionEventEmitterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ActionEventEmitterService.html" target="_self" >ActionEventEmitterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>contextUpdatesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContextUpdatesService.html" target="_self" >ContextUpdatesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToastService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>onAPIErrorService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OnAPIErrorService.html" target="_self" >OnAPIErrorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableDisableResource"></a>
+                    <span class="name">
+                        <span ><b>enableDisableResource</b></span>
+                        <a href="#enableDisableResource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enableDisableResource(ref, actionText)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="524"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:524</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>actionText</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClusterState"></a>
+                    <span class="name">
+                        <span ><b>getClusterState</b></span>
+                        <a href="#getClusterState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getClusterState()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="398"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:398</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getResourceStatus"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getResourceStatus</b></span>
+                        <a href="#getResourceStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getResourceStatus()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="639"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:639</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTabs"></a>
+                    <span class="name">
+                        <span ><b>getTabs</b></span>
+                        <a href="#getTabs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTabs()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="386"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:386</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToConfigPage"></a>
+                    <span class="name">
+                        <span ><b>goToConfigPage</b></span>
+                        <a href="#goToConfigPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToConfigPage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="348"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:348</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handlePageActions"></a>
+                    <span class="name">
+                        <span ><b>handlePageActions</b></span>
+                        <a href="#handlePageActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handlePageActions(event: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="462"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:462</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeSubscribers"></a>
+                    <span class="name">
+                        <span ><b>initializeSubscribers</b></span>
+                        <a href="#initializeSubscribers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeSubscribers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="130"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:130</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isBlueGreenDeployment"></a>
+                    <span class="name">
+                        <span ><b>isBlueGreenDeployment</b></span>
+                        <a href="#isBlueGreenDeployment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isBlueGreenDeployment()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="210"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:210</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="makeAllAPICalls"></a>
+                    <span class="name">
+                        <span ><b>makeAllAPICalls</b></span>
+                        <a href="#makeAllAPICalls"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>makeAllAPICalls()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="190"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:190</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="667"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:667</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>OnPageLoad</b></span>
+                        <a href="#OnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageLoad(params: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:148</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onPromoteSuccess"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>onPromoteSuccess</b></span>
+                        <a href="#onPromoteSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onPromoteSuccess()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="614"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:614</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openEnableDisableConfirmDialog"></a>
+                    <span class="name">
+                        <span ><b>openEnableDisableConfirmDialog</b></span>
+                        <a href="#openEnableDisableConfirmDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openEnableDisableConfirmDialog(buttonId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="515"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:515</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>buttonId</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openInDesigner"></a>
+                    <span class="name">
+                        <span ><b>openInDesigner</b></span>
+                        <a href="#openInDesigner"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openInDesigner()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="482"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:482</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openPromoteConfirmation"></a>
+                    <span class="name">
+                        <span ><b>openPromoteConfirmation</b></span>
+                        <a href="#openPromoteConfirmation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openPromoteConfirmation()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="564"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:564</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="promoteBlueGreenPreview"></a>
+                    <span class="name">
+                        <span ><b>promoteBlueGreenPreview</b></span>
+                        <a href="#promoteBlueGreenPreview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>promoteBlueGreenPreview(ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="570"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:570</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redirectToReleaseResource"></a>
+                    <span class="name">
+                        <span ><b>redirectToReleaseResource</b></span>
+                        <a href="#redirectToReleaseResource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>redirectToReleaseResource(event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="502"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:502</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshIconsAndButtons"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>refreshIconsAndButtons</b></span>
+                        <a href="#refreshIconsAndButtons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshIconsAndButtons()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="625"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:625</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setHeaderButtonsAndIcons"></a>
+                    <span class="name">
+                        <span ><b>setHeaderButtonsAndIcons</b></span>
+                        <a href="#setHeaderButtonsAndIcons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setHeaderButtonsAndIcons()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="413"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:413</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setHeaderTextLink"></a>
+                    <span class="name">
+                        <span ><b>setHeaderTextLink</b></span>
+                        <a href="#setHeaderTextLink"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setHeaderTextLink()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="182"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:182</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscribeToOverrideEvent"></a>
+                    <span class="name">
+                        <span ><b>subscribeToOverrideEvent</b></span>
+                        <a href="#subscribeToOverrideEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>subscribeToOverrideEvent()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="436"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:436</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTabsWithIngressTab"></a>
+                    <span class="name">
+                        <span ><b>updateTabsWithIngressTab</b></span>
+                        <a href="#updateTabsWithIngressTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateTabsWithIngressTab()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="214"
+                                    class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:214</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageInit"></a>
+                    <span class="name">
+                        <span ><b>OnPageInit</b></span>
+                        <a href="#OnPageInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:20</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allowedFlavoursForIngress"></a>
+                    <span class="name">
+                        <span ><b>allowedFlavoursForIngress</b></span>
+                        <a href="#allowedFlavoursForIngress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    AWS: [&#x27;nlb_nginx&#x27;, &#x27;nginx_ingress_controller&#x27;, &#x27;aws_alb&#x27;],
+    GCP: [&#x27;nlb_nginx&#x27;, &#x27;nginx_ingress_controller&#x27;, &#x27;gcp_alb&#x27;],
+    AZURE: [&#x27;nlb_nginx&#x27;, &#x27;nginx_ingress_controller&#x27;, &#x27;azure_alb&#x27;],
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blueGreenPromoteConfirmation"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>blueGreenPromoteConfirmation</b></span>
+                        <a href="#blueGreenPromoteConfirmation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;blueGreenPromoteConfirmation&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cloud"></a>
+                    <span class="name">
+                        <span ><b>cloud</b></span>
+                        <a href="#cloud"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;AWS&quot; | &quot;AZURE&quot; | &quot;LOCAL&quot; | &quot;GCP&quot; | &quot;KUBERNETES&quot;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cluster"></a>
+                    <span class="name">
+                        <span ><b>cluster</b></span>
+                        <a href="#cluster"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/AbstractCluster.html" target="_self" >AbstractCluster</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusterId"></a>
+                    <span class="name">
+                        <span ><b>clusterId</b></span>
+                        <a href="#clusterId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusterState"></a>
+                    <span class="name">
+                        <span ><b>clusterState</b></span>
+                        <a href="#clusterState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableDisableConfirmation"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>enableDisableConfirmation</b></span>
+                        <a href="#enableDisableConfirmation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;enableDisableConfirmation&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableDisableLoader"></a>
+                    <span class="name">
+                        <span ><b>enableDisableLoader</b></span>
+                        <a href="#enableDisableLoader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="finalTabs"></a>
+                    <span class="name">
+                        <span ><b>finalTabs</b></span>
+                        <a href="#finalTabs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEnvInformation"></a>
+                    <span class="name">
+                        <span ><b>getEnvInformation</b></span>
+                        <a href="#getEnvInformation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="236" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:236</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getKubernetesPods"></a>
+                    <span class="name">
+                        <span ><b>getKubernetesPods</b></span>
+                        <a href="#getKubernetesPods"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="294" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:294</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getResourceInfo"></a>
+                    <span class="name">
+                        <span ><b>getResourceInfo</b></span>
+                        <a href="#getResourceInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="255" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:255</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleBack"></a>
+                    <span class="name">
+                        <span ><b>handleBack</b></span>
+                        <a href="#handleBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="364" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:364</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="headerActionButtons"></a>
+                    <span class="name">
+                        <span ><b>headerActionButtons</b></span>
+                        <a href="#headerActionButtons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="headingIcons"></a>
+                    <span class="name">
+                        <span ><b>headingIcons</b></span>
+                        <a href="#headingIcons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="historyResourceStatus"></a>
+                    <span class="name">
+                        <span ><b>historyResourceStatus</b></span>
+                        <a href="#historyResourceStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="httpSubscriber"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>httpSubscriber</b></span>
+                        <a href="#httpSubscriber"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isBlueGreenInPreview"></a>
+                    <span class="name">
+                        <span ><b>isBlueGreenInPreview</b></span>
+                        <a href="#isBlueGreenInPreview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isClusterRunning"></a>
+                    <span class="name">
+                        <span ><b>isClusterRunning</b></span>
+                        <a href="#isClusterRunning"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="397" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:397</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isResourceQueued"></a>
+                    <span class="name">
+                        <span ><b>isResourceQueued</b></span>
+                        <a href="#isResourceQueued"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="637" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:637</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isResourceQueuedObserver"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isResourceQueuedObserver</b></span>
+                        <a href="#isResourceQueuedObserver"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSelectiveReleaseSupported"></a>
+                    <span class="name">
+                        <span ><b>isSelectiveReleaseSupported</b></span>
+                        <a href="#isSelectiveReleaseSupported"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="254" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:254</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="overrideCompleteSub"></a>
+                    <span class="name">
+                        <span ><b>overrideCompleteSub</b></span>
+                        <a href="#overrideCompleteSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Subscription.html" target="_self" >Subscription</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pageHeaderDescription"></a>
+                    <span class="name">
+                        <span ><b>pageHeaderDescription</b></span>
+                        <a href="#pageHeaderDescription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pageHeadingTextAsLink"></a>
+                    <span class="name">
+                        <span ><b>pageHeadingTextAsLink</b></span>
+                        <a href="#pageHeadingTextAsLink"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    link: &#x27;&#x27;,
+    openInNewTab: true,
+    tooltip: &#x27;View Resource in Blueprint Designer&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pageLoader"></a>
+                    <span class="name">
+                        <span ><b>pageLoader</b></span>
+                        <a href="#pageLoader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="podsSubscriber"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>podsSubscriber</b></span>
+                        <a href="#podsSubscriber"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="previousComponent"></a>
+                    <span class="name">
+                        <span ><b>previousComponent</b></span>
+                        <a href="#previousComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="363" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:363</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="promoteLoader"></a>
+                    <span class="name">
+                        <span ><b>promoteLoader</b></span>
+                        <a href="#promoteLoader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redirectionMap"></a>
+                    <span class="name">
+                        <span ><b>redirectionMap</b></span>
+                        <a href="#redirectionMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    &#x27;Live release&#x27;: &#x27;live-releases&#x27;,
+    Configuration: &#x27;configuration&#x27;,
+    Diff: &#x27;diff&#x27;,
+    Domains: &#x27;ingress-domains&#x27;,
+    &#x27;Grafana dashboard&#x27;: &#x27;dashboard&#x27;,
+    Overview: &#x27;overview&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redirectTab"></a>
+                    <span class="name">
+                        <span ><b>redirectTab</b></span>
+                        <a href="#redirectTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceContent"></a>
+                    <span class="name">
+                        <span ><b>resourceContent</b></span>
+                        <a href="#resourceContent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceInfo"></a>
+                    <span class="name">
+                        <span ><b>resourceInfo</b></span>
+                        <a href="#resourceInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/BlueprintFile.html" target="_self" >BlueprintFile</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceName"></a>
+                    <span class="name">
+                        <span ><b>resourceName</b></span>
+                        <a href="#resourceName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceStatus"></a>
+                    <span class="name">
+                        <span ><b>resourceStatus</b></span>
+                        <a href="#resourceStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="638" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:638</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceStatusProps"></a>
+                    <span class="name">
+                        <span ><b>resourceStatusProps</b></span>
+                        <a href="#resourceStatusProps"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceType"></a>
+                    <span class="name">
+                        <span ><b>resourceType</b></span>
+                        <a href="#resourceType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceTypeIcon"></a>
+                    <span class="name">
+                        <span ><b>resourceTypeIcon</b></span>
+                        <a href="#resourceTypeIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    id: &#x27;resource-type&#x27;,
+    icon: &#x27;&#x27;,
+    pack: &#x27;fci&#x27;,
+    status: &#x27;primary&#x27;,
+    iconTooltip: &#x27;&#x27;,
+    iconSize: &#x27;36px&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rootUrl"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>rootUrl</b></span>
+                        <a href="#rootUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>window.location.origin</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:99</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="routerSubscription"></a>
+                    <span class="name">
+                        <span ><b>routerSubscription</b></span>
+                        <a href="#routerSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Subscription.html" target="_self" >Subscription</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showHighlighterForMoreActions"></a>
+                    <span class="name">
+                        <span ><b>showHighlighterForMoreActions</b></span>
+                        <a href="#showHighlighterForMoreActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stackName"></a>
+                    <span class="name">
+                        <span ><b>stackName</b></span>
+                        <a href="#stackName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="supportedResourceTypes"></a>
+                    <span class="name">
+                        <span ><b>supportedResourceTypes</b></span>
+                        <a href="#supportedResourceTypes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[...hotfixResources]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabsOtherResources"></a>
+                    <span class="name">
+                        <span ><b>tabsOtherResources</b></span>
+                        <a href="#tabsOtherResources"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatePromoteButtonStatus"></a>
+                    <span class="name">
+                        <span ><b>updatePromoteButtonStatus</b></span>
+                        <a href="#updatePromoteButtonStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="312" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:312</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTabsStatus"></a>
+                    <span class="name">
+                        <span ><b>updateTabsStatus</b></span>
+                        <a href="#updateTabsStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="450" class="link-to-prism">src/app/pages/resource-center/resource-details/resource-details.component.ts:450</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, TemplateRef, ViewChild, OnDestroy } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Params, Router } from &#x27;@angular/router&#x27;;
+import cloneDeep from &#x27;lodash/cloneDeep&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+import { map } from &#x27;rxjs&#x27;;
+import { AbstractCluster } from &#x27;src/app/cc-api/models&#x27;;
+import {
+  UiCommonClusterControllerService,
+  UiDeploymentControllerService,
+  UiDropdownsControllerService,
+} from &#x27;src/app/cc-api/services&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import {
+  allTabs,
+  clusterStatesToEnableTab,
+} from &#x27;./resource-details.constants&#x27;;
+import * as iconMapping from &#x27;src/app/constants/facetsIconMap.json&#x27;;
+import {
+  hotfixResources,
+  whiteListedResourcesForIngressDetails,
+} from &#x27;src/app/constants/resourceTypes&#x27;;
+import {
+  getActionButtons,
+  getResourceHeaderIcons,
+} from &#x27;src/app/utils/resource-details/header-utils&#x27;;
+import { NbDialogService } from &#x27;@nebular/theme&#x27;;
+import { ResourceDetailsService } from &#x27;../resource-details.service&#x27;;
+import { ResourceHistoryService } from &#x27;src/app/services/resource-history.service&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { UiApplicationControllerService } from &#x27;src/app/cc-api/services&#x27;;
+import { ActionEventEmitterService } from &#x27;src/app/services/action-event-emitter.service&#x27;;
+import { BlueprintFile } from &#x27;./../../../cc-api/models/blueprint-file&#x27;;
+import { actionEvents } from &#x27;../../../constants/action-events&#x27;;
+import { ContextUpdatesService } from &#x27;src/app/services/context-updates.service&#x27;;
+import { CustomToastService } from &#x27;../../custom-toast/custom-toast.service&#x27;;
+import { OnAPIErrorService } from &#x27;src/app/services/on-api-error.service&#x27;;
+
+@Component({
+  selector: &#x27;app-resource-details&#x27;,
+  templateUrl: &#x27;./resource-details.component.html&#x27;,
+  styleUrls: [&#x27;./resource-details.component.scss&#x27;],
+})
+export class ResourceDetailsComponent extends FacetsPage implements OnDestroy {
+  cluster: AbstractCluster &#x3D; {};
+  cloud: &#x27;AWS&#x27; | &#x27;AZURE&#x27; | &#x27;LOCAL&#x27; | &#x27;GCP&#x27; | &#x27;KUBERNETES&#x27;;
+  resourceInfo: BlueprintFile;
+  resourceContent: any;
+  allowedFlavoursForIngress &#x3D; {
+    AWS: [&#x27;nlb_nginx&#x27;, &#x27;nginx_ingress_controller&#x27;, &#x27;aws_alb&#x27;],
+    GCP: [&#x27;nlb_nginx&#x27;, &#x27;nginx_ingress_controller&#x27;, &#x27;gcp_alb&#x27;],
+    AZURE: [&#x27;nlb_nginx&#x27;, &#x27;nginx_ingress_controller&#x27;, &#x27;azure_alb&#x27;],
+  };
+
+  finalTabs &#x3D; [];
+  tabsOtherResources &#x3D; [];
+  resourceType: string;
+  resourceName: string;
+  stackName: any;
+  clusterId: any;
+  redirectTab: string;
+  routerSubscription: Subscription;
+  overrideCompleteSub: Subscription;
+  redirectionMap &#x3D; {
+    &#x27;Live release&#x27;: &#x27;live-releases&#x27;,
+    Configuration: &#x27;configuration&#x27;,
+    Diff: &#x27;diff&#x27;,
+    Domains: &#x27;ingress-domains&#x27;,
+    &#x27;Grafana dashboard&#x27;: &#x27;dashboard&#x27;,
+    Overview: &#x27;overview&#x27;,
+  };
+  supportedResourceTypes: string[] &#x3D; [...hotfixResources];
+
+  headingIcons &#x3D; [];
+  resourceTypeIcon &#x3D; {
+    id: &#x27;resource-type&#x27;,
+    icon: &#x27;&#x27;,
+    pack: &#x27;fci&#x27;,
+    status: &#x27;primary&#x27;,
+    iconTooltip: &#x27;&#x27;,
+    iconSize: &#x27;36px&#x27;,
+  };
+  clusterState: any &#x3D; &#x27;&#x27;;
+  headerActionButtons: any &#x3D; [];
+  resourceStatusProps &#x3D; &#x27;&#x27;;
+  historyResourceStatus &#x3D; &#x27;&#x27;;
+  pageHeadingTextAsLink &#x3D; {
+    link: &#x27;&#x27;,
+    openInNewTab: true,
+    tooltip: &#x27;View Resource in Blueprint Designer&#x27;,
+  };
+
+  pageHeaderDescription: string;
+  enableDisableLoader: boolean &#x3D; false;
+  pageLoader: boolean &#x3D; false;
+  isBlueGreenInPreview: boolean &#x3D; false;
+  promoteLoader: boolean &#x3D; false;
+  showHighlighterForMoreActions: boolean &#x3D; false;
+
+  private rootUrl: string &#x3D; window.location.origin;
+  private httpSubscriber;
+  private podsSubscriber;
+  private isResourceQueuedObserver;
+
+  @ViewChild(&#x27;enableDisableConfirmation&#x27;)
+  enableDisableConfirmation: TemplateRef&lt;any&gt;;
+
+  @ViewChild(&#x27;blueGreenPromoteConfirmation&#x27;)
+  blueGreenPromoteConfirmation: TemplateRef&lt;any&gt;;
+
+  constructor(
+    private _route: ActivatedRoute,
+    private router: Router,
+    private uiCommonClusterService: UiCommonClusterControllerService,
+    private dropdownControllerService: UiDropdownsControllerService,
+    private uiDeploymentControllerService: UiDeploymentControllerService,
+    private dialogService: NbDialogService,
+    private resourceDetailsService: ResourceDetailsService,
+    private resourceHistoryService: ResourceHistoryService,
+    private httpClient: HttpClient,
+    private uiApplicationControllerService: UiApplicationControllerService,
+    private actionEventEmitterService: ActionEventEmitterService,
+    private contextUpdatesService: ContextUpdatesService,
+    private customToastService: CustomToastService,
+    private onAPIErrorService: OnAPIErrorService,
+  ) {
+    super(_route);
+    this.initializeSubscribers();
+  }
+
+  initializeSubscribers() {
+    this.podsSubscriber &#x3D; this.resourceDetailsService.podsObserver.subscribe(
+      ({ isBlueGreenInPreview }) &#x3D;&gt; {
+        this.updatePromoteButtonStatus({ disable: !isBlueGreenInPreview });
+      },
+    );
+
+    this.isResourceQueuedObserver &#x3D;
+      this.resourceDetailsService.resourceHistoryObserver.subscribe(
+        ({ isResourceQueued: latestResourceQueued }) &#x3D;&gt; {
+          if (this.isResourceQueued !&#x3D;&#x3D; latestResourceQueued) {
+            this.isResourceQueued &#x3D; latestResourceQueued;
+            this.setHeaderButtonsAndIcons();
+          }
+        },
+      );
+  }
+
+  OnPageLoad(params: Params): void {
+    this.stackName &#x3D; params?.stackName;
+    this.clusterId &#x3D; params?.clusterId;
+    this.resourceType &#x3D; params?.resourceType;
+    this.resourceName &#x3D; params?.resourceName;
+    this.resourceStatusProps &#x3D; &#x27;&#x27;;
+    this.historyResourceStatus &#x3D; &#x27;&#x27;;
+    this.showHighlighterForMoreActions &#x3D; false;
+
+    this.resourceTypeIcon.icon &#x3D; iconMapping[this.resourceType]
+      ? this.resourceType
+      : &#x27;default&#x27;;
+    this.subscribeToOverrideEvent();
+
+    this.setHeaderTextLink();
+    this.getTabs();
+    this.makeAllAPICalls();
+    this.routerSubscription &#x3D; this._route.paramMap
+      .pipe(map(() &#x3D;&gt; window.history.state))
+      .subscribe((data) &#x3D;&gt; {
+        if (data) {
+          if (data.redirectTo) {
+            this.redirectTab &#x3D; this.redirectionMap[data.redirectTo];
+            this.router.navigate([this.redirectTab], {
+              relativeTo: this._route,
+            });
+            this.routerSubscription.unsubscribe();
+          }
+        }
+      });
+    this._route.queryParams.subscribe((params) &#x3D;&gt; {
+      this.previousComponent &#x3D; params?.previousComponent;
+    });
+  }
+  setHeaderTextLink() {
+    this.pageHeadingTextAsLink.link &#x3D; &#x60;/capc/stack/${
+      this.stackName
+    }/blueprint-designer/${this.contextUpdatesService.getLastBranchForBlueprint(
+      this.stackName,
+    )}/resource/type/${this.resourceType}/name/${this.resourceName}/overview&#x60;;
+  }
+
+  makeAllAPICalls() {
+    Promise.allSettled([
+      this.getEnvInformation(),
+      this.getResourceInfo(),
+      this.getClusterState(),
+      this.getResourceStatus(),
+    ]).then(async () &#x3D;&gt; {
+      this.setHeaderButtonsAndIcons();
+      this.updateTabsStatus();
+      this.updateTabsWithIngressTab();
+      let isPreview;
+      try {
+        isPreview &#x3D; await this.getKubernetesPods();
+      } catch (error) {
+        isPreview &#x3D; false;
+      }
+      this.updatePromoteButtonStatus({ disable: !isPreview });
+    });
+  }
+
+  isBlueGreenDeployment() {
+    return this.resourceInfo?.info?.strategy &#x3D;&#x3D;&#x3D; &#x27;BlueGreen&#x27;;
+  }
+
+  updateTabsWithIngressTab() {
+    /*
+    show domains tab when
+      * Resource type is ingress and cloud type is AWS
+      * Resource type is ingress and cloud type is GCP or AZURE and flavour is present
+    */
+    if (
+      whiteListedResourcesForIngressDetails?.includes(this.resourceType) &amp;&amp;
+      !this.allowedFlavoursForIngress[this.cloud]?.includes(
+        this.resourceInfo?.info?.flavour,
+      )
+    ) {
+      this.finalTabs &#x3D; this.finalTabs.filter(
+        (tab) &#x3D;&gt; tab?.id !&#x3D;&#x3D; &#x27;ingress-domains&#x27;,
+      );
+
+      if (this.router.url.includes(&#x27;/ingress-domains&#x27;)) {
+        this.goToConfigPage();
+      }
+    }
+  }
+
+  getEnvInformation &#x3D; () &#x3D;&gt; {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.uiCommonClusterService
+        .getClusterCommonUsingGET(this.clusterId)
+        .subscribe(
+          (data) &#x3D;&gt; {
+            this.cluster &#x3D; data;
+            this.cloud &#x3D; this.cluster?.cloud;
+            resolve(true);
+          },
+          (err) &#x3D;&gt; {
+            this.goToConfigPage();
+            reject(err);
+          },
+        );
+    });
+  };
+
+  isSelectiveReleaseSupported: boolean &#x3D; false;
+  getResourceInfo &#x3D; () &#x3D;&gt; {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.dropdownControllerService
+        .getResourceByClusterIdUsingGET({
+          clusterId: this.clusterId,
+          resourceType: this.resourceType,
+          resourceName: this.resourceName,
+          includeContent: true,
+        })
+        .subscribe(
+          (data) &#x3D;&gt; {
+            this.resourceInfo &#x3D; data;
+            try {
+              this.resourceContent &#x3D; JSON.parse(
+                this?.resourceInfo?.content || &#x27;{}&#x27;,
+              );
+            } catch (error) {
+              this.resourceContent &#x3D; {};
+            }
+
+            this.isSelectiveReleaseSupported &#x3D;
+              this.resourceInfo.alpha ||
+              this.supportedResourceTypes.includes(
+                this.resourceInfo?.resourceType,
+              );
+            this.resourceDetailsService.setResourceInfo(data);
+            this.pageHeaderDescription &#x3D; this.resourceInfo?.info?.flavour
+              ? &#x60;Environment Resource Details: &lt;b&gt;${this.resourceInfo?.resourceName}&lt;/b&gt; ${this.resourceInfo.resourceType} with &lt;b&gt;${this.resourceInfo?.info?.flavour}&lt;/b&gt; flavor implementation&#x60;
+              : &#x27;Detailed information about the resource&#x27;;
+            resolve(true);
+          },
+          (err) &#x3D;&gt; {
+            this.goToConfigPage();
+            reject(err);
+          },
+        );
+    });
+  };
+
+  getKubernetesPods &#x3D; () &#x3D;&gt; {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      let isBlueGreenInPreview &#x3D; false;
+      const url &#x3D; &#x60;${this.rootUrl}/cc-ui/v1/clusters/${this.clusterId}/k8s-explorer/pods?resourceType&#x3D;${this.resourceType}&amp;resourceName&#x3D;${this.resourceName}&#x60;;
+      this.httpSubscriber &#x3D; this.httpClient.get(url).subscribe(
+        (podsResponse: any) &#x3D;&gt; {
+          isBlueGreenInPreview &#x3D; !!podsResponse?.find(
+            (pod) &#x3D;&gt; pod?.role &#x3D;&#x3D;&#x3D; &#x27;preview&#x27;,
+          );
+          resolve(isBlueGreenInPreview);
+        },
+        (error) &#x3D;&gt; {
+          reject(error);
+        },
+      );
+    });
+  };
+
+  updatePromoteButtonStatus &#x3D; ({
+    disable: disabledStatus,
+    disableWhileLoading,
+  }: {
+    disable: boolean;
+    disableWhileLoading?: boolean;
+  }) &#x3D;&gt; {
+    const actionButtons &#x3D; cloneDeep(this.headerActionButtons);
+    const promoteButtonIndex &#x3D; actionButtons?.findIndex(
+      (button) &#x3D;&gt; button.id &#x3D;&#x3D;&#x3D; &#x27;blue-green-promote&#x27;,
+    );
+
+    if (promoteButtonIndex !&#x3D;&#x3D; -1) {
+      const promoteButton &#x3D; actionButtons[promoteButtonIndex];
+      const disablePromoteButton &#x3D;
+        disabledStatus ||
+        this.resourceInfo?.info?.disabled ||
+        !this.isClusterRunning;
+
+      promoteButton.disabled &#x3D; disablePromoteButton;
+
+      if (!this.isClusterRunning) {
+        promoteButton.nbTooltip &#x3D;
+          &#x27;Environment is not currently in running state&#x27;;
+      } else if (this.resourceInfo?.info?.disabled) {
+        promoteButton.nbTooltip &#x3D; &#x27;Resource is in disabled state&#x27;;
+      } else if (disabledStatus &amp;&amp; !disableWhileLoading) {
+        promoteButton.nbTooltip &#x3D; &#x27;There are no preview changes to promote&#x27;;
+      }
+      actionButtons[promoteButtonIndex] &#x3D; promoteButton;
+
+      this.showHighlighterForMoreActions &#x3D; !disablePromoteButton;
+      this.headerActionButtons &#x3D; cloneDeep(actionButtons);
+    }
+  };
+
+  goToConfigPage() {
+    this.router.navigate([
+      &#x27;/&#x27;,
+      this.stackName,
+      &#x27;cluster&#x27;,
+      this.clusterId,
+      &#x27;resources&#x27;,
+      &#x27;type&#x27;,
+      this.resourceType,
+      &#x27;resource&#x27;,
+      this.resourceName,
+      &#x27;configuration&#x27;,
+    ]);
+  }
+
+  previousComponent: string;
+  handleBack &#x3D; () &#x3D;&gt; {
+    this.router.navigate(
+      this.previousComponent &#x3D;&#x3D;&#x3D; &#x27;blueprint-designer&#x27;
+        ? [
+            &#x27;/&#x27;,
+            &#x27;stack&#x27;,
+            this.stackName,
+            &#x27;blueprint-designer&#x27;,
+            this.contextUpdatesService.getLastBranchForBlueprint(
+              this.stackName,
+            ),
+            &#x27;resource&#x27;,
+            &#x27;type&#x27;,
+            &#x60;${this.resourceType}&#x60;,
+            &#x27;name&#x27;,
+            &#x60;${this.resourceName}&#x60;,
+            &#x27;overview&#x27;,
+          ]
+        : [&#x27;/&#x27;, this.stackName, &#x27;cluster&#x27;, this.clusterId, &#x27;resources&#x27;],
+    );
+  };
+
+  getTabs() {
+    const tabs &#x3D; cloneDeep(allTabs)?.map((tab) &#x3D;&gt; ({
+      ...tab,
+      queryParams: { ...this._route.snapshot.queryParams },
+    }));
+    const finalTabs &#x3D; tabs.filter(
+      (tab) &#x3D;&gt; tab.global || tab?.allowedFor?.includes(this.resourceType),
+    );
+    this.finalTabs &#x3D; finalTabs;
+  }
+
+  isClusterRunning: boolean &#x3D; false;
+  getClusterState() {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.uiDeploymentControllerService
+        .getClusterStateUsingGET(this.clusterId)
+        .subscribe(
+          (response) &#x3D;&gt; {
+            this.clusterState &#x3D; response;
+            this.isClusterRunning &#x3D; this.clusterState &#x3D;&#x3D;&#x3D; &#x27;RUNNING&#x27;;
+            resolve(true);
+          },
+          () &#x3D;&gt; {},
+        );
+    });
+  }
+
+  setHeaderButtonsAndIcons() {
+    this.headingIcons &#x3D; getResourceHeaderIcons({
+      clusterState: this.clusterState,
+      resource: this.resourceInfo,
+      type: &#x27;environment&#x27;,
+      isResourceQueued: this.isResourceQueued,
+      cluster: this.cluster,
+    });
+
+    this.resourceStatusProps &#x3D; JSON.stringify({
+      severity: this.resourceInfo?.info?.disabled ? &#x27;disabled&#x27; : &#x27;enabled&#x27;,
+      badgeClass: &#x27;p-2 text-capitalize mb-0&#x27;,
+    });
+
+    this.headerActionButtons &#x3D; getActionButtons({
+      clusterState: this.clusterState,
+      resource: this.resourceInfo,
+      isResourceQueued: this.isResourceQueued,
+      historyResourceStatus: this.historyResourceStatus,
+      isReleasePaused: this.cluster?.pauseReleases,
+    });
+  }
+
+  subscribeToOverrideEvent() {
+    this.overrideCompleteSub &#x3D;
+      this.actionEventEmitterService.actionEventEmiter.subscribe(
+        (status) &#x3D;&gt; {
+          if (status &#x3D;&#x3D;&#x3D; actionEvents?.ON_SAVE_ENV_OVERRIDES) {
+            this.makeAllAPICalls();
+          }
+        },
+        (err) &#x3D;&gt; {
+          this.overrideCompleteSub.unsubscribe();
+        },
+      );
+  }
+
+  updateTabsStatus &#x3D; () &#x3D;&gt; {
+    if (this.clusterState !&#x3D;&#x3D; &#x27;RUNNING&#x27; || this.resourceInfo?.info?.disabled) {
+      this.finalTabs &#x3D; cloneDeep(this.finalTabs).map((tab) &#x3D;&gt; ({
+        ...tab,
+        disabled: tab.enableConditionally
+          ? !clusterStatesToEnableTab?.includes(this.clusterState) ||
+            this.resourceInfo?.info?.disabled
+          : false,
+      }));
+    }
+  };
+
+  handlePageActions(event: string) {
+    switch (event) {
+      case &#x27;enable-resource&#x27;:
+      case &#x27;disable-resource&#x27;:
+        this.openEnableDisableConfirmDialog(event);
+        break;
+      case &#x27;release-resource&#x27;:
+        this.redirectToReleaseResource(event);
+        break;
+      case &#x27;blue-green-promote&#x27;:
+        this.openPromoteConfirmation();
+        break;
+      case &#x27;view-in-designer&#x27;:
+        this.openInDesigner();
+        break;
+      default:
+        break;
+    }
+  }
+
+  openInDesigner() {
+    this.router.navigate(
+      [
+        &#x27;stack&#x27;,
+        this.stackName,
+        &#x27;blueprint-designer&#x27;,
+        this.contextUpdatesService.getLastBranchForBlueprint(this.stackName),
+        &#x27;resource&#x27;,
+        &#x27;type&#x27;,
+        &#x60;${this.resourceType}&#x60;,
+        &#x27;name&#x27;,
+        &#x60;${this.resourceName}&#x60;,
+        &#x27;overview&#x27;,
+      ],
+      {
+        queryParams: { from: &#x27;resource-centre&#x27; },
+      },
+    );
+  }
+
+  redirectToReleaseResource(event) {
+    const queryParams &#x3D; {
+      resource: &#x60;${this.resourceType}:${this.resourceName}&#x60;,
+    };
+    this.router.navigate(
+      [&#x60;${this.stackName}/cluster/${this.clusterId}/releases&#x60;],
+      {
+        queryParams: this.isSelectiveReleaseSupported ? queryParams : null,
+        relativeTo: null,
+      },
+    );
+  }
+
+  openEnableDisableConfirmDialog(buttonId) {
+    this.dialogService.open(this.enableDisableConfirmation, {
+      context: {
+        actionText: buttonId &#x3D;&#x3D;&#x3D; &#x27;enable-resource&#x27; ? &#x27;enable&#x27; : &#x27;disable&#x27;,
+        resourceName: this.resourceName,
+      },
+    });
+  }
+
+  enableDisableResource(ref, actionText) {
+    this.resourceStatusProps &#x3D; &#x27;&#x27;;
+    this.enableDisableLoader &#x3D; true;
+    this.uiCommonClusterService
+      .bulkEnableDisableResourcesUsingPUT({
+        clusterId: this.clusterId,
+        resourceEnableDisableRequestList: [
+          {
+            resourceName: this.resourceName,
+            resourceType: this.resourceType,
+            disabled: !this.resourceInfo?.info?.disabled,
+          },
+        ],
+      })
+      .subscribe(
+        async () &#x3D;&gt; {
+          ref?.close();
+          this.enableDisableLoader &#x3D; false;
+          this.pageLoader &#x3D; true;
+          this.customToastService.success(
+            &#x60;Resource has been ${actionText}d successfully&#x60;,
+          );
+          try {
+            await this.getResourceInfo();
+            this.refreshIconsAndButtons();
+            this.pageLoader &#x3D; false;
+          } catch (err) {
+            this.pageLoader &#x3D; false;
+          }
+        },
+        (error) &#x3D;&gt; {
+          this.enableDisableLoader &#x3D; false;
+          this.onAPIErrorService.onAPIError(
+            error?.error?.message || &#x60;Failed to ${actionText}d resource&#x60;,
+            error,
+          );
+        },
+      );
+  }
+
+  openPromoteConfirmation() {
+    this.dialogService.open(this.blueGreenPromoteConfirmation, {
+      context: {},
+    });
+  }
+
+  promoteBlueGreenPreview(ref) {
+    this.promoteLoader &#x3D; true;
+    const promoteButton &#x3D;
+      this.headerActionButtons?.find(
+        (button) &#x3D;&gt; button.id &#x3D;&#x3D;&#x3D; &#x27;blue-green-promote&#x27;,
+      ) || {};
+    this.updatePromoteButtonStatus({
+      disable: true,
+      disableWhileLoading: true,
+    });
+    this.uiApplicationControllerService
+      .promoteUsingPUT({
+        clusterId: this.clusterId,
+        appName: this.resourceName,
+      })
+      .subscribe(
+        async () &#x3D;&gt; {
+          ref.close();
+          this.promoteLoader &#x3D; false;
+          this.pageLoader &#x3D; true;
+          this.customToastService.success(
+            &#x27;Promotion is successful, please wait for few secs to reflect or hit the refresh button to see the updated status.&#x27;,
+          );
+          setTimeout(() &#x3D;&gt; {
+            this.pageLoader &#x3D; false;
+          }, 0);
+          this.onPromoteSuccess();
+        },
+        (error) &#x3D;&gt; {
+          this.promoteLoader &#x3D; false;
+          this.pageLoader &#x3D; false;
+          this.onAPIErrorService.onAPIError(
+            error?.error?.message ||
+              error?.message ||
+              &#x27;Failed to promote the preview changes.&#x27;,
+            error,
+          );
+          this.updatePromoteButtonStatus({
+            disable: promoteButton?.disabled,
+          });
+        },
+      );
+  }
+
+  async onPromoteSuccess() {
+    try {
+      const isPreview &#x3D; await this.getKubernetesPods();
+      this.updatePromoteButtonStatus({ disable: !isPreview });
+      this.pageLoader &#x3D; false;
+    } catch (error) {
+      this.pageLoader &#x3D; false;
+      this.updatePromoteButtonStatus({ disable: true });
+    }
+  }
+
+  async refreshIconsAndButtons() {
+    const copiedHeaderActionButtons &#x3D; cloneDeep(this.headerActionButtons);
+    this.setHeaderButtonsAndIcons();
+
+    if (this.isBlueGreenDeployment()) {
+      const promotionButton &#x3D; copiedHeaderActionButtons?.find(
+        (button) &#x3D;&gt; button?.id &#x3D;&#x3D;&#x3D; &#x27;blue-green-promote&#x27;,
+      );
+      this.updatePromoteButtonStatus({ disable: promotionButton?.disabled });
+    }
+  }
+
+  isResourceQueued: boolean;
+  resourceStatus: string;
+  async getResourceStatus() {
+    this.isResourceQueued &#x3D; false;
+    const apiResponse &#x3D;
+      await this.resourceHistoryService.getResourceHistoryDataToRender({
+        requestParams: {
+          clusterId: this.clusterId,
+          resourceType: this.resourceType,
+          resourceName: this.resourceName,
+          blueprintName: this.stackName,
+        },
+        includeBlueprintHistory: true,
+      });
+
+    const {
+      artifactProps,
+      overrideProps,
+      blueprintProps,
+      historyResourceStatus,
+    } &#x3D; cloneDeep(apiResponse || ({} as any));
+    this.historyResourceStatus &#x3D; historyResourceStatus;
+
+    this.isResourceQueued &#x3D; this.resourceDetailsService.isResourceQueued({
+      artifactHistory: artifactProps?.historyData?.versions,
+      overridesHistory: overrideProps?.historyData?.versions,
+      blueprintHistory: blueprintProps?.historyData?.versions,
+    });
+  }
+
+  ngOnDestroy() {
+    this.podsSubscriber?.unsubscribe();
+    this.httpSubscriber?.unsubscribe();
+    this.overrideCompleteSub?.unsubscribe();
+    this.isResourceQueuedObserver?.unsubscribe();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row&quot;&gt;
+  &lt;div class&#x3D;&quot;col-12&quot;&gt;
+    &lt;app-page-header
+      heading&#x3D;&quot;{{ resourceName }}&quot;
+      [pageHeadingTextAsLink]&#x3D;&quot;pageHeadingTextAsLink&quot;
+      [subheading]&#x3D;&quot;resourceContent?.description || pageHeaderDescription&quot;
+      [headingIcons]&#x3D;&quot;headingIcons&quot;
+      [primaryIcon]&#x3D;&quot;resourceTypeIcon&quot;
+      [actionButtons]&#x3D;&quot;headerActionButtons&quot;
+      [onBack]&#x3D;&quot;handleBack&quot;
+      (click)&#x3D;&quot;handlePageActions($event)&quot;
+      [showHighlighterForMoreActions]&#x3D;&quot;showHighlighterForMoreActions&quot;
+    &gt;
+      &lt;app-smart-table-with-badge
+        *ngIf&#x3D;&quot;resourceStatusProps&quot;
+        [value]&#x3D;&quot;resourceStatusProps&quot;
+        class&#x3D;&quot;ml-2&quot;
+        headerSuffixComponent
+      &gt;&lt;/app-smart-table-with-badge&gt;
+    &lt;/app-page-header&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;m-0&quot; [nbSpinner]&#x3D;&quot;pageLoader&quot; *ngIf&#x3D;&quot;!pageLoader&quot;&gt;
+  &lt;nb-route-tabset
+    [tabs]&#x3D;&quot;finalTabs&quot;
+    [activeLinkOptions]&#x3D;&quot;{ exact: false }&quot;
+    (changeTab)&#x3D;&quot;refreshIconsAndButtons()&quot;
+  &gt;&lt;/nb-route-tabset&gt;
+&lt;/div&gt;
+
+&lt;ng-template #enableDisableConfirmation let-data let-ref&#x3D;&quot;dialogRef&quot;&gt;
+  &lt;nb-card style&#x3D;&quot;width: 35vw&quot;&gt;
+    &lt;nb-card-header class&#x3D;&quot;d-flex justify-content-between&quot;&gt;
+      &lt;div&gt;
+        {{ data?.actionText | sentencecase }} resource -
+        {{ data?.resourceName }}?
+      &lt;/div&gt;
+      &lt;nb-icon
+        icon&#x3D;&quot;close-outline&quot;
+        class&#x3D;&quot;cursor-pointer&quot;
+        (click)&#x3D;&quot;ref.close()&quot;
+        pack&#x3D;&quot;fci&quot;
+      &gt;&lt;/nb-icon&gt;
+    &lt;/nb-card-header&gt;
+
+    &lt;nb-card-body class&#x3D;&quot;mb-0&quot;&gt;
+      This action is going to {{ data?.actionText | lowercase }} the resource -
+      &lt;b&gt;{{ data?.resourceName }}&lt;/b
+      &gt;. Do you want to proceed?
+      &lt;p&gt;&lt;/p&gt;
+      &lt;input
+        type&#x3D;&quot;text&quot;
+        nbInput
+        fieldSize&#x3D;&quot;small&quot;
+        fullWidth
+        placeholder&#x3D;&quot;Type {{ data?.resourceName }} here&quot;
+        #accountInputValue
+      /&gt;
+    &lt;/nb-card-body&gt;
+
+    &lt;nb-card-footer&gt;
+      &lt;button
+        nbButton
+        [status]&#x3D;&quot;
+          data?.actionText?.toLowerCase() &#x3D;&#x3D;&#x3D; &#x27;enable&#x27; ? &#x27;primary&#x27; : &#x27;danger&#x27;
+        &quot;
+        size&#x3D;&quot;small&quot;
+        class&#x3D;&quot;cc-margin-right&quot;
+        [nbSpinner]&#x3D;&quot;enableDisableLoader&quot;
+        [disabled]&#x3D;&quot;
+          accountInputValue.value?.toLowerCase() !&#x3D;&#x3D;
+            data?.resourceName?.toLowerCase() || enableDisableLoader
+        &quot;
+        (click)&#x3D;&quot;enableDisableResource(ref, data?.actionText)&quot;
+      &gt;
+        {{ data?.actionText | lowercase }}
+      &lt;/button&gt;
+      &lt;button
+        nbButton
+        size&#x3D;&quot;small&quot;
+        class&#x3D;&quot;cc-margin-right&quot;
+        (click)&#x3D;&quot;ref.close()&quot;
+        [disabled]&#x3D;&quot;enableDisableLoader&quot;
+      &gt;
+        Cancel
+      &lt;/button&gt;
+    &lt;/nb-card-footer&gt;
+  &lt;/nb-card&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #blueGreenPromoteConfirmation let-data let-ref&#x3D;&quot;dialogRef&quot;&gt;
+  &lt;nb-card style&#x3D;&quot;width: 35vw&quot;&gt;
+    &lt;nb-card-header class&#x3D;&quot;d-flex justify-content-between&quot;&gt;
+      Promote preview version?
+      &lt;nb-icon
+        icon&#x3D;&quot;close-outline&quot;
+        class&#x3D;&quot;cursor-pointer&quot;
+        (click)&#x3D;&quot;ref.close()&quot;
+        pack&#x3D;&quot;fci&quot;
+      &gt;&lt;/nb-icon&gt;
+    &lt;/nb-card-header&gt;
+
+    &lt;nb-card-body class&#x3D;&quot;mb-0&quot;&gt;
+      Are you sure you want to promote the changes to the live environment? This
+      action will make the Preview (Blue) stage updates live for users.
+    &lt;/nb-card-body&gt;
+
+    &lt;nb-card-footer&gt;
+      &lt;button
+        nbButton
+        [status]&#x3D;&quot;&#x27;primary&#x27;&quot;
+        size&#x3D;&quot;small&quot;
+        class&#x3D;&quot;cc-margin-right&quot;
+        [nbSpinner]&#x3D;&quot;promoteLoader&quot;
+        [disabled]&#x3D;&quot;promoteLoader&quot;
+        (click)&#x3D;&quot;promoteBlueGreenPreview(ref)&quot;
+      &gt;
+        Confirm
+      &lt;/button&gt;
+      &lt;button
+        nbButton
+        size&#x3D;&quot;small&quot;
+        class&#x3D;&quot;cc-margin-right&quot;
+        (click)&#x3D;&quot;ref.close()&quot;
+        [disabled]&#x3D;&quot;enableDisableLoader&quot;
+      &gt;
+        Cancel
+      &lt;/button&gt;
+    &lt;/nb-card-footer&gt;
+  &lt;/nb-card&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./resource-details.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="row">  <div class="col-12">    <app-page-header      heading="{{ resourceName }}"      [pageHeadingTextAsLink]="pageHeadingTextAsLink"      [subheading]="resourceContent?.description || pageHeaderDescription"      [headingIcons]="headingIcons"      [primaryIcon]="resourceTypeIcon"      [actionButtons]="headerActionButtons"      [onBack]="handleBack"      (click)="handlePageActions($event)"      [showHighlighterForMoreActions]="showHighlighterForMoreActions"    >      <app-smart-table-with-badge        *ngIf="resourceStatusProps"        [value]="resourceStatusProps"        class="ml-2"        headerSuffixComponent      ></app-smart-table-with-badge>    </app-page-header>  </div></div><div class="m-0" [nbSpinner]="pageLoader" *ngIf="!pageLoader">  <nb-route-tabset    [tabs]="finalTabs"    [activeLinkOptions]="{ exact: false }"    (changeTab)="refreshIconsAndButtons()"  ></nb-route-tabset></div><ng-template #enableDisableConfirmation let-data let-ref="dialogRef">  <nb-card style="width: 35vw">    <nb-card-header class="d-flex justify-content-between">      <div>        {{ data?.actionText | sentencecase }} resource -        {{ data?.resourceName }}?      </div>      <nb-icon        icon="close-outline"        class="cursor-pointer"        (click)="ref.close()"        pack="fci"      ></nb-icon>    </nb-card-header>    <nb-card-body class="mb-0">      This action is going to {{ data?.actionText | lowercase }} the resource -      <b>{{ data?.resourceName }}</b      >. Do you want to proceed?      <p></p>      <input        type="text"        nbInput        fieldSize="small"        fullWidth        placeholder="Type {{ data?.resourceName }} here"        #accountInputValue      />    </nb-card-body>    <nb-card-footer>      <button        nbButton        [status]="          data?.actionText?.toLowerCase() === \'enable\' ? \'primary\' : \'danger\'        "        size="small"        class="cc-margin-right"        [nbSpinner]="enableDisableLoader"        [disabled]="          accountInputValue.value?.toLowerCase() !==            data?.resourceName?.toLowerCase() || enableDisableLoader        "        (click)="enableDisableResource(ref, data?.actionText)"      >        {{ data?.actionText | lowercase }}      </button>      <button        nbButton        size="small"        class="cc-margin-right"        (click)="ref.close()"        [disabled]="enableDisableLoader"      >        Cancel      </button>    </nb-card-footer>  </nb-card></ng-template><ng-template #blueGreenPromoteConfirmation let-data let-ref="dialogRef">  <nb-card style="width: 35vw">    <nb-card-header class="d-flex justify-content-between">      Promote preview version?      <nb-icon        icon="close-outline"        class="cursor-pointer"        (click)="ref.close()"        pack="fci"      ></nb-icon>    </nb-card-header>    <nb-card-body class="mb-0">      Are you sure you want to promote the changes to the live environment? This      action will make the Preview (Blue) stage updates live for users.    </nb-card-body>    <nb-card-footer>      <button        nbButton        [status]="\'primary\'"        size="small"        class="cc-margin-right"        [nbSpinner]="promoteLoader"        [disabled]="promoteLoader"        (click)="promoteBlueGreenPreview(ref)"      >        Confirm      </button>      <button        nbButton        size="small"        class="cc-margin-right"        (click)="ref.close()"        [disabled]="enableDisableLoader"      >        Cancel      </button>    </nb-card-footer>  </nb-card></ng-template></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'ResourceDetailsComponent-1'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ResourceDetailsComponent-1.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

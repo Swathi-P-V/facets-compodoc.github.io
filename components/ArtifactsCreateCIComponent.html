@@ -1,0 +1,4026 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ArtifactsCreateCIComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+    </p>
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-artifacts-create-ci</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./artifacts-create-ci.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./artifacts-create-ci.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#advanceCloseLogo" >advanceCloseLogo</a>
+                            </li>
+                            <li>
+                                <a href="#advanceOpenLogo" >advanceOpenLogo</a>
+                            </li>
+                            <li>
+                                <a href="#allEnvs" >allEnvs</a>
+                            </li>
+                            <li>
+                                <a href="#artifactCIForm" >artifactCIForm</a>
+                            </li>
+                            <li>
+                                <a href="#artifactCiWrite" >artifactCiWrite</a>
+                            </li>
+                            <li>
+                                <a href="#blueprintOptionsList" >blueprintOptionsList</a>
+                            </li>
+                            <li>
+                                <a href="#callInProgress" >callInProgress</a>
+                            </li>
+                            <li>
+                                <a href="#ciId" >ciId</a>
+                            </li>
+                            <li>
+                                <a href="#currentArtifactCI" >currentArtifactCI</a>
+                            </li>
+                            <li>
+                                <a href="#defaultWorkflow" >defaultWorkflow</a>
+                            </li>
+                            <li>
+                                <a href="#envIdNameMapping" >envIdNameMapping</a>
+                            </li>
+                            <li>
+                                <a href="#environmentWorkflows" >environmentWorkflows</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingAllEnvs" >fetchingAllEnvs</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingCIInfo" >fetchingCIInfo</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingCIRules" >fetchingCIRules</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingPromotion" >fetchingPromotion</a>
+                            </li>
+                            <li>
+                                <a href="#formType" >formType</a>
+                            </li>
+                            <li>
+                                <a href="#goBack" >goBack</a>
+                            </li>
+                            <li>
+                                <a href="#isHybrid" >isHybrid</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#newTabSvg" >newTabSvg</a>
+                            </li>
+                            <li>
+                                <a href="#promotionWorkflows" >promotionWorkflows</a>
+                            </li>
+                            <li>
+                                <a href="#releaseStreamWorkflows" >releaseStreamWorkflows</a>
+                            </li>
+                            <li>
+                                <a href="#ruleOptionsList" >ruleOptionsList</a>
+                            </li>
+                            <li>
+                                <a href="#selectedPromotionWorkflow" >selectedPromotionWorkflow</a>
+                            </li>
+                            <li>
+                                <a href="#showAdvance" >showAdvance</a>
+                            </li>
+                            <li>
+                                <a href="#stackName" >stackName</a>
+                            </li>
+                            <li>
+                                <a href="#stacks" >stacks</a>
+                            </li>
+                            <li>
+                                <a href="#typeSelectOptions" >typeSelectOptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#userAuthoritiesService" >userAuthoritiesService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Private</span>
+                                <a href="#workflowDetails" >workflowDetails</a>
+                            </li>
+                            <li>
+                                <a href="#workflowOptionsList" >workflowOptionsList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#workflowSelectElement" >workflowSelectElement</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#asyncPageLoad" >asyncPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#createArtifactCI" >createArtifactCI</a>
+                            </li>
+                            <li>
+                                <a href="#disablePromotionWorkflowOption" >disablePromotionWorkflowOption</a>
+                            </li>
+                            <li>
+                                <a href="#editArtifactCI" >editArtifactCI</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAllEnvironments" >getAllEnvironments</a>
+                            </li>
+                            <li>
+                                <a href="#getAllWorkflows" >getAllWorkflows</a>
+                            </li>
+                            <li>
+                                <a href="#getCIInfo" >getCIInfo</a>
+                            </li>
+                            <li>
+                                <a href="#getCIRuleByRegistrationTypeAndStackName" >getCIRuleByRegistrationTypeAndStackName</a>
+                            </li>
+                            <li>
+                                <a href="#getRegistrationTypeSpecificWorkflows" >getRegistrationTypeSpecificWorkflows</a>
+                            </li>
+                            <li>
+                                <a href="#getStreamValue" >getStreamValue</a>
+                            </li>
+                            <li>
+                                <a href="#isLoading" >isLoading</a>
+                            </li>
+                            <li>
+                                <a href="#navigateToCreateCIRule" >navigateToCreateCIRule</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageInit" >OnPageInit</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageLoad" >OnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#openAdvance" >openAdvance</a>
+                            </li>
+                            <li>
+                                <a href="#openCreateWorkflow" >openCreateWorkflow</a>
+                            </li>
+                            <li>
+                                <a href="#openPopover" >openPopover</a>
+                            </li>
+                            <li>
+                                <a href="#resetForm" >resetForm</a>
+                            </li>
+                            <li>
+                                <a href="#setPresetDefaultWorkflow" >setPresetDefaultWorkflow</a>
+                            </li>
+                            <li>
+                                <a href="#setWorkflows" >setWorkflows</a>
+                            </li>
+                            <li>
+                                <a href="#typeChange" >typeChange</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#name" >name</a>
+                                </li>
+                                <li>
+                                    <a href="#registrationType" >registrationType</a>
+                                </li>
+                                <li>
+                                    <a href="#blueprint" >blueprint</a>
+                                </li>
+                                <li>
+                                    <a href="#workflow" >workflow</a>
+                                </li>
+                                <li>
+                                    <a href="#ruleId" >ruleId</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(activatedRoute: ActivatedRoute, uiStackController: <a href="../injectables/UiStackControllerService.html" target="_self">UiStackControllerService</a>, uiArtifactCiController: <a href="../injectables/UiArtifactCiControllerService.html" target="_self">UiArtifactCiControllerService</a>, promotionWorkflow: <a href="../injectables/UiPromotionWorkflowControllerService.html" target="_self">UiPromotionWorkflowControllerService</a>, router: Router, fb: <a href="../interfaces/Build.html" target="_self">FormBuilder</a>, dialogService: NbDialogService, userAuthoritiesService: <a href="../injectables/UserAuthoritiesService.html" target="_self">UserAuthoritiesService</a>, uiArtifactRoutingRuleController: <a href="../injectables/UiArtifactRoutingRuleControllerService.html" target="_self">UiArtifactRoutingRuleControllerService</a>, customToastService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>, onApiErrorService: <a href="../injectables/OnAPIErrorService.html" target="_self">OnAPIErrorService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:90</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiStackController</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiStackControllerService.html" target="_self" >UiStackControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiArtifactCiController</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiArtifactCiControllerService.html" target="_self" >UiArtifactCiControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>promotionWorkflow</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiPromotionWorkflowControllerService.html" target="_self" >UiPromotionWorkflowControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Build.html" target="_self" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NbDialogService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userAuthoritiesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserAuthoritiesService.html" target="_self" >UserAuthoritiesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiArtifactRoutingRuleController</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiArtifactRoutingRuleControllerService.html" target="_self" >UiArtifactRoutingRuleControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToastService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>onApiErrorService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OnAPIErrorService.html" target="_self" >OnAPIErrorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="asyncPageLoad"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>asyncPageLoad</b></span>
+                        <a href="#asyncPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>asyncPageLoad(param)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>param</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createArtifactCI"></a>
+                    <span class="name">
+                        <span ><b>createArtifactCI</b></span>
+                        <a href="#createArtifactCI"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createArtifactCI()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="357"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:357</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="disablePromotionWorkflowOption"></a>
+                    <span class="name">
+                        <span ><b>disablePromotionWorkflowOption</b></span>
+                        <a href="#disablePromotionWorkflowOption"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>disablePromotionWorkflowOption()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="503"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:503</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editArtifactCI"></a>
+                    <span class="name">
+                        <span ><b>editArtifactCI</b></span>
+                        <a href="#editArtifactCI"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editArtifactCI()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="396"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:396</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllEnvironments"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getAllEnvironments</b></span>
+                        <a href="#getAllEnvironments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAllEnvironments(populateVals: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="171"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:171</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>populateVals</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllWorkflows"></a>
+                    <span class="name">
+                        <span ><b>getAllWorkflows</b></span>
+                        <a href="#getAllWorkflows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllWorkflows(registrationType, stackName, artifactCI)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="198"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:198</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>registrationType</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>stackName</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>artifactCI</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCIInfo"></a>
+                    <span class="name">
+                        <span ><b>getCIInfo</b></span>
+                        <a href="#getCIInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCIInfo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="290"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:290</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCIRuleByRegistrationTypeAndStackName"></a>
+                    <span class="name">
+                        <span ><b>getCIRuleByRegistrationTypeAndStackName</b></span>
+                        <a href="#getCIRuleByRegistrationTypeAndStackName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCIRuleByRegistrationTypeAndStackName(registrationType, stackName)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="522"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:522</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>registrationType</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>stackName</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRegistrationTypeSpecificWorkflows"></a>
+                    <span class="name">
+                        <span ><b>getRegistrationTypeSpecificWorkflows</b></span>
+                        <a href="#getRegistrationTypeSpecificWorkflows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRegistrationTypeSpecificWorkflows(registrationType, stackName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, artifactCI: null, start)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="240"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:240</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>registrationType</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>stackName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;&#x27;</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>artifactCI</td>
+                                            <td>
+                                                        <code>null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>null</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>start</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStreamValue"></a>
+                    <span class="name">
+                        <span ><b>getStreamValue</b></span>
+                        <a href="#getStreamValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStreamValue(workflow, registrationType)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="281"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:281</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>workflow</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>registrationType</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoading"></a>
+                    <span class="name">
+                        <span ><b>isLoading</b></span>
+                        <a href="#isLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isLoading()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="446"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:446</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateToCreateCIRule"></a>
+                    <span class="name">
+                        <span ><b>navigateToCreateCIRule</b></span>
+                        <a href="#navigateToCreateCIRule"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateToCreateCIRule()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="556"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:556</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageInit"></a>
+                    <span class="name">
+                        <span ><b>OnPageInit</b></span>
+                        <a href="#OnPageInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:128</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>OnPageLoad</b></span>
+                        <a href="#OnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:130</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openAdvance"></a>
+                    <span class="name">
+                        <span ><b>openAdvance</b></span>
+                        <a href="#openAdvance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openAdvance()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="353"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:353</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openCreateWorkflow"></a>
+                    <span class="name">
+                        <span ><b>openCreateWorkflow</b></span>
+                        <a href="#openCreateWorkflow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openCreateWorkflow(event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="496"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:496</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openPopover"></a>
+                    <span class="name">
+                        <span ><b>openPopover</b></span>
+                        <a href="#openPopover"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openPopover(event, value)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="436"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:436</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>value</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetForm"></a>
+                    <span class="name">
+                        <span ><b>resetForm</b></span>
+                        <a href="#resetForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="158"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:158</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPresetDefaultWorkflow"></a>
+                    <span class="name">
+                        <span ><b>setPresetDefaultWorkflow</b></span>
+                        <a href="#setPresetDefaultWorkflow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setPresetDefaultWorkflow(settingDefault: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, defaultWorkflow)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="509"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:509</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>settingDefault</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>defaultWorkflow</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setWorkflows"></a>
+                    <span class="name">
+                        <span ><b>setWorkflows</b></span>
+                        <a href="#setWorkflows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setWorkflows(registrationType, presetWorkflowID?)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="450"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:450</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>registrationType</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>presetWorkflowID</td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="typeChange"></a>
+                    <span class="name">
+                        <span ><b>typeChange</b></span>
+                        <a href="#typeChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>typeChange(event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="476"
+                                    class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:476</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="advanceCloseLogo"></a>
+                    <span class="name">
+                        <span ><b>advanceCloseLogo</b></span>
+                        <a href="#advanceCloseLogo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;./assets/advance-close.svg&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="advanceOpenLogo"></a>
+                    <span class="name">
+                        <span ><b>advanceOpenLogo</b></span>
+                        <a href="#advanceOpenLogo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;./assets/advance-open.svg&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allEnvs"></a>
+                    <span class="name">
+                        <span ><b>allEnvs</b></span>
+                        <a href="#allEnvs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="artifactCIForm"></a>
+                    <span class="name">
+                        <span ><b>artifactCIForm</b></span>
+                        <a href="#artifactCIForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.fb.group({
+    name: [
+      &#x27;&#x27;,
+      [Validators.required, Validators.pattern(whiteSpaceInputPattern)],
+    ],
+    registrationType: [&#x27;RELEASE_STREAM&#x27;, Validators.required],
+    blueprint: [false],
+    workflow: [&#x27;&#x27;],
+    ruleId: [null],
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="artifactCiWrite"></a>
+                    <span class="name">
+                        <span ><b>artifactCiWrite</b></span>
+                        <a href="#artifactCiWrite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ARTIFACT_CI_WRITE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blueprintOptionsList"></a>
+                    <span class="name">
+                        <span ><b>blueprintOptionsList</b></span>
+                        <a href="#blueprintOptionsList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="callInProgress"></a>
+                    <span class="name">
+                        <span ><b>callInProgress</b></span>
+                        <a href="#callInProgress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ciId"></a>
+                    <span class="name">
+                        <span ><b>ciId</b></span>
+                        <a href="#ciId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentArtifactCI"></a>
+                    <span class="name">
+                        <span ><b>currentArtifactCI</b></span>
+                        <a href="#currentArtifactCI"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ArtifactCI.html" target="_self" >ArtifactCI</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defaultWorkflow"></a>
+                    <span class="name">
+                        <span ><b>defaultWorkflow</b></span>
+                        <a href="#defaultWorkflow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="envIdNameMapping"></a>
+                    <span class="name">
+                        <span ><b>envIdNameMapping</b></span>
+                        <a href="#envIdNameMapping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environmentWorkflows"></a>
+                    <span class="name">
+                        <span ><b>environmentWorkflows</b></span>
+                        <a href="#environmentWorkflows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>PromotionWorkflow[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingAllEnvs"></a>
+                    <span class="name">
+                        <span ><b>fetchingAllEnvs</b></span>
+                        <a href="#fetchingAllEnvs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingCIInfo"></a>
+                    <span class="name">
+                        <span ><b>fetchingCIInfo</b></span>
+                        <a href="#fetchingCIInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingCIRules"></a>
+                    <span class="name">
+                        <span ><b>fetchingCIRules</b></span>
+                        <a href="#fetchingCIRules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingPromotion"></a>
+                    <span class="name">
+                        <span ><b>fetchingPromotion</b></span>
+                        <a href="#fetchingPromotion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formType"></a>
+                    <span class="name">
+                        <span ><b>formType</b></span>
+                        <a href="#formType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;create&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goBack"></a>
+                    <span class="name">
+                        <span ><b>goBack</b></span>
+                        <a href="#goBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="349" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:349</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isHybrid"></a>
+                    <span class="name">
+                        <span ><b>isHybrid</b></span>
+                        <a href="#isHybrid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newTabSvg"></a>
+                    <span class="name">
+                        <span ><b>newTabSvg</b></span>
+                        <a href="#newTabSvg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>newTabSvg</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="promotionWorkflows"></a>
+                    <span class="name">
+                        <span ><b>promotionWorkflows</b></span>
+                        <a href="#promotionWorkflows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>PromotionWorkflow[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="releaseStreamWorkflows"></a>
+                    <span class="name">
+                        <span ><b>releaseStreamWorkflows</b></span>
+                        <a href="#releaseStreamWorkflows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>PromotionWorkflow[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ruleOptionsList"></a>
+                    <span class="name">
+                        <span ><b>ruleOptionsList</b></span>
+                        <a href="#ruleOptionsList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedPromotionWorkflow"></a>
+                    <span class="name">
+                        <span ><b>selectedPromotionWorkflow</b></span>
+                        <a href="#selectedPromotionWorkflow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showAdvance"></a>
+                    <span class="name">
+                        <span ><b>showAdvance</b></span>
+                        <a href="#showAdvance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stackName"></a>
+                    <span class="name">
+                        <span ><b>stackName</b></span>
+                        <a href="#stackName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stacks"></a>
+                    <span class="name">
+                        <span ><b>stacks</b></span>
+                        <a href="#stacks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Stack.html" target="_self" >Stack[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="typeSelectOptions"></a>
+                    <span class="name">
+                        <span ><b>typeSelectOptions</b></span>
+                        <a href="#typeSelectOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { label: &#x27;Environment&#x27;, value: &#x27;ENVIRONMENT&#x27; },
+    { label: &#x27;Release Stream&#x27;, value: &#x27;RELEASE_STREAM&#x27; },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userAuthoritiesService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>userAuthoritiesService</b></span>
+                        <a href="#userAuthoritiesService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/UserAuthoritiesService.html" target="_self" >UserAuthoritiesService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="workflowDetails"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Private</span>
+                        <span ><b>workflowDetails</b></span>
+                        <a href="#workflowDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;workflowDetails&#x27;, {static: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="workflowOptionsList"></a>
+                    <span class="name">
+                        <span ><b>workflowOptionsList</b></span>
+                        <a href="#workflowOptionsList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="workflowSelectElement"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>workflowSelectElement</b></span>
+                        <a href="#workflowSelectElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>NbSelectComponent</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;workflowSelect&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="name"></a>
+                        <span class="name"><b>name</b><a href="#name"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>name()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:108</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="registrationType"></a>
+                        <span class="name"><b>registrationType</b><a href="#registrationType"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>registrationType()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:112</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="blueprint"></a>
+                        <span class="name"><b>blueprint</b><a href="#blueprint"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>blueprint()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:116</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="workflow"></a>
+                        <span class="name"><b>workflow</b><a href="#workflow"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>workflow()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:120</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ruleId"></a>
+                        <span class="name"><b>ruleId</b><a href="#ruleId"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>ruleId()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">src/app/pages/artifacts-pages/artifacts-create-ci/artifacts-create-ci.component.ts:124</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, TemplateRef, ViewChild } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Params, Router } from &#x27;@angular/router&#x27;;
+import mixpanel from &#x27;mixpanel-browser&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import {
+  UiStackControllerService,
+  UiArtifactCiControllerService,
+  UiPromotionWorkflowControllerService,
+  UiArtifactRoutingRuleControllerService,
+} from &#x27;src/app/cc-api/services&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { NbDialogService, NbSelectComponent } from &#x27;@nebular/theme&#x27;;
+import { ArtifactCI, PromotionWorkflow, Stack } from &#x27;src/app/cc-api/models&#x27;;
+import { UserAuthoritiesService } from &#x27;src/app/services/user-authorities.service&#x27;;
+import { whiteSpaceInputPattern } from &#x27;src/app/constants/inputPatterns&#x27;;
+import {
+  ARTIFACT_CI_WRITE,
+  PROMOTIONAL_WORKFLOW_WRITE,
+} from &#x27;src/app/constants/permissions&#x27;;
+import { CustomToastService } from &#x27;../../custom-toast/custom-toast.service&#x27;;
+import { OnAPIErrorService } from &#x27;src/app/services/on-api-error.service&#x27;;
+import {
+  CI_INTEGRATION_CREATE_FAIL,
+  CI_INTEGRATION_CREATE_SUCCESS,
+  CI_INTEGRATION_EDIT_FAIL,
+  CI_INTEGRATION_EDIT_SUCCESS,
+} from &#x27;src/app/constants/analytics-track-events&#x27;;
+
+const newTabSvg &#x3D; &#x27;./assets/create-account.svg&#x27;;
+
+@Component({
+  selector: &#x27;app-artifacts-create-ci&#x27;,
+  templateUrl: &#x27;./artifacts-create-ci.component.html&#x27;,
+  styleUrls: [&#x27;./artifacts-create-ci.component.scss&#x27;],
+})
+export class ArtifactsCreateCIComponent extends FacetsPage {
+  @ViewChild(&#x27;workflowDetails&#x27;, { static: true }) //promotional workflow details popover
+  private workflowDetails: TemplateRef&lt;any&gt;;
+
+  @ViewChild(&#x27;workflowSelect&#x27;) workflowSelectElement: NbSelectComponent;
+
+  stackName: string &#x3D; &#x27;&#x27;; //blueprint name
+  stacks: Stack[] &#x3D; []; //blueprint list
+  formType: string &#x3D; &#x27;create&#x27;; //formtype takes 2 values, &#x27;create&#x27; or &#x27;edit&#x27; based on page action
+  ciId: string &#x3D; &#x27;&#x27;; //CI integration id in case of edit operation
+  callInProgress: boolean &#x3D; false; //in progress status variable for create and edit ci
+  artifactCIForm: FormGroup &#x3D; this.fb.group({
+    name: [
+      &#x27;&#x27;,
+      [Validators.required, Validators.pattern(whiteSpaceInputPattern)],
+    ],
+    registrationType: [&#x27;RELEASE_STREAM&#x27;, Validators.required],
+    blueprint: [false],
+    workflow: [&#x27;&#x27;],
+    ruleId: [null],
+  }); //CI integration create form
+  typeSelectOptions: { label: string; value: string }[] &#x3D; [
+    { label: &#x27;Environment&#x27;, value: &#x27;ENVIRONMENT&#x27; },
+    { label: &#x27;Release Stream&#x27;, value: &#x27;RELEASE_STREAM&#x27; },
+  ]; //options for registration type selection
+  advanceOpenLogo &#x3D; &#x27;./assets/advance-open.svg&#x27;;
+  advanceCloseLogo &#x3D; &#x27;./assets/advance-close.svg&#x27;;
+  showAdvance: boolean &#x3D; true;
+  blueprintOptionsList: { label: string; value: string }[] &#x3D; []; //blueprint select menu options list
+  promotionWorkflows: PromotionWorkflow[] &#x3D; [];
+  environmentWorkflows: PromotionWorkflow[] &#x3D; []; //environment stack specific workflows
+  releaseStreamWorkflows: PromotionWorkflow[] &#x3D; []; //release stream registration type workflows
+  selectedPromotionWorkflow: any; // The PWF user has selected or the one which was preselected
+  defaultWorkflow: any; // Current default WF
+  artifactCiWrite &#x3D; ARTIFACT_CI_WRITE;
+
+  //promotion workflow select menu options list
+  workflowOptionsList: {
+    label: string;
+    value: string;
+    hierarchy: string;
+    isDefault: boolean;
+  }[] &#x3D; [];
+
+  ruleOptionsList: { label: string; value: string }[] &#x3D; [];
+  envIdNameMapping: any &#x3D; {}; // Maps environment names to their IDs
+  allEnvs: any; //environment list
+  fetchingPromotion: boolean &#x3D; false; //promotion api call status
+  fetchingCIInfo: boolean &#x3D; false; //CI integration edit ci info api call status
+  fetchingAllEnvs: boolean &#x3D; false; //environment fetch api call info
+  fetchingCIRules: boolean &#x3D; false;
+  loading: boolean &#x3D; false; //Loading page
+  currentArtifactCI: ArtifactCI &#x3D; {}; //current CI integration object in case of edit operation
+  newTabSvg &#x3D; newTabSvg;
+  isHybrid: boolean &#x3D; false; // Indicates if the current form is open for an HYBRID object
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private uiStackController: UiStackControllerService,
+    private uiArtifactCiController: UiArtifactCiControllerService,
+    private promotionWorkflow: UiPromotionWorkflowControllerService,
+    private router: Router,
+    private fb: FormBuilder,
+    private dialogService: NbDialogService,
+    public userAuthoritiesService: UserAuthoritiesService,
+    private uiArtifactRoutingRuleController: UiArtifactRoutingRuleControllerService,
+    private customToastService: CustomToastService,
+    private onApiErrorService: OnAPIErrorService,
+  ) {
+    super(activatedRoute);
+  }
+
+  get name() {
+    return this.artifactCIForm.get(&#x27;name&#x27;);
+  }
+
+  get registrationType() {
+    return this.artifactCIForm.get(&#x27;registrationType&#x27;);
+  }
+
+  get blueprint() {
+    return this.artifactCIForm.get(&#x27;blueprint&#x27;);
+  }
+
+  get workflow() {
+    return this.artifactCIForm.get(&#x27;workflow&#x27;);
+  }
+
+  get ruleId() {
+    return this.artifactCIForm.get(&#x27;ruleId&#x27;);
+  }
+
+  OnPageInit(): void {}
+
+  OnPageLoad(p: Params) {
+    this.loading &#x3D; true;
+    this.resetForm();
+    this.asyncPageLoad(p);
+  }
+
+  async asyncPageLoad(param) {
+    this.stackName &#x3D; param?.stackName;
+    await this.getAllEnvironments();
+    if (param?.ciId) {
+      this.ciId &#x3D; param?.ciId;
+      this.formType &#x3D; &#x27;edit&#x27;;
+      this.getCIInfo();
+    } else {
+      this.getRegistrationTypeSpecificWorkflows(
+        this.registrationType.value,
+        this.stackName,
+        null,
+        true,
+      );
+      this.getCIRuleByRegistrationTypeAndStackName(
+        this.registrationType.value,
+        this.stackName,
+      );
+    }
+    this.loading &#x3D; false;
+  }
+
+  resetForm() {
+    this.environmentWorkflows &#x3D; [];
+    this.releaseStreamWorkflows &#x3D; [];
+    this.artifactCIForm.patchValue({
+      name: &#x27;&#x27;,
+      registrationType: &#x27;RELEASE_STREAM&#x27;,
+      blueprint: false,
+      workflow: &#x27;&#x27;,
+      ruleId: null,
+    });
+    this.isHybrid &#x3D; false;
+  }
+
+  async getAllEnvironments(populateVals: boolean &#x3D; false) {
+    this.fetchingAllEnvs &#x3D; true;
+    return new Promise((resolve) &#x3D;&gt; {
+      this.uiStackController
+        .getAllClustersUsingGET({
+          page: 0,
+          perPage: 10000,
+          sortBy: &#x27;ID&#x27;,
+        })
+        .subscribe(
+          (envs) &#x3D;&gt; {
+            this.allEnvs &#x3D; envs?.content;
+            this.allEnvs.forEach((env) &#x3D;&gt; {
+              this.envIdNameMapping[env?.id] &#x3D; env?.name;
+            });
+            this.fetchingAllEnvs &#x3D; false;
+          },
+          (err) &#x3D;&gt; {
+            this.fetchingAllEnvs &#x3D; false;
+          },
+        )
+        .add(() &#x3D;&gt; {
+          resolve(true);
+        });
+    });
+  }
+
+  getAllWorkflows(registrationType, stackName, artifactCI) {
+    this.fetchingPromotion &#x3D; true;
+    this.workflowOptionsList &#x3D; [];
+    this.promotionWorkflow.getAllWorkflowsUsingGET().subscribe(
+      (res) &#x3D;&gt; {
+        this.fetchingPromotion &#x3D; false;
+        this.promotionWorkflows &#x3D; res;
+        this.promotionWorkflows.forEach((workflow) &#x3D;&gt; {
+          if (
+            (stackName?.length &gt; 0 &amp;&amp;
+              workflow.stackName &#x3D;&#x3D;&#x3D; stackName &amp;&amp;
+              workflow.registrationType &#x3D;&#x3D;&#x3D; &#x27;ENVIRONMENT&#x27;) ||
+            workflow.registrationType &#x3D;&#x3D;&#x3D; &#x27;RELEASE_STREAM&#x27; ||
+            workflow.registrationType &#x3D;&#x3D;&#x3D; &#x27;HYBRID&#x27;
+          ) {
+            this.workflowOptionsList.push({
+              label: workflow.workflowName,
+              value: workflow.id,
+              hierarchy: this.getStreamValue(
+                workflow,
+                workflow.registrationType,
+              ),
+              isDefault: workflow.defaultWorkflow,
+            });
+            if (!this.ciId &amp;&amp; workflow.defaultWorkflow) {
+              this.setPresetDefaultWorkflow(
+                workflow.registrationType !&#x3D; &#x27;HYBRID&#x27;,
+                workflow,
+              );
+            }
+          }
+          if (this.ciId &amp;&amp; artifactCI?.promotionWorkflowId &#x3D;&#x3D;&#x3D; workflow.id) {
+            this.setPresetDefaultWorkflow(false, workflow);
+          }
+        });
+      },
+      (err) &#x3D;&gt; {
+        this.fetchingPromotion &#x3D; false;
+      },
+    );
+  }
+
+  getRegistrationTypeSpecificWorkflows(
+    registrationType,
+    stackName &#x3D; &#x27;&#x27;,
+    artifactCI &#x3D; null,
+    start &#x3D; false,
+  ) {
+    this.fetchingPromotion &#x3D; true;
+    this.workflowOptionsList &#x3D; [];
+    this.promotionWorkflows &#x3D; [];
+    let workflowParams &#x3D; {
+      registrationType: registrationType,
+      stackName: stackName?.length &gt; 0 ? stackName : null,
+    };
+    this.promotionWorkflow
+      .getRegistrationSpecificWorkflowsUsingGET(workflowParams)
+      .subscribe(
+        (res) &#x3D;&gt; {
+          this.fetchingPromotion &#x3D; false;
+          this.promotionWorkflows &#x3D; res;
+          if (registrationType &#x3D;&#x3D;&#x3D; &#x27;ENVIRONMENT&#x27;) {
+            this.environmentWorkflows &#x3D; [...res];
+          } else if (registrationType &#x3D;&#x3D;&#x3D; &#x27;RELEASE_STREAM&#x27;) {
+            this.releaseStreamWorkflows &#x3D; [...res];
+            this.releaseStreamWorkflows &#x3D; this.releaseStreamWorkflows.filter(
+              (wf) &#x3D;&gt; !wf.stackName?.length || wf.stackName &#x3D;&#x3D;&#x3D; this.stackName,
+            );
+          }
+          this.setWorkflows(registrationType, artifactCI?.promotionWorkflowId);
+          if (this.ciId) {
+            if (artifactCI?.promotionWorkflowId) {
+              this.workflow.setValue(artifactCI?.promotionWorkflowId);
+              this.selectedPromotionWorkflow &#x3D; this.workflow;
+            }
+          }
+        },
+        (error) &#x3D;&gt; {
+          this.fetchingPromotion &#x3D; false;
+        },
+      );
+  }
+
+  getStreamValue(workflow, registrationType) {
+    const names &#x3D; workflow?.hierarchies?.map((hierarchy) &#x3D;&gt; {
+      return registrationType &#x3D;&#x3D;&#x3D; &#x27;ENVIRONMENT&#x27;
+        ? this.envIdNameMapping[hierarchy.registrationValue]
+        : hierarchy.registrationValue;
+    });
+    return &#x60;(${names.join(&#x27; -&gt; &#x27;)})&#x60;;
+  }
+
+  getCIInfo() {
+    this.fetchingCIInfo &#x3D; true;
+    this.typeSelectOptions &#x3D; [
+      { label: &#x27;Environment&#x27;, value: &#x27;ENVIRONMENT&#x27; },
+      { label: &#x27;Release Stream&#x27;, value: &#x27;RELEASE_STREAM&#x27; },
+    ];
+    this.uiArtifactCiController.getArtifactCIUsingGET(this.ciId).subscribe(
+      async (res) &#x3D;&gt; {
+        if (res) {
+          this.currentArtifactCI &#x3D; res;
+          //Once you get registrationType fetch the ci rules specific to stackName and registrationType
+          await this.getCIRuleByRegistrationTypeAndStackName(
+            this.currentArtifactCI?.registrationType,
+            this.stackName,
+          );
+          //If registraionType is Hybrid then add one more radio option Hybrid.
+          if (this.currentArtifactCI?.registrationType &#x3D;&#x3D;&#x3D; &#x27;HYBRID&#x27;) {
+            this.typeSelectOptions.push({
+              label: &#x27;Hybrid&#x27;,
+              value: &#x27;HYBRID&#x27;,
+            });
+            this.isHybrid &#x3D; true;
+          }
+          //Populate form values
+          if (this.currentArtifactCI) {
+            this.artifactCIForm.patchValue({
+              name: this.currentArtifactCI?.ciName,
+              registrationType: this.currentArtifactCI?.registrationType,
+              blueprint: !this.currentArtifactCI?.stackName?.length,
+              ruleId: this.currentArtifactCI?.ruleId,
+              workflow: &#x27;&#x27;,
+            });
+          }
+          //Based on registrationType populate and set promotion workflow
+          if (this.currentArtifactCI?.registrationType &#x3D;&#x3D;&#x3D; &#x27;HYBRID&#x27;) {
+            this.getAllWorkflows(
+              res?.registrationType,
+              res?.stackName,
+              this.currentArtifactCI,
+            );
+          } else {
+            this.getRegistrationTypeSpecificWorkflows(
+              res?.registrationType,
+              res?.stackName,
+              this.currentArtifactCI,
+            );
+          }
+          this.name.disable();
+          this.registrationType.disable();
+          this.blueprint.disable();
+        }
+        this.fetchingCIInfo &#x3D; false;
+      },
+      (err) &#x3D;&gt; {
+        this.fetchingCIInfo &#x3D; false;
+      },
+    );
+  }
+
+  goBack &#x3D; () &#x3D;&gt; {
+    this.router.navigate([&#x27;/&#x27;, &#x27;stack&#x27;, this.stackName, &#x27;artifacts&#x27;, &#x27;ci&#x27;]);
+  };
+
+  openAdvance() {
+    this.showAdvance &#x3D; !this.showAdvance;
+  }
+
+  createArtifactCI() {
+    const stackName &#x3D;
+      this.registrationType.value &#x3D;&#x3D;&#x3D; &#x27;ENVIRONMENT&#x27; ||
+      (this.registrationType.value &#x3D;&#x3D;&#x3D; &#x27;RELEASE_STREAM&#x27; &amp;&amp;
+        !this.blueprint.value)
+        ? this.stackName
+        : null;
+    let ciParams: ArtifactCI &#x3D; {
+      ciName: this.name.value ? this.name.value.trim() : &#x27;&#x27;,
+      stackName,
+      registrationType: this.registrationType.value,
+      integrationType: &#x27;EXTERNAL&#x27;,
+      entityType: &#x27;ARTIFACT_CI&#x27;,
+      promotionWorkflowId:
+        this.workflow?.value?.length &gt; 0 ? this.workflow.value : null,
+      ruleId: this.ruleId.value,
+    };
+    this.callInProgress &#x3D; true;
+    this.uiArtifactCiController.createArtifactCIUsingPOST(ciParams).subscribe(
+      (res) &#x3D;&gt; {
+        this.callInProgress &#x3D; false;
+        mixpanel.track(CI_INTEGRATION_CREATE_SUCCESS);
+        this.customToastService.success(
+          &#x60;CI Integration ${res?.ciName} created successfully&#x60;,
+        );
+        this.goBack();
+      },
+      (error) &#x3D;&gt; {
+        mixpanel.track(CI_INTEGRATION_CREATE_FAIL, { error });
+        this.onApiErrorService.onAPIError(
+          &#x27;Failed: &#x27; + error?.error?.message ||
+            &#x60;Failed to create CI Integration ${ciParams?.ciName}&#x60;,
+          error,
+        );
+        this.callInProgress &#x3D; false;
+      },
+    );
+  }
+
+  editArtifactCI() {
+    let ciParams: ArtifactCI &#x3D; {
+      ciName: this.currentArtifactCI?.ciName,
+      stackName: this.currentArtifactCI?.stackName,
+      registrationType: this.currentArtifactCI?.registrationType,
+      integrationType: &#x27;EXTERNAL&#x27;,
+      entityType: &#x27;ARTIFACT_CI&#x27;,
+      promotionWorkflowId:
+        this.workflow?.value?.length &gt; 0 ? this.workflow.value : null,
+      createdBy: this.currentArtifactCI.createdBy,
+      creationDate: this.currentArtifactCI.creationDate,
+      ruleId: this.ruleId.value,
+    };
+    this.callInProgress &#x3D; true;
+    this.uiArtifactCiController
+      .updateArtifactCIUsingPUT({
+        ciId: this.currentArtifactCI.id,
+        artifactCI: ciParams,
+      })
+      .subscribe(
+        (res) &#x3D;&gt; {
+          this.callInProgress &#x3D; false;
+          mixpanel.track(CI_INTEGRATION_EDIT_SUCCESS);
+          this.customToastService.success(
+            &#x60;CI Integration ${ciParams?.ciName} updated successfully&#x60;,
+          );
+          this.goBack();
+        },
+        (error) &#x3D;&gt; {
+          mixpanel.track(CI_INTEGRATION_EDIT_FAIL, { error });
+          this.onApiErrorService.onAPIError(
+            &#x27;Failed: &#x27; + error?.error?.message ||
+              &#x60;Failed to update CI Integration ${ciParams?.ciName}&#x60;,
+            error,
+          );
+          this.callInProgress &#x3D; false;
+        },
+      );
+  }
+
+  openPopover(event, value) {
+    event.stopPropagation();
+    let workflow &#x3D; this.promotionWorkflows.find(
+      (workflow) &#x3D;&gt; workflow?.id &#x3D;&#x3D;&#x3D; value,
+    );
+    this.dialogService.open(this.workflowDetails, {
+      context: { rowData: workflow },
+    });
+  }
+
+  isLoading() {
+    return this.loading || this.fetchingCIInfo;
+  }
+
+  setWorkflows(registrationType, presetWorkflowID?) {
+    this.defaultWorkflow &#x3D; null;
+    if (registrationType &#x3D;&#x3D;&#x3D; &#x27;ENVIRONMENT&#x27;) {
+      this.promotionWorkflows &#x3D; [...this.environmentWorkflows];
+    } else if (registrationType &#x3D;&#x3D;&#x3D; &#x27;RELEASE_STREAM&#x27;) {
+      this.promotionWorkflows &#x3D; [...this.releaseStreamWorkflows];
+    }
+    this.promotionWorkflows?.forEach((workflow) &#x3D;&gt; {
+      this.workflowOptionsList.push({
+        label: workflow.workflowName,
+        value: workflow.id,
+        hierarchy: this.getStreamValue(workflow, registrationType),
+        isDefault: workflow.defaultWorkflow,
+      });
+      if (
+        workflow.id &#x3D;&#x3D;&#x3D; presetWorkflowID ||
+        (!presetWorkflowID &amp;&amp; workflow.defaultWorkflow)
+      ) {
+        this.defaultWorkflow &#x3D;
+          this.workflowOptionsList[this.workflowOptionsList.length - 1];
+        this.artifactCIForm.get(&#x27;workflow&#x27;).setValue(this.defaultWorkflow);
+        this.setPresetDefaultWorkflow(!presetWorkflowID, workflow);
+      }
+    });
+  }
+
+  typeChange(event) {
+    this.workflowOptionsList &#x3D; [];
+    this.ruleOptionsList &#x3D; [];
+    this.workflow.setValue(&#x27;&#x27;);
+    this.ruleId.setValue(null);
+    this.name.markAsUntouched();
+    this.name.markAsPristine();
+    //Refetch ci rules
+    this.getCIRuleByRegistrationTypeAndStackName(event, this.stackName);
+    if (
+      (event &#x3D;&#x3D;&#x3D; &#x27;RELEASE_STREAM&#x27; &amp;&amp;
+        this.releaseStreamWorkflows?.length &lt;&#x3D; 0) ||
+      (event &#x3D;&#x3D;&#x3D; &#x27;ENVIRONMENT&#x27; &amp;&amp; this.environmentWorkflows?.length &lt;&#x3D; 0)
+    ) {
+      this.getRegistrationTypeSpecificWorkflows(event, this.stackName);
+    } else {
+      this.setWorkflows(event);
+    }
+  }
+
+  openCreateWorkflow(event) {
+    event.stopPropagation();
+    this.router.navigate([&#x27;../create-workflow&#x27;], {
+      relativeTo: this.route,
+    });
+  }
+
+  disablePromotionWorkflowOption(): boolean {
+    return this.userAuthoritiesService.isActionDisabled(
+      PROMOTIONAL_WORKFLOW_WRITE,
+    );
+  }
+
+  setPresetDefaultWorkflow(settingDefault: boolean, defaultWorkflow) {
+    if (settingDefault &amp;&amp; this.formType &#x3D;&#x3D; &#x27;edit&#x27;) {
+      return;
+    }
+    setTimeout(() &#x3D;&gt; {
+      const defaultWorkflow_option: any &#x3D; this.workflowOptionsList.find(
+        (workflow) &#x3D;&gt; workflow.value &#x3D;&#x3D; defaultWorkflow.id,
+      );
+      this.artifactCIForm.get(&#x27;workflow&#x27;).setValue(defaultWorkflow.id);
+      this.selectedPromotionWorkflow &#x3D; defaultWorkflow_option;
+    }, 500);
+  }
+
+  getCIRuleByRegistrationTypeAndStackName(registrationType, stackName) {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.fetchingCIRules &#x3D; true;
+      this.ruleOptionsList &#x3D; [];
+      this.uiArtifactRoutingRuleController
+        .getAllArtifactRoutingRulesUsingGET({
+          stackName: stackName,
+          registrationType: registrationType,
+        })
+        .subscribe(
+          (res) &#x3D;&gt; {
+            if (res?.length &gt; 0) {
+              this.ruleOptionsList.push({
+                label: &#x27;Clear selection&#x27;,
+                value: null,
+              });
+              res.forEach((rule) &#x3D;&gt; {
+                this.ruleOptionsList.push({
+                  label: rule.ruleName,
+                  value: rule.id,
+                });
+              });
+            }
+            resolve(true);
+            this.fetchingCIRules &#x3D; false;
+          },
+          (error) &#x3D;&gt; {
+            this.fetchingCIRules &#x3D; false;
+            resolve(false);
+          },
+        );
+    });
+  }
+
+  navigateToCreateCIRule() {
+    this.router.navigate([
+      &#x27;/&#x27;,
+      &#x27;stack&#x27;,
+      this.stackName,
+      &#x27;artifacts&#x27;,
+      &#x27;ci-rules&#x27;,
+      &#x27;create&#x27;,
+    ]);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row&quot;&gt;
+  &lt;div class&#x3D;&quot;col-12&quot;&gt;
+    &lt;app-page-header
+      heading&#x3D;&quot;{{ formType &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? &#x27;Create&#x27; : &#x27;Edit&#x27; }} CI Integration&quot;
+      subheading&#x3D;&quot;{{ formType &#x3D;&#x3D;&#x3D; &#x27;edit&#x27; ? currentArtifactCI?.ciName : &#x27;&#x27; }}&quot;
+      [onBack]&#x3D;&quot;goBack&quot;
+    &gt;&lt;/app-page-header&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;nb-card
+  [ngClass]&#x3D;&quot;{ &#x27;py-5 background-grey&#x27;: isLoading() }&quot;
+  [nbSpinner]&#x3D;&quot;isLoading()&quot;
+&gt;
+  &lt;nb-card-body *ngIf&#x3D;&quot;!isLoading()&quot;&gt;
+    &lt;form class&#x3D;&quot;pl-2 pb-4&quot; [formGroup]&#x3D;&quot;artifactCIForm&quot;&gt;
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;app-custom-form-label
+          label&#x3D;&quot;CI Integration Name&quot;
+          [required]&#x3D;&quot;true&quot;
+          toolTip&#x3D;&quot;Name to uniquely identify your CI integration&quot;
+          class&#x3D;&quot;col-xl-3 col-lg-4 col-md-12 mt-2&quot;
+        &gt;
+        &lt;/app-custom-form-label&gt;
+        &lt;div class&#x3D;&quot;col-xl-4 col-lg-5 col-md-12 d-flex flex-column&quot;&gt;
+          &lt;input
+            nbInput
+            fullWidth
+            name&#x3D;&quot;ciName&quot;
+            type&#x3D;&quot;text&quot;
+            id&#x3D;&quot;ciName&quot;
+            fieldSize&#x3D;&quot;small&quot;
+            placeholder&#x3D;&quot;Enter CI name&quot;
+            formControlName&#x3D;&quot;name&quot;
+            [status]&#x3D;&quot;
+              artifactCIForm?.controls?.name?.dirty
+                ? artifactCIForm?.controls?.name?.invalid
+                  ? &#x27;danger&#x27;
+                  : &#x27;success&#x27;
+                : &#x27;basic&#x27;
+            &quot;
+          /&gt;
+          &lt;div
+            class&#x3D;&quot;mt-2&quot;
+            *ngIf&#x3D;&quot;
+              artifactCIForm?.controls?.name?.invalid &amp;&amp;
+              artifactCIForm?.controls?.name?.touched
+            &quot;
+          &gt;
+            &lt;p
+              class&#x3D;&quot;caption status-danger&quot;
+              *ngIf&#x3D;&quot;artifactCIForm?.controls?.name?.errors?.required&quot;
+            &gt;
+              CI Integration name is required!
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;row mt-4&quot;&gt;
+        &lt;app-custom-form-label
+          label&#x3D;&quot;Registration Type&quot;
+          [required]&#x3D;&quot;true&quot;
+          toolTip&#x3D;&quot;Select registration type for CI integration&quot;
+          class&#x3D;&quot;col-xl-3 col-lg-4 col-md-12 mt-2&quot;
+        &gt;
+        &lt;/app-custom-form-label&gt;
+        &lt;div class&#x3D;&quot;col-xl-6 col-lg-6 col-md-12 d-flex flex-column&quot;&gt;
+          &lt;nb-radio-group
+            style&#x3D;&quot;border: 0&quot;
+            formControlName&#x3D;&quot;registrationType&quot;
+            id&#x3D;&quot;registrationType&quot;
+            name&#x3D;&quot;Registration type&quot;
+            class&#x3D;&quot;d-flex&quot;
+            (valueChange)&#x3D;&quot;typeChange($event)&quot;
+          &gt;
+            &lt;nb-radio
+              class&#x3D;&quot;mr-3&quot;
+              *ngFor&#x3D;&quot;let option of typeSelectOptions&quot;
+              [value]&#x3D;&quot;option.value&quot;
+            &gt;
+              &lt;span style&#x3D;&quot;margin-left: 2px&quot;&gt;{{ option.label }}&lt;/span&gt;
+            &lt;/nb-radio&gt;
+          &lt;/nb-radio-group&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div
+        class&#x3D;&quot;row mt-4&quot;
+        *ngIf&#x3D;&quot;
+          registrationType.value &#x3D;&#x3D;&#x3D; &#x27;RELEASE_STREAM&#x27; ||
+          registrationType.value &#x3D;&#x3D;&#x3D; &#x27;HYBRID&#x27;
+        &quot;
+      &gt;
+        &lt;app-custom-form-label
+          label&#x3D;&quot;Global&quot;
+          toolTip&#x3D;&quot;Turning this off will restrict CI to {{
+            stackName
+          }} blueprint. 
+          Turning this on will make CI available for all blueprints globally&quot;
+          class&#x3D;&quot;col-xl-3 col-lg-4 col-md-12 mt-2&quot;
+        &gt;
+        &lt;/app-custom-form-label&gt;
+        &lt;div class&#x3D;&quot;col-xl-4 col-lg-4 col-md-12 mt-2 d-flex flex-column&quot;&gt;
+          &lt;nb-toggle
+            status&#x3D;&quot;primary&quot;
+            id&#x3D;&quot;blurprint&quot;
+            formControlName&#x3D;&quot;blueprint&quot;
+          &gt;&lt;/nb-toggle&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;hr class&#x3D;&quot;w-100 my-4&quot; /&gt;
+      &lt;nb-card&gt;
+        &lt;nb-card-header class&#x3D;&quot;p-0 cursor-pointer&quot; (click)&#x3D;&quot;openAdvance()&quot;&gt;
+          &lt;img [src]&#x3D;&quot;showAdvance ? advanceCloseLogo : advanceOpenLogo&quot; /&gt;
+          &lt;span class&#x3D;&quot;ml-3&quot;&gt;Advanced Options&lt;/span&gt;
+        &lt;/nb-card-header&gt;
+        &lt;nb-card-body
+          *ngIf&#x3D;&quot;showAdvance&quot;
+          style&#x3D;&quot;transition: 1s; overflow: hidden&quot;
+          class&#x3D;&quot;p-0&quot;
+        &gt;
+          &lt;div class&#x3D;&quot;form-group row mt-3&quot;&gt;
+            &lt;app-custom-form-label
+              label&#x3D;&quot;Promotion Workflow&quot;
+              toolTip&#x3D;&quot;Promotion workflow selection to set hierarchy of {{
+                registrationType.value &#x3D;&#x3D;&#x3D; &#x27;ENVIRONMENT&#x27;
+                  ? &#x27;environments&#x27;
+                  : &#x27;release streams&#x27;
+              }}&quot;
+              class&#x3D;&quot;col-xl-3 col-lg-4 col-md-12 mt-2&quot;
+            &gt;
+            &lt;/app-custom-form-label&gt;
+            &lt;div class&#x3D;&quot;col-xl-4 col-lg-4 col-md-12 d-flex flex-column&quot;&gt;
+              &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                &lt;nb-select
+                  [nbSpinner]&#x3D;&quot;fetchingPromotion&quot;
+                  fullWidth
+                  formControlName&#x3D;&quot;workflow&quot;
+                  id&#x3D;&quot;workflow&quot;
+                  size&#x3D;&quot;small&quot;
+                  placeholder&#x3D;&quot;Select promotion workflow&quot;
+                  #workflowSelect
+                  class&#x3D;&quot;default-workflow-select&quot;
+                &gt;
+                  &lt;nb-select-label&gt;
+                    {{
+                      selectedPromotionWorkflow
+                        ? selectedPromotionWorkflow?.label
+                        : null
+                    }}
+                  &lt;/nb-select-label&gt;
+                  &lt;nb-option
+                    *ngIf&#x3D;&quot;workflowOptionsList?.length &gt; 0&quot;
+                    [value]&#x3D;&quot;null&quot;
+                    style&#x3D;&quot;padding-left: 1rem !important&quot;
+                    &gt;Clear Selection&lt;/nb-option
+                  &gt;
+                  &lt;nb-option
+                    *ngFor&#x3D;&quot;let option of workflowOptionsList&quot;
+                    [value]&#x3D;&quot;option?.value&quot;
+                    class&#x3D;&quot;d-flex align-items-stretch&quot;
+                    [ngClass]&#x3D;&quot;
+                      option?.value &#x3D;&#x3D;&#x3D; &#x27;createPromotionWorkflow&#x27;
+                        ? &#x27;justify-content-start p-0&#x27;
+                        : &#x27;justify-content-between&#x27;
+                    &quot;
+                    style&#x3D;&quot;padding: 0.5rem 1rem !important&quot;
+                    [nbTooltip]&#x3D;&quot;
+                      option?.value &#x3D;&#x3D;&#x3D; &#x27;createPromotionWorkflow&#x27; &amp;&amp;
+                      disablePromotionWorkflowOption()
+                        ? userAuthoritiesService.buttonDisabledTooltip
+                        : &#x27;&#x27;
+                    &quot;
+                    [nbTooltipDisabled]&#x3D;&quot;
+                      option?.value !&#x3D;&#x3D; &#x27;createPromotionWorkflow&#x27; ||
+                      !disablePromotionWorkflowOption()
+                    &quot;
+                    (selectionChange)&#x3D;&quot;selectedPromotionWorkflow &#x3D; option&quot;
+                  &gt;
+                    &lt;div
+                      class&#x3D;&quot;d-flex justify-content-between&quot;
+                      style&#x3D;&quot;width: 100%&quot;
+                    &gt;
+                      &lt;!-- Workflow name and its hierarchy --&gt;
+                      &lt;div class&#x3D;&quot;d-flex flex-column&quot;&gt;
+                        &lt;span&gt;
+                          {{ option.label }}
+                        &lt;/span&gt;
+                        &lt;span
+                          class&#x3D;&quot;title-secondary d-flex&quot;
+                          style&#x3D;&quot;gap: 0.3rem; flex-wrap: wrap&quot;
+                        &gt;
+                          {{ option.hierarchy }}
+                        &lt;/span&gt;
+                      &lt;/div&gt;
+                      &lt;!-- Pin icon for default workflow --&gt;
+                      &lt;div
+                        *ngIf&#x3D;&quot;option.isDefault&quot;
+                        style&#x3D;&quot;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        &quot;
+                      &gt;
+                        &lt;nb-icon
+                          class&#x3D;&quot;ml-2&quot;
+                          icon&#x3D;&quot;pin-solid&quot;
+                          pack&#x3D;&quot;fci&quot;
+                          [nbTooltip]&#x3D;&quot;
+                            &#x27;Default workflow for chosen registration type&#x27;
+                          &quot;
+                        &gt;
+                        &lt;/nb-icon&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/nb-option&gt;
+                  &lt;nb-option class&#x3D;&quot;d-flex&quot;&gt;
+                    &lt;button
+                      nbButton
+                      class&#x3D;&quot;p-0 w-100 d-flex justify-content-center p-3&quot;
+                      [ngStyle]&#x3D;&quot;{
+                        &#x27;background-color&#x27;: &#x27;initial&#x27;,
+                        border: &#x27;none&#x27;,
+                        color: disablePromotionWorkflowOption()
+                          ? &#x27;inherit !important&#x27;
+                          : &#x27;unset&#x27;
+                      }&quot;
+                      fullWidth
+                      (click)&#x3D;&quot;openCreateWorkflow($event)&quot;
+                      [disabled]&#x3D;&quot;disablePromotionWorkflowOption()&quot;
+                    &gt;
+                      &lt;span&gt;
+                        Create promotion workflow
+                        &lt;img class&#x3D;&quot;ml-2&quot; [src]&#x3D;&quot;newTabSvg&quot; /&gt;
+                      &lt;/span&gt;
+                    &lt;/button&gt;
+                  &lt;/nb-option&gt;
+                &lt;/nb-select&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+            &lt;app-custom-form-label
+              label&#x3D;&quot;CI Rule&quot;
+              toolTip&#x3D;&quot;Once CI Rule is updated, to classify artifacts based on new rule, click the Reclassify button in the CI Integration Details page.&quot;
+              class&#x3D;&quot;col-xl-3 col-lg-4 col-md-12 mt-2&quot;
+            &gt;
+            &lt;/app-custom-form-label&gt;
+            &lt;div class&#x3D;&quot;col-xl-4 col-lg-4 col-md-12&quot;&gt;
+              &lt;nb-select
+                [nbSpinner]&#x3D;&quot;fetchingCIRules&quot;
+                fullWidth
+                formControlName&#x3D;&quot;ruleId&quot;
+                size&#x3D;&quot;small&quot;
+                placeholder&#x3D;&quot;Select CI Rule&quot;
+              &gt;
+                &lt;nb-option
+                  *ngFor&#x3D;&quot;let option of ruleOptionsList&quot;
+                  [value]&#x3D;&quot;option?.value&quot;
+                  &gt;{{ option.label }}&lt;/nb-option
+                &gt;
+                &lt;nb-option class&#x3D;&quot;d-flex&quot;&gt;
+                  &lt;button
+                    nbButton
+                    class&#x3D;&quot;d-flex justify-content-center&quot;
+                    [ngStyle]&#x3D;&quot;{
+                      &#x27;background-color&#x27;: &#x27;initial&#x27;,
+                      border: &#x27;none&#x27;,
+                      color: &#x27;unset&#x27;
+                    }&quot;
+                    fullWidth
+                    (click)&#x3D;&quot;navigateToCreateCIRule()&quot;
+                  &gt;
+                    &lt;span&gt;
+                      Create CI Rule
+                      &lt;img class&#x3D;&quot;ml-2&quot; [src]&#x3D;&quot;newTabSvg&quot; /&gt;
+                    &lt;/span&gt;
+                  &lt;/button&gt;
+                &lt;/nb-option&gt;
+              &lt;/nb-select&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/nb-card-body&gt;
+      &lt;/nb-card&gt;
+    &lt;/form&gt;
+  &lt;/nb-card-body&gt;
+  &lt;nb-card-footer *ngIf&#x3D;&quot;!isLoading()&quot; class&#x3D;&quot;pl-4 pr-4&quot;&gt;
+    &lt;app-rbac-button
+      [id]&#x3D;&quot;formType &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? &#x27;create_ci&#x27; : &#x27;edit_ci&#x27;&quot;
+      [label]&#x3D;&quot;formType &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? &#x27;Create&#x27; : &#x27;Save Changes&#x27;&quot;
+      size&#x3D;&quot;small&quot;
+      class&#x3D;&quot;mr-3&quot;
+      status&#x3D;&quot;primary&quot;
+      [action]&#x3D;&quot;artifactCiWrite&quot;
+      [loading]&#x3D;&quot;callInProgress&quot;
+      [disabled]&#x3D;&quot;artifactCIForm?.invalid&quot;
+      (onClick)&#x3D;&quot;formType &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? createArtifactCI() : editArtifactCI()&quot;
+      [dataAttrActionId]&#x3D;&quot;
+        formType &#x3D;&#x3D;&#x3D; &#x27;create&#x27;
+          ? &#x27;ci-integration-create&#x27;
+          : &#x27;ci-integration-edit-save&#x27;
+      &quot;
+    &gt;&lt;/app-rbac-button&gt;
+    &lt;button
+      nbButton
+      size&#x3D;&quot;small&quot;
+      [disabled]&#x3D;&quot;callInProgress&quot;
+      (click)&#x3D;&quot;goBack()&quot;
+    &gt;
+      Cancel
+    &lt;/button&gt;
+  &lt;/nb-card-footer&gt;
+&lt;/nb-card&gt;
+
+&lt;ng-template #workflowDetails let-data let-ref&#x3D;&quot;dialogRef&quot;&gt;
+  &lt;app-workflow-details
+    [ref]&#x3D;&quot;ref&quot;
+    [envIdNameMapping]&#x3D;&quot;envIdNameMapping&quot;
+    [rowData]&#x3D;&quot;data?.rowData&quot;
+    [envs]&#x3D;&quot;allEnvs&quot;
+  &gt;&lt;/app-workflow-details&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./artifacts-create-ci.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">button[disabled] img {
+  pointer-events: none;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="row">  <div class="col-12">    <app-page-header      heading="{{ formType === \'create\' ? \'Create\' : \'Edit\' }} CI Integration"      subheading="{{ formType === \'edit\' ? currentArtifactCI?.ciName : \'\' }}"      [onBack]="goBack"    ></app-page-header>  </div></div><nb-card  [ngClass]="{ \'py-5 background-grey\': isLoading() }"  [nbSpinner]="isLoading()">  <nb-card-body *ngIf="!isLoading()">    <form class="pl-2 pb-4" [formGroup]="artifactCIForm">      <div class="row">        <app-custom-form-label          label="CI Integration Name"          [required]="true"          toolTip="Name to uniquely identify your CI integration"          class="col-xl-3 col-lg-4 col-md-12 mt-2"        >        </app-custom-form-label>        <div class="col-xl-4 col-lg-5 col-md-12 d-flex flex-column">          <input            nbInput            fullWidth            name="ciName"            type="text"            id="ciName"            fieldSize="small"            placeholder="Enter CI name"            formControlName="name"            [status]="              artifactCIForm?.controls?.name?.dirty                ? artifactCIForm?.controls?.name?.invalid                  ? \'danger\'                  : \'success\'                : \'basic\'            "          />          <div            class="mt-2"            *ngIf="              artifactCIForm?.controls?.name?.invalid &&              artifactCIForm?.controls?.name?.touched            "          >            <p              class="caption status-danger"              *ngIf="artifactCIForm?.controls?.name?.errors?.required"            >              CI Integration name is required!            </p>          </div>        </div>      </div>      <div class="row mt-4">        <app-custom-form-label          label="Registration Type"          [required]="true"          toolTip="Select registration type for CI integration"          class="col-xl-3 col-lg-4 col-md-12 mt-2"        >        </app-custom-form-label>        <div class="col-xl-6 col-lg-6 col-md-12 d-flex flex-column">          <nb-radio-group            style="border: 0"            formControlName="registrationType"            id="registrationType"            name="Registration type"            class="d-flex"            (valueChange)="typeChange($event)"          >            <nb-radio              class="mr-3"              *ngFor="let option of typeSelectOptions"              [value]="option.value"            >              <span style="margin-left: 2px">{{ option.label }}</span>            </nb-radio>          </nb-radio-group>        </div>      </div>      <div        class="row mt-4"        *ngIf="          registrationType.value === \'RELEASE_STREAM\' ||          registrationType.value === \'HYBRID\'        "      >        <app-custom-form-label          label="Global"          toolTip="Turning this off will restrict CI to {{            stackName          }} blueprint.           Turning this on will make CI available for all blueprints globally"          class="col-xl-3 col-lg-4 col-md-12 mt-2"        >        </app-custom-form-label>        <div class="col-xl-4 col-lg-4 col-md-12 mt-2 d-flex flex-column">          <nb-toggle            status="primary"            id="blurprint"            formControlName="blueprint"          ></nb-toggle>        </div>      </div>      <hr class="w-100 my-4" />      <nb-card>        <nb-card-header class="p-0 cursor-pointer" (click)="openAdvance()">          <img [src]="showAdvance ? advanceCloseLogo : advanceOpenLogo" />          <span class="ml-3">Advanced Options</span>        </nb-card-header>        <nb-card-body          *ngIf="showAdvance"          style="transition: 1s; overflow: hidden"          class="p-0"        >          <div class="form-group row mt-3">            <app-custom-form-label              label="Promotion Workflow"              toolTip="Promotion workflow selection to set hierarchy of {{                registrationType.value === \'ENVIRONMENT\'                  ? \'environments\'                  : \'release streams\'              }}"              class="col-xl-3 col-lg-4 col-md-12 mt-2"            >            </app-custom-form-label>            <div class="col-xl-4 col-lg-4 col-md-12 d-flex flex-column">              <div class="d-flex">                <nb-select                  [nbSpinner]="fetchingPromotion"                  fullWidth                  formControlName="workflow"                  id="workflow"                  size="small"                  placeholder="Select promotion workflow"                  #workflowSelect                  class="default-workflow-select"                >                  <nb-select-label>                    {{                      selectedPromotionWorkflow                        ? selectedPromotionWorkflow?.label                        : null                    }}                  </nb-select-label>                  <nb-option                    *ngIf="workflowOptionsList?.length > 0"                    [value]="null"                    style="padding-left: 1rem !important"                    >Clear Selection</nb-option                  >                  <nb-option                    *ngFor="let option of workflowOptionsList"                    [value]="option?.value"                    class="d-flex align-items-stretch"                    [ngClass]="                      option?.value === \'createPromotionWorkflow\'                        ? \'justify-content-start p-0\'                        : \'justify-content-between\'                    "                    style="padding: 0.5rem 1rem !important"                    [nbTooltip]="                      option?.value === \'createPromotionWorkflow\' &&                      disablePromotionWorkflowOption()                        ? userAuthoritiesService.buttonDisabledTooltip                        : \'\'                    "                    [nbTooltipDisabled]="                      option?.value !== \'createPromotionWorkflow\' ||                      !disablePromotionWorkflowOption()                    "                    (selectionChange)="selectedPromotionWorkflow = option"                  >                    <div                      class="d-flex justify-content-between"                      style="width: 100%"                    >                      <!-- Workflow name and its hierarchy -->                      <div class="d-flex flex-column">                        <span>                          {{ option.label }}                        </span>                        <span                          class="title-secondary d-flex"                          style="gap: 0.3rem; flex-wrap: wrap"                        >                          {{ option.hierarchy }}                        </span>                      </div>                      <!-- Pin icon for default workflow -->                      <div                        *ngIf="option.isDefault"                        style="                          display: flex;                          justify-content: center;                          align-items: center;                        "                      >                        <nb-icon                          class="ml-2"                          icon="pin-solid"                          pack="fci"                          [nbTooltip]="                            \'Default workflow for chosen registration type\'                          "                        >                        </nb-icon>                      </div>                    </div>                  </nb-option>                  <nb-option class="d-flex">                    <button                      nbButton                      class="p-0 w-100 d-flex justify-content-center p-3"                      [ngStyle]="{                        \'background-color\': \'initial\',                        border: \'none\',                        color: disablePromotionWorkflowOption()                          ? \'inherit !important\'                          : \'unset\'                      }"                      fullWidth                      (click)="openCreateWorkflow($event)"                      [disabled]="disablePromotionWorkflowOption()"                    >                      <span>                        Create promotion workflow                        <img class="ml-2" [src]="newTabSvg" />                      </span>                    </button>                  </nb-option>                </nb-select>              </div>            </div>          </div>          <div class="form-group row">            <app-custom-form-label              label="CI Rule"              toolTip="Once CI Rule is updated, to classify artifacts based on new rule, click the Reclassify button in the CI Integration Details page."              class="col-xl-3 col-lg-4 col-md-12 mt-2"            >            </app-custom-form-label>            <div class="col-xl-4 col-lg-4 col-md-12">              <nb-select                [nbSpinner]="fetchingCIRules"                fullWidth                formControlName="ruleId"                size="small"                placeholder="Select CI Rule"              >                <nb-option                  *ngFor="let option of ruleOptionsList"                  [value]="option?.value"                  >{{ option.label }}</nb-option                >                <nb-option class="d-flex">                  <button                    nbButton                    class="d-flex justify-content-center"                    [ngStyle]="{                      \'background-color\': \'initial\',                      border: \'none\',                      color: \'unset\'                    }"                    fullWidth                    (click)="navigateToCreateCIRule()"                  >                    <span>                      Create CI Rule                      <img class="ml-2" [src]="newTabSvg" />                    </span>                  </button>                </nb-option>              </nb-select>            </div>          </div>        </nb-card-body>      </nb-card>    </form>  </nb-card-body>  <nb-card-footer *ngIf="!isLoading()" class="pl-4 pr-4">    <app-rbac-button      [id]="formType === \'create\' ? \'create_ci\' : \'edit_ci\'"      [label]="formType === \'create\' ? \'Create\' : \'Save Changes\'"      size="small"      class="mr-3"      status="primary"      [action]="artifactCiWrite"      [loading]="callInProgress"      [disabled]="artifactCIForm?.invalid"      (onClick)="formType === \'create\' ? createArtifactCI() : editArtifactCI()"      [dataAttrActionId]="        formType === \'create\'          ? \'ci-integration-create\'          : \'ci-integration-edit-save\'      "    ></app-rbac-button>    <button      nbButton      size="small"      [disabled]="callInProgress"      (click)="goBack()"    >      Cancel    </button>  </nb-card-footer></nb-card><ng-template #workflowDetails let-data let-ref="dialogRef">  <app-workflow-details    [ref]="ref"    [envIdNameMapping]="envIdNameMapping"    [rowData]="data?.rowData"    [envs]="allEnvs"  ></app-workflow-details></ng-template></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'ArtifactsCreateCIComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ArtifactsCreateCIComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

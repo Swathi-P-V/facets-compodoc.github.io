@@ -1,0 +1,3723 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  AddToolsConfigUsingPOSTParams</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/ui-common-cluster-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Parameters for addToolsConfigUsingPOST</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#clusterId" 
+>
+                                            clusterId
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#toolsConfig" 
+>
+                                            toolsConfig
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="clusterId"></a>
+                                        <span class="name "><b>clusterId</b>
+                                            <a href="#clusterId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>clusterId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>clusterId</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="toolsConfig"></a>
+                                        <span class="name "><b>toolsConfig</b>
+                                            <a href="#toolsConfig">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>toolsConfig:         <code><a href="../interfaces/ToolsConfig.html" target="_self" >ToolsConfig</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/ToolsConfig.html" target="_self" >ToolsConfig</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>toolsConfig</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpHeaders,
+} from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { ClusterTask } from &#x27;../models/cluster-task&#x27;;
+import { AbstractCluster } from &#x27;../models/abstract-cluster&#x27;;
+import { AvailabilitySchedule } from &#x27;../models/availability-schedule&#x27;;
+import { ScheduleRequest } from &#x27;../models/schedule-request&#x27;;
+import { BranchUpdateRequest } from &#x27;../models/branch-update-request&#x27;;
+import { CopyConfigurationsRequest } from &#x27;../models/copy-configurations-request&#x27;;
+import { SnapshotInfo } from &#x27;../models/snapshot-info&#x27;;
+import { ClusterResponse } from &#x27;../models/cluster-response&#x27;;
+import { KubernetesCredential } from &#x27;../models/kubernetes-credential&#x27;;
+import { OverrideObject } from &#x27;../models/override-object&#x27;;
+import { OverrideRequest } from &#x27;../models/override-request&#x27;;
+import { PauseReleaseRequest } from &#x27;../models/pause-release-request&#x27;;
+import { ProvidedResources } from &#x27;../models/provided-resources&#x27;;
+import { ResourceEnableDisableRequest } from &#x27;../models/resource-enable-disable-request&#x27;;
+import { ResourceDetails } from &#x27;../models/resource-details&#x27;;
+import { ClusterSchedule } from &#x27;../models/cluster-schedule&#x27;;
+import { SilenceAlarmRequest } from &#x27;../models/silence-alarm-request&#x27;;
+import { StackTemplateInput } from &#x27;../models/stack-template-input&#x27;;
+import { TFRunConfigurations } from &#x27;../models/tfrun-configurations&#x27;;
+import { ToolsConfig } from &#x27;../models/tools-config&#x27;;
+import { Variables } from &#x27;../models/variables&#x27;;
+
+/**
+ * Ui Common Cluster Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class UiCommonClusterControllerService extends __BaseService {
+  static readonly disableClusterTaskUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/clusterTask/disable&#x27;;
+  static readonly enableClusterTaskUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/clusterTask/enable&#x27;;
+  static readonly getClusterCommonUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}&#x27;;
+  static readonly deleteClusterUsingDELETE1Path &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}&#x27;;
+  static readonly getAlertsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/alerts&#x27;;
+  static readonly removeSilenceUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/alerts/silence/{silenceId}&#x27;;
+  static readonly getAvailabilitySchedulesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/availability-schedule&#x27;;
+  static readonly createAvailabilityScheduleUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/availability-schedule&#x27;;
+  static readonly deleteAvailabilityScheduleUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/availability-schedule/{availabilityScheduleId}&#x27;;
+  static readonly updateAvailabilitySchedulesUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/availability-schedule/{scheduleId}&#x27;;
+  static readonly updateClusterBranchUsingPATCHPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/branch&#x27;;
+  static readonly getClusterTaskUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/clusterTask&#x27;;
+  static readonly copyConfigurationsUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/copy-configurations&#x27;;
+  static readonly listSnapshotsUsingGET1Path &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/dr/{resourceType}/snapshots/{instanceName}&#x27;;
+  static readonly createSnapshotUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/dr/{resourceType}/snapshots/{instanceName}&#x27;;
+  static readonly getPinnedSnapshotUsingGET1Path &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/dr/{resourceType}/snapshots/{instanceName}/pinnedSnapshot&#x27;;
+  static readonly pinSnapshotUsingPOST1Path &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/dr/{resourceType}/snapshots/{instanceName}/pinnedSnapshot&#x27;;
+  static readonly deleteClusterForceUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/force&#x27;;
+  static readonly getClusterInfoUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/info&#x27;;
+  static readonly getK8sCredentialsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8sCredentials&#x27;;
+  static readonly getKubeConfigUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/kubeconfig&#x27;;
+  static readonly refreshKubeConfigUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/kubeconfig/refresh&#x27;;
+  static readonly getOpenAlertsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/open-alerts&#x27;;
+  static readonly getOverridesUsingGET1Path &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/overrides&#x27;;
+  static readonly overrideSizingUsingPOST1Path &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/overrides&#x27;;
+  static readonly deleteOverridesUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/overrides/{resourceType}/{resourceName}&#x27;;
+  static readonly pauseReleaseUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/pause-release&#x27;;
+  static readonly getProvidedResourcesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/providedResources&#x27;;
+  static readonly upsertProvidedResourcesUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/providedResources&#x27;;
+  static readonly bulkEnableDisableResourcesUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/resource-enable-disable&#x27;;
+  static readonly resourceDetailsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/resourceDetails&#x27;;
+  static readonly getClusterSchedulesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/schedule&#x27;;
+  static readonly addClusterSchedulesUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/schedule&#x27;;
+  static readonly updateClusterSchedulesUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/schedule/{clusterScheduleId}&#x27;;
+  static readonly deleteClusterScheduleUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/schedule/{clusterScheduleId}&#x27;;
+  static readonly setClusterCodeUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/setClusterCode&#x27;;
+  static readonly silenceAlertsUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/silence-alerts&#x27;;
+  static readonly getAllTemplateInputsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/templateInputs/&#x27;;
+  static readonly getTemplateInputsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/templateInputs/{inputType}/items&#x27;;
+  static readonly createTemplateInputsUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/templateInputs/{inputType}/items&#x27;;
+  static readonly deleteTemplateInputsUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/templateInputs/{inputType}/items/{uid}&#x27;;
+  static readonly getClusterTFDetailsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/tfRunConfigurations&#x27;;
+  static readonly createClusterTFDetailsUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/tfRunConfigurations&#x27;;
+  static readonly updateClusterTFDetailsUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/tfRunConfigurations&#x27;;
+  static readonly deleteClusterTFDetailsUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/tfRunConfigurations&#x27;;
+  static readonly getToolsConfigUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/tools-config&#x27;;
+  static readonly addToolsConfigUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/tools-config&#x27;;
+  static readonly deleteToolsConfigUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/tools-config&#x27;;
+  static readonly editToolsConfigUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/tools-config/{toolsConfigId}&#x27;;
+  static readonly getVarsUsingGETPath &#x3D; &#x27;/cc-ui/v1/clusters/{clusterId}/vars&#x27;;
+  static readonly upsertVarsUsingPOST1Path &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/vars/upsert&#x27;;
+  static readonly getVarsWithStatusUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/varsWithStatus&#x27;;
+  static readonly getVPNProfileUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/vpn-profile&#x27;;
+
+  constructor(config: __Configuration, http: HttpClient) {
+    super(config, http);
+  }
+
+  /**
+   * disableClusterTask
+   * @param taskId taskId
+   * @return OK
+   */
+  disableClusterTaskUsingPOSTResponse(
+    taskId?: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;ClusterTask&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (taskId !&#x3D; null) __params &#x3D; __params.set(&#x27;taskId&#x27;, taskId.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/clusters/clusterTask/disable&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ClusterTask&gt;;
+      }),
+    );
+  }
+  /**
+   * disableClusterTask
+   * @param taskId taskId
+   * @return OK
+   */
+  disableClusterTaskUsingPOST(taskId?: string): __Observable&lt;ClusterTask&gt; {
+    return this.disableClusterTaskUsingPOSTResponse(taskId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ClusterTask),
+    );
+  }
+
+  /**
+   * enableClusterTask
+   * @param taskId taskId
+   * @return OK
+   */
+  enableClusterTaskUsingPOSTResponse(
+    taskId?: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;ClusterTask&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (taskId !&#x3D; null) __params &#x3D; __params.set(&#x27;taskId&#x27;, taskId.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/clusters/clusterTask/enable&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ClusterTask&gt;;
+      }),
+    );
+  }
+  /**
+   * enableClusterTask
+   * @param taskId taskId
+   * @return OK
+   */
+  enableClusterTaskUsingPOST(taskId?: string): __Observable&lt;ClusterTask&gt; {
+    return this.enableClusterTaskUsingPOSTResponse(taskId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ClusterTask),
+    );
+  }
+
+  /**
+   * getClusterCommon
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getClusterCommonUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;AbstractCluster&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(String(clusterId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;AbstractCluster&gt;;
+      }),
+    );
+  }
+  /**
+   * getClusterCommon
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getClusterCommonUsingGET(clusterId: string): __Observable&lt;AbstractCluster&gt; {
+    return this.getClusterCommonUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as AbstractCluster),
+    );
+  }
+
+  /**
+   * deleteCluster
+   * @param clusterId clusterId
+   * @return OK
+   */
+  deleteClusterUsingDELETE1Response(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;boolean&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(String(clusterId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteCluster
+   * @param clusterId clusterId
+   * @return OK
+   */
+  deleteClusterUsingDELETE1(clusterId: string): __Observable&lt;boolean&gt; {
+    return this.deleteClusterUsingDELETE1Response(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as boolean),
+    );
+  }
+
+  /**
+   * getAlerts
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getAlertsUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;{ [key: string]: {} }&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(String(clusterId))}/alerts&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{ [key: string]: {} }&gt;;
+      }),
+    );
+  }
+  /**
+   * getAlerts
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getAlertsUsingGET(clusterId: string): __Observable&lt;{ [key: string]: {} }&gt; {
+    return this.getAlertsUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as { [key: string]: {} }),
+    );
+  }
+
+  /**
+   * removeSilence
+   * @param params The &#x60;UiCommonClusterControllerService.RemoveSilenceUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;silenceId&#x60;: silenceId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  removeSilenceUsingDELETEResponse(
+    params: UiCommonClusterControllerService.RemoveSilenceUsingDELETEParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;{ [key: string]: {} }&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/alerts/silence/${encodeURIComponent(String(params.silenceId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{ [key: string]: {} }&gt;;
+      }),
+    );
+  }
+  /**
+   * removeSilence
+   * @param params The &#x60;UiCommonClusterControllerService.RemoveSilenceUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;silenceId&#x60;: silenceId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  removeSilenceUsingDELETE(
+    params: UiCommonClusterControllerService.RemoveSilenceUsingDELETEParams,
+  ): __Observable&lt;{ [key: string]: {} }&gt; {
+    return this.removeSilenceUsingDELETEResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as { [key: string]: {} }),
+    );
+  }
+
+  /**
+   * getAvailabilitySchedules
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getAvailabilitySchedulesUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;AvailabilitySchedule&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/availability-schedule&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;AvailabilitySchedule&gt;;
+      }),
+    );
+  }
+  /**
+   * getAvailabilitySchedules
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getAvailabilitySchedulesUsingGET(
+    clusterId: string,
+  ): __Observable&lt;AvailabilitySchedule&gt; {
+    return this.getAvailabilitySchedulesUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as AvailabilitySchedule),
+    );
+  }
+
+  /**
+   * createAvailabilitySchedule
+   * @param params The &#x60;UiCommonClusterControllerService.CreateAvailabilityScheduleUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;schedules&#x60;: schedules
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   */
+  createAvailabilityScheduleUsingPOSTResponse(
+    params: UiCommonClusterControllerService.CreateAvailabilityScheduleUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.schedules;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/availability-schedule&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * createAvailabilitySchedule
+   * @param params The &#x60;UiCommonClusterControllerService.CreateAvailabilityScheduleUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;schedules&#x60;: schedules
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   */
+  createAvailabilityScheduleUsingPOST(
+    params: UiCommonClusterControllerService.CreateAvailabilityScheduleUsingPOSTParams,
+  ): __Observable&lt;null&gt; {
+    return this.createAvailabilityScheduleUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * deleteAvailabilitySchedule
+   * @param params The &#x60;UiCommonClusterControllerService.DeleteAvailabilityScheduleUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;availabilityScheduleId&#x60;: availabilityScheduleId
+   */
+  deleteAvailabilityScheduleUsingDELETEResponse(
+    params: UiCommonClusterControllerService.DeleteAvailabilityScheduleUsingDELETEParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/availability-schedule/${encodeURIComponent(
+          String(params.availabilityScheduleId),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteAvailabilitySchedule
+   * @param params The &#x60;UiCommonClusterControllerService.DeleteAvailabilityScheduleUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;availabilityScheduleId&#x60;: availabilityScheduleId
+   */
+  deleteAvailabilityScheduleUsingDELETE(
+    params: UiCommonClusterControllerService.DeleteAvailabilityScheduleUsingDELETEParams,
+  ): __Observable&lt;null&gt; {
+    return this.deleteAvailabilityScheduleUsingDELETEResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * updateAvailabilitySchedules
+   * @param params The &#x60;UiCommonClusterControllerService.UpdateAvailabilitySchedulesUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;schedules&#x60;: schedules
+   *
+   * - &#x60;scheduleId&#x60;: scheduleId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   */
+  updateAvailabilitySchedulesUsingPUTResponse(
+    params: UiCommonClusterControllerService.UpdateAvailabilitySchedulesUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.schedules;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/availability-schedule/${encodeURIComponent(
+          String(params.scheduleId),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * updateAvailabilitySchedules
+   * @param params The &#x60;UiCommonClusterControllerService.UpdateAvailabilitySchedulesUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;schedules&#x60;: schedules
+   *
+   * - &#x60;scheduleId&#x60;: scheduleId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   */
+  updateAvailabilitySchedulesUsingPUT(
+    params: UiCommonClusterControllerService.UpdateAvailabilitySchedulesUsingPUTParams,
+  ): __Observable&lt;null&gt; {
+    return this.updateAvailabilitySchedulesUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * updateClusterBranch
+   * @param params The &#x60;UiCommonClusterControllerService.UpdateClusterBranchUsingPATCHParams&#x60; containing the following parameters:
+   *
+   * - &#x60;req&#x60;: req
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  updateClusterBranchUsingPATCHResponse(
+    params: UiCommonClusterControllerService.UpdateClusterBranchUsingPATCHParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;AbstractCluster&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.req;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PATCH&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/branch&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;AbstractCluster&gt;;
+      }),
+    );
+  }
+  /**
+   * updateClusterBranch
+   * @param params The &#x60;UiCommonClusterControllerService.UpdateClusterBranchUsingPATCHParams&#x60; containing the following parameters:
+   *
+   * - &#x60;req&#x60;: req
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  updateClusterBranchUsingPATCH(
+    params: UiCommonClusterControllerService.UpdateClusterBranchUsingPATCHParams,
+  ): __Observable&lt;AbstractCluster&gt; {
+    return this.updateClusterBranchUsingPATCHResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as AbstractCluster),
+    );
+  }
+
+  /**
+   * getClusterTask
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getClusterTaskUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;ClusterTask&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/clusterTask&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ClusterTask&gt;;
+      }),
+    );
+  }
+  /**
+   * getClusterTask
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getClusterTaskUsingGET(clusterId: string): __Observable&lt;ClusterTask&gt; {
+    return this.getClusterTaskUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ClusterTask),
+    );
+  }
+
+  /**
+   * This method is used to copy configurations from one cluster to another cluster.
+   * @param params The &#x60;UiCommonClusterControllerService.CopyConfigurationsUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;copyConfigurationsRequest&#x60;: copyConfigurationsRequest
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  copyConfigurationsUsingPUTResponse(
+    params: UiCommonClusterControllerService.CopyConfigurationsUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;boolean&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.copyConfigurationsRequest;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/copy-configurations&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * This method is used to copy configurations from one cluster to another cluster.
+   * @param params The &#x60;UiCommonClusterControllerService.CopyConfigurationsUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;copyConfigurationsRequest&#x60;: copyConfigurationsRequest
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  copyConfigurationsUsingPUT(
+    params: UiCommonClusterControllerService.CopyConfigurationsUsingPUTParams,
+  ): __Observable&lt;boolean&gt; {
+    return this.copyConfigurationsUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as boolean),
+    );
+  }
+
+  /**
+   * listSnapshots
+   * @param params The &#x60;UiCommonClusterControllerService.ListSnapshotsUsingGET1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listSnapshotsUsingGET1Response(
+    params: UiCommonClusterControllerService.ListSnapshotsUsingGET1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;SnapshotInfo&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/dr/${encodeURIComponent(
+          String(params.resourceType),
+        )}/snapshots/${encodeURIComponent(String(params.instanceName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;SnapshotInfo&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listSnapshots
+   * @param params The &#x60;UiCommonClusterControllerService.ListSnapshotsUsingGET1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listSnapshotsUsingGET1(
+    params: UiCommonClusterControllerService.ListSnapshotsUsingGET1Params,
+  ): __Observable&lt;Array&lt;SnapshotInfo&gt;&gt; {
+    return this.listSnapshotsUsingGET1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;SnapshotInfo&gt;),
+    );
+  }
+
+  /**
+   * createSnapshot
+   * @param params The &#x60;UiCommonClusterControllerService.CreateSnapshotUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  createSnapshotUsingPOSTResponse(
+    params: UiCommonClusterControllerService.CreateSnapshotUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;boolean&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/dr/${encodeURIComponent(
+          String(params.resourceType),
+        )}/snapshots/${encodeURIComponent(String(params.instanceName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * createSnapshot
+   * @param params The &#x60;UiCommonClusterControllerService.CreateSnapshotUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  createSnapshotUsingPOST(
+    params: UiCommonClusterControllerService.CreateSnapshotUsingPOSTParams,
+  ): __Observable&lt;boolean&gt; {
+    return this.createSnapshotUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as boolean),
+    );
+  }
+
+  /**
+   * getPinnedSnapshot
+   * @param params The &#x60;UiCommonClusterControllerService.GetPinnedSnapshotUsingGET1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getPinnedSnapshotUsingGET1Response(
+    params: UiCommonClusterControllerService.GetPinnedSnapshotUsingGET1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;SnapshotInfo&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/dr/${encodeURIComponent(
+          String(params.resourceType),
+        )}/snapshots/${encodeURIComponent(
+          String(params.instanceName),
+        )}/pinnedSnapshot&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;SnapshotInfo&gt;;
+      }),
+    );
+  }
+  /**
+   * getPinnedSnapshot
+   * @param params The &#x60;UiCommonClusterControllerService.GetPinnedSnapshotUsingGET1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getPinnedSnapshotUsingGET1(
+    params: UiCommonClusterControllerService.GetPinnedSnapshotUsingGET1Params,
+  ): __Observable&lt;SnapshotInfo&gt; {
+    return this.getPinnedSnapshotUsingGET1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as SnapshotInfo),
+    );
+  }
+
+  /**
+   * pinSnapshot
+   * @param params The &#x60;UiCommonClusterControllerService.PinSnapshotUsingPOST1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;snapshotInfo&#x60;: snapshotInfo
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  pinSnapshotUsingPOST1Response(
+    params: UiCommonClusterControllerService.PinSnapshotUsingPOST1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;SnapshotInfo&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.snapshotInfo;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/dr/${encodeURIComponent(
+          String(params.resourceType),
+        )}/snapshots/${encodeURIComponent(
+          String(params.instanceName),
+        )}/pinnedSnapshot&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;SnapshotInfo&gt;;
+      }),
+    );
+  }
+  /**
+   * pinSnapshot
+   * @param params The &#x60;UiCommonClusterControllerService.PinSnapshotUsingPOST1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;snapshotInfo&#x60;: snapshotInfo
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  pinSnapshotUsingPOST1(
+    params: UiCommonClusterControllerService.PinSnapshotUsingPOST1Params,
+  ): __Observable&lt;SnapshotInfo&gt; {
+    return this.pinSnapshotUsingPOST1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as SnapshotInfo),
+    );
+  }
+
+  /**
+   * deleteClusterForce
+   * @param clusterId clusterId
+   * @return OK
+   */
+  deleteClusterForceUsingDELETEResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;boolean&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(String(clusterId))}/force&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteClusterForce
+   * @param clusterId clusterId
+   * @return OK
+   */
+  deleteClusterForceUsingDELETE(clusterId: string): __Observable&lt;boolean&gt; {
+    return this.deleteClusterForceUsingDELETEResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as boolean),
+    );
+  }
+
+  /**
+   * getClusterInfo
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getClusterInfoUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;ClusterResponse&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(String(clusterId))}/info&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ClusterResponse&gt;;
+      }),
+    );
+  }
+  /**
+   * getClusterInfo
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getClusterInfoUsingGET(clusterId: string): __Observable&lt;ClusterResponse&gt; {
+    return this.getClusterInfoUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ClusterResponse),
+    );
+  }
+
+  /**
+   * getK8sCredentials
+   * @param params The &#x60;UiCommonClusterControllerService.GetK8sCredentialsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;refreshPermissions&#x60;: refreshPermissions
+   *
+   * @return OK
+   */
+  getK8sCredentialsUsingGETResponse(
+    params: UiCommonClusterControllerService.GetK8sCredentialsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;KubernetesCredential&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.refreshPermissions !&#x3D; null)
+      __params &#x3D; __params.set(
+        &#x27;refreshPermissions&#x27;,
+        params.refreshPermissions.toString(),
+      );
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8sCredentials&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;KubernetesCredential&gt;;
+      }),
+    );
+  }
+  /**
+   * getK8sCredentials
+   * @param params The &#x60;UiCommonClusterControllerService.GetK8sCredentialsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;refreshPermissions&#x60;: refreshPermissions
+   *
+   * @return OK
+   */
+  getK8sCredentialsUsingGET(
+    params: UiCommonClusterControllerService.GetK8sCredentialsUsingGETParams,
+  ): __Observable&lt;KubernetesCredential&gt; {
+    return this.getK8sCredentialsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as KubernetesCredential),
+    );
+  }
+
+  /**
+   * getKubeConfig
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getKubeConfigUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;string&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/kubeconfig&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;string&gt;;
+      }),
+    );
+  }
+  /**
+   * getKubeConfig
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getKubeConfigUsingGET(clusterId: string): __Observable&lt;string&gt; {
+    return this.getKubeConfigUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as string),
+    );
+  }
+
+  /**
+   * refreshKubeConfig
+   * @param clusterId clusterId
+   * @return OK
+   */
+  refreshKubeConfigUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;boolean&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/kubeconfig/refresh&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * refreshKubeConfig
+   * @param clusterId clusterId
+   * @return OK
+   */
+  refreshKubeConfigUsingGET(clusterId: string): __Observable&lt;boolean&gt; {
+    return this.refreshKubeConfigUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as boolean),
+    );
+  }
+
+  /**
+   * getOpenAlerts
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getOpenAlertsUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;{ [key: string]: {} }&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/open-alerts&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{ [key: string]: {} }&gt;;
+      }),
+    );
+  }
+  /**
+   * getOpenAlerts
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getOpenAlertsUsingGET(
+    clusterId: string,
+  ): __Observable&lt;{ [key: string]: {} }&gt; {
+    return this.getOpenAlertsUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as { [key: string]: {} }),
+    );
+  }
+
+  /**
+   * getOverrides
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getOverridesUsingGET1Response(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;OverrideObject&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(String(clusterId))}/overrides&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;OverrideObject&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getOverrides
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getOverridesUsingGET1(
+    clusterId: string,
+  ): __Observable&lt;Array&lt;OverrideObject&gt;&gt; {
+    return this.getOverridesUsingGET1Response(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;OverrideObject&gt;),
+    );
+  }
+
+  /**
+   * overrideSizing
+   * @param params The &#x60;UiCommonClusterControllerService.OverrideSizingUsingPOST1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;request&#x60;: request
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  overrideSizingUsingPOST1Response(
+    params: UiCommonClusterControllerService.OverrideSizingUsingPOST1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;OverrideObject&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.request;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/overrides&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;OverrideObject&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * overrideSizing
+   * @param params The &#x60;UiCommonClusterControllerService.OverrideSizingUsingPOST1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;request&#x60;: request
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  overrideSizingUsingPOST1(
+    params: UiCommonClusterControllerService.OverrideSizingUsingPOST1Params,
+  ): __Observable&lt;Array&lt;OverrideObject&gt;&gt; {
+    return this.overrideSizingUsingPOST1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;OverrideObject&gt;),
+    );
+  }
+
+  /**
+   * deleteOverrides
+   * @param params The &#x60;UiCommonClusterControllerService.DeleteOverridesUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  deleteOverridesUsingDELETEResponse(
+    params: UiCommonClusterControllerService.DeleteOverridesUsingDELETEParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;OverrideObject&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/overrides/${encodeURIComponent(
+          String(params.resourceType),
+        )}/${encodeURIComponent(String(params.resourceName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;OverrideObject&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteOverrides
+   * @param params The &#x60;UiCommonClusterControllerService.DeleteOverridesUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  deleteOverridesUsingDELETE(
+    params: UiCommonClusterControllerService.DeleteOverridesUsingDELETEParams,
+  ): __Observable&lt;Array&lt;OverrideObject&gt;&gt; {
+    return this.deleteOverridesUsingDELETEResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;OverrideObject&gt;),
+    );
+  }
+
+  /**
+   * pauseRelease
+   * @param params The &#x60;UiCommonClusterControllerService.PauseReleaseUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;pauseReleaseRequest&#x60;: pauseReleaseRequest
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  pauseReleaseUsingPOSTResponse(
+    params: UiCommonClusterControllerService.PauseReleaseUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;string&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.pauseReleaseRequest;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/pause-release&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;string&gt;;
+      }),
+    );
+  }
+  /**
+   * pauseRelease
+   * @param params The &#x60;UiCommonClusterControllerService.PauseReleaseUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;pauseReleaseRequest&#x60;: pauseReleaseRequest
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  pauseReleaseUsingPOST(
+    params: UiCommonClusterControllerService.PauseReleaseUsingPOSTParams,
+  ): __Observable&lt;string&gt; {
+    return this.pauseReleaseUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as string),
+    );
+  }
+
+  /**
+   * getProvidedResources
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getProvidedResourcesUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;ProvidedResources&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/providedResources&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ProvidedResources&gt;;
+      }),
+    );
+  }
+  /**
+   * getProvidedResources
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getProvidedResourcesUsingGET(
+    clusterId: string,
+  ): __Observable&lt;ProvidedResources&gt; {
+    return this.getProvidedResourcesUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ProvidedResources),
+    );
+  }
+
+  /**
+   * upsertProvidedResources
+   * @param params The &#x60;UiCommonClusterControllerService.UpsertProvidedResourcesUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;providedResources&#x60;: providedResources
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  upsertProvidedResourcesUsingPOSTResponse(
+    params: UiCommonClusterControllerService.UpsertProvidedResourcesUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;ProvidedResources&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.providedResources;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/providedResources&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ProvidedResources&gt;;
+      }),
+    );
+  }
+  /**
+   * upsertProvidedResources
+   * @param params The &#x60;UiCommonClusterControllerService.UpsertProvidedResourcesUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;providedResources&#x60;: providedResources
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  upsertProvidedResourcesUsingPOST(
+    params: UiCommonClusterControllerService.UpsertProvidedResourcesUsingPOSTParams,
+  ): __Observable&lt;ProvidedResources&gt; {
+    return this.upsertProvidedResourcesUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ProvidedResources),
+    );
+  }
+
+  /**
+   * bulkEnableDisableResources
+   * @param params The &#x60;UiCommonClusterControllerService.BulkEnableDisableResourcesUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceEnableDisableRequestList&#x60;: resourceEnableDisableRequestList
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   */
+  bulkEnableDisableResourcesUsingPUTResponse(
+    params: UiCommonClusterControllerService.BulkEnableDisableResourcesUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.resourceEnableDisableRequestList;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resource-enable-disable&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * bulkEnableDisableResources
+   * @param params The &#x60;UiCommonClusterControllerService.BulkEnableDisableResourcesUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceEnableDisableRequestList&#x60;: resourceEnableDisableRequestList
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   */
+  bulkEnableDisableResourcesUsingPUT(
+    params: UiCommonClusterControllerService.BulkEnableDisableResourcesUsingPUTParams,
+  ): __Observable&lt;null&gt; {
+    return this.bulkEnableDisableResourcesUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * resourceDetails
+   * @param clusterId clusterId
+   * @return OK
+   */
+  resourceDetailsUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ResourceDetails&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/resourceDetails&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ResourceDetails&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * resourceDetails
+   * @param clusterId clusterId
+   * @return OK
+   */
+  resourceDetailsUsingGET(
+    clusterId: string,
+  ): __Observable&lt;Array&lt;ResourceDetails&gt;&gt; {
+    return this.resourceDetailsUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ResourceDetails&gt;),
+    );
+  }
+
+  /**
+   * getClusterSchedules
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getClusterSchedulesUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ClusterSchedule&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(String(clusterId))}/schedule&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ClusterSchedule&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getClusterSchedules
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getClusterSchedulesUsingGET(
+    clusterId: string,
+  ): __Observable&lt;Array&lt;ClusterSchedule&gt;&gt; {
+    return this.getClusterSchedulesUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ClusterSchedule&gt;),
+    );
+  }
+
+  /**
+   * addClusterSchedules
+   * @param params The &#x60;UiCommonClusterControllerService.AddClusterSchedulesUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;request&#x60;: request
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  addClusterSchedulesUsingPOSTResponse(
+    params: UiCommonClusterControllerService.AddClusterSchedulesUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ClusterSchedule&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.request;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/schedule&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ClusterSchedule&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * addClusterSchedules
+   * @param params The &#x60;UiCommonClusterControllerService.AddClusterSchedulesUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;request&#x60;: request
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  addClusterSchedulesUsingPOST(
+    params: UiCommonClusterControllerService.AddClusterSchedulesUsingPOSTParams,
+  ): __Observable&lt;Array&lt;ClusterSchedule&gt;&gt; {
+    return this.addClusterSchedulesUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ClusterSchedule&gt;),
+    );
+  }
+
+  /**
+   * updateClusterSchedules
+   * @param params The &#x60;UiCommonClusterControllerService.UpdateClusterSchedulesUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;request&#x60;: request
+   *
+   * - &#x60;clusterScheduleId&#x60;: clusterScheduleId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  updateClusterSchedulesUsingPUTResponse(
+    params: UiCommonClusterControllerService.UpdateClusterSchedulesUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ClusterSchedule&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.request;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/schedule/${encodeURIComponent(String(params.clusterScheduleId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ClusterSchedule&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * updateClusterSchedules
+   * @param params The &#x60;UiCommonClusterControllerService.UpdateClusterSchedulesUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;request&#x60;: request
+   *
+   * - &#x60;clusterScheduleId&#x60;: clusterScheduleId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  updateClusterSchedulesUsingPUT(
+    params: UiCommonClusterControllerService.UpdateClusterSchedulesUsingPUTParams,
+  ): __Observable&lt;Array&lt;ClusterSchedule&gt;&gt; {
+    return this.updateClusterSchedulesUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ClusterSchedule&gt;),
+    );
+  }
+
+  /**
+   * deleteClusterSchedule
+   * @param params The &#x60;UiCommonClusterControllerService.DeleteClusterScheduleUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterScheduleId&#x60;: clusterScheduleId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  deleteClusterScheduleUsingDELETEResponse(
+    params: UiCommonClusterControllerService.DeleteClusterScheduleUsingDELETEParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ClusterSchedule&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/schedule/${encodeURIComponent(String(params.clusterScheduleId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ClusterSchedule&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteClusterSchedule
+   * @param params The &#x60;UiCommonClusterControllerService.DeleteClusterScheduleUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterScheduleId&#x60;: clusterScheduleId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  deleteClusterScheduleUsingDELETE(
+    params: UiCommonClusterControllerService.DeleteClusterScheduleUsingDELETEParams,
+  ): __Observable&lt;Array&lt;ClusterSchedule&gt;&gt; {
+    return this.deleteClusterScheduleUsingDELETEResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ClusterSchedule&gt;),
+    );
+  }
+
+  /**
+   * setClusterCode
+   * @param clusterId clusterId
+   * @return OK
+   */
+  setClusterCodeUsingPOSTResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;boolean&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/setClusterCode&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * setClusterCode
+   * @param clusterId clusterId
+   * @return OK
+   */
+  setClusterCodeUsingPOST(clusterId: string): __Observable&lt;boolean&gt; {
+    return this.setClusterCodeUsingPOSTResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as boolean),
+    );
+  }
+
+  /**
+   * silenceAlerts
+   * @param params The &#x60;UiCommonClusterControllerService.SilenceAlertsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;request&#x60;: request
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  silenceAlertsUsingPOSTResponse(
+    params: UiCommonClusterControllerService.SilenceAlertsUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;{ [key: string]: {} }&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.request;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/silence-alerts&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{ [key: string]: {} }&gt;;
+      }),
+    );
+  }
+  /**
+   * silenceAlerts
+   * @param params The &#x60;UiCommonClusterControllerService.SilenceAlertsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;request&#x60;: request
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  silenceAlertsUsingPOST(
+    params: UiCommonClusterControllerService.SilenceAlertsUsingPOSTParams,
+  ): __Observable&lt;{ [key: string]: {} }&gt; {
+    return this.silenceAlertsUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as { [key: string]: {} }),
+    );
+  }
+
+  /**
+   * getAllTemplateInputs
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getAllTemplateInputsUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;
+    __StrictHttpResponse&lt;{ [key: string]: Array&lt;StackTemplateInput&gt; }&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/templateInputs/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{
+          [key: string]: Array&lt;StackTemplateInput&gt;;
+        }&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllTemplateInputs
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getAllTemplateInputsUsingGET(
+    clusterId: string,
+  ): __Observable&lt;{ [key: string]: Array&lt;StackTemplateInput&gt; }&gt; {
+    return this.getAllTemplateInputsUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as { [key: string]: Array&lt;StackTemplateInput&gt; }),
+    );
+  }
+
+  /**
+   * getTemplateInputs
+   * @param params The &#x60;UiCommonClusterControllerService.GetTemplateInputsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;inputType&#x60;: inputType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getTemplateInputsUsingGETResponse(
+    params: UiCommonClusterControllerService.GetTemplateInputsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;StackTemplateInput&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/templateInputs/${encodeURIComponent(
+          String(params.inputType),
+        )}/items&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;StackTemplateInput&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getTemplateInputs
+   * @param params The &#x60;UiCommonClusterControllerService.GetTemplateInputsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;inputType&#x60;: inputType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getTemplateInputsUsingGET(
+    params: UiCommonClusterControllerService.GetTemplateInputsUsingGETParams,
+  ): __Observable&lt;Array&lt;StackTemplateInput&gt;&gt; {
+    return this.getTemplateInputsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;StackTemplateInput&gt;),
+    );
+  }
+
+  /**
+   * createTemplateInputs
+   * @param params The &#x60;UiCommonClusterControllerService.CreateTemplateInputsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;templateInputs&#x60;: templateInputs
+   *
+   * - &#x60;inputType&#x60;: inputType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  createTemplateInputsUsingPOSTResponse(
+    params: UiCommonClusterControllerService.CreateTemplateInputsUsingPOSTParams,
+  ): __Observable&lt;
+    __StrictHttpResponse&lt;{ [key: string]: Array&lt;StackTemplateInput&gt; }&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.templateInputs;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/templateInputs/${encodeURIComponent(
+          String(params.inputType),
+        )}/items&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{
+          [key: string]: Array&lt;StackTemplateInput&gt;;
+        }&gt;;
+      }),
+    );
+  }
+  /**
+   * createTemplateInputs
+   * @param params The &#x60;UiCommonClusterControllerService.CreateTemplateInputsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;templateInputs&#x60;: templateInputs
+   *
+   * - &#x60;inputType&#x60;: inputType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  createTemplateInputsUsingPOST(
+    params: UiCommonClusterControllerService.CreateTemplateInputsUsingPOSTParams,
+  ): __Observable&lt;{ [key: string]: Array&lt;StackTemplateInput&gt; }&gt; {
+    return this.createTemplateInputsUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as { [key: string]: Array&lt;StackTemplateInput&gt; }),
+    );
+  }
+
+  /**
+   * deleteTemplateInputs
+   * @param params The &#x60;UiCommonClusterControllerService.DeleteTemplateInputsUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;uid&#x60;: uid
+   *
+   * - &#x60;inputType&#x60;: inputType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  deleteTemplateInputsUsingDELETEResponse(
+    params: UiCommonClusterControllerService.DeleteTemplateInputsUsingDELETEParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;StackTemplateInput&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/templateInputs/${encodeURIComponent(
+          String(params.inputType),
+        )}/items/${encodeURIComponent(String(params.uid))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;StackTemplateInput&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteTemplateInputs
+   * @param params The &#x60;UiCommonClusterControllerService.DeleteTemplateInputsUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;uid&#x60;: uid
+   *
+   * - &#x60;inputType&#x60;: inputType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  deleteTemplateInputsUsingDELETE(
+    params: UiCommonClusterControllerService.DeleteTemplateInputsUsingDELETEParams,
+  ): __Observable&lt;StackTemplateInput&gt; {
+    return this.deleteTemplateInputsUsingDELETEResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as StackTemplateInput),
+    );
+  }
+
+  /**
+   * getClusterTFDetails
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getClusterTFDetailsUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;TFRunConfigurations&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/tfRunConfigurations&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;TFRunConfigurations&gt;;
+      }),
+    );
+  }
+  /**
+   * getClusterTFDetails
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getClusterTFDetailsUsingGET(
+    clusterId: string,
+  ): __Observable&lt;TFRunConfigurations&gt; {
+    return this.getClusterTFDetailsUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as TFRunConfigurations),
+    );
+  }
+
+  /**
+   * createClusterTFDetails
+   * @param params The &#x60;UiCommonClusterControllerService.CreateClusterTFDetailsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;tfRunConfigurations&#x60;: tfRunConfigurations
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  createClusterTFDetailsUsingPOSTResponse(
+    params: UiCommonClusterControllerService.CreateClusterTFDetailsUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;TFRunConfigurations&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.tfRunConfigurations;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/tfRunConfigurations&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;TFRunConfigurations&gt;;
+      }),
+    );
+  }
+  /**
+   * createClusterTFDetails
+   * @param params The &#x60;UiCommonClusterControllerService.CreateClusterTFDetailsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;tfRunConfigurations&#x60;: tfRunConfigurations
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  createClusterTFDetailsUsingPOST(
+    params: UiCommonClusterControllerService.CreateClusterTFDetailsUsingPOSTParams,
+  ): __Observable&lt;TFRunConfigurations&gt; {
+    return this.createClusterTFDetailsUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as TFRunConfigurations),
+    );
+  }
+
+  /**
+   * updateClusterTFDetails
+   * @param params The &#x60;UiCommonClusterControllerService.UpdateClusterTFDetailsUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;tfRunConfigurations&#x60;: tfRunConfigurations
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  updateClusterTFDetailsUsingPUTResponse(
+    params: UiCommonClusterControllerService.UpdateClusterTFDetailsUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;TFRunConfigurations&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.tfRunConfigurations;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/tfRunConfigurations&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;TFRunConfigurations&gt;;
+      }),
+    );
+  }
+  /**
+   * updateClusterTFDetails
+   * @param params The &#x60;UiCommonClusterControllerService.UpdateClusterTFDetailsUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;tfRunConfigurations&#x60;: tfRunConfigurations
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  updateClusterTFDetailsUsingPUT(
+    params: UiCommonClusterControllerService.UpdateClusterTFDetailsUsingPUTParams,
+  ): __Observable&lt;TFRunConfigurations&gt; {
+    return this.updateClusterTFDetailsUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as TFRunConfigurations),
+    );
+  }
+
+  /**
+   * deleteClusterTFDetails
+   * @param clusterId clusterId
+   * @return OK
+   */
+  deleteClusterTFDetailsUsingDELETEResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;TFRunConfigurations&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/tfRunConfigurations&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;TFRunConfigurations&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteClusterTFDetails
+   * @param clusterId clusterId
+   * @return OK
+   */
+  deleteClusterTFDetailsUsingDELETE(
+    clusterId: string,
+  ): __Observable&lt;TFRunConfigurations&gt; {
+    return this.deleteClusterTFDetailsUsingDELETEResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as TFRunConfigurations),
+    );
+  }
+
+  /**
+   * getToolsConfig
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getToolsConfigUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;ToolsConfig&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/tools-config&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ToolsConfig&gt;;
+      }),
+    );
+  }
+  /**
+   * getToolsConfig
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getToolsConfigUsingGET(clusterId: string): __Observable&lt;ToolsConfig&gt; {
+    return this.getToolsConfigUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ToolsConfig),
+    );
+  }
+
+  /**
+   * addToolsConfig
+   * @param params The &#x60;UiCommonClusterControllerService.AddToolsConfigUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;toolsConfig&#x60;: toolsConfig
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  addToolsConfigUsingPOSTResponse(
+    params: UiCommonClusterControllerService.AddToolsConfigUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;ToolsConfig&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.toolsConfig;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/tools-config&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ToolsConfig&gt;;
+      }),
+    );
+  }
+  /**
+   * addToolsConfig
+   * @param params The &#x60;UiCommonClusterControllerService.AddToolsConfigUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;toolsConfig&#x60;: toolsConfig
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  addToolsConfigUsingPOST(
+    params: UiCommonClusterControllerService.AddToolsConfigUsingPOSTParams,
+  ): __Observable&lt;ToolsConfig&gt; {
+    return this.addToolsConfigUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ToolsConfig),
+    );
+  }
+
+  /**
+   * deleteToolsConfig
+   * @param clusterId clusterId
+   */
+  deleteToolsConfigUsingDELETEResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/tools-config&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteToolsConfig
+   * @param clusterId clusterId
+   */
+  deleteToolsConfigUsingDELETE(clusterId: string): __Observable&lt;null&gt; {
+    return this.deleteToolsConfigUsingDELETEResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * editToolsConfig
+   * @param params The &#x60;UiCommonClusterControllerService.EditToolsConfigUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;toolsConfigId&#x60;: toolsConfigId
+   *
+   * - &#x60;toolsConfig&#x60;: toolsConfig
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  editToolsConfigUsingPUTResponse(
+    params: UiCommonClusterControllerService.EditToolsConfigUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;ToolsConfig&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.toolsConfig;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/tools-config/${encodeURIComponent(String(params.toolsConfigId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ToolsConfig&gt;;
+      }),
+    );
+  }
+  /**
+   * editToolsConfig
+   * @param params The &#x60;UiCommonClusterControllerService.EditToolsConfigUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;toolsConfigId&#x60;: toolsConfigId
+   *
+   * - &#x60;toolsConfig&#x60;: toolsConfig
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  editToolsConfigUsingPUT(
+    params: UiCommonClusterControllerService.EditToolsConfigUsingPUTParams,
+  ): __Observable&lt;ToolsConfig&gt; {
+    return this.editToolsConfigUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ToolsConfig),
+    );
+  }
+
+  /**
+   * getVars
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getVarsUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;AbstractCluster&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(String(clusterId))}/vars&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;AbstractCluster&gt;;
+      }),
+    );
+  }
+  /**
+   * getVars
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getVarsUsingGET(clusterId: string): __Observable&lt;AbstractCluster&gt; {
+    return this.getVarsUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as AbstractCluster),
+    );
+  }
+
+  /**
+   * upsertVars
+   * @param params The &#x60;UiCommonClusterControllerService.UpsertVarsUsingPOST1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterVars&#x60;: clusterVars
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  upsertVarsUsingPOST1Response(
+    params: UiCommonClusterControllerService.UpsertVarsUsingPOST1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;AbstractCluster&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.clusterVars;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/vars/upsert&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;AbstractCluster&gt;;
+      }),
+    );
+  }
+  /**
+   * upsertVars
+   * @param params The &#x60;UiCommonClusterControllerService.UpsertVarsUsingPOST1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterVars&#x60;: clusterVars
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  upsertVarsUsingPOST1(
+    params: UiCommonClusterControllerService.UpsertVarsUsingPOST1Params,
+  ): __Observable&lt;AbstractCluster&gt; {
+    return this.upsertVarsUsingPOST1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as AbstractCluster),
+    );
+  }
+
+  /**
+   * getVarsWithStatus
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getVarsWithStatusUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;{ [key: string]: Variables }&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/varsWithStatus&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{ [key: string]: Variables }&gt;;
+      }),
+    );
+  }
+  /**
+   * getVarsWithStatus
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getVarsWithStatusUsingGET(
+    clusterId: string,
+  ): __Observable&lt;{ [key: string]: Variables }&gt; {
+    return this.getVarsWithStatusUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as { [key: string]: Variables }),
+    );
+  }
+
+  /**
+   * getVPNProfile
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getVPNProfileUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;string&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/vpn-profile&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;string&gt;;
+      }),
+    );
+  }
+  /**
+   * getVPNProfile
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getVPNProfileUsingGET(clusterId: string): __Observable&lt;string&gt; {
+    return this.getVPNProfileUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as string),
+    );
+  }
+}
+
+module UiCommonClusterControllerService {
+  /**
+   * Parameters for removeSilenceUsingDELETE
+   */
+  export interface RemoveSilenceUsingDELETEParams {
+    /**
+     * silenceId
+     */
+    silenceId: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for createAvailabilityScheduleUsingPOST
+   */
+  export interface CreateAvailabilityScheduleUsingPOSTParams {
+    /**
+     * schedules
+     */
+    schedules: Array&lt;ScheduleRequest&gt;;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for deleteAvailabilityScheduleUsingDELETE
+   */
+  export interface DeleteAvailabilityScheduleUsingDELETEParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * availabilityScheduleId
+     */
+    availabilityScheduleId: string;
+  }
+
+  /**
+   * Parameters for updateAvailabilitySchedulesUsingPUT
+   */
+  export interface UpdateAvailabilitySchedulesUsingPUTParams {
+    /**
+     * schedules
+     */
+    schedules: Array&lt;ScheduleRequest&gt;;
+
+    /**
+     * scheduleId
+     */
+    scheduleId: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for updateClusterBranchUsingPATCH
+   */
+  export interface UpdateClusterBranchUsingPATCHParams {
+    /**
+     * req
+     */
+    req: BranchUpdateRequest;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for copyConfigurationsUsingPUT
+   */
+  export interface CopyConfigurationsUsingPUTParams {
+    /**
+     * copyConfigurationsRequest
+     */
+    copyConfigurationsRequest: CopyConfigurationsRequest;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listSnapshotsUsingGET1
+   */
+  export interface ListSnapshotsUsingGET1Params {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * instanceName
+     */
+    instanceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for createSnapshotUsingPOST
+   */
+  export interface CreateSnapshotUsingPOSTParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * instanceName
+     */
+    instanceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getPinnedSnapshotUsingGET1
+   */
+  export interface GetPinnedSnapshotUsingGET1Params {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * instanceName
+     */
+    instanceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for pinSnapshotUsingPOST1
+   */
+  export interface PinSnapshotUsingPOST1Params {
+    /**
+     * snapshotInfo
+     */
+    snapshotInfo: SnapshotInfo;
+
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * instanceName
+     */
+    instanceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getK8sCredentialsUsingGET
+   */
+  export interface GetK8sCredentialsUsingGETParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * refreshPermissions
+     */
+    refreshPermissions?: boolean;
+  }
+
+  /**
+   * Parameters for overrideSizingUsingPOST1
+   */
+  export interface OverrideSizingUsingPOST1Params {
+    /**
+     * request
+     */
+    request: Array&lt;OverrideRequest&gt;;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for deleteOverridesUsingDELETE
+   */
+  export interface DeleteOverridesUsingDELETEParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for pauseReleaseUsingPOST
+   */
+  export interface PauseReleaseUsingPOSTParams {
+    /**
+     * pauseReleaseRequest
+     */
+    pauseReleaseRequest: PauseReleaseRequest;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for upsertProvidedResourcesUsingPOST
+   */
+  export interface UpsertProvidedResourcesUsingPOSTParams {
+    /**
+     * providedResources
+     */
+    providedResources: ProvidedResources;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for bulkEnableDisableResourcesUsingPUT
+   */
+  export interface BulkEnableDisableResourcesUsingPUTParams {
+    /**
+     * resourceEnableDisableRequestList
+     */
+    resourceEnableDisableRequestList: Array&lt;ResourceEnableDisableRequest&gt;;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for addClusterSchedulesUsingPOST
+   */
+  export interface AddClusterSchedulesUsingPOSTParams {
+    /**
+     * request
+     */
+    request: ScheduleRequest;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for updateClusterSchedulesUsingPUT
+   */
+  export interface UpdateClusterSchedulesUsingPUTParams {
+    /**
+     * request
+     */
+    request: ScheduleRequest;
+
+    /**
+     * clusterScheduleId
+     */
+    clusterScheduleId: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for deleteClusterScheduleUsingDELETE
+   */
+  export interface DeleteClusterScheduleUsingDELETEParams {
+    /**
+     * clusterScheduleId
+     */
+    clusterScheduleId: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for silenceAlertsUsingPOST
+   */
+  export interface SilenceAlertsUsingPOSTParams {
+    /**
+     * request
+     */
+    request: SilenceAlarmRequest;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getTemplateInputsUsingGET
+   */
+  export interface GetTemplateInputsUsingGETParams {
+    /**
+     * inputType
+     */
+    inputType: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for createTemplateInputsUsingPOST
+   */
+  export interface CreateTemplateInputsUsingPOSTParams {
+    /**
+     * templateInputs
+     */
+    templateInputs: Array&lt;StackTemplateInput&gt;;
+
+    /**
+     * inputType
+     */
+    inputType: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for deleteTemplateInputsUsingDELETE
+   */
+  export interface DeleteTemplateInputsUsingDELETEParams {
+    /**
+     * uid
+     */
+    uid: string;
+
+    /**
+     * inputType
+     */
+    inputType: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for createClusterTFDetailsUsingPOST
+   */
+  export interface CreateClusterTFDetailsUsingPOSTParams {
+    /**
+     * tfRunConfigurations
+     */
+    tfRunConfigurations: TFRunConfigurations;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for updateClusterTFDetailsUsingPUT
+   */
+  export interface UpdateClusterTFDetailsUsingPUTParams {
+    /**
+     * tfRunConfigurations
+     */
+    tfRunConfigurations: TFRunConfigurations;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for addToolsConfigUsingPOST
+   */
+  export interface AddToolsConfigUsingPOSTParams {
+    /**
+     * toolsConfig
+     */
+    toolsConfig: ToolsConfig;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for editToolsConfigUsingPUT
+   */
+  export interface EditToolsConfigUsingPUTParams {
+    /**
+     * toolsConfigId
+     */
+    toolsConfigId: string;
+
+    /**
+     * toolsConfig
+     */
+    toolsConfig: ToolsConfig;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for upsertVarsUsingPOST1
+   */
+  export interface UpsertVarsUsingPOST1Params {
+    /**
+     * clusterVars
+     */
+    clusterVars: { [key: string]: string };
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+}
+
+export { UiCommonClusterControllerService };
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'AddToolsConfigUsingPOSTParams.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

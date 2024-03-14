@@ -1,0 +1,2426 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MultiSelectSearchComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/multi-select-search/multi-select-search.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnChanges</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../classes/Group.html" target="_self" >FormGroupDirective</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-multi-select-search</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./multi-select-search.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./multi-select-search.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#autoComplete" >autoComplete</a>
+                            </li>
+                            <li>
+                                <a href="#dropdownContentOriginal" >dropdownContentOriginal</a>
+                            </li>
+                            <li>
+                                <a href="#dropDownListOriginal" >dropDownListOriginal</a>
+                            </li>
+                            <li>
+                                <a href="#keysPresent" >keysPresent</a>
+                            </li>
+                            <li>
+                                <a href="#searchString" >searchString</a>
+                            </li>
+                            <li>
+                                <a href="#selectedList" >selectedList</a>
+                            </li>
+                            <li>
+                                <a href="#selectedOptionVal" >selectedOptionVal</a>
+                            </li>
+                            <li>
+                                <a href="#visibleList" >visibleList</a>
+                            </li>
+                            <li>
+                                <a href="#visibleOptions" >visibleOptions</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changeResourceVal" >changeResourceVal</a>
+                            </li>
+                            <li>
+                                <a href="#checkResourcePresent" >checkResourcePresent</a>
+                            </li>
+                            <li>
+                                <a href="#checkSingleOptionPresent" >checkSingleOptionPresent</a>
+                            </li>
+                            <li>
+                                <a href="#getFilteredOptions" >getFilteredOptions</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageInit" >OnPageInit</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageLoad" >OnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#onResourceInputChange" >onResourceInputChange</a>
+                            </li>
+                            <li>
+                                <a href="#removeItem" >removeItem</a>
+                            </li>
+                            <li>
+                                <a href="#selectVal" >selectVal</a>
+                            </li>
+                            <li>
+                                <a href="#stopEventPropagation" >stopEventPropagation</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#control" >control</a>
+                            </li>
+                            <li>
+                                <a href="#dropdownContent" >dropdownContent</a>
+                            </li>
+                            <li>
+                                <a href="#dropDownList" >dropDownList</a>
+                            </li>
+                            <li>
+                                <a href="#fieldSize" >fieldSize</a>
+                            </li>
+                            <li>
+                                <a href="#formcontrolName" >formcontrolName</a>
+                            </li>
+                            <li>
+                                <a href="#groupName" >groupName</a>
+                            </li>
+                            <li>
+                                <a href="#itemName" >itemName</a>
+                            </li>
+                            <li>
+                                <a href="#multi" >multi</a>
+                            </li>
+                            <li>
+                                <a href="#name" >name</a>
+                            </li>
+                            <li>
+                                <a href="#placeholder" >placeholder</a>
+                            </li>
+                            <li>
+                                <a href="#preselectList" >preselectList</a>
+                            </li>
+                            <li>
+                                <a href="#preselectVal" >preselectVal</a>
+                            </li>
+                            <li>
+                                <a href="#showClear" >showClear</a>
+                            </li>
+                            <li>
+                                <a href="#showSpinner" >showSpinner</a>
+                            </li>
+                            <li>
+                                <a href="#size" >size</a>
+                            </li>
+                            <li>
+                                <a href="#title" >title</a>
+                            </li>
+                            <li>
+                                <a href="#value" >value</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#removedItem" >removedItem</a>
+                            </li>
+                            <li>
+                                <a href="#selectedOption" >selectedOption</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(activatedRoute: ActivatedRoute, rootFormGroup: <a href="../classes/Group.html" target="_self">FormGroupDirective</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>rootFormGroup</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/Group.html" target="_self" >FormGroupDirective</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="control"></a>
+                        <b>control</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormControl</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:29</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dropdownContent"></a>
+                        <b>dropdownContent</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:31</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dropDownList"></a>
+                        <b>dropDownList</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:33</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fieldSize"></a>
+                        <b>fieldSize</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;small&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:40</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formcontrolName"></a>
+                        <b>formcontrolName</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:52</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="groupName"></a>
+                        <b>groupName</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:53</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="itemName"></a>
+                        <b>itemName</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:55</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="multi"></a>
+                        <b>multi</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:39</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="name"></a>
+                        <b>name</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:35</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="placeholder"></a>
+                        <b>placeholder</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:36</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="preselectList"></a>
+                        <b>preselectList</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:50</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="preselectVal"></a>
+                        <b>preselectVal</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:49</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showClear"></a>
+                        <b>showClear</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:51</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showSpinner"></a>
+                        <b>showSpinner</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:54</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="size"></a>
+                        <b>size</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;small&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:37</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <b>title</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:38</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="value"></a>
+                        <b>value</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | number</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:30</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removedItem"></a>
+                        <b>removedItem</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Event.html" target="_self" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:44</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedOption"></a>
+                        <b>selectedOption</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Event.html" target="_self" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:43</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeResourceVal"></a>
+                    <span class="name">
+                        <span ><b>changeResourceVal</b></span>
+                        <a href="#changeResourceVal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeResourceVal(event, option, groupOption)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>option</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>groupOption</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkResourcePresent"></a>
+                    <span class="name">
+                        <span ><b>checkResourcePresent</b></span>
+                        <a href="#checkResourcePresent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkResourcePresent(optionCheck, key)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="141"
+                                    class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:141</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>optionCheck</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>key</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkSingleOptionPresent"></a>
+                    <span class="name">
+                        <span ><b>checkSingleOptionPresent</b></span>
+                        <a href="#checkSingleOptionPresent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkSingleOptionPresent(option)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="157"
+                                    class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:157</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>option</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFilteredOptions"></a>
+                    <span class="name">
+                        <span ><b>getFilteredOptions</b></span>
+                        <a href="#getFilteredOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFilteredOptions(values: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="168"
+                                    class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:168</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>values</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="73"
+                                    class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageInit"></a>
+                    <span class="name">
+                        <span ><b>OnPageInit</b></span>
+                        <a href="#OnPageInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:65</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>OnPageLoad</b></span>
+                        <a href="#OnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:67</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onResourceInputChange"></a>
+                    <span class="name">
+                        <span ><b>onResourceInputChange</b></span>
+                        <a href="#onResourceInputChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onResourceInputChange()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="164"
+                                    class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:164</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeItem"></a>
+                    <span class="name">
+                        <span ><b>removeItem</b></span>
+                        <a href="#removeItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeItem(option)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="207"
+                                    class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>option</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectVal"></a>
+                    <span class="name">
+                        <span ><b>selectVal</b></span>
+                        <a href="#selectVal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectVal(event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="227"
+                                    class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:227</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stopEventPropagation"></a>
+                    <span class="name">
+                        <span ><b>stopEventPropagation</b></span>
+                        <a href="#stopEventPropagation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>stopEventPropagation(event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="153"
+                                    class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:153</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="autoComplete"></a>
+                    <span class="name">
+                        <span ><b>autoComplete</b></span>
+                        <a href="#autoComplete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormControl</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dropdownContentOriginal"></a>
+                    <span class="name">
+                        <span ><b>dropdownContentOriginal</b></span>
+                        <a href="#dropdownContentOriginal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dropDownListOriginal"></a>
+                    <span class="name">
+                        <span ><b>dropDownListOriginal</b></span>
+                        <a href="#dropDownListOriginal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="keysPresent"></a>
+                    <span class="name">
+                        <span ><b>keysPresent</b></span>
+                        <a href="#keysPresent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchString"></a>
+                    <span class="name">
+                        <span ><b>searchString</b></span>
+                        <a href="#searchString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormControl</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedList"></a>
+                    <span class="name">
+                        <span ><b>selectedList</b></span>
+                        <a href="#selectedList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedOptionVal"></a>
+                    <span class="name">
+                        <span ><b>selectedOptionVal</b></span>
+                        <a href="#selectedOptionVal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visibleList"></a>
+                    <span class="name">
+                        <span ><b>visibleList</b></span>
+                        <a href="#visibleList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visibleOptions"></a>
+                    <span class="name">
+                        <span ><b>visibleOptions</b></span>
+                        <a href="#visibleOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/multi-select-search/multi-select-search.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  SimpleChanges,
+  OnChanges,
+} from &#x27;@angular/core&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import { ActivatedRoute, Params } from &#x27;@angular/router&#x27;;
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+  FormGroupDirective,
+} from &#x27;@angular/forms&#x27;;
+
+@Component({
+  selector: &#x27;app-multi-select-search&#x27;,
+  templateUrl: &#x27;./multi-select-search.component.html&#x27;,
+  styleUrls: [&#x27;./multi-select-search.component.scss&#x27;],
+  providers: [FormGroupDirective],
+})
+export class MultiSelectSearchComponent
+  extends FacetsPage
+  implements OnChanges
+{
+  @Input() control: FormControl;
+  @Input() value: string | number;
+  @Input() dropdownContent: any &#x3D; {};
+  dropdownContentOriginal: any &#x3D; {};
+  @Input() dropDownList: any &#x3D; [];
+  dropDownListOriginal: any &#x3D; [];
+  @Input() name: string &#x3D; &#x27;&#x27;;
+  @Input() placeholder: string &#x3D; &#x27;&#x27;;
+  @Input() size: string &#x3D; &#x27;small&#x27;;
+  @Input() title: string &#x3D; &#x27;&#x27;;
+  @Input() multi: boolean &#x3D; false;
+  @Input() fieldSize: string &#x3D; &#x27;small&#x27;;
+  visibleOptions: string[] &#x3D; [];
+  selectedOptionVal: string &#x3D; &#x27;&#x27;;
+  @Output() selectedOption &#x3D; new EventEmitter&lt;any&gt;();
+  @Output() removedItem &#x3D; new EventEmitter&lt;string&gt;();
+  selectedList &#x3D; [];
+  visibleList: { title: string; value: string }[] &#x3D; [];
+  searchString: FormControl &#x3D; new FormControl(&#x27;&#x27;);
+  autoComplete: FormControl &#x3D; new FormControl(&#x27;&#x27;);
+  @Input() preselectVal: string &#x3D; &#x27;&#x27;;
+  @Input() preselectList: any &#x3D; [];
+  @Input() showClear: boolean &#x3D; true;
+  @Input() formcontrolName: string;
+  @Input() groupName: FormGroup;
+  @Input() showSpinner: boolean &#x3D; false; // Set to true to show a spinner on the input field
+  @Input() itemName: string &#x3D; &#x27;&#x27;;
+  keysPresent: boolean;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private rootFormGroup: FormGroupDirective,
+  ) {
+    super(activatedRoute);
+  }
+
+  OnPageInit(): void {}
+
+  OnPageLoad(p: Params): void {
+    if (this.dropDownList.length &gt; 0) {
+      this.dropDownListOriginal &#x3D; [...this.dropDownList];
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes?.preselectVal?.currentValue) {
+      this.selectedOptionVal &#x3D; changes?.preselectVal?.currentValue.toString();
+    }
+    if (changes?.multi || this.multi) {
+      if (changes?.preselectList?.currentValue?.length &gt; 0) {
+        this.visibleList &#x3D; [...changes?.preselectList?.currentValue];
+      } else {
+        this.visibleList &#x3D; [];
+      }
+    }
+    if (changes?.dropDownList?.currentValue?.length &gt; 0) {
+      this.dropDownListOriginal &#x3D; changes.dropDownList.currentValue;
+    }
+    if (changes.showSpinner?.currentValue !&#x3D; null) {
+      this.showSpinner &#x3D; changes.showSpinner.currentValue;
+    }
+    if (changes.dropdownContent?.currentValue) {
+      if (changes.dropdownContent?.currentValue instanceof Map) {
+        this.dropdownContentOriginal &#x3D; Object.fromEntries(
+          changes.dropdownContent?.currentValue,
+        );
+      } else {
+        this.dropdownContentOriginal &#x3D; { ...this.dropdownContent };
+      }
+      this.searchString.setValue(&#x27;&#x27;);
+    }
+    if (changes.itemName?.currentValue?.length) {
+      this.itemName &#x3D; changes.itemName.currentValue;
+    }
+    this.keysPresent &#x3D; Object.keys(this.dropdownContentOriginal)?.length &gt; 0;
+  }
+
+  changeResourceVal(event, option, groupOption) {
+    if (event) {
+      event.stopPropagation();
+    }
+    let optionPresent &#x3D; false;
+    this.visibleList.forEach((item) &#x3D;&gt; {
+      if (
+        item.title.toLowerCase() &#x3D;&#x3D;&#x3D; groupOption.toLowerCase() &amp;&amp;
+        item.value.toLowerCase() &#x3D;&#x3D;&#x3D; option.toLowerCase()
+      ) {
+        optionPresent &#x3D; true;
+      }
+    });
+    if (option &amp;&amp; optionPresent) {
+      let tempList &#x3D; [];
+      this.visibleList.forEach((item) &#x3D;&gt; {
+        if (
+          item.title.toLowerCase() &#x3D;&#x3D;&#x3D; groupOption.toLowerCase() &amp;&amp;
+          item.value.toLowerCase() &#x3D;&#x3D;&#x3D; option.toLowerCase()
+        ) {
+          console.log(&#x27;item&#x27;, item);
+        } else {
+          tempList.push(item);
+        }
+      });
+      this.visibleList &#x3D; [...tempList];
+    } else {
+      this.visibleList.push({
+        title: groupOption.toLowerCase(),
+        value: option.toLowerCase(),
+      });
+    }
+    this.selectedOption.emit({ visibleList: this.visibleList });
+  }
+
+  checkResourcePresent(optionCheck, key) {
+    let tempChecklist &#x3D; this.visibleList.filter((option) &#x3D;&gt; {
+      if (option.title &#x3D;&#x3D;&#x3D; key.toLowerCase() &amp;&amp; option.value &#x3D;&#x3D;&#x3D; optionCheck) {
+        return true;
+      }
+    });
+    if (tempChecklist.length &gt; 0) {
+      return true;
+    }
+    return false;
+  }
+
+  stopEventPropagation(event) {
+    event.stopPropagation();
+  }
+
+  checkSingleOptionPresent(option) {
+    if (option.value.toString() &#x3D;&#x3D;&#x3D; this.selectedOptionVal.toString()) {
+      return true;
+    }
+    return false;
+  }
+
+  onResourceInputChange() {
+    this.getFilteredOptions(this.searchString.value);
+  }
+
+  getFilteredOptions(values: string) {
+    if (this.multi) {
+      let filteredOps &#x3D; {};
+      if (values?.length &gt; 0) {
+        Object.keys(this.dropdownContentOriginal).forEach((parentOption) &#x3D;&gt; {
+          let filteredList &#x3D; [];
+          this.dropdownContentOriginal[parentOption].forEach((item: string) &#x3D;&gt; {
+            if (item.toLowerCase().includes(values.toLowerCase())) {
+              filteredList.push(item);
+            }
+          });
+          if (filteredList.length &gt; 0) {
+            filteredOps[parentOption] &#x3D; filteredList;
+          }
+        });
+        this.dropdownContent &#x3D; { ...filteredOps };
+      } else {
+        this.dropdownContent &#x3D; { ...this.dropdownContentOriginal };
+      }
+    } else {
+      let filteredList &#x3D; [];
+      if (values?.length &gt; 0) {
+        this.dropDownListOriginal.forEach((option) &#x3D;&gt; {
+          console.log(
+            &#x27;option&#x27;,
+            option,
+            option.value.toLowerCase().includes(values.toLowerCase()),
+          );
+          if (option.value.toLowerCase().includes(values.toLowerCase())) {
+            filteredList.push(option);
+          }
+        });
+        this.dropDownList &#x3D; [...filteredList];
+      } else {
+        this.dropDownList &#x3D; [...this.dropDownListOriginal];
+      }
+    }
+  }
+
+  removeItem(option) {
+    this.visibleList &#x3D; this.visibleList.filter(
+      (item) &#x3D;&gt; item.value.toLowerCase() !&#x3D;&#x3D; option.value.toLowerCase(),
+    );
+    //this.changeBtnText();
+    let tempList &#x3D; [];
+    this.visibleList.forEach((item) &#x3D;&gt; {
+      if (
+        item.title.toLowerCase() &#x3D;&#x3D;&#x3D; option.title.toLowerCase() &amp;&amp;
+        item.value.toLowerCase() &#x3D;&#x3D;&#x3D; option.value.toLowerCase()
+      ) {
+        console.log(&#x27;item&#x27;, item);
+      } else {
+        tempList.push(item);
+      }
+    });
+    this.visibleList &#x3D; [...tempList];
+    this.selectedOption.emit({ visibleList: this.visibleList });
+  }
+
+  selectVal(event) {
+    this.selectedOptionVal &#x3D; event;
+    if (this.groupName) {
+      this.groupName.get(this.formcontrolName).setValue(event);
+    }
+    this.selectedOption.emit(event);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;d-flex&quot; style&#x3D;&quot;padding-bottom: inherit&quot;&gt;
+  &lt;div
+    *ngIf&#x3D;&quot;title&quot;
+    class&#x3D;&quot;d-flex weight-600&quot;
+    style&#x3D;&quot;width: 140px; margin-top: 0rem&quot;
+  &gt;
+    {{ title }}
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;w-100&quot; *ngIf&#x3D;&quot;multi&quot;&gt;
+    &lt;div style&#x3D;&quot;display: flex; flex-direction: column&quot;&gt;
+      &lt;div [nbSpinner]&#x3D;&quot;showSpinner&quot;&gt;
+        &lt;input
+          class&#x3D;&quot;w-100&quot;
+          id&#x3D;&quot;{{ name }}&quot;
+          [formControl]&#x3D;&quot;searchString&quot;
+          nbInput
+          type&#x3D;&quot;search&quot;
+          [fieldSize]&#x3D;&quot;fieldSize&quot;
+          (input)&#x3D;&quot;onResourceInputChange()&quot;
+          placeholder&#x3D;&quot;{{ placeholder }}&quot;
+          [nbAutocomplete]&#x3D;&quot;auto&quot;
+          autocomplete&#x3D;&quot;off&quot;
+          fullWidth
+          appearances
+        /&gt;
+      &lt;/div&gt;
+      &lt;div
+        *ngIf&#x3D;&quot;itemName &amp;&amp; keysPresent&quot;
+        style&#x3D;&quot;margin-top: 0.2rem; font-weight: 400; font-size: 0.8rem&quot;
+      &gt;
+        {{ visibleList?.length }}
+        {{ itemName + (visibleList.length &gt; 1 ? &#x27;s&#x27; : &#x27;&#x27;) }} selected
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;nb-autocomplete #auto size&#x3D;&quot;small&quot;&gt;
+      &lt;nb-option-group
+        *ngFor&#x3D;&quot;let parentOption of dropdownContent | keyvalue&quot;
+        title&#x3D;&quot;{{ parentOption.key | titlecase }}&quot;
+      &gt;
+        &lt;nb-option
+          class&#x3D;&quot;p-0&quot;
+          *ngFor&#x3D;&quot;let option of parentOption.value&quot;
+          value&#x3D;&quot;{{ option }}&quot;
+        &gt;
+          &lt;button
+            class&#x3D;&quot;p-0 border-0&quot;
+            style&#x3D;&quot;
+              background-color: initial;
+              border: none;
+              color: inherit;
+              outline: none;
+            &quot;
+            (click)&#x3D;&quot;stopEventPropagation($event)&quot;
+          &gt;
+            &lt;nb-checkbox
+              class&#x3D;&quot;multi-checkbox&quot;
+              [checked]&#x3D;&quot;checkResourcePresent(option, parentOption.key)&quot;
+              (checkedChange)&#x3D;&quot;
+                changeResourceVal(null, option, parentOption.key)
+              &quot;
+            &gt;&lt;/nb-checkbox&gt;
+          &lt;/button&gt;
+          &lt;button
+            size&#x3D;&quot;small&quot;
+            class&#x3D;&quot;w-100 justify-content-start pb-2 pl-0&quot;
+            style&#x3D;&quot;
+              background-color: initial;
+              border: none;
+              color: inherit;
+              outline: none;
+              text-align: left;
+              font-size: 0.8125rem;
+            &quot;
+            (click)&#x3D;&quot;changeResourceVal($event, option, parentOption.key)&quot;
+          &gt;
+            &lt;span class&#x3D;&quot;ml-2 weight-600&quot;&gt;{{ option }}&lt;/span&gt;
+          &lt;/button&gt;
+        &lt;/nb-option&gt;
+      &lt;/nb-option-group&gt;
+    &lt;/nb-autocomplete&gt;
+  &lt;/div&gt;
+  &lt;div *ngIf&#x3D;&quot;!multi&quot; class&#x3D;&quot;w-100&quot;&gt;
+    &lt;input
+      class&#x3D;&quot;w-100&quot;
+      id&#x3D;&quot;{{ name }}&quot;
+      [formControl]&#x3D;&quot;searchString&quot;
+      nbInput
+      [fieldSize]&#x3D;&quot;fieldSize&quot;
+      type&#x3D;&quot;search&quot;
+      (input)&#x3D;&quot;onResourceInputChange()&quot;
+      placeholder&#x3D;&quot;{{ placeholder }}&quot;
+      [nbAutocomplete]&#x3D;&quot;auto&quot;
+      autocomplete&#x3D;&quot;off&quot;
+      fullWidth
+      appearances
+    /&gt;
+    &lt;nb-autocomplete #auto size&#x3D;&quot;small&quot; (selectedChange)&#x3D;&quot;selectVal($event)&quot;&gt;
+      &lt;nb-option *ngIf&#x3D;&quot;showClear&quot; value&#x3D;&quot;clear&quot;&gt;Clear filter&lt;/nb-option&gt;
+      &lt;nb-option *ngFor&#x3D;&quot;let option of dropDownList&quot; [value]&#x3D;&quot;option.value&quot;&gt;
+        &lt;nb-checkbox
+          style&#x3D;&quot;margin-top: 0.2rem&quot;
+          [checked]&#x3D;&quot;checkSingleOptionPresent(option)&quot;
+        &gt;&lt;/nb-checkbox&gt;
+        &lt;span class&#x3D;&quot;ml-2&quot;&gt;{{ option.label }}&lt;/span&gt;
+      &lt;/nb-option&gt;
+    &lt;/nb-autocomplete&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div *ngIf&#x3D;&quot;multi&quot; class&#x3D;&quot;d-flex flex-wrap mt-2 scrollable&quot;&gt;
+  &lt;div
+    class&#x3D;&quot;d-flex px-2 py-1 rounded mr-2 mt-2&quot;
+    style&#x3D;&quot;background-color: #dee2fe&quot;
+    *ngFor&#x3D;&quot;let option of visibleList&quot;
+  &gt;
+    &lt;span class&#x3D;&quot;font-weight-600 mr-1&quot;
+      &gt;{{ option.title }}:{{ option.value }}&lt;/span
+    &gt;
+    &lt;nb-icon
+      icon&#x3D;&quot;close-outline&quot;
+      pack&#x3D;&quot;fci&quot;
+      class&#x3D;&quot;cursor-pointer&quot;
+      (click)&#x3D;&quot;removeItem(option)&quot;
+    &gt;&lt;/nb-icon&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./multi-select-search.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">::ng-deep .multi-checkbox .label {
+  padding-left: 2rem !important;
+}
+
+.scrollable {
+  max-height: 20rem;
+  overflow: auto;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="d-flex" style="padding-bottom: inherit">  <div    *ngIf="title"    class="d-flex weight-600"    style="width: 140px; margin-top: 0rem"  >    {{ title }}  </div>  <div class="w-100" *ngIf="multi">    <div style="display: flex; flex-direction: column">      <div [nbSpinner]="showSpinner">        <input          class="w-100"          id="{{ name }}"          [formControl]="searchString"          nbInput          type="search"          [fieldSize]="fieldSize"          (input)="onResourceInputChange()"          placeholder="{{ placeholder }}"          [nbAutocomplete]="auto"          autocomplete="off"          fullWidth          appearances        />      </div>      <div        *ngIf="itemName && keysPresent"        style="margin-top: 0.2rem; font-weight: 400; font-size: 0.8rem"      >        {{ visibleList?.length }}        {{ itemName + (visibleList.length > 1 ? \'s\' : \'\') }} selected      </div>    </div>    <nb-autocomplete #auto size="small">      <nb-option-group        *ngFor="let parentOption of dropdownContent | keyvalue"        title="{{ parentOption.key | titlecase }}"      >        <nb-option          class="p-0"          *ngFor="let option of parentOption.value"          value="{{ option }}"        >          <button            class="p-0 border-0"            style="              background-color: initial;              border: none;              color: inherit;              outline: none;            "            (click)="stopEventPropagation($event)"          >            <nb-checkbox              class="multi-checkbox"              [checked]="checkResourcePresent(option, parentOption.key)"              (checkedChange)="                changeResourceVal(null, option, parentOption.key)              "            ></nb-checkbox>          </button>          <button            size="small"            class="w-100 justify-content-start pb-2 pl-0"            style="              background-color: initial;              border: none;              color: inherit;              outline: none;              text-align: left;              font-size: 0.8125rem;            "            (click)="changeResourceVal($event, option, parentOption.key)"          >            <span class="ml-2 weight-600">{{ option }}</span>          </button>        </nb-option>      </nb-option-group>    </nb-autocomplete>  </div>  <div *ngIf="!multi" class="w-100">    <input      class="w-100"      id="{{ name }}"      [formControl]="searchString"      nbInput      [fieldSize]="fieldSize"      type="search"      (input)="onResourceInputChange()"      placeholder="{{ placeholder }}"      [nbAutocomplete]="auto"      autocomplete="off"      fullWidth      appearances    />    <nb-autocomplete #auto size="small" (selectedChange)="selectVal($event)">      <nb-option *ngIf="showClear" value="clear">Clear filter</nb-option>      <nb-option *ngFor="let option of dropDownList" [value]="option.value">        <nb-checkbox          style="margin-top: 0.2rem"          [checked]="checkSingleOptionPresent(option)"        ></nb-checkbox>        <span class="ml-2">{{ option.label }}</span>      </nb-option>    </nb-autocomplete>  </div></div><div *ngIf="multi" class="d-flex flex-wrap mt-2 scrollable">  <div    class="d-flex px-2 py-1 rounded mr-2 mt-2"    style="background-color: #dee2fe"    *ngFor="let option of visibleList"  >    <span class="font-weight-600 mr-1"      >{{ option.title }}:{{ option.value }}</span    >    <nb-icon      icon="close-outline"      pack="fci"      class="cursor-pointer"      (click)="removeItem(option)"    ></nb-icon>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'MultiSelectSearchComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MultiSelectSearchComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,2083 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >UiArtifactRoutingRuleControllerService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Ui Artifact Routing Rule Controller</p>
+
+            </p>
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../classes/BaseService.html" target="_self" >__BaseService</a></code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#addArtifactRoutingRuleUsingPOSTPath" >addArtifactRoutingRuleUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#deleteArtifactRoutingRuleUsingDELETEPath" >deleteArtifactRoutingRuleUsingDELETEPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getAllArtifactRoutingRulesUsingGETPath" >getAllArtifactRoutingRulesUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getAllOperatorsUsingGETPath" >getAllOperatorsUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getArtifactRoutingRuleUsingGETPath" >getArtifactRoutingRuleUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#testRuleForBranchNameUsingPOSTPath" >testRuleForBranchNameUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#updateArtifactRoutingRuleUsingPUTPath" >updateArtifactRoutingRuleUsingPUTPath</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addArtifactRoutingRuleUsingPOST" >addArtifactRoutingRuleUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#addArtifactRoutingRuleUsingPOSTResponse" >addArtifactRoutingRuleUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#deleteArtifactRoutingRuleUsingDELETE" >deleteArtifactRoutingRuleUsingDELETE</a>
+                            </li>
+                            <li>
+                                <a href="#deleteArtifactRoutingRuleUsingDELETEResponse" >deleteArtifactRoutingRuleUsingDELETEResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getAllArtifactRoutingRulesUsingGET" >getAllArtifactRoutingRulesUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getAllArtifactRoutingRulesUsingGETResponse" >getAllArtifactRoutingRulesUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getAllOperatorsUsingGET" >getAllOperatorsUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getAllOperatorsUsingGETResponse" >getAllOperatorsUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getArtifactRoutingRuleUsingGET" >getArtifactRoutingRuleUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getArtifactRoutingRuleUsingGETResponse" >getArtifactRoutingRuleUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#testRuleForBranchNameUsingPOST" >testRuleForBranchNameUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#testRuleForBranchNameUsingPOSTResponse" >testRuleForBranchNameUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#updateArtifactRoutingRuleUsingPUT" >updateArtifactRoutingRuleUsingPUT</a>
+                            </li>
+                            <li>
+                                <a href="#updateArtifactRoutingRuleUsingPUTResponse" >updateArtifactRoutingRuleUsingPUTResponse</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(config: <a href="../interfaces/Config.html" target="_self">___Configuration</a>, http: HttpClient)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>config</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Config.html" target="_self" >___Configuration</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addArtifactRoutingRuleUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>addArtifactRoutingRuleUsingPOST</b></span>
+                        <a href="#addArtifactRoutingRuleUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addArtifactRoutingRuleUsingPOST(artifactRoutingRuleRequest: <a href="../interfaces/ArtifactRoutingRuleRequest.html" target="_self">ArtifactRoutingRuleRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>addArtifactRoutingRule</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>artifactRoutingRuleRequest</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ArtifactRoutingRuleRequest.html" target="_self" >ArtifactRoutingRuleRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>artifactRoutingRuleRequest</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;ArtifactRoutingRuleResponse&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addArtifactRoutingRuleUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>addArtifactRoutingRuleUsingPOSTResponse</b></span>
+                        <a href="#addArtifactRoutingRuleUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addArtifactRoutingRuleUsingPOSTResponse(artifactRoutingRuleRequest: <a href="../interfaces/ArtifactRoutingRuleRequest.html" target="_self">ArtifactRoutingRuleRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>addArtifactRoutingRule</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>artifactRoutingRuleRequest</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ArtifactRoutingRuleRequest.html" target="_self" >ArtifactRoutingRuleRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>artifactRoutingRuleRequest</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;ArtifactRoutingRuleResponse&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteArtifactRoutingRuleUsingDELETE"></a>
+                    <span class="name">
+                        <span ><b>deleteArtifactRoutingRuleUsingDELETE</b></span>
+                        <a href="#deleteArtifactRoutingRuleUsingDELETE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteArtifactRoutingRuleUsingDELETE(ruleId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="371"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:371</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteArtifactRoutingRule</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ruleId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ruleId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/variables.html#undefined" target="_self" >___Observable&lt;undefined&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteArtifactRoutingRuleUsingDELETEResponse"></a>
+                    <span class="name">
+                        <span ><b>deleteArtifactRoutingRuleUsingDELETEResponse</b></span>
+                        <a href="#deleteArtifactRoutingRuleUsingDELETEResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteArtifactRoutingRuleUsingDELETEResponse(ruleId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="341"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:341</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteArtifactRoutingRule</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ruleId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ruleId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;undefined&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllArtifactRoutingRulesUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getAllArtifactRoutingRulesUsingGET</b></span>
+                        <a href="#getAllArtifactRoutingRulesUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllArtifactRoutingRulesUsingGET(params: <a href="../injectables/UiArtifactRoutingRuleControllerService.html" target="_self">UiArtifactRoutingRuleControllerService.GetAllArtifactRoutingRulesUsingGETParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllArtifactRoutingRules</p>
+<ul>
+<li><p><code>stackName</code>: stackName</p>
+</li>
+<li><p><code>registrationType</code>: registrationType</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiArtifactRoutingRuleControllerService.html" target="_self" >UiArtifactRoutingRuleControllerService.GetAllArtifactRoutingRulesUsingGETParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiArtifactRoutingRuleControllerService.GetAllArtifactRoutingRulesUsingGETParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>stackName</code>: stackName</p>
+</li>
+<li><p><code>registrationType</code>: registrationType</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;Array&lt;ArtifactRoutingRuleResponse&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllArtifactRoutingRulesUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getAllArtifactRoutingRulesUsingGETResponse</b></span>
+                        <a href="#getAllArtifactRoutingRulesUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllArtifactRoutingRulesUsingGETResponse(params: <a href="../injectables/UiArtifactRoutingRuleControllerService.html" target="_self">UiArtifactRoutingRuleControllerService.GetAllArtifactRoutingRulesUsingGETParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllArtifactRoutingRules</p>
+<ul>
+<li><p><code>stackName</code>: stackName</p>
+</li>
+<li><p><code>registrationType</code>: registrationType</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiArtifactRoutingRuleControllerService.html" target="_self" >UiArtifactRoutingRuleControllerService.GetAllArtifactRoutingRulesUsingGETParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiArtifactRoutingRuleControllerService.GetAllArtifactRoutingRulesUsingGETParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>stackName</code>: stackName</p>
+</li>
+<li><p><code>registrationType</code>: registrationType</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;ArtifactRoutingRuleResponse&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllOperatorsUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getAllOperatorsUsingGET</b></span>
+                        <a href="#getAllOperatorsUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllOperatorsUsingGET()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="227"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:227</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllOperators</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;Array&lt;&quot;EQUALS&quot; | &quot;STARTS_WITH&quot; | &quot;ENDS_WITH&quot; | &quot;CONTAINS&quot;&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllOperatorsUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getAllOperatorsUsingGETResponse</b></span>
+                        <a href="#getAllOperatorsUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllOperatorsUsingGETResponse()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="195"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:195</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllOperators</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;&quot;EQUALS&quot; | &quot;STARTS_WITH&quot; | &quot;ENDS_WITH&quot; | &quot;CONTAINS&quot;&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArtifactRoutingRuleUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getArtifactRoutingRuleUsingGET</b></span>
+                        <a href="#getArtifactRoutingRuleUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getArtifactRoutingRuleUsingGET(ruleId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="329"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:329</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getArtifactRoutingRule</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ruleId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ruleId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;ArtifactRoutingRuleResponse&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArtifactRoutingRuleUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getArtifactRoutingRuleUsingGETResponse</b></span>
+                        <a href="#getArtifactRoutingRuleUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getArtifactRoutingRuleUsingGETResponse(ruleId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="298"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:298</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getArtifactRoutingRule</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ruleId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ruleId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;ArtifactRoutingRuleResponse&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testRuleForBranchNameUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>testRuleForBranchNameUsingPOST</b></span>
+                        <a href="#testRuleForBranchNameUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>testRuleForBranchNameUsingPOST(params: <a href="../injectables/UiArtifactRoutingRuleControllerService.html" target="_self">UiArtifactRoutingRuleControllerService.TestRuleForBranchNameUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="285"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:285</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>testRuleForBranchName</p>
+<ul>
+<li><p><code>metadata</code>: metadata</p>
+</li>
+<li><p><code>criteria</code>: criteria</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiArtifactRoutingRuleControllerService.html" target="_self" >UiArtifactRoutingRuleControllerService.TestRuleForBranchNameUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiArtifactRoutingRuleControllerService.TestRuleForBranchNameUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>metadata</code>: metadata</p>
+</li>
+<li><p><code>criteria</code>: criteria</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;TestRuleResponse&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testRuleForBranchNameUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>testRuleForBranchNameUsingPOSTResponse</b></span>
+                        <a href="#testRuleForBranchNameUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>testRuleForBranchNameUsingPOSTResponse(params: <a href="../injectables/UiArtifactRoutingRuleControllerService.html" target="_self">UiArtifactRoutingRuleControllerService.TestRuleForBranchNameUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="248"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:248</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>testRuleForBranchName</p>
+<ul>
+<li><p><code>metadata</code>: metadata</p>
+</li>
+<li><p><code>criteria</code>: criteria</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiArtifactRoutingRuleControllerService.html" target="_self" >UiArtifactRoutingRuleControllerService.TestRuleForBranchNameUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiArtifactRoutingRuleControllerService.TestRuleForBranchNameUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>metadata</code>: metadata</p>
+</li>
+<li><p><code>criteria</code>: criteria</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;TestRuleResponse&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateArtifactRoutingRuleUsingPUT"></a>
+                    <span class="name">
+                        <span ><b>updateArtifactRoutingRuleUsingPUT</b></span>
+                        <a href="#updateArtifactRoutingRuleUsingPUT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateArtifactRoutingRuleUsingPUT(artifactRoutingRuleRequest: <a href="../interfaces/ArtifactRoutingRuleRequest.html" target="_self">ArtifactRoutingRuleRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="183"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:183</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>updateArtifactRoutingRule</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>artifactRoutingRuleRequest</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ArtifactRoutingRuleRequest.html" target="_self" >ArtifactRoutingRuleRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>artifactRoutingRuleRequest</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;ArtifactRoutingRuleResponse&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateArtifactRoutingRuleUsingPUTResponse"></a>
+                    <span class="name">
+                        <span ><b>updateArtifactRoutingRuleUsingPUTResponse</b></span>
+                        <a href="#updateArtifactRoutingRuleUsingPUTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateArtifactRoutingRuleUsingPUTResponse(artifactRoutingRuleRequest: <a href="../interfaces/ArtifactRoutingRuleRequest.html" target="_self">ArtifactRoutingRuleRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="153"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:153</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>updateArtifactRoutingRule</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>artifactRoutingRuleRequest</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ArtifactRoutingRuleRequest.html" target="_self" >ArtifactRoutingRuleRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>artifactRoutingRuleRequest</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;ArtifactRoutingRuleResponse&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addArtifactRoutingRuleUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>addArtifactRoutingRuleUsingPOSTPath</b></span>
+                        <a href="#addArtifactRoutingRuleUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifact-routing-rule&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteArtifactRoutingRuleUsingDELETEPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>deleteArtifactRoutingRuleUsingDELETEPath</b></span>
+                        <a href="#deleteArtifactRoutingRuleUsingDELETEPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifact-routing-rule/{ruleId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllArtifactRoutingRulesUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getAllArtifactRoutingRulesUsingGETPath</b></span>
+                        <a href="#getAllArtifactRoutingRulesUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifact-routing-rule&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllOperatorsUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getAllOperatorsUsingGETPath</b></span>
+                        <a href="#getAllOperatorsUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifact-routing-rule/operators&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArtifactRoutingRuleUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getArtifactRoutingRuleUsingGETPath</b></span>
+                        <a href="#getArtifactRoutingRuleUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifact-routing-rule/{ruleId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testRuleForBranchNameUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>testRuleForBranchNameUsingPOSTPath</b></span>
+                        <a href="#testRuleForBranchNameUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifact-routing-rule/test&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateArtifactRoutingRuleUsingPUTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>updateArtifactRoutingRuleUsingPUTPath</b></span>
+                        <a href="#updateArtifactRoutingRuleUsingPUTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifact-routing-rule&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/cc-api/services/ui-artifact-routing-rule-controller.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpHeaders,
+} from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { ArtifactRoutingRuleResponse } from &#x27;../models/artifact-routing-rule-response&#x27;;
+import { ArtifactRoutingRuleRequest } from &#x27;../models/artifact-routing-rule-request&#x27;;
+import { TestRuleResponse } from &#x27;../models/test-rule-response&#x27;;
+import { Criterion } from &#x27;../models/criterion&#x27;;
+
+/**
+ * Ui Artifact Routing Rule Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class UiArtifactRoutingRuleControllerService extends __BaseService {
+  static readonly getAllArtifactRoutingRulesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/artifact-routing-rule&#x27;;
+  static readonly addArtifactRoutingRuleUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/artifact-routing-rule&#x27;;
+  static readonly updateArtifactRoutingRuleUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/artifact-routing-rule&#x27;;
+  static readonly getAllOperatorsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/artifact-routing-rule/operators&#x27;;
+  static readonly testRuleForBranchNameUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/artifact-routing-rule/test&#x27;;
+  static readonly getArtifactRoutingRuleUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/artifact-routing-rule/{ruleId}&#x27;;
+  static readonly deleteArtifactRoutingRuleUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/artifact-routing-rule/{ruleId}&#x27;;
+
+  constructor(config: __Configuration, http: HttpClient) {
+    super(config, http);
+  }
+
+  /**
+   * getAllArtifactRoutingRules
+   * @param params The &#x60;UiArtifactRoutingRuleControllerService.GetAllArtifactRoutingRulesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;registrationType&#x60;: registrationType
+   *
+   * @return OK
+   */
+  getAllArtifactRoutingRulesUsingGETResponse(
+    params: UiArtifactRoutingRuleControllerService.GetAllArtifactRoutingRulesUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ArtifactRoutingRuleResponse&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.stackName !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;stackName&#x27;, params.stackName.toString());
+    if (params.registrationType !&#x3D; null)
+      __params &#x3D; __params.set(
+        &#x27;registrationType&#x27;,
+        params.registrationType.toString(),
+      );
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/artifact-routing-rule&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ArtifactRoutingRuleResponse&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllArtifactRoutingRules
+   * @param params The &#x60;UiArtifactRoutingRuleControllerService.GetAllArtifactRoutingRulesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;registrationType&#x60;: registrationType
+   *
+   * @return OK
+   */
+  getAllArtifactRoutingRulesUsingGET(
+    params: UiArtifactRoutingRuleControllerService.GetAllArtifactRoutingRulesUsingGETParams,
+  ): __Observable&lt;Array&lt;ArtifactRoutingRuleResponse&gt;&gt; {
+    return this.getAllArtifactRoutingRulesUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ArtifactRoutingRuleResponse&gt;),
+    );
+  }
+
+  /**
+   * addArtifactRoutingRule
+   * @param artifactRoutingRuleRequest artifactRoutingRuleRequest
+   * @return OK
+   */
+  addArtifactRoutingRuleUsingPOSTResponse(
+    artifactRoutingRuleRequest: ArtifactRoutingRuleRequest,
+  ): __Observable&lt;__StrictHttpResponse&lt;ArtifactRoutingRuleResponse&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; artifactRoutingRuleRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/artifact-routing-rule&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ArtifactRoutingRuleResponse&gt;;
+      }),
+    );
+  }
+  /**
+   * addArtifactRoutingRule
+   * @param artifactRoutingRuleRequest artifactRoutingRuleRequest
+   * @return OK
+   */
+  addArtifactRoutingRuleUsingPOST(
+    artifactRoutingRuleRequest: ArtifactRoutingRuleRequest,
+  ): __Observable&lt;ArtifactRoutingRuleResponse&gt; {
+    return this.addArtifactRoutingRuleUsingPOSTResponse(
+      artifactRoutingRuleRequest,
+    ).pipe(__map((_r) &#x3D;&gt; _r.body as ArtifactRoutingRuleResponse));
+  }
+
+  /**
+   * updateArtifactRoutingRule
+   * @param artifactRoutingRuleRequest artifactRoutingRuleRequest
+   * @return OK
+   */
+  updateArtifactRoutingRuleUsingPUTResponse(
+    artifactRoutingRuleRequest: ArtifactRoutingRuleRequest,
+  ): __Observable&lt;__StrictHttpResponse&lt;ArtifactRoutingRuleResponse&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; artifactRoutingRuleRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/artifact-routing-rule&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ArtifactRoutingRuleResponse&gt;;
+      }),
+    );
+  }
+  /**
+   * updateArtifactRoutingRule
+   * @param artifactRoutingRuleRequest artifactRoutingRuleRequest
+   * @return OK
+   */
+  updateArtifactRoutingRuleUsingPUT(
+    artifactRoutingRuleRequest: ArtifactRoutingRuleRequest,
+  ): __Observable&lt;ArtifactRoutingRuleResponse&gt; {
+    return this.updateArtifactRoutingRuleUsingPUTResponse(
+      artifactRoutingRuleRequest,
+    ).pipe(__map((_r) &#x3D;&gt; _r.body as ArtifactRoutingRuleResponse));
+  }
+
+  /**
+   * getAllOperators
+   * @return OK
+   */
+  getAllOperatorsUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;
+      Array&lt;&#x27;EQUALS&#x27; | &#x27;STARTS_WITH&#x27; | &#x27;ENDS_WITH&#x27; | &#x27;CONTAINS&#x27;&gt;
+    &gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/artifact-routing-rule/operators&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;
+          Array&lt;&#x27;EQUALS&#x27; | &#x27;STARTS_WITH&#x27; | &#x27;ENDS_WITH&#x27; | &#x27;CONTAINS&#x27;&gt;
+        &gt;;
+      }),
+    );
+  }
+  /**
+   * getAllOperators
+   * @return OK
+   */
+  getAllOperatorsUsingGET(): __Observable&lt;
+    Array&lt;&#x27;EQUALS&#x27; | &#x27;STARTS_WITH&#x27; | &#x27;ENDS_WITH&#x27; | &#x27;CONTAINS&#x27;&gt;
+  &gt; {
+    return this.getAllOperatorsUsingGETResponse().pipe(
+      __map(
+        (_r) &#x3D;&gt;
+          _r.body as Array&lt;&#x27;EQUALS&#x27; | &#x27;STARTS_WITH&#x27; | &#x27;ENDS_WITH&#x27; | &#x27;CONTAINS&#x27;&gt;,
+      ),
+    );
+  }
+
+  /**
+   * testRuleForBranchName
+   * @param params The &#x60;UiArtifactRoutingRuleControllerService.TestRuleForBranchNameUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;metadata&#x60;: metadata
+   *
+   * - &#x60;criteria&#x60;: criteria
+   *
+   * @return OK
+   */
+  testRuleForBranchNameUsingPOSTResponse(
+    params: UiArtifactRoutingRuleControllerService.TestRuleForBranchNameUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;TestRuleResponse&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.metadata !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;metadata&#x27;, params.metadata.toString());
+    __body &#x3D; params.criteria;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/artifact-routing-rule/test&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;TestRuleResponse&gt;;
+      }),
+    );
+  }
+  /**
+   * testRuleForBranchName
+   * @param params The &#x60;UiArtifactRoutingRuleControllerService.TestRuleForBranchNameUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;metadata&#x60;: metadata
+   *
+   * - &#x60;criteria&#x60;: criteria
+   *
+   * @return OK
+   */
+  testRuleForBranchNameUsingPOST(
+    params: UiArtifactRoutingRuleControllerService.TestRuleForBranchNameUsingPOSTParams,
+  ): __Observable&lt;TestRuleResponse&gt; {
+    return this.testRuleForBranchNameUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as TestRuleResponse),
+    );
+  }
+
+  /**
+   * getArtifactRoutingRule
+   * @param ruleId ruleId
+   * @return OK
+   */
+  getArtifactRoutingRuleUsingGETResponse(
+    ruleId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;ArtifactRoutingRuleResponse&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/artifact-routing-rule/${encodeURIComponent(String(ruleId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ArtifactRoutingRuleResponse&gt;;
+      }),
+    );
+  }
+  /**
+   * getArtifactRoutingRule
+   * @param ruleId ruleId
+   * @return OK
+   */
+  getArtifactRoutingRuleUsingGET(
+    ruleId: string,
+  ): __Observable&lt;ArtifactRoutingRuleResponse&gt; {
+    return this.getArtifactRoutingRuleUsingGETResponse(ruleId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ArtifactRoutingRuleResponse),
+    );
+  }
+
+  /**
+   * deleteArtifactRoutingRule
+   * @param ruleId ruleId
+   */
+  deleteArtifactRoutingRuleUsingDELETEResponse(
+    ruleId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/artifact-routing-rule/${encodeURIComponent(String(ruleId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteArtifactRoutingRule
+   * @param ruleId ruleId
+   */
+  deleteArtifactRoutingRuleUsingDELETE(ruleId: string): __Observable&lt;null&gt; {
+    return this.deleteArtifactRoutingRuleUsingDELETEResponse(ruleId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+}
+
+module UiArtifactRoutingRuleControllerService {
+  /**
+   * Parameters for getAllArtifactRoutingRulesUsingGET
+   */
+  export interface GetAllArtifactRoutingRulesUsingGETParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * registrationType
+     */
+    registrationType?: string;
+  }
+
+  /**
+   * Parameters for testRuleForBranchNameUsingPOST
+   */
+  export interface TestRuleForBranchNameUsingPOSTParams {
+    /**
+     * metadata
+     */
+    metadata: any;
+
+    /**
+     * criteria
+     */
+    criteria: Array&lt;Criterion&gt;;
+  }
+}
+
+export { UiArtifactRoutingRuleControllerService };
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'UiArtifactRoutingRuleControllerService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

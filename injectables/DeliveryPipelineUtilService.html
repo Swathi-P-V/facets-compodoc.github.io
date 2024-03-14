@@ -1,0 +1,2161 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >DeliveryPipelineUtilService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/delivery-pipeline.util.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#allEnvironments" >allEnvironments</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#cellToCenter" >cellToCenter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#editModeOn" >editModeOn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#environmentMap" >environmentMap</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#graph" >graph</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#graphConfigUpdates" >graphConfigUpdates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#nodeMap" >nodeMap</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#pipelineTree" >pipelineTree</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addToEnvironmentMap" >addToEnvironmentMap</a>
+                            </li>
+                            <li>
+                                <a href="#findNodeInPipeline" >findNodeInPipeline</a>
+                            </li>
+                            <li>
+                                <a href="#getAllEnvironments" >getAllEnvironments</a>
+                            </li>
+                            <li>
+                                <a href="#getCellToCenter" >getCellToCenter</a>
+                            </li>
+                            <li>
+                                <a href="#getEnvironmentMap" >getEnvironmentMap</a>
+                            </li>
+                            <li>
+                                <a href="#getNodeUsingEnvironmentID" >getNodeUsingEnvironmentID</a>
+                            </li>
+                            <li>
+                                <a href="#getParentNode" >getParentNode</a>
+                            </li>
+                            <li>
+                                <a href="#getPipeline_unset" >getPipeline_unset</a>
+                            </li>
+                            <li>
+                                <a href="#getPossibleParents" >getPossibleParents</a>
+                            </li>
+                            <li>
+                                <a href="#isEditMode" >isEditMode</a>
+                            </li>
+                            <li>
+                                <a href="#setAllEnvironments" >setAllEnvironments</a>
+                            </li>
+                            <li>
+                                <a href="#setCellToCenter" >setCellToCenter</a>
+                            </li>
+                            <li>
+                                <a href="#setEditModeTo" >setEditModeTo</a>
+                            </li>
+                            <li>
+                                <a href="#setGraph" >setGraph</a>
+                            </li>
+                            <li>
+                                <a href="#setNodeMap" >setNodeMap</a>
+                            </li>
+                            <li>
+                                <a href="#setPipelineTree" >setPipelineTree</a>
+                            </li>
+                            <li>
+                                <a href="#shuffleArray" >shuffleArray</a>
+                            </li>
+                            <li>
+                                <a href="#updateEnvironmentTransitionConfig" >updateEnvironmentTransitionConfig</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:68</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addToEnvironmentMap"></a>
+                    <span class="name">
+                        <span ><b>addToEnvironmentMap</b></span>
+                        <a href="#addToEnvironmentMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addToEnvironmentMap(id, environment)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="185"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:185</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>environment</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findNodeInPipeline"></a>
+                    <span class="name">
+                        <span ><b>findNodeInPipeline</b></span>
+                        <a href="#findNodeInPipeline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findNodeInPipeline(pipelineTree: <a href="../classes/PipelineTreeNode.html" target="_self">PipelineTreeNode</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>pipelineTree</td>
+                                            <td>
+                                                            <code><a href="../classes/PipelineTreeNode.html" target="_self" >PipelineTreeNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllEnvironments"></a>
+                    <span class="name">
+                        <span ><b>getAllEnvironments</b></span>
+                        <a href="#getAllEnvironments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllEnvironments()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:176</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCellToCenter"></a>
+                    <span class="name">
+                        <span ><b>getCellToCenter</b></span>
+                        <a href="#getCellToCenter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCellToCenter()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="114"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:114</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEnvironmentMap"></a>
+                    <span class="name">
+                        <span ><b>getEnvironmentMap</b></span>
+                        <a href="#getEnvironmentMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getEnvironmentMap()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="210"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:210</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Map&lt;string, any&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getNodeUsingEnvironmentID"></a>
+                    <span class="name">
+                        <span ><b>getNodeUsingEnvironmentID</b></span>
+                        <a href="#getNodeUsingEnvironmentID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getNodeUsingEnvironmentID(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="169"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getParentNode"></a>
+                    <span class="name">
+                        <span ><b>getParentNode</b></span>
+                        <a href="#getParentNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getParentNode(environment: <a href="../classes/PipelineTreeNode.html" target="_self">PipelineTreeNode</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="160"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:160</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>environment</td>
+                                            <td>
+                                                            <code><a href="../classes/PipelineTreeNode.html" target="_self" >PipelineTreeNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPipeline_unset"></a>
+                    <span class="name">
+                        <span ><b>getPipeline_unset</b></span>
+                        <a href="#getPipeline_unset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPipeline_unset(blueprintName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="195"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:195</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>blueprintName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPossibleParents"></a>
+                    <span class="name">
+                        <span ><b>getPossibleParents</b></span>
+                        <a href="#getPossibleParents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPossibleParents(environment: <a href="../classes/PipelineTreeNode.html" target="_self">PipelineTreeNode</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="137"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:137</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>environment</td>
+                                            <td>
+                                                            <code><a href="../classes/PipelineTreeNode.html" target="_self" >PipelineTreeNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditMode"></a>
+                    <span class="name">
+                        <span ><b>isEditMode</b></span>
+                        <a href="#isEditMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isEditMode()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setAllEnvironments"></a>
+                    <span class="name">
+                        <span ><b>setAllEnvironments</b></span>
+                        <a href="#setAllEnvironments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setAllEnvironments(allEnvironments: any[], environmentMap: Map<string | any>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="180"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:180</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>allEnvironments</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>environmentMap</td>
+                                            <td>
+                                                        <code>Map&lt;string | any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setCellToCenter"></a>
+                    <span class="name">
+                        <span ><b>setCellToCenter</b></span>
+                        <a href="#setCellToCenter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setCellToCenter(cell)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:118</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cell</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setEditModeTo"></a>
+                    <span class="name">
+                        <span ><b>setEditModeTo</b></span>
+                        <a href="#setEditModeTo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setEditModeTo(mode: "on" | "off")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>mode</td>
+                                            <td>
+                                                        <code>&quot;on&quot; | &quot;off&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setGraph"></a>
+                    <span class="name">
+                        <span ><b>setGraph</b></span>
+                        <a href="#setGraph"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setGraph(graph: Graph)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="201"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:201</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>graph</td>
+                                            <td>
+                                                        <code>Graph</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setNodeMap"></a>
+                    <span class="name">
+                        <span ><b>setNodeMap</b></span>
+                        <a href="#setNodeMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setNodeMap(nodeMap)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="205"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:205</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>nodeMap</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPipelineTree"></a>
+                    <span class="name">
+                        <span ><b>setPipelineTree</b></span>
+                        <a href="#setPipelineTree"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setPipelineTree(root: <a href="../classes/PipelineTreeNode.html" target="_self">PipelineTreeNode</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="156"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:156</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>root</td>
+                                            <td>
+                                                            <code><a href="../classes/PipelineTreeNode.html" target="_self" >PipelineTreeNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shuffleArray"></a>
+                    <span class="name">
+                        <span ><b>shuffleArray</b></span>
+                        <a href="#shuffleArray"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>shuffleArray(array)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="214"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:214</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>array</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateEnvironmentTransitionConfig"></a>
+                    <span class="name">
+                        <span ><b>updateEnvironmentTransitionConfig</b></span>
+                        <a href="#updateEnvironmentTransitionConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateEnvironmentTransitionConfig(environment: <a href="../classes/PipelineTreeNode.html" target="_self">PipelineTreeNode</a>, oldParent: <a href="../classes/PipelineTreeNode.html" target="_self">PipelineTreeNode</a>, newParent: <a href="../classes/PipelineTreeNode.html" target="_self">PipelineTreeNode</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>environment</td>
+                                            <td>
+                                                            <code><a href="../classes/PipelineTreeNode.html" target="_self" >PipelineTreeNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>oldParent</td>
+                                            <td>
+                                                            <code><a href="../classes/PipelineTreeNode.html" target="_self" >PipelineTreeNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>newParent</td>
+                                            <td>
+                                                            <code><a href="../classes/PipelineTreeNode.html" target="_self" >PipelineTreeNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allEnvironments"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>allEnvironments</b></span>
+                        <a href="#allEnvironments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cellToCenter"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>cellToCenter</b></span>
+                        <a href="#cellToCenter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editModeOn"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>editModeOn</b></span>
+                        <a href="#editModeOn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environmentMap"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>environmentMap</b></span>
+                        <a href="#environmentMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map&lt;string | any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;string, any&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graph"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>graph</b></span>
+                        <a href="#graph"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Graph</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphConfigUpdates"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>graphConfigUpdates</b></span>
+                        <a href="#graphConfigUpdates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;any&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nodeMap"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>nodeMap</b></span>
+                        <a href="#nodeMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/PipelineTreeNode.html" target="_self" >Map&lt;string | PipelineTreeNode&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;
+    string,
+    PipelineTreeNode
+  &gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pipelineTree"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>pipelineTree</b></span>
+                        <a href="#pipelineTree"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/PipelineTreeNode.html" target="_self" >PipelineTreeNode</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/services/delivery-pipeline.util.service.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Graph } from &#x27;@antv/x6&#x27;;
+import { BehaviorSubject, Subject, of } from &#x27;rxjs&#x27;;
+import { delay } from &#x27;rxjs&#x27;;
+
+export class EnvironmentConfigPipeline {
+  id: string;
+  clusterName: string;
+  clusterId: string;
+  parentClusterId: string;
+  config: {
+    requiresSignOff: boolean;
+    autoPromoteArtifact: boolean;
+  };
+}
+
+export class PipelineTreeNode {
+  width: number &#x3D; 210;
+  height: number &#x3D; 192;
+  id: string;
+  name: string;
+  clusterId: string;
+  parentClusterId: string;
+  config: {
+    requiresSignOff: boolean;
+    autoPromoteArtifact: boolean;
+  };
+  isRoot: boolean &#x3D; false;
+  isLeafNode: boolean &#x3D; true;
+  children: PipelineTreeNode[] &#x3D; [];
+
+  constructor(
+    id: string,
+    name: string,
+    clusterId: string,
+    parentClusterId: string,
+    config: { requiresSignOff: boolean; autoPromoteArtifact: boolean },
+    width?: number,
+    height?: number,
+  ) {
+    this.id &#x3D; id;
+    this.name &#x3D; name;
+    this.clusterId &#x3D; clusterId;
+    this.parentClusterId &#x3D; parentClusterId;
+    this.config &#x3D; config;
+    this.isRoot &#x3D; !id;
+    if (width &amp;&amp; height) {
+      this.width &#x3D; width;
+      this.height &#x3D; height;
+    }
+  }
+}
+
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+export class DeliveryPipelineUtilService {
+  private pipelineTree: PipelineTreeNode;
+  private nodeMap: Map&lt;string, PipelineTreeNode&gt; &#x3D; new Map&lt;
+    string,
+    PipelineTreeNode
+  &gt;(); // Stores the node against an ID
+  private environmentMap: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+  private allEnvironments: any[];
+  private graph: Graph;
+  private editModeOn: boolean &#x3D; false;
+  public graphConfigUpdates: Subject&lt;any&gt; &#x3D; new Subject&lt;any&gt;();
+  private cellToCenter: any;
+
+  constructor() {}
+
+  setEditModeTo(mode: &#x27;on&#x27; | &#x27;off&#x27;) {
+    this.editModeOn &#x3D; mode &#x3D;&#x3D;&#x3D; &#x27;on&#x27;;
+  }
+
+  isEditMode() {
+    return this.editModeOn;
+  }
+
+  updateEnvironmentTransitionConfig(
+    environment: PipelineTreeNode,
+    oldParent: PipelineTreeNode,
+    newParent: PipelineTreeNode,
+  ) {
+    // Run the logic for updating the parent
+
+    let currentPipeline &#x3D; this.pipelineTree;
+
+    let _oldParent &#x3D; this.findNodeInPipeline(
+      this.pipelineTree,
+      oldParent?.clusterId,
+    );
+    let _newParent &#x3D;
+      this.findNodeInPipeline(this.pipelineTree, newParent?.clusterId) ||
+      this.pipelineTree;
+
+    _oldParent.children &#x3D; _oldParent.children.filter(
+      (child) &#x3D;&gt; child.clusterId !&#x3D; environment.clusterId,
+    );
+    _newParent.children.push(environment);
+    environment.parentClusterId &#x3D; _newParent.clusterId;
+    this.nodeMap.set(environment.clusterId, environment);
+
+    // Emit signal from the graphConfigUpdates and let the parent component
+    // catch that signal and re-render the graph
+
+    this.setCellToCenter(environment.id);
+
+    // console.log(&#x27;Updated pipeline &#x3D;&gt; &#x27;, this.pipelineTree);
+
+    this.graphConfigUpdates.next(this.pipelineTree);
+  }
+
+  getCellToCenter() {
+    return this.cellToCenter;
+  }
+
+  setCellToCenter(cell) {
+    this.cellToCenter &#x3D; cell;
+  }
+
+  findNodeInPipeline(pipelineTree: PipelineTreeNode, id: string) {
+    let stack &#x3D; [pipelineTree];
+    while (stack.length) {
+      let top &#x3D; stack.pop();
+      if (top.clusterId &#x3D;&#x3D; id) {
+        return top;
+      } else {
+        let children &#x3D; top.children || [];
+        children.forEach((env) &#x3D;&gt; {
+          stack.push(env);
+        });
+      }
+    }
+  }
+
+  getPossibleParents(environment: PipelineTreeNode) {
+    let root &#x3D; this.pipelineTree;
+    let dfsStack &#x3D; [root];
+    let possibleParents: PipelineTreeNode[] &#x3D; [];
+    while (dfsStack.length) {
+      let top &#x3D; dfsStack.pop();
+      if (top.id !&#x3D; environment.id) {
+        let children &#x3D; top.children;
+        possibleParents.push(top);
+        if (children?.length) {
+          children.forEach((env) &#x3D;&gt; {
+            dfsStack.push(env);
+          });
+        }
+      }
+    }
+    return possibleParents;
+  }
+
+  setPipelineTree(root: PipelineTreeNode) {
+    this.pipelineTree &#x3D; root;
+  }
+
+  getParentNode(environment: PipelineTreeNode) {
+    if (environment.isRoot) {
+      return environment;
+    }
+    return environment.parentClusterId
+      ? this.nodeMap.get(environment.parentClusterId)
+      : this.pipelineTree;
+  }
+
+  getNodeUsingEnvironmentID(id: string) {
+    if (id &#x3D;&#x3D; &#x27;root&#x27;) {
+      return this.pipelineTree;
+    }
+    return this.nodeMap.get(id);
+  }
+
+  getAllEnvironments() {
+    return this.allEnvironments;
+  }
+
+  setAllEnvironments(allEnvironments: any[], environmentMap: Map&lt;string, any&gt;) {
+    this.allEnvironments &#x3D; allEnvironments;
+    this.environmentMap &#x3D; environmentMap;
+  }
+
+  addToEnvironmentMap(id, environment) {
+    if (
+      this.environmentMap?.get(id)?.clusterName?.length ||
+      this.environmentMap?.get(id)?.name?.length
+    ) {
+      return;
+    }
+    this.environmentMap?.set(id, environment);
+  }
+
+  getPipeline_unset(blueprintName: string) {
+    return blueprintName.includes(&#x27;spring&#x27;)
+      ? of(this.shuffleArray(configDevQAParallel)).pipe(delay(1000))
+      : of(this.shuffleArray(configA)).pipe(delay(1000));
+  }
+
+  setGraph(graph: Graph) {
+    this.graph &#x3D; graph;
+  }
+
+  setNodeMap(nodeMap) {
+    this.nodeMap &#x3D; nodeMap;
+  }
+
+  // &#x27;name&#x27; attribute should definitely be present inside the all values
+  getEnvironmentMap() {
+    return this.environmentMap;
+  }
+
+  shuffleArray(array) {
+    let i &#x3D; array.length;
+    while (i--) {
+      const ri &#x3D; Math.floor(Math.random() * i);
+      [array[i], array[ri]] &#x3D; [array[ri], array[i]];
+    }
+    console.log(&#x27;Shuffled array &#x3D;&gt; &#x27;, array);
+    return array;
+  }
+}
+
+var configA &#x3D; [
+  {
+    id: &#x27;A0a&#x27;,
+    clusterId: &#x27;A0a&#x27;,
+    parentClusterId: null,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;A0b&#x27;,
+    clusterId: &#x27;A0b&#x27;,
+    parentClusterId: null,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;A1A&#x27;,
+    clusterId: &#x27;A1A&#x27;,
+    parentClusterId: &#x27;A0a&#x27;,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;A1B&#x27;,
+    clusterId: &#x27;A1B&#x27;,
+    parentClusterId: &#x27;A0a&#x27;,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;A2a&#x27;,
+    clusterId: &#x27;A2a&#x27;,
+    parentClusterId: &#x27;A1A&#x27;,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;A2c&#x27;,
+    clusterId: &#x27;A2c&#x27;,
+    parentClusterId: &#x27;A1A&#x27;,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;A2b&#x27;,
+    clusterId: &#x27;A2b&#x27;,
+    parentClusterId: &#x27;A2c&#x27;,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;A3a&#x27;,
+    clusterId: &#x27;A3a&#x27;,
+    parentClusterId: &#x27;A2b&#x27;,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;A3b&#x27;,
+    clusterId: &#x27;A3b&#x27;,
+    parentClusterId: &#x27;A2b&#x27;,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;A3c&#x27;,
+    clusterId: &#x27;A3c&#x27;,
+    parentClusterId: &#x27;A2b&#x27;,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;A4a&#x27;,
+    clusterId: &#x27;A4a&#x27;,
+    parentClusterId: &#x27;A3b&#x27;,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;A4b&#x27;,
+    clusterId: &#x27;A4b&#x27;,
+    parentClusterId: &#x27;A3b&#x27;,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+];
+
+var configDevQAUnset &#x3D; [
+  {
+    id: &#x27;db-id-1&#x27;,
+    clusterId: &#x27;Dev&#x27;,
+    parentClusterId: null,
+    config: {
+      requiresSignOff: false,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;db-id-2&#x27;,
+    clusterId: &#x27;QA1&#x27;,
+    parentClusterId: null,
+    config: {
+      requiresSignOff: false,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;db-id-3&#x27;,
+    clusterId: &#x27;QA2&#x27;,
+    parentClusterId: null,
+    config: {
+      requiresSignOff: false,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;db-id-5&#x27;,
+    clusterId: &#x27;PreProd&#x27;,
+    parentClusterId: null,
+    config: {
+      requiresSignOff: false,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;db-id-6&#x27;,
+    clusterId: &#x27;Prod&#x27;,
+    parentClusterId: null,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+];
+
+let configDevQAParallel &#x3D; [
+  {
+    id: &#x27;db-id-1&#x27;,
+    clusterId: &#x27;Dev&#x27;,
+    parentClusterId: null,
+    config: {
+      requiresSignOff: false,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;db-id-2&#x27;,
+    clusterId: &#x27;QA1&#x27;,
+    parentClusterId: &#x27;Dev&#x27;,
+    config: {
+      requiresSignOff: false,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;db-id-5&#x27;,
+    clusterId: &#x27;PreProd&#x27;,
+    parentClusterId: &#x27;QA2&#x27;,
+    config: {
+      requiresSignOff: false,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;db-id-6&#x27;,
+    clusterId: &#x27;Prod&#x27;,
+    parentClusterId: &#x27;QA2&#x27;,
+    config: {
+      requiresSignOff: true,
+      autoPromoteArtifact: false,
+    },
+  },
+  {
+    id: &#x27;db-id-3&#x27;,
+    clusterId: &#x27;QA2&#x27;,
+    parentClusterId: &#x27;QA1&#x27;,
+    config: {
+      requiresSignOff: false,
+      autoPromoteArtifact: false,
+    },
+  },
+];
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'DeliveryPipelineUtilService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

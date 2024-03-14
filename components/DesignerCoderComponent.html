@@ -1,0 +1,3147 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  DesignerCoderComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+    </p>
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-designer-coder</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./designer-coder.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./designer-coder.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#branchOptions" >branchOptions</a>
+                            </li>
+                            <li>
+                                <a href="#branchTypeOptions" >branchTypeOptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#coderDialog" >coderDialog</a>
+                            </li>
+                            <li>
+                                <a href="#existingWorkspaceControl" >existingWorkspaceControl</a>
+                            </li>
+                            <li>
+                                <a href="#existingWorkspaceOptions" >existingWorkspaceOptions</a>
+                            </li>
+                            <li>
+                                <a href="#launchingInProgress" >launchingInProgress</a>
+                            </li>
+                            <li>
+                                <a href="#loadingBranch" >loadingBranch</a>
+                            </li>
+                            <li>
+                                <a href="#loadingWorkspaces" >loadingWorkspaces</a>
+                            </li>
+                            <li>
+                                <a href="#newWorkspaceForm" >newWorkspaceForm</a>
+                            </li>
+                            <li>
+                                <a href="#pageStepperCount" >pageStepperCount</a>
+                            </li>
+                            <li>
+                                <a href="#resourceName" >resourceName</a>
+                            </li>
+                            <li>
+                                <a href="#resourceType" >resourceType</a>
+                            </li>
+                            <li>
+                                <a href="#stackName" >stackName</a>
+                            </li>
+                            <li>
+                                <a href="#title" >title</a>
+                            </li>
+                            <li>
+                                <a href="#toasterLinkSubscription" >toasterLinkSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#toastersLinks" >toastersLinks</a>
+                            </li>
+                            <li>
+                                <a href="#workspaceTypeControl" >workspaceTypeControl</a>
+                            </li>
+                            <li>
+                                <a href="#workspaceTypeOptions" >workspaceTypeOptions</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changeBranchType" >changeBranchType</a>
+                            </li>
+                            <li>
+                                <a href="#closePopup" >closePopup</a>
+                            </li>
+                            <li>
+                                <a href="#createExistingBranchWorkspace" >createExistingBranchWorkspace</a>
+                            </li>
+                            <li>
+                                <a href="#createNewBranchWorkspace" >createNewBranchWorkspace</a>
+                            </li>
+                            <li>
+                                <a href="#createNewWorkspace" >createNewWorkspace</a>
+                            </li>
+                            <li>
+                                <a href="#createWorkspace" >createWorkspace</a>
+                            </li>
+                            <li>
+                                <a href="#getAllBranches" >getAllBranches</a>
+                            </li>
+                            <li>
+                                <a href="#getAllWorkspaces" >getAllWorkspaces</a>
+                            </li>
+                            <li>
+                                <a href="#launchExistingWorkspace" >launchExistingWorkspace</a>
+                            </li>
+                            <li>
+                                <a href="#onClickLaunch" >onClickLaunch</a>
+                            </li>
+                            <li>
+                                <a href="#OnDestroy" >OnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageInit" >OnPageInit</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageLoad" >OnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#openCoder" >openCoder</a>
+                            </li>
+                            <li>
+                                <a href="#openSuccessLaunchToaster" >openSuccessLaunchToaster</a>
+                            </li>
+                            <li>
+                                <a href="#resetFormValues" >resetFormValues</a>
+                            </li>
+                            <li>
+                                <a href="#showLaunchFailToaster" >showLaunchFailToaster</a>
+                            </li>
+                            <li>
+                                <a href="#workspaceTypeChange" >workspaceTypeChange</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#level" >level</a>
+                            </li>
+                            <li>
+                                <a href="#ref" >ref</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#name" >name</a>
+                                </li>
+                                <li>
+                                    <a href="#branchType" >branchType</a>
+                                </li>
+                                <li>
+                                    <a href="#sourceBranch" >sourceBranch</a>
+                                </li>
+                                <li>
+                                    <a href="#featureBranch" >featureBranch</a>
+                                </li>
+                                <li>
+                                    <a href="#existingBranch" >existingBranch</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(dialogService: NbDialogService, fb: <a href="../interfaces/Build.html" target="_self">FormBuilder</a>, route: ActivatedRoute, router: Router, uiBlueprintDesignerControllerService: <a href="../injectables/UiBlueprintDesignerControllerService.html" target="_self">UiBlueprintDesignerControllerService</a>, uiCoderControllerService: <a href="../injectables/UiCoderControllerService.html" target="_self">UiCoderControllerService</a>, customToast: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>, onAPIErrorService: <a href="../injectables/OnAPIErrorService.html" target="_self">OnAPIErrorService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:119</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NbDialogService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Build.html" target="_self" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiBlueprintDesignerControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiBlueprintDesignerControllerService.html" target="_self" >UiBlueprintDesignerControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiCoderControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiCoderControllerService.html" target="_self" >UiCoderControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToast</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>onAPIErrorService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OnAPIErrorService.html" target="_self" >OnAPIErrorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="level"></a>
+                        <b>level</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;BLUEPRINT&quot; | &quot;RESOURCE&quot;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:35</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ref"></a>
+                        <b>ref</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:34</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeBranchType"></a>
+                    <span class="name">
+                        <span ><b>changeBranchType</b></span>
+                        <a href="#changeBranchType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeBranchType(branchType)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="378"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:378</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>branchType</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closePopup"></a>
+                    <span class="name">
+                        <span ><b>closePopup</b></span>
+                        <a href="#closePopup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closePopup()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="409"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:409</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createExistingBranchWorkspace"></a>
+                    <span class="name">
+                        <span ><b>createExistingBranchWorkspace</b></span>
+                        <a href="#createExistingBranchWorkspace"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createExistingBranchWorkspace(ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="318"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:318</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewBranchWorkspace"></a>
+                    <span class="name">
+                        <span ><b>createNewBranchWorkspace</b></span>
+                        <a href="#createNewBranchWorkspace"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNewBranchWorkspace(ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="276"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:276</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewWorkspace"></a>
+                    <span class="name">
+                        <span ><b>createNewWorkspace</b></span>
+                        <a href="#createNewWorkspace"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNewWorkspace(ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="270"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:270</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createWorkspace"></a>
+                    <span class="name">
+                        <span ><b>createWorkspace</b></span>
+                        <a href="#createWorkspace"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createWorkspace(httpReq, ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="349"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:349</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>httpReq</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllBranches"></a>
+                    <span class="name">
+                        <span ><b>getAllBranches</b></span>
+                        <a href="#getAllBranches"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllBranches()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="203"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:203</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllWorkspaces"></a>
+                    <span class="name">
+                        <span ><b>getAllWorkspaces</b></span>
+                        <a href="#getAllWorkspaces"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllWorkspaces()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="170"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:170</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="launchExistingWorkspace"></a>
+                    <span class="name">
+                        <span ><b>launchExistingWorkspace</b></span>
+                        <a href="#launchExistingWorkspace"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>launchExistingWorkspace(ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="265"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:265</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onClickLaunch"></a>
+                    <span class="name">
+                        <span ><b>onClickLaunch</b></span>
+                        <a href="#onClickLaunch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onClickLaunch(ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="259"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:259</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnDestroy"></a>
+                    <span class="name">
+                        <span ><b>OnDestroy</b></span>
+                        <a href="#OnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="243"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:243</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageInit"></a>
+                    <span class="name">
+                        <span ><b>OnPageInit</b></span>
+                        <a href="#OnPageInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:153</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>OnPageLoad</b></span>
+                        <a href="#OnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:162</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openCoder"></a>
+                    <span class="name">
+                        <span ><b>openCoder</b></span>
+                        <a href="#openCoder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openCoder()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="401"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:401</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openSuccessLaunchToaster"></a>
+                    <span class="name">
+                        <span ><b>openSuccessLaunchToaster</b></span>
+                        <a href="#openSuccessLaunchToaster"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openSuccessLaunchToaster(ref, coderUrl)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="363"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:363</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>coderUrl</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetFormValues"></a>
+                    <span class="name">
+                        <span ><b>resetFormValues</b></span>
+                        <a href="#resetFormValues"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetFormValues()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="247"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:247</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showLaunchFailToaster"></a>
+                    <span class="name">
+                        <span ><b>showLaunchFailToaster</b></span>
+                        <a href="#showLaunchFailToaster"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showLaunchFailToaster(error)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="308"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:308</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>error</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="workspaceTypeChange"></a>
+                    <span class="name">
+                        <span ><b>workspaceTypeChange</b></span>
+                        <a href="#workspaceTypeChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>workspaceTypeChange(type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="397"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:397</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>type</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="branchOptions"></a>
+                    <span class="name">
+                        <span ><b>branchOptions</b></span>
+                        <a href="#branchOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="branchTypeOptions"></a>
+                    <span class="name">
+                        <span ><b>branchTypeOptions</b></span>
+                        <a href="#branchTypeOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { label: &#x27;New Branch&#x27;, value: &#x27;NEW&#x27; },
+    { label: &#x27;Existing Branch&#x27;, value: &#x27;EXISTING&#x27; },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="coderDialog"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>coderDialog</b></span>
+                        <a href="#coderDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;coderDialog&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="existingWorkspaceControl"></a>
+                    <span class="name">
+                        <span ><b>existingWorkspaceControl</b></span>
+                        <a href="#existingWorkspaceControl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormControl</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl(
+    null,
+    Validators.required,
+  )</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="existingWorkspaceOptions"></a>
+                    <span class="name">
+                        <span ><b>existingWorkspaceOptions</b></span>
+                        <a href="#existingWorkspaceOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="launchingInProgress"></a>
+                    <span class="name">
+                        <span ><b>launchingInProgress</b></span>
+                        <a href="#launchingInProgress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadingBranch"></a>
+                    <span class="name">
+                        <span ><b>loadingBranch</b></span>
+                        <a href="#loadingBranch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadingWorkspaces"></a>
+                    <span class="name">
+                        <span ><b>loadingWorkspaces</b></span>
+                        <a href="#loadingWorkspaces"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newWorkspaceForm"></a>
+                    <span class="name">
+                        <span ><b>newWorkspaceForm</b></span>
+                        <a href="#newWorkspaceForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.fb.group({
+    name: [
+      null,
+      [
+        Validators.required,
+        Validators.pattern(whiteSpaceInputPattern),
+        Validators.pattern(coderNamePattern),
+      ],
+    ],
+    branchType: [&#x27;NEW&#x27;, [Validators.required]],
+    sourceBranch: [null, [Validators.required]],
+    featureBranch: [
+      null,
+      [Validators.required, Validators.pattern(whiteSpaceAllPattern)],
+    ],
+    existingBranch: [null],
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pageStepperCount"></a>
+                    <span class="name">
+                        <span ><b>pageStepperCount</b></span>
+                        <a href="#pageStepperCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceName"></a>
+                    <span class="name">
+                        <span ><b>resourceName</b></span>
+                        <a href="#resourceName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceType"></a>
+                    <span class="name">
+                        <span ><b>resourceType</b></span>
+                        <a href="#resourceType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stackName"></a>
+                    <span class="name">
+                        <span ><b>stackName</b></span>
+                        <a href="#stackName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="title"></a>
+                    <span class="name">
+                        <span ><b>title</b></span>
+                        <a href="#title"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Launch Workspace&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toasterLinkSubscription"></a>
+                    <span class="name">
+                        <span ><b>toasterLinkSubscription</b></span>
+                        <a href="#toasterLinkSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toastersLinks"></a>
+                    <span class="name">
+                        <span ><b>toastersLinks</b></span>
+                        <a href="#toastersLinks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ToastLink.html" target="_self" >ToastLink[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      id: &#x27;new-workspace&#x27;,
+      label: &#x27;Open Workspace&#x27;,
+      icon: &#x27;external-link&#x27;,
+      url: &#x27;&#x27;,
+      click: (data) &#x3D;&gt; {
+        window.open(data?.link?.url, &#x27;_blank&#x27;);
+      },
+    },
+    {
+      id: &#x27;github-creds&#x27;,
+      label: &#x27;Map Now&#x27;,
+      url: &#x27;&#x27;,
+      click: () &#x3D;&gt; {
+        this.router.navigate([&#x27;/&#x27;, &#x27;accountSettings&#x27;, &#x27;credentials&#x27;]);
+      },
+    },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="workspaceTypeControl"></a>
+                    <span class="name">
+                        <span ><b>workspaceTypeControl</b></span>
+                        <a href="#workspaceTypeControl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormControl</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl(&#x27;NEW&#x27;, [
+    Validators.required,
+  ])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="workspaceTypeOptions"></a>
+                    <span class="name">
+                        <span ><b>workspaceTypeOptions</b></span>
+                        <a href="#workspaceTypeOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      value: &#x27;NEW&#x27;,
+      label: &#x27;Create New Workspace&#x27;,
+      description: &#x27;Create a new workspace from scratch and launch the coder&#x27;,
+    },
+    {
+      value: &#x27;EXISTING&#x27;,
+      label: &#x27;Choose Existing Workspace&#x27;,
+      description:
+        &#x27;Choose from existing set of workspaces and launch the coder&#x27;,
+    },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="name"></a>
+                        <span class="name"><b>name</b><a href="#name"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>name()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:133</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="branchType"></a>
+                        <span class="name"><b>branchType</b><a href="#branchType"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>branchType()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:137</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sourceBranch"></a>
+                        <span class="name"><b>sourceBranch</b><a href="#sourceBranch"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>sourceBranch()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:141</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="featureBranch"></a>
+                        <span class="name"><b>featureBranch</b><a href="#featureBranch"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>featureBranch()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:145</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="existingBranch"></a>
+                        <span class="name"><b>existingBranch</b><a href="#existingBranch"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>existingBranch()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">src/app/pages/blueprint-designer/designer-coder/designer-coder.component.ts:149</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CustomToastService } from &#x27;src/app/pages/custom-toast/custom-toast.service&#x27;;
+import { Component, Input, TemplateRef, ViewChild } from &#x27;@angular/core&#x27;;
+import { NbDialogService } from &#x27;@nebular/theme&#x27;;
+import { ActivatedRoute, Params, Router } from &#x27;@angular/router&#x27;;
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl,
+} from &#x27;@angular/forms&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import {
+  whiteSpaceInputPattern,
+  whiteSpaceAllPattern,
+  coderNamePattern,
+} from &#x27;src/app/constants/inputPatterns&#x27;;
+import {
+  UiBlueprintDesignerControllerService,
+  UiCoderControllerService,
+} from &#x27;src/app/cc-api/services&#x27;;
+import { ToastLink } from &#x27;../../custom-toast/toast-interfaces&#x27;;
+import { OnAPIErrorService } from &#x27;src/app/services/on-api-error.service&#x27;;
+
+@Component({
+  selector: &#x27;app-designer-coder&#x27;,
+  templateUrl: &#x27;./designer-coder.component.html&#x27;,
+  styleUrls: [&#x27;./designer-coder.component.scss&#x27;],
+})
+export class DesignerCoderComponent extends FacetsPage {
+  @ViewChild(&#x27;coderDialog&#x27;) coderDialog: TemplateRef&lt;any&gt;;
+  stackName: string &#x3D; &#x27;&#x27;;
+  resourceType: string;
+  resourceName: string;
+  @Input() ref: any;
+  @Input() level: &#x27;BLUEPRINT&#x27; | &#x27;RESOURCE&#x27;;
+  toasterLinkSubscription: any;
+  pageStepperCount: number &#x3D; 0;
+  title: string &#x3D; &#x27;Launch Workspace&#x27;;
+  existingWorkspaceControl: FormControl &#x3D; new FormControl(
+    null,
+    Validators.required,
+  );
+  workspaceTypeControl: FormControl &#x3D; new FormControl(&#x27;NEW&#x27;, [
+    Validators.required,
+  ]);
+  newWorkspaceForm: FormGroup &#x3D; this.fb.group({
+    name: [
+      null,
+      [
+        Validators.required,
+        Validators.pattern(whiteSpaceInputPattern),
+        Validators.pattern(coderNamePattern),
+      ],
+    ],
+    branchType: [&#x27;NEW&#x27;, [Validators.required]],
+    sourceBranch: [null, [Validators.required]],
+    featureBranch: [
+      null,
+      [Validators.required, Validators.pattern(whiteSpaceAllPattern)],
+    ],
+    existingBranch: [null],
+  });
+
+  workspaceTypeOptions: {
+    value: string;
+    label: string;
+    description: string;
+  }[] &#x3D; [
+    {
+      value: &#x27;NEW&#x27;,
+      label: &#x27;Create New Workspace&#x27;,
+      description: &#x27;Create a new workspace from scratch and launch the coder&#x27;,
+    },
+    {
+      value: &#x27;EXISTING&#x27;,
+      label: &#x27;Choose Existing Workspace&#x27;,
+      description:
+        &#x27;Choose from existing set of workspaces and launch the coder&#x27;,
+    },
+  ];
+  existingWorkspaceOptions: {
+    label: string;
+    value: string;
+    checked: boolean;
+  }[] &#x3D; [];
+  branchOptions: {
+    label: string;
+    value: string;
+    checked: boolean;
+  }[] &#x3D; [];
+  loadingBranch: boolean &#x3D; false;
+  loadingWorkspaces: boolean &#x3D; false;
+  branchTypeOptions: {
+    label: string;
+    value: string;
+  }[] &#x3D; [
+    { label: &#x27;New Branch&#x27;, value: &#x27;NEW&#x27; },
+    { label: &#x27;Existing Branch&#x27;, value: &#x27;EXISTING&#x27; },
+  ];
+  toastersLinks: ToastLink[] &#x3D; [
+    {
+      id: &#x27;new-workspace&#x27;,
+      label: &#x27;Open Workspace&#x27;,
+      icon: &#x27;external-link&#x27;,
+      url: &#x27;&#x27;,
+      click: (data) &#x3D;&gt; {
+        window.open(data?.link?.url, &#x27;_blank&#x27;);
+      },
+    },
+    {
+      id: &#x27;github-creds&#x27;,
+      label: &#x27;Map Now&#x27;,
+      url: &#x27;&#x27;,
+      click: () &#x3D;&gt; {
+        this.router.navigate([&#x27;/&#x27;, &#x27;accountSettings&#x27;, &#x27;credentials&#x27;]);
+      },
+    },
+  ];
+  launchingInProgress: boolean &#x3D; false;
+  constructor(
+    private dialogService: NbDialogService,
+    private fb: FormBuilder,
+    route: ActivatedRoute,
+    private router: Router,
+    private uiBlueprintDesignerControllerService: UiBlueprintDesignerControllerService,
+    private uiCoderControllerService: UiCoderControllerService,
+    private customToast: CustomToastService,
+    private onAPIErrorService: OnAPIErrorService,
+  ) {
+    super(route);
+  }
+
+  get name() {
+    return this.newWorkspaceForm.get(&#x27;name&#x27;);
+  }
+
+  get branchType() {
+    return this.newWorkspaceForm.get(&#x27;branchType&#x27;);
+  }
+
+  get sourceBranch() {
+    return this.newWorkspaceForm.get(&#x27;sourceBranch&#x27;);
+  }
+
+  get featureBranch() {
+    return this.newWorkspaceForm.get(&#x27;featureBranch&#x27;);
+  }
+
+  get existingBranch() {
+    return this.newWorkspaceForm.get(&#x27;existingBranch&#x27;);
+  }
+
+  OnPageInit(): void {
+    this.toasterLinkSubscription &#x3D; this.customToast.buttonClick$.subscribe(
+      (data) &#x3D;&gt; {
+        this.toastersLinks
+          .find((link) &#x3D;&gt; link?.id &#x3D;&#x3D;&#x3D; data?.link?.id)
+          ?.click(data);
+      },
+    );
+  }
+  OnPageLoad(p: Params) {
+    this.stackName &#x3D; p?.stackName;
+    this.resourceType &#x3D; p?.resourceType;
+    this.resourceName &#x3D; p?.resourceName;
+    this.getAllBranches();
+    this.getAllWorkspaces();
+  }
+
+  getAllWorkspaces() {
+    this.loadingWorkspaces &#x3D; true;
+    let params &#x3D; {
+      stackName: this.stackName,
+      resourceName: this.resourceName,
+      resourceType: this.resourceType,
+    };
+    let httpReq;
+    switch (this.level) {
+      case &#x27;BLUEPRINT&#x27;:
+        httpReq &#x3D; this.uiCoderControllerService.getAllUsingGET2(this.stackName);
+        break;
+      case &#x27;RESOURCE&#x27;:
+        httpReq &#x3D; this.uiCoderControllerService.getAllUsingGET1(params);
+        break;
+    }
+    httpReq.subscribe(
+      (data) &#x3D;&gt; {
+        this.existingWorkspaceOptions &#x3D; data.map((workspace) &#x3D;&gt; {
+          return {
+            label: workspace?.name,
+            value: workspace?.url,
+            checked: false,
+          };
+        });
+        this.loadingWorkspaces &#x3D; false;
+      },
+      (error) &#x3D;&gt; {
+        this.loadingWorkspaces &#x3D; false;
+      },
+    );
+  }
+
+  getAllBranches() {
+    this.loadingBranch &#x3D; true;
+    let httpReq;
+    let params &#x3D; {
+      stackName: this.stackName,
+      resourceName: this.resourceName,
+      resourceType: this.resourceType,
+    };
+    switch (this.level) {
+      case &#x27;BLUEPRINT&#x27;:
+        httpReq &#x3D;
+          this.uiBlueprintDesignerControllerService.listBranchesUsingGET(
+            this.stackName,
+          );
+        break;
+      case &#x27;RESOURCE&#x27;:
+        httpReq &#x3D;
+          this.uiBlueprintDesignerControllerService.listBranchesUsingGET1(
+            params,
+          );
+        break;
+    }
+    httpReq.subscribe(
+      (data) &#x3D;&gt; {
+        let branches &#x3D; this.level &#x3D;&#x3D;&#x3D; &#x27;BLUEPRINT&#x27; ? data?.branches : data;
+        this.branchOptions &#x3D; branches?.map((branch) &#x3D;&gt; {
+          return {
+            label: branch,
+            value: branch,
+            checked: false,
+          };
+        });
+        this.loadingBranch &#x3D; false;
+      },
+      (error) &#x3D;&gt; {
+        this.loadingBranch &#x3D; false;
+      },
+    );
+  }
+
+  OnDestroy() {
+    this.toasterLinkSubscription?.unsubscribe();
+  }
+
+  resetFormValues() {
+    this.existingWorkspaceControl.setValue(null);
+    this.name.reset();
+    this.branchType.setValue(&#x27;NEW&#x27;);
+    this.sourceBranch.reset();
+    this.existingBranch.reset();
+    this.existingWorkspaceControl.reset();
+    this.featureBranch.reset();
+    this.existingWorkspaceOptions.forEach((option) &#x3D;&gt; (option.checked &#x3D; false));
+    this.branchOptions.forEach((option) &#x3D;&gt; (option.checked &#x3D; false));
+  }
+
+  onClickLaunch(ref) {
+    this.workspaceTypeControl?.value &#x3D;&#x3D;&#x3D; &#x27;NEW&#x27;
+      ? this.createNewWorkspace(ref)
+      : this.launchExistingWorkspace(ref);
+  }
+
+  launchExistingWorkspace(ref) {
+    window.open(this.existingWorkspaceControl?.value, &#x27;_blank&#x27;);
+    ref.close();
+  }
+
+  createNewWorkspace(ref) {
+    this.branchType?.value &#x3D;&#x3D;&#x3D; &#x27;NEW&#x27;
+      ? this.createNewBranchWorkspace(ref)
+      : this.createExistingBranchWorkspace(ref);
+  }
+
+  createNewBranchWorkspace(ref) {
+    this.launchingInProgress &#x3D; true;
+    let params: any &#x3D; {
+      stackName: this.stackName,
+      createWorkspaceNewBranchRequest: {
+        newBranch: this.featureBranch?.value,
+        sourceBranch: this.sourceBranch?.value,
+        workspaceName: this.name?.value,
+      },
+    };
+    if (this.level &#x3D;&#x3D;&#x3D; &#x27;RESOURCE&#x27;) {
+      params[&#x27;resourceName&#x27;] &#x3D; this.resourceName;
+      params[&#x27;resourceType&#x27;] &#x3D; this.resourceType;
+    }
+    let httpReq;
+    switch (this.level) {
+      case &#x27;BLUEPRINT&#x27;:
+        httpReq &#x3D;
+          this.uiCoderControllerService.createWorkspaceWithNewBranchUsingPOST(
+            params,
+          );
+        break;
+      case &#x27;RESOURCE&#x27;:
+        httpReq &#x3D;
+          this.uiCoderControllerService.createWorkspaceWithNewBranchUsingPOST1(
+            params,
+          );
+        break;
+    }
+    this.createWorkspace(httpReq, ref);
+  }
+
+  showLaunchFailToaster(error) {
+    this.onAPIErrorService.onAPIError(
+      error?.error?.message ||
+        &#x27;Map credentials with respective host name to enable workspace creation.&#x27;,
+      error,
+    );
+    this.launchingInProgress &#x3D; false;
+    this.resetFormValues();
+  }
+
+  createExistingBranchWorkspace(ref) {
+    this.launchingInProgress &#x3D; true;
+    let params: any &#x3D; {
+      stackName: this.stackName,
+      createWorkspaceExistingBranchRequest: {
+        existingBranch: this.existingBranch?.value,
+        workspaceName: this.name?.value,
+      },
+    };
+    if (this.level &#x3D;&#x3D;&#x3D; &#x27;RESOURCE&#x27;) {
+      params[&#x27;resourceName&#x27;] &#x3D; this.resourceName;
+      params[&#x27;resourceType&#x27;] &#x3D; this.resourceType;
+    }
+    let httpReq;
+    switch (this.level) {
+      case &#x27;BLUEPRINT&#x27;:
+        httpReq &#x3D;
+          this.uiCoderControllerService.createWorkspaceWithExistingBranchUsingPOST(
+            params,
+          );
+        break;
+      case &#x27;RESOURCE&#x27;:
+        httpReq &#x3D;
+          this.uiCoderControllerService.createWorkspaceWithExistingBranchUsingPOST1(
+            params,
+          );
+        break;
+    }
+    this.createWorkspace(httpReq, ref);
+  }
+
+  createWorkspace(httpReq, ref) {
+    httpReq.subscribe(
+      (data) &#x3D;&gt; {
+        let coderUrl &#x3D; data?.url;
+        this.toastersLinks[0].url &#x3D; coderUrl;
+        this.openSuccessLaunchToaster(ref, coderUrl);
+      },
+      (error) &#x3D;&gt; {
+        this.showLaunchFailToaster(error);
+        ref.close();
+      },
+    );
+  }
+
+  openSuccessLaunchToaster(ref, coderUrl) {
+    this.customToast.show({
+      title: &#x27;Success&#x27;,
+      content:
+        &#x27;Workspace launch is successful! Go to the created workspace to start your work.&#x27;,
+      type: &#x27;success&#x27;,
+      duration: 5000,
+      link: this.toastersLinks[0],
+    });
+    ref.close();
+    this.resetFormValues();
+    window.open(coderUrl, &#x27;_blank&#x27;);
+    this.launchingInProgress &#x3D; false;
+  }
+
+  changeBranchType(branchType) {
+    this.existingBranch.setValue(null);
+    this.sourceBranch.setValue(null);
+    this.featureBranch.setValue(null);
+    this.branchOptions.forEach((option) &#x3D;&gt; (option.checked &#x3D; false));
+    if (branchType &#x3D;&#x3D;&#x3D; &#x27;NEW&#x27;) {
+      this.existingBranch.clearValidators();
+      this.sourceBranch.setValidators([Validators.required]);
+      this.featureBranch.setValidators([Validators.required]);
+    } else {
+      this.existingBranch.setValidators([Validators.required]);
+      this.sourceBranch.clearValidators();
+      this.featureBranch.clearValidators();
+    }
+    this.existingBranch.updateValueAndValidity();
+    this.sourceBranch.updateValueAndValidity();
+    this.featureBranch.updateValueAndValidity();
+  }
+
+  workspaceTypeChange(type) {
+    this.resetFormValues();
+  }
+
+  openCoder() {
+    this.getAllBranches();
+    this.getAllWorkspaces();
+    this.dialogService.open(this.coderDialog).onClose.subscribe((result) &#x3D;&gt; {
+      this.resetFormValues();
+    });
+  }
+
+  closePopup() {
+    this.ref.close();
+    this.resetFormValues();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- &lt;app-rbac-button
+  label&#x3D;&quot;Launch Workspace&quot;
+  icon&#x3D;&quot;external-link-outline&quot;
+  action&#x3D;&quot;&quot;
+  size&#x3D;&quot;small&quot;
+  appearance&#x3D;&quot;outline&quot;
+  status&#x3D;&quot;primary&quot;
+  [disabled]&#x3D;&quot;false&quot;
+  (onClick)&#x3D;&quot;openCoder()&quot;
+&gt;&lt;/app-rbac-button&gt; --&gt;
+&lt;!-- &lt;ng-template #coderDialog let-data let-ref&#x3D;&quot;dialogRef&quot;&gt; --&gt;
+&lt;nb-card
+  style&#x3D;&quot;width: 40vw; max-height: 100vh; overflow-y: scroll&quot;
+  [nbSpinner]&#x3D;&quot;loadingBranch || loadingWorkspaces&quot;
+&gt;
+  &lt;nb-card-header class&#x3D;&quot;d-flex justify-content-between&quot;&gt;
+    &lt;h6&gt;
+      {{ title }}
+    &lt;/h6&gt;
+    &lt;nb-icon
+      icon&#x3D;&quot;close-outline&quot;
+      (click)&#x3D;&quot;closePopup()&quot;
+      class&#x3D;&quot;cursor-pointer&quot;
+    &gt;&lt;/nb-icon&gt;
+  &lt;/nb-card-header&gt;
+  &lt;nb-card-body&gt;
+    &lt;div *ngIf&#x3D;&quot;workspaceTypeOptions?.length&quot; class&#x3D;&quot;mb-4&quot;&gt;
+      &lt;div class&#x3D;&quot;workspaceType-parent mt-3&quot;&gt;
+        &lt;nb-radio-group
+          name&#x3D;&quot;selectType&quot;
+          id&#x3D;&quot;selectType&quot;
+          class&#x3D;&quot;selectType&quot;
+          [formControl]&#x3D;&quot;workspaceTypeControl&quot;
+          (ngModelChange)&#x3D;&quot;workspaceTypeChange($event)&quot;
+        &gt;
+          &lt;nb-radio
+            *ngFor&#x3D;&quot;let workspaceType of workspaceTypeOptions; let i &#x3D; index&quot;
+            [ngClass]&#x3D;&quot;
+              workspaceType?.value &#x3D;&#x3D;&#x3D; workspaceTypeControl?.value
+                ? &#x27;selected-radio-border&#x27;
+                : &#x27;deselected-radio-border&#x27;
+            &quot;
+            style&#x3D;&quot;padding: 10px; background-color: #fff&quot;
+            class&#x3D;&quot;rounded h-100 workspaceType-radio&quot;
+            [value]&#x3D;&quot;workspaceType?.value&quot;
+            [checked]&#x3D;&quot;workspaceType?.value &#x3D;&#x3D;&#x3D; workspaceTypeControl?.value&quot;
+          &gt;
+            &lt;div class&#x3D;&quot;d-flex flex-column&quot;&gt;
+              &lt;div
+                [ngClass]&#x3D;&quot;{
+                  &#x27;selected-text&#x27;:
+                    workspaceType?.value &#x3D;&#x3D;&#x3D; workspaceTypeControl?.value
+                }&quot;
+                class&#x3D;&quot;font-weight-600 ml-1 d-flex justify-content-between align-items-center&quot;
+              &gt;
+                &lt;div
+                  style&#x3D;&quot;width: 100%; word-wrap: break-word&quot;
+                  [ngClass]&#x3D;&quot;{ &#x27;mb-1&#x27;: workspaceType?.url }&quot;
+                &gt;
+                  {{ workspaceType?.label }}
+                &lt;/div&gt;
+                &lt;a
+                  *ngIf&#x3D;&quot;workspaceType?.url&quot;
+                  [ngClass]&#x3D;&quot;{ &#x27;mb-1&#x27;: workspaceType?.url }&quot;
+                  [href]&#x3D;&quot;workspaceType?.url&quot;
+                  target&#x3D;&quot;_blank&quot;
+                &gt;
+                  &lt;nb-icon class&#x3D;&quot;ml-1&quot; pack&#x3D;&quot;fci&quot; icon&#x3D;&quot;github-blue&quot;&gt;&lt;/nb-icon&gt;
+                &lt;/a&gt;
+              &lt;/div&gt;
+              &lt;span
+                class&#x3D;&quot;mt-1 ml-1 options-secondary workspace-description&quot;
+                [nbTooltip]&#x3D;&quot;workspaceType?.description&quot;
+              &gt;
+                {{ workspaceType?.description }}
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/nb-radio&gt;
+        &lt;/nb-radio-group&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;workspaceTypeControl?.value &#x3D;&#x3D;&#x3D; &#x27;EXISTING&#x27;&quot; class&#x3D;&quot;d-flex&quot;&gt;
+      &lt;app-reactive-form-field
+        class&#x3D;&quot;w-100&quot;
+        [disabled]&#x3D;&quot;
+          !existingWorkspaceOptions?.length &amp;&amp;
+          !loadingBranch &amp;&amp;
+          !loadingWorkspaces
+        &quot;
+        disabledMsg&#x3D;&quot;Existing workspaces are not available&quot;
+        label&#x3D;&quot;Existing Workspaces&quot;
+        labelSize&#x3D;&quot;4&quot;
+        inputSize&#x3D;&quot;8&quot;
+        [select]&#x3D;&quot;true&quot;
+        placeholder&#x3D;&quot;Select Existing Workspace&quot;
+        [customFormControl]&#x3D;&quot;existingWorkspaceControl&quot;
+        fieldId&#x3D;&quot;existingWorkspace&quot;
+        fieldName&#x3D;&quot;existingWorkspace&quot;
+        [showClearSelectionOption]&#x3D;&quot;false&quot;
+        tooltipText&#x3D;&quot;Choose existing workspace&quot;
+        [selectValues]&#x3D;&quot;existingWorkspaceOptions&quot;
+      &gt;&lt;/app-reactive-form-field&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;workspaceTypeControl?.value &#x3D;&#x3D;&#x3D; &#x27;NEW&#x27;&quot; class&#x3D;&quot;d-flex&quot;&gt;
+      &lt;form [formGroup]&#x3D;&quot;newWorkspaceForm&quot; class&#x3D;&quot;w-100&quot;&gt;
+        &lt;div class&#x3D;&quot;mt-2 w-100&quot;&gt;
+          &lt;app-reactive-form-field
+            class&#x3D;&quot;w-100&quot;
+            label&#x3D;&quot;Workspace Name&quot;
+            [required]&#x3D;&quot;true&quot;
+            labelSize&#x3D;&quot;4&quot;
+            fieldId&#x3D;&quot;workspaceName&quot;
+            fieldName&#x3D;&quot;workspaceName&quot;
+            inputSize&#x3D;&quot;8&quot;
+            placeholder&#x3D;&quot;Workspace Name&quot;
+            [customFormControl]&#x3D;&quot;name&quot;
+            missingMsg&#x3D;&quot;Workspace name is required!&quot;
+            invalidPatternMsg&#x3D;&quot;Workspace name must start with a-Z or 0-9 and can contain a-Z, 0-9 or -&quot;
+          &gt;&lt;/app-reactive-form-field&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;mt-2 w-100 d-flex&quot;&gt;
+          &lt;app-custom-form-label
+            class&#x3D;&quot;weight-600 col-xl-4 col-md-4 col-xs-12 mt-2 px-0&quot;
+            label&#x3D;&quot;Branch Option&quot;
+            [required]&#x3D;&quot;true&quot;
+            toolTip&#x3D;&quot;Select your workspace branch&quot;
+          &gt;&lt;/app-custom-form-label&gt;
+          &lt;div class&#x3D;&quot;col-xl-8 col-md-8 col-xs-12 d-flex flex-column&quot;&gt;
+            &lt;nb-radio-group
+              class&#x3D;&quot;d-flex&quot;
+              id&#x3D;&quot;creationType&quot;
+              formControlName&#x3D;&quot;branchType&quot;
+              (valueChange)&#x3D;&quot;changeBranchType($event)&quot;
+            &gt;
+              &lt;nb-radio
+                *ngFor&#x3D;&quot;let option of branchTypeOptions&quot;
+                [value]&#x3D;&quot;option.value&quot;
+              &gt;
+                {{ option.label }}
+              &lt;/nb-radio&gt;
+            &lt;/nb-radio-group&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div *ngIf&#x3D;&quot;branchType?.value &#x3D;&#x3D;&#x3D; &#x27;EXISTING&#x27;&quot; class&#x3D;&quot;mt-4&quot;&gt;
+          &lt;app-reactive-form-field
+            [disabled]&#x3D;&quot;
+              !branchOptions?.length &amp;&amp; !loadingBranch &amp;&amp; !loadingWorkspaces
+            &quot;
+            disabledMsg&#x3D;&quot;Existing branches are not available&quot;
+            label&#x3D;&quot;Existing Branch&quot;
+            labelSize&#x3D;&quot;4&quot;
+            inputSize&#x3D;&quot;8&quot;
+            [select]&#x3D;&quot;true&quot;
+            placeholder&#x3D;&quot;Select Existing Branch&quot;
+            [customFormControl]&#x3D;&quot;existingBranch&quot;
+            fieldId&#x3D;&quot;existingBranch&quot;
+            fieldName&#x3D;&quot;existingBranch&quot;
+            [showClearSelectionOption]&#x3D;&quot;false&quot;
+            tooltipText&#x3D;&quot;Choose from existing branch for your new workspace&quot;
+            [selectValues]&#x3D;&quot;branchOptions&quot;
+          &gt;&lt;/app-reactive-form-field&gt;
+        &lt;/div&gt;
+        &lt;div *ngIf&#x3D;&quot;branchType?.value &#x3D;&#x3D;&#x3D; &#x27;NEW&#x27;&quot; class&#x3D;&quot;mt-4&quot;&gt;
+          &lt;app-reactive-form-field
+            [disabled]&#x3D;&quot;
+              !branchOptions?.length &amp;&amp; !loadingBranch &amp;&amp; !loadingWorkspaces
+            &quot;
+            disabledMsg&#x3D;&quot;Source branches are not available&quot;
+            label&#x3D;&quot;Source Branch&quot;
+            labelSize&#x3D;&quot;4&quot;
+            inputSize&#x3D;&quot;8&quot;
+            [select]&#x3D;&quot;true&quot;
+            placeholder&#x3D;&quot;Select Source Branch&quot;
+            [customFormControl]&#x3D;&quot;sourceBranch&quot;
+            fieldId&#x3D;&quot;sourceBranch&quot;
+            fieldName&#x3D;&quot;sourceBranch&quot;
+            [showClearSelectionOption]&#x3D;&quot;false&quot;
+            tooltipText&#x3D;&quot;Select the source for your new branch&quot;
+            [selectValues]&#x3D;&quot;branchOptions&quot;
+          &gt;&lt;/app-reactive-form-field&gt;
+        &lt;/div&gt;
+        &lt;div *ngIf&#x3D;&quot;branchType?.value &#x3D;&#x3D;&#x3D; &#x27;NEW&#x27;&quot; class&#x3D;&quot;mt-4&quot;&gt;
+          &lt;app-reactive-form-field
+            class&#x3D;&quot;w-100&quot;
+            label&#x3D;&quot;Feature Branch&quot;
+            [required]&#x3D;&quot;true&quot;
+            labelSize&#x3D;&quot;4&quot;
+            inputSize&#x3D;&quot;8&quot;
+            placeholder&#x3D;&quot;Enter new workspace&#x27;s branch name&quot;
+            [customFormControl]&#x3D;&quot;featureBranch&quot;
+            name&#x3D;&quot;featureBranch&quot;
+            tooltipText&#x3D;&quot;Name your new workspace&#x27;s branch&quot;
+            missingMsg&#x3D;&quot;Feature branch is required!&quot;
+            invalidPatternMsg&#x3D;&quot;Feature branch is invalid!&quot;
+          &gt;&lt;/app-reactive-form-field&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/nb-card-body&gt;
+  &lt;nb-card-footer&gt;
+    &lt;app-rbac-button
+      id&#x3D;&quot;launch-workspace&quot;
+      label&#x3D;&quot;Launch&quot;
+      size&#x3D;&quot;small&quot;
+      class&#x3D;&quot;mr-3&quot;
+      status&#x3D;&quot;primary&quot;
+      [loading]&#x3D;&quot;launchingInProgress&quot;
+      [disabled]&#x3D;&quot;
+        (workspaceTypeControl?.value &#x3D;&#x3D;&#x3D; &#x27;EXISTING&#x27; &amp;&amp;
+          !existingWorkspaceControl.value) ||
+        (workspaceTypeControl?.value &#x3D;&#x3D;&#x3D; &#x27;NEW&#x27; &amp;&amp; !newWorkspaceForm.valid) ||
+        launchingInProgress
+      &quot;
+      (onClick)&#x3D;&quot;onClickLaunch(ref)&quot;
+    &gt;&lt;/app-rbac-button&gt;
+    &lt;button
+      nbButton
+      size&#x3D;&quot;small&quot;
+      (click)&#x3D;&quot;closePopup()&quot;
+      [disabled]&#x3D;&quot;launchingInProgress&quot;
+    &gt;
+      Cancel
+    &lt;/button&gt;
+  &lt;/nb-card-footer&gt;
+&lt;/nb-card&gt;
+&lt;!-- &lt;/ng-template&gt; --&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./designer-coder.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.pc-icon {
+  height: 11rem !important;
+  width: 11rem !important;
+}
+.common-flex {
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  text-align: center;
+  width: 48%;
+}
+.regular-computer {
+  margin-left: 4%;
+}
+
+.selected-card {
+  border: 2px solid var(--icon-primary-color);
+}
+::ng-deep .selected-radio-border {
+  border: 1px solid var(--icon-primary-color);
+}
+::ng-deep .deselected-radio-border {
+  border: 1px solid var(--checkbox-primary-border-color);
+}
+::ng-deep .workspaceType-radio {
+  .outer-circle {
+    border-radius: 50% !important;
+    position: absolute !important;
+    top: 18px !important;
+    left: 14px !important;
+    transform: translateY(0%) !important;
+  }
+  .inner-circle {
+    border-radius: 50% !important;
+    position: absolute !important;
+    top: 18px !important;
+    left: 14px !important;
+    transform: translateY(0%) scale(0.6) !important;
+  }
+  label {
+    padding-right: 0 !important;
+    width: 100%;
+  }
+  .text {
+    width: 85%;
+  }
+  .selected-text {
+    color: var(--menu-item-active-text-color);
+  }
+  .workspace-description {
+    display: -webkit-box;
+    max-width: 200px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+.selectType {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: 2%;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- <app-rbac-button  label="Launch Workspace"  icon="external-link-outline"  action=""  size="small"  appearance="outline"  status="primary"  [disabled]="false"  (onClick)="openCoder()"></app-rbac-button> --><!-- <ng-template #coderDialog let-data let-ref="dialogRef"> --><nb-card  style="width: 40vw; max-height: 100vh; overflow-y: scroll"  [nbSpinner]="loadingBranch || loadingWorkspaces">  <nb-card-header class="d-flex justify-content-between">    <h6>      {{ title }}    </h6>    <nb-icon      icon="close-outline"      (click)="closePopup()"      class="cursor-pointer"    ></nb-icon>  </nb-card-header>  <nb-card-body>    <div *ngIf="workspaceTypeOptions?.length" class="mb-4">      <div class="workspaceType-parent mt-3">        <nb-radio-group          name="selectType"          id="selectType"          class="selectType"          [formControl]="workspaceTypeControl"          (ngModelChange)="workspaceTypeChange($event)"        >          <nb-radio            *ngFor="let workspaceType of workspaceTypeOptions; let i = index"            [ngClass]="              workspaceType?.value === workspaceTypeControl?.value                ? \'selected-radio-border\'                : \'deselected-radio-border\'            "            style="padding: 10px; background-color: #fff"            class="rounded h-100 workspaceType-radio"            [value]="workspaceType?.value"            [checked]="workspaceType?.value === workspaceTypeControl?.value"          >            <div class="d-flex flex-column">              <div                [ngClass]="{                  \'selected-text\':                    workspaceType?.value === workspaceTypeControl?.value                }"                class="font-weight-600 ml-1 d-flex justify-content-between align-items-center"              >                <div                  style="width: 100%; word-wrap: break-word"                  [ngClass]="{ \'mb-1\': workspaceType?.url }"                >                  {{ workspaceType?.label }}                </div>                <a                  *ngIf="workspaceType?.url"                  [ngClass]="{ \'mb-1\': workspaceType?.url }"                  [href]="workspaceType?.url"                  target="_blank"                >                  <nb-icon class="ml-1" pack="fci" icon="github-blue"></nb-icon>                </a>              </div>              <span                class="mt-1 ml-1 options-secondary workspace-description"                [nbTooltip]="workspaceType?.description"              >                {{ workspaceType?.description }}              </span>            </div>          </nb-radio>        </nb-radio-group>      </div>    </div>    <div *ngIf="workspaceTypeControl?.value === \'EXISTING\'" class="d-flex">      <app-reactive-form-field        class="w-100"        [disabled]="          !existingWorkspaceOptions?.length &&          !loadingBranch &&          !loadingWorkspaces        "        disabledMsg="Existing workspaces are not available"        label="Existing Workspaces"        labelSize="4"        inputSize="8"        [select]="true"        placeholder="Select Existing Workspace"        [customFormControl]="existingWorkspaceControl"        fieldId="existingWorkspace"        fieldName="existingWorkspace"        [showClearSelectionOption]="false"        tooltipText="Choose existing workspace"        [selectValues]="existingWorkspaceOptions"      ></app-reactive-form-field>    </div>    <div *ngIf="workspaceTypeControl?.value === \'NEW\'" class="d-flex">      <form [formGroup]="newWorkspaceForm" class="w-100">        <div class="mt-2 w-100">          <app-reactive-form-field            class="w-100"            label="Workspace Name"            [required]="true"            labelSize="4"            fieldId="workspaceName"            fieldName="workspaceName"            inputSize="8"            placeholder="Workspace Name"            [customFormControl]="name"            missingMsg="Workspace name is required!"            invalidPatternMsg="Workspace name must start with a-Z or 0-9 and can contain a-Z, 0-9 or -"          ></app-reactive-form-field>        </div>        <div class="mt-2 w-100 d-flex">          <app-custom-form-label            class="weight-600 col-xl-4 col-md-4 col-xs-12 mt-2 px-0"            label="Branch Option"            [required]="true"            toolTip="Select your workspace branch"          ></app-custom-form-label>          <div class="col-xl-8 col-md-8 col-xs-12 d-flex flex-column">            <nb-radio-group              class="d-flex"              id="creationType"              formControlName="branchType"              (valueChange)="changeBranchType($event)"            >              <nb-radio                *ngFor="let option of branchTypeOptions"                [value]="option.value"              >                {{ option.label }}              </nb-radio>            </nb-radio-group>          </div>        </div>        <div *ngIf="branchType?.value === \'EXISTING\'" class="mt-4">          <app-reactive-form-field            [disabled]="              !branchOptions?.length && !loadingBranch && !loadingWorkspaces            "            disabledMsg="Existing branches are not available"            label="Existing Branch"            labelSize="4"            inputSize="8"            [select]="true"            placeholder="Select Existing Branch"            [customFormControl]="existingBranch"            fieldId="existingBranch"            fieldName="existingBranch"            [showClearSelectionOption]="false"            tooltipText="Choose from existing branch for your new workspace"            [selectValues]="branchOptions"          ></app-reactive-form-field>        </div>        <div *ngIf="branchType?.value === \'NEW\'" class="mt-4">          <app-reactive-form-field            [disabled]="              !branchOptions?.length && !loadingBranch && !loadingWorkspaces            "            disabledMsg="Source branches are not available"            label="Source Branch"            labelSize="4"            inputSize="8"            [select]="true"            placeholder="Select Source Branch"            [customFormControl]="sourceBranch"            fieldId="sourceBranch"            fieldName="sourceBranch"            [showClearSelectionOption]="false"            tooltipText="Select the source for your new branch"            [selectValues]="branchOptions"          ></app-reactive-form-field>        </div>        <div *ngIf="branchType?.value === \'NEW\'" class="mt-4">          <app-reactive-form-field            class="w-100"            label="Feature Branch"            [required]="true"            labelSize="4"            inputSize="8"            placeholder="Enter new workspace\'s branch name"            [customFormControl]="featureBranch"            name="featureBranch"            tooltipText="Name your new workspace\'s branch"            missingMsg="Feature branch is required!"            invalidPatternMsg="Feature branch is invalid!"          ></app-reactive-form-field>        </div>      </form>    </div>  </nb-card-body>  <nb-card-footer>    <app-rbac-button      id="launch-workspace"      label="Launch"      size="small"      class="mr-3"      status="primary"      [loading]="launchingInProgress"      [disabled]="        (workspaceTypeControl?.value === \'EXISTING\' &&          !existingWorkspaceControl.value) ||        (workspaceTypeControl?.value === \'NEW\' && !newWorkspaceForm.valid) ||        launchingInProgress      "      (onClick)="onClickLaunch(ref)"    ></app-rbac-button>    <button      nbButton      size="small"      (click)="closePopup()"      [disabled]="launchingInProgress"    >      Cancel    </button>  </nb-card-footer></nb-card><!-- </ng-template> --></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'DesignerCoderComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DesignerCoderComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

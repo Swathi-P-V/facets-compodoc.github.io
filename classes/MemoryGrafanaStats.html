@@ -1,0 +1,1277 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >MemoryGrafanaStats</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/grafana-service.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../classes/GrafanaStatsData.html" target="_self" >GrafanaStatsData</a></code>
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#quotaType" >quotaType</a>
+                            </li>
+                            <li>
+                                <a href="#clusterID" >clusterID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#end" >end</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#format" >format</a>
+                            </li>
+                            <li>
+                                <a href="#resource" >resource</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#start" >start</a>
+                            </li>
+                            <li>
+                                <a href="#steps" >steps</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="quotaType"></a>
+                    <span class="name">
+                        <span ><b>quotaType</b></span>
+                        <a href="#quotaType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;container_memory_usage_bytes&quot; | &quot;kube_pod_container_resource_limits&quot;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/services/grafana-service.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusterID"></a>
+                    <span class="name">
+                        <span ><b>clusterID</b></span>
+                        <a href="#clusterID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/GrafanaStatsData.html" target="_self" >GrafanaStatsData</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/GrafanaStatsData.html#source" target="_self" >GrafanaStatsData:20</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="end"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>end</b></span>
+                        <a href="#end"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/GrafanaStatsData.html" target="_self" >GrafanaStatsData</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/GrafanaStatsData.html#source" target="_self" >GrafanaStatsData:25</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="format"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>format</b></span>
+                        <a href="#format"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/GrafanaStatsData.html" target="_self" >GrafanaStatsData</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/GrafanaStatsData.html#source" target="_self" >GrafanaStatsData:23</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resource"></a>
+                    <span class="name">
+                        <span ><b>resource</b></span>
+                        <a href="#resource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/GrafanaStatsData.html" target="_self" >GrafanaStatsData</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/GrafanaStatsData.html#source" target="_self" >GrafanaStatsData:21</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="start"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>start</b></span>
+                        <a href="#start"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/GrafanaStatsData.html" target="_self" >GrafanaStatsData</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/GrafanaStatsData.html#source" target="_self" >GrafanaStatsData:24</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="steps"></a>
+                    <span class="name">
+                        <span ><b>steps</b></span>
+                        <a href="#steps"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>30</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/GrafanaStatsData.html" target="_self" >GrafanaStatsData</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/GrafanaStatsData.html#source" target="_self" >GrafanaStatsData:22</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpParams } from &#x27;@angular/common/http&#x27;;
+import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  catchError,
+  flatMap,
+  from,
+  map,
+  Observable,
+  of,
+  throwError,
+} from &#x27;rxjs&#x27;;
+import {
+  UiApplicationControllerService,
+  UiCommonClusterControllerService,
+} from &#x27;../cc-api/services&#x27;;
+import { PrometheusUIDService } from &#x27;./prometheusUID.service&#x27;;
+import { CookieUtilWrapperService } from &#x27;./cookie-util-wrapper.service&#x27;;
+
+class GrafanaStatsData {
+  clusterID: string;
+  resource: string;
+  steps: number &#x3D; 30;
+  format?: boolean &#x3D; false;
+  start?: number;
+  end?: number;
+}
+
+export class CPUGrafanaStats extends GrafanaStatsData {
+  quotaType: &#x27;container_cpu_usage_seconds_total&#x27; | &#x27;container_spec_cpu_quota&#x27;;
+}
+
+export class MemoryGrafanaStats extends GrafanaStatsData {
+  quotaType:
+    | &#x27;container_memory_usage_bytes&#x27;
+    | &#x27;kube_pod_container_resource_limits&#x27;;
+}
+
+export class PodsGrafanaStats extends GrafanaStatsData {
+  quotaType: &#x27;pods_resources&#x27;;
+}
+
+export class RestartGrafanaStats extends GrafanaStatsData {
+  quotaType: &#x27;kube_pod_container_status_restarts_total&#x27;;
+}
+
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+export class GrafanaServiceService {
+  private rootUrl: string &#x3D; window.location.origin;
+  private step &#x3D; 60;
+
+  private queryMap &#x3D; {
+    active_nodes_count: &#x27;count(kube_node_labels)&#x27;,
+    active_pods_count: &#x27;count(kube_pod_status_phase{phase&#x3D;&quot;Running&quot;} &#x3D;&#x3D; 1)&#x27;,
+    node_types_count:
+      &#x27;count(kube_node_labels) by (label_beta_kubernetes_io_instance_type)&#x27;,
+    deployments_count: &#x27;count(kube_deployment_created{namespace&#x3D;~&quot;.*&quot;})&#x27;,
+    total_cpu_count:
+      &#x27;sum(kube_node_status_allocatable{resource&#x3D;&quot;cpu&quot;,endpoint&#x3D;&quot;http&quot;})&#x27;,
+    cpu_request_count: &#x27;sum(kube_pod_container_resource_requests_cpu_cores)&#x27;,
+    total_memory_count:
+      &#x27;sum(kube_node_status_allocatable{resource&#x3D;&quot;memory&quot;,endpoint&#x3D;&quot;http&quot;})&#x27;,
+    memory_request_count:
+      &#x27;sum(kube_pod_container_resource_requests_memory_bytes)&#x27;,
+    pods_resources:
+      &#x27;kube_deployment_status_replicas_available{deployment&#x3D;~&quot;{_resource_}&quot;}&#x27;,
+    alerts_summary_by_alertName:
+      &#x27;count(ALERTS{resourceType!&#x3D;&quot;&quot;}) by (alertname)&#x27;,
+    alerts_summary_by_severity: &#x27;count(ALERTS{resourceType!&#x3D;&quot;&quot;}) by (severity)&#x27;,
+    // container_cpu_usage_seconds_total: &#x60;sum(rate(container_cpu_usage_seconds_total{container_name!&#x3D;&quot;POD&quot;,pod&#x3D;~&quot;{_resource_}-[a-zA-Z0-9]*-[a-zA-Z0-9]*&quot;}[1m])) by (pod)&#x60;,
+    container_cpu_usage_seconds_total: &#x60;sum(rate(container_cpu_usage_seconds_total{container&#x3D;&quot;{_resource_}&quot;,pod&#x3D;~&quot;{_resource_}-[a-zA-Z0-9]*-[a-zA-Z0-9]*&quot;}[1m])) by (pod)&#x60;,
+    container_spec_cpu_quota:
+      &#x27;container_spec_cpu_quota{image&#x3D;&quot;&quot;, pod&#x3D;~&quot;{_resource_}-[a-zA-Z0-9]*-[a-zA-Z0-9]*&quot;}/100000&#x27;,
+    container_memory_usage_bytes:
+      &#x27;sum(container_memory_usage_bytes{pod&#x3D;~&quot;{_resource_}-[a-zA-Z0-9]*-[a-zA-Z0-9]*&quot;, job&#x3D;&quot;kubelet&quot;, metrics_path&#x3D;&quot;/metrics/cadvisor&quot;, image!&#x3D;&quot;&quot;, container!&#x3D;&quot;POD&quot;}/1073741824) by (pod)&#x27;,
+    kube_pod_container_resource_limits:
+      &#x27;sum(kube_pod_container_resource_limits{pod&#x3D;~&quot;{_resource_}-[a-zA-Z0-9]*-[a-zA-Z0-9]*&quot;, job&#x3D;&quot;kube-state-metrics&quot;, container!&#x3D;&quot;POD&quot;,  resource&#x3D;&quot;memory&quot;}/1073741824) by (pod)&#x27;,
+    kube_pod_container_status_restarts_total:
+      &#x27;kube_pod_container_status_restarts_total{pod&#x3D;~&quot;{_resource_}-[a-zA-Z0-9]*-[a-zA-Z0-9]*&quot;} &gt; 0&#x27;,
+    kube_pod_container_resource_requests:
+      &#x27;sum(kube_pod_container_resource_requests{resource&#x3D;&quot;{_resource_}&quot;, service&#x3D;&quot;prometheus-operator-kube-state-metrics&quot;} * on (pod) group_left () kube_pod_status_phase{service&#x3D;&quot;prometheus-operator-kube-state-metrics&quot;, phase&#x3D;&quot;Running&quot;})&#x27;,
+    ssl_domain_expiry: &#x27;min(ssl_expiry{domain&#x3D;~&quot;.*_domain_&quot;})&#x27;,
+  };
+
+  constructor(
+    private http: HttpClient,
+    private prometheusUIDService: PrometheusUIDService,
+    private cookieService: CookieUtilWrapperService,
+    private uiCommonClusterControllerService: UiCommonClusterControllerService,
+    private uiApplicationControllerService: UiApplicationControllerService,
+  ) {}
+
+  getQuery(queryType: string, options: any) {
+    let query: string;
+
+    switch (queryType) {
+      case &#x27;active_nodes_count&#x27;:
+      case &#x27;active_pods_count&#x27;:
+      case &#x27;deployments_count&#x27;:
+      case &#x27;node_types_count&#x27;:
+      case &#x27;total_cpu_count&#x27;:
+      case &#x27;cpu_request_count&#x27;:
+      case &#x27;total_memory_count&#x27;:
+      case &#x27;memory_request_count&#x27;:
+      case &#x27;memory_usage_query&#x27;:
+      case &#x27;alerts_summary_by_severity&#x27;:
+      case &#x27;alerts_summary_by_alertName&#x27;:
+        query &#x3D; this.queryMap[queryType];
+        break;
+      case &#x27;ssl_domain_expiry&#x27;:
+        query &#x3D; this.queryMap[queryType];
+        query &#x3D; query.replace(&#x27;_domain_&#x27;, options.domainURL);
+        break;
+      case &#x27;pods_resources&#x27;:
+      case &#x27;container_cpu_usage_seconds_total&#x27;:
+      case &#x27;container_spec_cpu_quota&#x27;:
+      case &#x27;container_memory_usage_bytes&#x27;:
+      case &#x27;kube_pod_container_resource_limits&#x27;:
+      case &#x27;kube_pod_container_status_restarts_total&#x27;:
+        query &#x3D; this.queryMap[queryType];
+        query &#x3D; query.split(&#x27;{_resource_}&#x27;).join(options[&#x27;resource&#x27;]);
+        break;
+      case &#x27;kube_pod_container_resource_requests&#x27;:
+        query &#x3D; this.queryMap[queryType].replace(
+          &#x27;{_resource_}&#x27;,
+          options[&#x27;resource&#x27;],
+        );
+        break;
+      default:
+        console.log(&#x27;Invalid query&#x27;);
+    }
+
+    return query;
+  }
+
+  getStatistics(clusterId, queryType?: string) {
+    let params &#x3D; new HttpParams()
+      .set(&#x27;query&#x27;, this.queryMap[queryType])
+      .set(&#x27;start&#x27;, &#x27;1655875500&#x27;)
+      .set(&#x27;end&#x27;, &#x27;1655897100&#x27;)
+      .set(&#x27;step&#x27;, String(this.step));
+
+    let baseUrl &#x3D;
+      &#x27;tunnel/&#x27; +
+      clusterId +
+      &#x27;/grafana/api/datasources/proxy/1/api/v1/query_range&#x27;;
+    this.http
+      .get(&#x60;${this.rootUrl}/${baseUrl}&#x60;, { params })
+      .subscribe((data) &#x3D;&gt; {
+        console.log(queryType + &#x27;&#x3D;&#x3D;&gt;&#x27;, data);
+      });
+  }
+
+  getParams(
+    queryType: string,
+    options: any,
+    step: number,
+    start: number,
+    end: number,
+  ) {
+    return new HttpParams()
+      .set(&#x27;query&#x27;, this.getQuery(queryType, options))
+      .set(&#x27;start&#x27;, String(start))
+      .set(&#x27;end&#x27;, String(end))
+      .set(&#x27;step&#x27;, String(step));
+  }
+
+  getBaseURL(clusterID: string): Observable&lt;any&gt; {
+    //First check if there is prometheusUID stored in cookies
+    //If present use that as UID and make a prometheus call
+    const prometheusUID &#x3D; this.cookieService.get(&#x27;prometheusUID&#x27;);
+
+    if (prometheusUID?.length) {
+      const baseURL &#x3D; &#x60;tunnel/${clusterID}/grafana/api/datasources/proxy/${prometheusUID}/api/v1/query_range&#x60;;
+      return of(baseURL);
+    }
+    //If prometheus id is not present get it from grafana/api/datasources/id/Prometheus
+    else {
+      return this.getPrometheusID(clusterID).pipe(
+        map((res) &#x3D;&gt; {
+          return &#x60;tunnel/${clusterID}/grafana/api/datasources/proxy/${res}/api/v1/query_range&#x60;;
+        }),
+        catchError((error) &#x3D;&gt; {
+          return error;
+        }),
+      );
+
+      // return this.http.get(&#x60;${this.rootUrl}/${prometheusURL}&#x60;).pipe(
+      //   map((res) &#x3D;&gt; {
+      //     let UID &#x3D; res?.[&#x27;id&#x27;];
+      //     //Set it in cookies
+      //     this.cookieService.set(&#x27;prometheusUID&#x27;, String(UID), {
+      //       domain: window.location.hostname,
+      //       path: &#x27;/&#x27;,
+      //     });
+
+      //     return &#x60;tunnel/${clusterID}/grafana/api/datasources/proxy/${UID}/api/v1/query_range&#x60;;
+      //   }),
+      // );
+    }
+  }
+
+  getAlertsSummaryBy(
+    clusterID: string,
+    groupByProperty:
+      | &#x27;alerts_summary_by_alertName&#x27;
+      | &#x27;alerts_summary_by_severity&#x27;,
+    steps: number &#x3D; 86400,
+    format: boolean &#x3D; false,
+    start?: number,
+    end?: number,
+  ) {
+    if (!start &amp;&amp; !end) {
+      end &#x3D; Math.floor(Date.now() / 1000);
+      start &#x3D; end - 3600 * 24 * 30;
+    }
+    let params &#x3D; this.getParams(groupByProperty, {}, steps, start, end);
+    if (!format) {
+      return this.getData(clusterID, params);
+    } else {
+      return from(
+        new Promise((resolve) &#x3D;&gt; {
+          this.getData(clusterID, params).subscribe((data) &#x3D;&gt; {
+            // formatting, data &#x3D; format(data)
+            console.log(data);
+            resolve(data);
+          });
+        }),
+      );
+    }
+  }
+
+  getDomainExpiration(clusterID: string, options) {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      let currentTimestamp &#x3D; Math.floor(Date.now() / 1000);
+      let params &#x3D; this.getParams(
+        &#x27;ssl_domain_expiry&#x27;,
+        options,
+        15,
+        currentTimestamp,
+        currentTimestamp,
+      );
+      this.getData(clusterID, params).subscribe(
+        (expirationData) &#x3D;&gt; {
+          if (
+            Object.keys(this.extractCount(expirationData, options[&#x27;domainURL&#x27;]))
+              .length &gt; 0
+          ) {
+            resolve(this.extractCount(expirationData, options[&#x27;domainURL&#x27;]));
+          } else {
+            reject({ state: &#x27;empty&#x27; });
+          }
+        },
+        (error) &#x3D;&gt; {
+          reject({ state: &#x27;error&#x27; });
+        },
+      );
+    });
+  }
+
+  getPodsStats(data: PodsGrafanaStats) {
+    if (!data.start &amp;&amp; !data.end) {
+      data.end &#x3D; Math.floor(Date.now() / 1000);
+      data.start &#x3D; data.end - 3600;
+    }
+    let params &#x3D; this.getParams(
+      data.quotaType,
+      { resource: data.resource },
+      data.steps,
+      data.start,
+      data.end,
+    );
+    if (!data.format) {
+      return this.getData(data.clusterID, params);
+    } else {
+      return from(
+        new Promise((resolve) &#x3D;&gt; {
+          this.getData(data.clusterID, params).subscribe((data) &#x3D;&gt; {
+            // formatting, data &#x3D; format(data)
+            console.log(data);
+            resolve(data);
+          });
+        }),
+      );
+    }
+  }
+
+  getCPUStats(data: CPUGrafanaStats) {
+    if (!data.start &amp;&amp; !data.end) {
+      data.end &#x3D; Math.floor(Date.now() / 1000);
+      data.start &#x3D; data.end - 3600;
+    }
+    let params &#x3D; this.getParams(
+      data.quotaType,
+      { resource: data.resource },
+      data.steps,
+      data.start,
+      data.end,
+    );
+    if (!data.format) {
+      return this.getData(data.clusterID, params);
+    } else {
+      return from(
+        new Promise((resolve) &#x3D;&gt; {
+          this.getData(data.clusterID, params).subscribe((data) &#x3D;&gt; {
+            // formatting, data &#x3D; format(data)
+            console.log(data);
+            resolve(data);
+          });
+        }),
+      );
+    }
+  }
+
+  getMemoryStats(data: MemoryGrafanaStats) {
+    if (!data.start &amp;&amp; !data.end) {
+      data.end &#x3D; Math.floor(Date.now() / 1000);
+      data.start &#x3D; data.end - 3600;
+    }
+    let params &#x3D; this.getParams(
+      data.quotaType,
+      { resource: data.resource },
+      data.steps,
+      data.start,
+      data.end,
+    );
+    if (!data.format) {
+      return this.getData(data.clusterID, params);
+    } else {
+      return from(
+        new Promise((resolve) &#x3D;&gt; {
+          this.getData(data.clusterID, params).subscribe((data) &#x3D;&gt; {
+            // formatting, data &#x3D; format(data)
+            console.log(data);
+            resolve(data);
+          });
+        }),
+      );
+    }
+  }
+
+  getRestartStats(data: RestartGrafanaStats) {
+    if (!data.start &amp;&amp; !data.end) {
+      data.end &#x3D; Math.floor(Date.now() / 1000);
+      data.start &#x3D; data.end - 3600;
+    }
+    let params &#x3D; this.getParams(
+      data.quotaType,
+      { resource: data.resource },
+      data.steps,
+      data.start,
+      data.end,
+    );
+    if (!data.format) {
+      return this.getData(data.clusterID, params);
+    } else {
+      return from(
+        new Promise((resolve) &#x3D;&gt; {
+          this.getData(data.clusterID, params).subscribe((data) &#x3D;&gt; {
+            // formatting, data &#x3D; format(data)
+            console.log(data);
+            resolve(data);
+          });
+        }),
+      );
+    }
+  }
+
+  getActiveNodesCount(clusterId) {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      let currentTimestamp &#x3D; Math.floor(Date.now() / 1000);
+      let params &#x3D; this.getParams(
+        &#x27;active_nodes_count&#x27;,
+        {},
+        15,
+        currentTimestamp,
+        currentTimestamp,
+      );
+      this.getData(clusterId, params).subscribe(
+        (nodeCounts) &#x3D;&gt; {
+          resolve(this.extractCount(nodeCounts, &#x27;activeNodesCount&#x27;));
+        },
+        (error) &#x3D;&gt; {
+          reject(error);
+        },
+      );
+    });
+  }
+
+  getNodeTypesCount(clusterId) {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      let currentTimestamp &#x3D; Math.floor(Date.now() / 1000);
+      let params &#x3D; this.getParams(
+        &#x27;node_types_count&#x27;,
+        {},
+        15,
+        currentTimestamp,
+        currentTimestamp,
+      );
+      this.getData(clusterId, params).subscribe(
+        (nodeTypeCount) &#x3D;&gt; {
+          var countObj &#x3D; {};
+          if (nodeTypeCount[&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) {
+            if (nodeTypeCount[&#x27;data&#x27;][&#x27;result&#x27;].length &gt; 0) {
+              countObj[&#x27;nodeTypesCount&#x27;] &#x3D;
+                nodeTypeCount[&#x27;data&#x27;][&#x27;result&#x27;].length;
+            } else {
+              countObj[&#x27;nodeTypesCount&#x27;] &#x3D; 0;
+            }
+          } else {
+            countObj[&#x27;nodeTypesCount&#x27;] &#x3D; &#x27;NA&#x27;;
+          }
+          resolve(countObj);
+        },
+        (error) &#x3D;&gt; {
+          reject(error);
+        },
+      );
+    });
+  }
+
+  getPodsCount(clusterId) {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      let currentTimestamp &#x3D; Math.floor(Date.now() / 1000);
+      let params &#x3D; this.getParams(
+        &#x27;active_pods_count&#x27;,
+        {},
+        15,
+        currentTimestamp,
+        currentTimestamp,
+      );
+      this.getData(clusterId, params).subscribe(
+        (podsCount) &#x3D;&gt; {
+          resolve(this.extractCount(podsCount, &#x27;activePodsCount&#x27;));
+        },
+        (error) &#x3D;&gt; {
+          reject(error);
+        },
+      );
+    });
+  }
+
+  getDeploymentsCount(clusterId) {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      let currentTimestamp &#x3D; Math.floor(Date.now() / 1000);
+      let params &#x3D; this.getParams(
+        &#x27;deployments_count&#x27;,
+        {},
+        15,
+        currentTimestamp,
+        currentTimestamp,
+      );
+      this.getData(clusterId, params).subscribe(
+        (deploymentCount) &#x3D;&gt; {
+          resolve(this.extractCount(deploymentCount, &#x27;deploymentsCount&#x27;));
+        },
+        (error) &#x3D;&gt; {
+          reject(error);
+        },
+      );
+    });
+  }
+
+  extractCount(response, key) {
+    var countObj &#x3D; {};
+    if (response[&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) {
+      if (response[&#x27;data&#x27;][&#x27;result&#x27;].length &gt; 0) {
+        let entry &#x3D; response[&#x27;data&#x27;][&#x27;result&#x27;][0][&#x27;values&#x27;][0];
+        countObj[key] &#x3D; entry[1];
+      }
+    }
+    return countObj;
+  }
+
+  getTotalCores(clusterId) {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      let currentTimestamp &#x3D; Math.floor(Date.now() / 1000);
+      let params &#x3D; this.getParams(
+        &#x27;total_cpu_count&#x27;,
+        {},
+        15,
+        currentTimestamp,
+        currentTimestamp,
+      );
+      this.getData(clusterId, params).subscribe(
+        (totalCores) &#x3D;&gt; {
+          if (Object.keys(this.extractCount(totalCores, &#x27;totalCores&#x27;)).length) {
+            resolve(this.extractCount(totalCores, &#x27;totalCores&#x27;));
+          } else {
+            reject({ state: &#x27;empty&#x27; });
+          }
+        },
+        (error) &#x3D;&gt; {
+          reject({ state: &#x27;error&#x27; });
+        },
+      );
+    });
+  }
+
+  getTotalCpuRequests(clusterId) {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      let currentTimestamp &#x3D; Math.floor(Date.now() / 1000);
+      let params &#x3D; this.getParams(
+        &#x27;kube_pod_container_resource_requests&#x27;,
+        { resource: &#x27;cpu&#x27; },
+        15,
+        currentTimestamp,
+        currentTimestamp,
+      );
+      this.getData(clusterId, params).subscribe(
+        (totalCpuRequests) &#x3D;&gt; {
+          if (
+            Object.keys(this.extractCount(totalCpuRequests, &#x27;coresInUse&#x27;))
+              .length
+          ) {
+            resolve(this.extractCount(totalCpuRequests, &#x27;coresInUse&#x27;));
+          } else {
+            reject({ state: &#x27;empty&#x27; });
+          }
+        },
+        (error) &#x3D;&gt; {
+          reject({ state: &#x27;error&#x27; });
+        },
+      );
+    });
+  }
+
+  getTotalMemoryUsed(clusterId) {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      let currentTimestamp &#x3D; Math.floor(Date.now() / 1000);
+      let params &#x3D; this.getParams(
+        &#x27;kube_pod_container_resource_requests&#x27;,
+        { resource: &#x27;memory&#x27; },
+        15,
+        currentTimestamp,
+        currentTimestamp,
+      );
+      this.getData(clusterId, params).subscribe(
+        (totalMemoryRequests) &#x3D;&gt; {
+          if (
+            Object.keys(this.extractCount(totalMemoryRequests, &#x27;memoryInUse&#x27;))
+              .length
+          ) {
+            resolve(this.extractCount(totalMemoryRequests, &#x27;memoryInUse&#x27;));
+          } else {
+            reject({ state: &#x27;empty&#x27; });
+          }
+        },
+        (error) &#x3D;&gt; {
+          reject({ state: &#x27;error&#x27; });
+        },
+      );
+    });
+  }
+
+  getTotalMemory(clusterId) {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      let currentTimestamp &#x3D; Math.floor(Date.now() / 1000);
+      let params &#x3D; this.getParams(
+        &#x27;total_memory_count&#x27;,
+        {},
+        15,
+        currentTimestamp,
+        currentTimestamp,
+      );
+      this.getData(clusterId, params).subscribe(
+        (totalMemoryCount) &#x3D;&gt; {
+          if (
+            Object.keys(this.extractCount(totalMemoryCount, &#x27;totalMemory&#x27;))
+              .length
+          ) {
+            resolve(this.extractCount(totalMemoryCount, &#x27;totalMemory&#x27;));
+          } else {
+            reject({ state: &#x27;empty&#x27; });
+          }
+        },
+        (error) &#x3D;&gt; {
+          reject({ state: &#x27;error&#x27; });
+        },
+      );
+    });
+  }
+
+  // getData(
+  //   clusterID: string,
+  //   params: HttpParams,
+  //   retryCount?: number,
+  // ): Observable&lt;any&gt; {
+  //   return this.getBaseURL(clusterID).pipe(
+  //     flatMap((baseurl) &#x3D;&gt;
+  //       this.http
+  //         .get(&#x60;${this.rootUrl}/${baseurl}&#x60;, {
+  //           params,
+  //         })
+  //         .pipe(
+  //           catchError((error) &#x3D;&gt; {
+  //             if (error.status &#x3D;&#x3D;&#x3D; 404) {
+  //               // 404 error is thrown when datasource id is incorrect
+  //               //In this case call retrieve datasource function to find out corret datasource by trial and error method
+  //               // return this.retrieveValidPrometheusID(clusterID, params);
+
+  //               this.cookieService.delete(&#x27;prometheusUID&#x27;);
+  //               // return this.getData(clusterID, params);
+  //             } else {
+  //               // Re-throw the error to propagate it to the subscriber
+  //               return throwError(error);
+  //             }
+  //           }),
+  //         ),
+  //     ),
+  //   );
+  // }
+
+  getRandomColorForGraph() {
+    let color: string &#x3D; this.getRandomColor(
+      this.getHash(Math.floor(Math.random() * 10)),
+    );
+    while (&#x27;ABCDEFabcdef&#x27;.includes(color[1])) {
+      color &#x3D; this.getRandomColor(this.getHash(Math.floor(Math.random() * 10)));
+    }
+    return color;
+  }
+
+  getRandomColor(key: string) {
+    let hash &#x3D; 0;
+    for (let i &#x3D; 0; i &lt; key.length; i++) {
+      hash &#x3D; key.charCodeAt(i) + ((hash &lt;&lt; 5) - hash);
+    }
+    let color &#x3D; &#x27;#&#x27;;
+    for (let i &#x3D; 0; i &lt; 3; i++) {
+      let value &#x3D; (hash &gt;&gt; (i * 8)) &amp; 0xff;
+      color +&#x3D; (&#x27;00&#x27; + value.toString(16)).substr(-2);
+    }
+    return color;
+  }
+
+  getHash(length: number) {
+    let result &#x3D; &#x27;&#x27;;
+    let characters &#x3D;
+      &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&#x27;;
+    let charactersLength &#x3D; characters.length;
+    for (let i &#x3D; 0; i &lt; length; i++) {
+      result +&#x3D; characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
+  //This function calls the grafana api for datasource id ranging from 1 to 5
+  //When the valid id is found it stores the prometheus id in cookies and returns the api data to propogate to subsciber
+  // retrieveValidPrometheusID(
+  //   clusterID: string,
+  //   params: HttpParams,
+  // ): Observable&lt;any&gt; {
+  //   let validUID &#x3D; 1;
+  //   return new Observable((observer) &#x3D;&gt; {
+  //     const tryNextId &#x3D; () &#x3D;&gt; {
+  //       if (validUID &gt; 5) {
+  //         observer.error(
+  //           &#x60;Failed to retrieve data for all datasource IDs ranaging from 1 to 5&#x60;,
+  //         );
+  //         return;
+  //       }
+  //       const baseUrl &#x3D; &#x60;tunnel/${clusterID}/grafana/api/datasources/proxy/${validUID}/api/v1/query_range&#x60;;
+  //       this.http.get(&#x60;${this.rootUrl}/${baseUrl}&#x60;, { params }).subscribe(
+  //         (data) &#x3D;&gt; {
+  //           //Set or Update the prometheus datasource id in cookies
+  //           this.cookieService.set(&#x27;prometheusUID&#x27;, String(validUID), {
+  //             domain: window.location.hostname,
+  //             path: &#x27;/&#x27;,
+  //           });
+  //           //return valid prometheus data
+  //           observer.next(data);
+  //           observer.complete();
+  //         },
+  //         (error) &#x3D;&gt; {
+  //           //If current id is invalid, then 404 is again thrown
+  //           //Get the next datasource id and make an api call
+  //           if (error.status &#x3D;&#x3D;&#x3D; 404) {
+  //             validUID++;
+  //             tryNextId();
+  //           } else {
+  //             observer.error(error);
+  //           }
+  //         },
+  //       );
+  //     };
+  //     tryNextId();
+  //   });
+  // }
+
+  getData(clusterID: string, params: HttpParams): Observable&lt;any&gt; {
+    let trial &#x3D; 0;
+    return new Observable((observer) &#x3D;&gt; {
+      const tryGetData &#x3D; () &#x3D;&gt; {
+        if (trial &gt; 1) {
+          observer.error(
+            &#x60;Failed to retrieve data for retrived prometheus id ${this.cookieService.get(
+              &#x27;prometheusUID&#x27;,
+            )}&#x60;,
+          );
+          return;
+        }
+
+        this.getBaseURL(clusterID)
+          .pipe(
+            flatMap((baseURL) &#x3D;&gt;
+              this.http.get(&#x60;${this.rootUrl}/${baseURL}&#x60;, { params }).pipe(
+                map((response) &#x3D;&gt; {
+                  return response;
+                }),
+                catchError((error) &#x3D;&gt; {
+                  return throwError(error);
+                }),
+              ),
+            ),
+            catchError((error) &#x3D;&gt; {
+              return throwError(error);
+            }),
+          )
+          .subscribe(
+            (response) &#x3D;&gt; {
+              observer.next(response);
+              observer.complete();
+            },
+            (error) &#x3D;&gt; {
+              if (error?.status &#x3D;&#x3D;&#x3D; 404) {
+                trial++;
+                this.cookieService.delete(&#x27;prometheusUID&#x27;, &#x27;/&#x27;);
+                tryGetData();
+              } else {
+                observer.error(error);
+              }
+            },
+          );
+      };
+
+      tryGetData();
+    });
+  }
+
+  getPrometheusID(clusterID): Observable&lt;any&gt; {
+    const prometheusURLs: string[] &#x3D; [
+      &#x60;tunnel/${clusterID}/grafana/api/datasources/id/Prometheus&#x60;,
+      &#x60;tunnel/${clusterID}/grafana/api/datasources/id/prometheus&#x60;,
+    ];
+
+    return this.http.get(&#x60;${this.rootUrl}/${prometheusURLs[0]}&#x60;).pipe(
+      catchError(() &#x3D;&gt; this.http.get(&#x60;${this.rootUrl}/${prometheusURLs[1]}&#x60;)),
+      catchError((error) &#x3D;&gt; throwError(&#x27;Prometheus ID not found &#x27;, error)),
+      map((res: any) &#x3D;&gt; {
+        let UID &#x3D; res?.[&#x27;id&#x27;];
+        //Set it in cookies
+        this.cookieService.set(&#x27;prometheusUID&#x27;, String(UID), undefined, &#x27;/&#x27;);
+
+        return UID;
+      }),
+    );
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'MemoryGrafanaStats.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

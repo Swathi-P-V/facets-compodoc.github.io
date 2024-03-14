@@ -1,0 +1,988 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >MindMapData</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/pages/delivery-pipeline-v2/delivery-pipeline-v2.component.ts</code>
+        </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#children" >children</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#environment" >environment</a>
+                            </li>
+                            <li>
+                                <a href="#height" >height</a>
+                            </li>
+                            <li>
+                                <a href="#id" >id</a>
+                            </li>
+                            <li>
+                                <a href="#width" >width</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="children"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>children</b></span>
+                        <a href="#children"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/MindMapData.html" target="_self" >MindMapData[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/delivery-pipeline-v2/delivery-pipeline-v2.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/PipelineTreeNode.html" target="_self" >PipelineTreeNode</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/delivery-pipeline-v2/delivery-pipeline-v2.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="height"></a>
+                    <span class="name">
+                        <span ><b>height</b></span>
+                        <a href="#height"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>160</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/delivery-pipeline-v2/delivery-pipeline-v2.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id"></a>
+                    <span class="name">
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/delivery-pipeline-v2/delivery-pipeline-v2.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="width"></a>
+                    <span class="name">
+                        <span ><b>width</b></span>
+                        <a href="#width"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>192</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/delivery-pipeline-v2/delivery-pipeline-v2.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Injector, OnDestroy } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Params } from &#x27;@angular/router&#x27;;
+import {
+  UiDeliveryPipelineControllerService,
+  UiStackControllerService,
+} from &#x27;src/app/cc-api/services&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import {
+  DeliveryPipelineUtilService,
+  EnvironmentConfigPipeline,
+  PipelineTreeNode,
+} from &#x27;src/app/services/delivery-pipeline.util.service&#x27;;
+import { Graph, Cell, Path } from &#x27;@antv/x6&#x27;;
+import Hierarchy from &#x27;@antv/hierarchy&#x27;;
+import &#x27;@antv/x6-angular-shape&#x27;;
+import { DlvPplEnvironmentNodeComponent } from &#x27;./dlv-ppl-environment-node/dlv-ppl-environment-node.component&#x27;;
+import { ContextUpdatesService } from &#x27;src/app/services/context-updates.service&#x27;;
+import { PipelineNode } from &#x27;src/app/cc-api/models&#x27;;
+import { CustomToastService } from &#x27;../custom-toast/custom-toast.service&#x27;;
+import { OnAPIErrorService } from &#x27;src/app/services/on-api-error.service&#x27;;
+
+class MindMapData {
+  id: string;
+  width: number &#x3D; 192;
+  height: number &#x3D; 160;
+  children?: MindMapData[];
+  environment?: PipelineTreeNode;
+}
+
+interface HierarchyResult {
+  id: string;
+  x: number;
+  y: number;
+  data: MindMapData;
+  children?: HierarchyResult[];
+}
+
+@Component({
+  selector: &#x27;app-delivery-pipeline-v2&#x27;,
+  templateUrl: &#x27;./delivery-pipeline-v2.component.html&#x27;,
+  styleUrls: [&#x27;./delivery-pipeline-v2.component.scss&#x27;],
+})
+export class DeliveryPipelineV2Component
+  extends FacetsPage
+  implements OnDestroy
+{
+  graph: Graph;
+  blueprint: string; // Current blueprint
+  nodeMap: Map&lt;string, PipelineTreeNode&gt; &#x3D; new Map&lt;string, PipelineTreeNode&gt;(); // Stores the node against an ID
+  pipelineTree: PipelineTreeNode; // Points to the first level of nodes directly connected to the blueprint
+  allEnvironments: any[];
+  editModeOn: boolean;
+  fetchingPipelineData: boolean;
+  errorPipelineData: boolean;
+  emptyPipeline: boolean;
+  pipelineSerialized: EnvironmentConfigPipeline[];
+  environmentMap: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+  componentLoaded &#x3D; false;
+  updated: boolean &#x3D; false;
+  rootCell: any;
+
+  OnPageLoad(p: Params): void {
+    this.registerGraphModules();
+    this.blueprint &#x3D; p.stackName;
+    this.getCurrentPipeline();
+  }
+
+  constructor(
+    private contextUpdatesService: ContextUpdatesService,
+    public deliveryPipelineUtilService: DeliveryPipelineUtilService,
+    private deliveryPipelineService: UiDeliveryPipelineControllerService,
+    private uiStackControllerService: UiStackControllerService,
+    private injector: Injector,
+    activatedRoute: ActivatedRoute,
+    private customToastService: CustomToastService,
+    private onAPIErrorService: OnAPIErrorService,
+  ) {
+    super(activatedRoute);
+  }
+
+  ngOnDestroy(): void {
+    this.graph?.dispose();
+    this.unregisterGraphModules();
+  }
+
+  setAllEnvironments() {
+    this.contextUpdatesService.successfulContextUpdates.subscribe((context) &#x3D;&gt; {
+      let newBlueprint &#x3D; context.currentContext.blueprint;
+      if (newBlueprint !&#x3D; this.blueprint) {
+        this.allEnvironments &#x3D;
+          this.contextUpdatesService.getCurrentEnvironments();
+        this.createEnvironmentMap();
+        this.blueprint &#x3D; newBlueprint;
+        this.getCurrentPipeline();
+      }
+    });
+  }
+
+  unregisterGraphModules() {
+    Graph.unregisterConnector(&#x27;mindmap&#x27;);
+    Graph.unregisterConnector(&#x27;algo-connector&#x27;);
+    Graph.unregisterEdge(&#x27;mindmap-edge&#x27;);
+    Graph.unregisterAngularContent(&#x27;dlv-ppl-env-node&#x27;);
+  }
+
+  registerGraphModules() {
+    if (this.componentLoaded) {
+      return;
+    }
+    this.componentLoaded &#x3D; true;
+
+    this.deliveryPipelineUtilService.graphConfigUpdates.subscribe(
+      (newPipeline: PipelineTreeNode) &#x3D;&gt; {
+        this.pipelineTree &#x3D; newPipeline;
+        this.updated &#x3D; true;
+        this.render();
+      },
+    );
+
+    Graph.registerConnector(
+      &#x27;mindmap&#x27;,
+      (sourcePoint, targetPoint, routerPoints, options) &#x3D;&gt; {
+        const midX &#x3D; sourcePoint.x + 10;
+        const midY &#x3D; sourcePoint.y;
+        const ctrX &#x3D; (targetPoint.x - midX) / 5 + midX;
+        const ctrY &#x3D; targetPoint.y;
+        const pathData &#x3D; &#x60;
+         M ${sourcePoint.x} ${sourcePoint.y}
+         L ${midX} ${midY}
+         Q ${ctrX} ${ctrY} ${targetPoint.x} ${targetPoint.y}
+        &#x60;;
+        return options.raw ? Path.parse(pathData) : pathData;
+      },
+      true,
+    );
+    Graph.registerConnector(
+      &#x27;algo-connector&#x27;,
+      (s, e) &#x3D;&gt; {
+        const offset &#x3D; 4;
+        const deltaY &#x3D; Math.abs(e.y - s.y);
+        const control &#x3D; Math.floor((deltaY / 3) * 2);
+
+        const v1 &#x3D; { x: s.x, y: s.y + offset + control };
+        const v2 &#x3D; { x: e.x, y: e.y - offset - control };
+
+        return Path.normalize(
+          &#x60;M ${s.x} ${s.y}
+           L ${s.x} ${s.y + offset}
+           C ${v1.x} ${v1.y} ${v2.x} ${v2.y} ${e.x} ${e.y - offset}
+           L ${e.x} ${e.y}
+          &#x60;,
+        );
+      },
+      true,
+    );
+    Graph.registerEdge(
+      &#x27;mindmap-edge&#x27;,
+      {
+        inherit: &#x27;edge&#x27;,
+        connector: {
+          name: &#x27;mindmap&#x27;,
+        },
+        attrs: {
+          line: {
+            targetMarker: &#x27;&#x27;,
+            stroke: &#x27;#04084936&#x27;,
+            strokeWidth: 2,
+          },
+        },
+        zIndex: 0,
+      },
+      true,
+    );
+    Graph.registerAngularContent(&#x27;dlv-ppl-env-node&#x27;, {
+      injector: this.injector,
+      content: DlvPplEnvironmentNodeComponent,
+    });
+
+    this.renderGraph();
+  }
+
+  // Fetched from the breadcrumbs component through a service; stores all the envs for a BP
+  // Fetches the pipeline array from the backend and builds the tree to be rendered
+  async getCurrentPipeline() {
+    await this.fetchAllEnvironments();
+    this.editModeOn &#x3D; false;
+    this.deliveryPipelineUtilService.setEditModeTo(&#x27;off&#x27;);
+    this.updated &#x3D; false;
+    this.fetchingPipelineData &#x3D; true;
+    this.errorPipelineData &#x3D; false;
+    this.emptyPipeline &#x3D; !this.allEnvironments?.length;
+    this.deliveryPipelineService
+      .getDeliveryPipelineUsingGET(this.blueprint)
+      .subscribe(
+        (data: any) &#x3D;&gt; {
+          this.fillInaccessibleEnvironmentsToMap(data);
+          this.pipelineSerialized &#x3D; this.topologicalSort(data);
+          this.fetchingPipelineData &#x3D; false;
+          this.buildTree();
+        },
+        (error: any) &#x3D;&gt; {
+          this.fetchingPipelineData &#x3D; false;
+          this.errorPipelineData &#x3D; true;
+        },
+      );
+  }
+
+  // Constructs an N-ary tree out of the array with pipelineTree as the root
+  deserializePipeline() {
+    this.pipelineTree &#x3D; new PipelineTreeNode(
+      null,
+      null,
+      null,
+      null,
+      null,
+      200,
+      50,
+    ); // Root
+    let root &#x3D; this.pipelineTree;
+    this.nodeMap.clear();
+    this.nodeMap.set(&#x27;root&#x27;, root);
+    for (let i &#x3D; 0; i &lt; this.pipelineSerialized.length; i++) {
+      const env &#x3D; this.pipelineSerialized[i];
+      let currentNode &#x3D; new PipelineTreeNode(
+        env.id,
+        env.clusterName,
+        env.clusterId,
+        env.parentClusterId,
+        env.config,
+        210,
+        env.config.autoPromoteArtifact &amp;&amp; env.config.requiresSignOff
+          ? 175
+          : 135,
+      );
+      this.nodeMap.set(env.clusterId, currentNode);
+      const parentNode &#x3D; this.findParent(env.parentClusterId, root);
+      parentNode.children.push(currentNode);
+      parentNode.isLeafNode &#x3D; false;
+    }
+    this.deliveryPipelineUtilService.setNodeMap(this.nodeMap);
+    // console.log(&#x27;Pipeline tree: &#x27;, this.pipelineTree);
+  }
+
+  // Recursive function for finding the parent node
+  findParent(id: string, root: PipelineTreeNode) {
+    if (id &#x3D;&#x3D; root.clusterId) {
+      return root;
+    } else {
+      for (let i &#x3D; 0; i &lt; root.children.length; i++) {
+        const childNode &#x3D; root.children[i];
+        let parent &#x3D; this.findParent(id, childNode);
+        if (parent) {
+          return parent;
+        }
+      }
+    }
+  }
+
+  // Takes in the entire graph structure and renders it using the X6 library
+  renderGraph() {
+    this.graph &#x3D; new Graph({
+      container: document.getElementById(&#x27;container&#x27;),
+      resizing: false,
+      grid: true,
+      selecting: {
+        enabled: true,
+      },
+      keyboard: {
+        enabled: true,
+      },
+      panning: true,
+      connecting: {
+        connectionPoint: &#x27;anchor&#x27;,
+      },
+      mousewheel: {
+        enabled: true,
+        zoomAtMousePosition: true,
+        modifiers: &#x27;ctrl&#x27;,
+        minScale: 0.5,
+        maxScale: 3,
+      },
+    });
+  }
+
+  zoomContainer(mode: &#x27;in&#x27; | &#x27;out&#x27;) {
+    const zoom &#x3D; this.graph.zoom();
+    if (zoom &lt; 3 &amp;&amp; mode &#x3D;&#x3D; &#x27;in&#x27;) {
+      this.graph.zoom(0.1);
+    }
+    if (zoom &gt; 0.5 &amp;&amp; mode &#x3D;&#x3D; &#x27;out&#x27;) {
+      this.graph.zoom(-0.1);
+    }
+  }
+
+  render() {
+    this.pipelineTree.id &#x3D; &#x27;root&#x27;;
+    // console.log(&#x27;DATA to be rendered &#x3D;&gt; &#x27;, this.pipelineTree);
+    const result: HierarchyResult &#x3D; Hierarchy.mindmap(this.pipelineTree, {
+      direction: &#x27;H&#x27;,
+      getHeight(d: MindMapData) {
+        return d.height || &#x27;180&#x27;;
+      },
+      getWidth(d: MindMapData) {
+        return d.width || &#x27;200&#x27;;
+      },
+      getHGap() {
+        return 40;
+      },
+      getVGap() {
+        return 40;
+      },
+      getSide: () &#x3D;&gt; {
+        return &#x27;right&#x27;;
+      },
+    });
+    const cells: Cell[] &#x3D; [];
+    const traverse &#x3D; (hierarchyItem: HierarchyResult) &#x3D;&gt; {
+      if (hierarchyItem) {
+        const { data, children } &#x3D; hierarchyItem;
+        cells.push(
+          this.graph.createNode({
+            id: data.id,
+            data: {
+              ngArguments: {
+                environment: data,
+                blueprint: this.blueprint,
+              },
+            },
+            x: hierarchyItem.x,
+            y: hierarchyItem.y,
+            width: data.width,
+            height: data.height,
+            shape: &#x27;angular-shape&#x27;,
+            componentName: &#x27;dlv-ppl-env-node&#x27;,
+          }),
+        );
+        if (children) {
+          children.forEach((item: HierarchyResult) &#x3D;&gt; {
+            const { id } &#x3D; item;
+            cells.push(
+              this.graph.createEdge({
+                shape: &#x27;mindmap-edge&#x27;,
+                source: {
+                  cell: hierarchyItem.id,
+                  anchor: {
+                    name: &#x27;right&#x27;,
+                    args: {
+                      dy: data?.id &#x3D;&#x3D; &#x27;root&#x27; ? 0 : -40,
+                    },
+                  },
+                },
+                target: {
+                  cell: id,
+                  anchor: {
+                    name: &#x27;left&#x27;,
+                    args: {
+                      dx: 10,
+                      dy: -40,
+                    },
+                  },
+                },
+              }),
+            );
+            traverse(item);
+          });
+        }
+      }
+    };
+
+    traverse(result);
+    this.graph.resetCells(cells);
+    this.deliveryPipelineUtilService.setGraph(this.graph);
+    this.graph.scaleContentToFit({
+      padding: 10,
+      maxScale: 1,
+    });
+    // this.graph.centerContent();
+    this.centreGraph();
+  }
+
+  // Calls multiple functions to render the pipeline tree
+  buildTree() {
+    this.deserializePipeline();
+    this.deliveryPipelineUtilService.setPipelineTree(this.pipelineTree);
+    this.render();
+  }
+
+  // Fetches all the environments if the page is opened directly routed to the delivery pipeline
+  // and the environments data isn&#x27;t available through the breadcrumb&#x27;s component / contextUpdates service
+  async fetchAllEnvironments() {
+    return new Promise((resolve) &#x3D;&gt; {
+      this.uiStackControllerService
+        .getClustersUsingGET1(this.blueprint)
+        .subscribe((envs) &#x3D;&gt; {
+          this.allEnvironments &#x3D; envs;
+          this.createEnvironmentMap();
+          resolve(true);
+        });
+    });
+  }
+
+  centreGraph() {
+    // Get the div container and the graph elements
+    const container &#x3D; document.getElementById(&#x27;container&#x27;);
+
+    // Calculate the dimensions of the div container and the graph
+    const containerWidth &#x3D; container.clientWidth;
+    const containerHeight &#x3D; container.clientHeight;
+    const graphBBox &#x3D; this.graph.getCellsBBox(this.graph.getNodes());
+
+    // Determine the scaling factor needed to fit the graph inside the div container
+    let scaleFactor &#x3D; Math.min(
+      containerWidth / graphBBox.width,
+      containerHeight / graphBBox.height,
+    );
+
+    // Set a maximum scaling factor
+    const maxScaleFactor &#x3D; 1.25;
+
+    // Set a min scaling factor
+    const minScaleFactor &#x3D; 0.8;
+
+    // Limit the scaling factor to the maximum/minimum if necessary
+    if (scaleFactor &gt; maxScaleFactor) {
+      scaleFactor &#x3D; maxScaleFactor;
+    }
+
+    if (scaleFactor &lt; minScaleFactor) {
+      scaleFactor &#x3D; minScaleFactor;
+    }
+
+    // Apply the scaling factor to the graph to resize it accordingly
+    this.graph.scale(scaleFactor);
+
+    // Center the graph inside the div container if necessary
+    const xOffset &#x3D;
+      (containerWidth - graphBBox.width * scaleFactor) / 2 -
+      graphBBox.x * scaleFactor;
+    const yOffset &#x3D;
+      (containerHeight - graphBBox.height * scaleFactor) / 2 -
+      graphBBox.y * scaleFactor;
+    this.graph.translate(xOffset, yOffset);
+  }
+
+  // Maps environment metadata with the clusterId as the key
+  createEnvironmentMap() {
+    this.environmentMap.clear();
+    this.allEnvironments?.forEach((env) &#x3D;&gt; {
+      env.name &#x3D; env.name;
+      this.environmentMap.set(env.id, env);
+    });
+    this.deliveryPipelineUtilService.setAllEnvironments(
+      this.allEnvironments,
+      this.environmentMap,
+    );
+  }
+
+  // Some users might not have the access to all the environments
+  // and thus they might not be present inside the response
+  // which we receive from the getAllClusters API response because
+  // that endpoint is RBAC enabled and would be only returning the accessible
+  // environments to the user. Although, the delivery pipeline nodes should still be
+  // visible when they are inaccessible. We need to loop through the nodes we receive from
+  // the pipeline API and just fill in the remaining nodes inside the map too.
+  fillInaccessibleEnvironmentsToMap(environments: any[]) {
+    environments.forEach((environment: any) &#x3D;&gt; {
+      if (
+        !this.deliveryPipelineUtilService
+          .getEnvironmentMap()
+          .has(environment.id)
+      ) {
+        this.deliveryPipelineUtilService.addToEnvironmentMap(
+          environment.clusterId,
+          { ...environment, ...{ name: environment.clusterName } },
+        );
+      }
+    });
+  }
+
+  // We need all the parents to appear before their children to parse the array properly
+  // Backend might send a shuffled list so we need to topologically sort the array first and then proceed
+  discovered: Set&lt;string&gt; &#x3D; new Set();
+  topoSortedPipeline: EnvironmentConfigPipeline[] &#x3D; [];
+  currentDfsStack: EnvironmentConfigPipeline[];
+
+  // Recursive DFS function for traversing the array component by component
+  topoSortDFS(
+    env: EnvironmentConfigPipeline,
+    pipeline: EnvironmentConfigPipeline[],
+  ) {
+    if (!env || this.discovered.has(env.clusterId)) {
+      return;
+    }
+    this.discovered.add(env.clusterId);
+    this.currentDfsStack.push(env);
+    let parent &#x3D; pipeline.find((e) &#x3D;&gt; e.clusterId &#x3D;&#x3D;&#x3D; env.parentClusterId);
+    this.topoSortDFS(parent, pipeline);
+  }
+
+  topologicalSort(pipeline: EnvironmentConfigPipeline[]) {
+    this.discovered &#x3D; new Set();
+    this.topoSortedPipeline &#x3D; [];
+    pipeline.forEach((env) &#x3D;&gt; {
+      if (!this.discovered.has(env.clusterId)) {
+        this.currentDfsStack &#x3D; [];
+        this.topoSortDFS(env, pipeline);
+        while (this.currentDfsStack.length) {
+          this.topoSortedPipeline.push(this.currentDfsStack.pop());
+        }
+      }
+    });
+    // console.log(&#x27;topoSortedPipeline &#x3D;&gt; &#x27;, this.topoSortedPipeline);
+    return this.topoSortedPipeline;
+  }
+
+  // Once the user clicks on save changes, we need to serialize this tree back into an array
+  // and update the interface as the API requires
+  saveNewPipeline() {
+    this.serializeTree();
+  }
+
+  // Traverses the tree in a depth first manner and adds all the nodes of the tree to an array
+  // This array is by default topologically sorted
+  // Once we have saved a tree from the UI, the backend should receive a topologically sorted list of nodes
+  // which we don&#x27;t really have to sort ourselves after receiving the pipeline from the GET call in the first place
+  // BUT -- if the UI is receiving a pipeline for the first time, it might not be topologically sorted and might end up
+  // messing the logic; and thus, we need to run the topo sort function every time
+  serializeTree() {
+    let pipeline: PipelineNode[] &#x3D; [];
+    let root &#x3D; this.pipelineTree;
+    let stack: PipelineTreeNode[] &#x3D; [root];
+    while (stack.length) {
+      let top &#x3D; stack.pop();
+      let children &#x3D; top.children;
+      if (top.clusterId &amp;&amp; top.clusterId.substring(0, 4) !&#x3D; &#x27;D__-&#x27;) {
+        pipeline.push({
+          id: top.id,
+          clusterId: top.clusterId,
+          parentClusterId: top.parentClusterId,
+          config: top.config,
+          stackName: this.blueprint,
+        });
+      }
+      children.forEach((child) &#x3D;&gt; {
+        stack.push(child);
+      });
+    }
+    this.savePipeline(pipeline);
+  }
+
+  savingPipeline: boolean &#x3D; false;
+  // Update the pipeline at the backend
+  savePipeline(pipeline: PipelineNode[]) {
+    this.savingPipeline &#x3D; true;
+    this.deliveryPipelineService
+      .updateDeliveryPipelineUsingPUT({
+        stackName: this.blueprint,
+        pipelineNodes: pipeline,
+      })
+      .subscribe(
+        (pipeline) &#x3D;&gt; {
+          this.customToastService.success(
+            &#x60;Saved new pipeline for ${this.blueprint} successfully&#x60;,
+          );
+          this.editModeOn &#x3D; false;
+          this.getCurrentPipeline();
+        },
+        (error) &#x3D;&gt; {
+          this.onAPIErrorService.onAPIError(
+            &#x60;Failed to update the pipeline for ${this.blueprint}&#x60;,
+            error,
+          );
+        },
+      )
+      .add(() &#x3D;&gt; {
+        this.savingPipeline &#x3D; false;
+      });
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'MindMapData.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

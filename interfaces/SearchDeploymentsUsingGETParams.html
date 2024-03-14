@@ -1,0 +1,2436 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  SearchDeploymentsUsingGETParams</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/ui-deployment-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Parameters for searchDeploymentsUsingGET</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#clusterId" 
+>
+                                            clusterId
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#end" 
+>
+                                            end
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#excludeStatus" 
+>
+                                            excludeStatus
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#pageNumber" 
+>
+                                            pageNumber
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#pageSize" 
+>
+                                            pageSize
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#releaseType" 
+>
+                                            releaseType
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#signedOff" 
+>
+                                            signedOff
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#start" 
+>
+                                            start
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#status" 
+>
+                                            status
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#triggeredBy" 
+>
+                                            triggeredBy
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="clusterId"></a>
+                                        <span class="name "><b>clusterId</b>
+                                            <a href="#clusterId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>clusterId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>clusterId</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="end"></a>
+                                        <span class="name "><b>end</b>
+                                            <a href="#end">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>end:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>end</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="excludeStatus"></a>
+                                        <span class="name "><b>excludeStatus</b>
+                                            <a href="#excludeStatus">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>excludeStatus:     <code>Array&lt;&quot;SUCCEEDED&quot; | &quot;FAILED&quot; | &quot;FAULT&quot; | &quot;TIMED_OUT&quot; | &quot;IN_PROGRESS&quot; | &quot;STOPPED&quot; | &quot;INVALID&quot; | &quot;STARTED&quot; | &quot;UNKNOWN&quot; | &quot;QUEUED&quot;&gt;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Array&lt;&quot;SUCCEEDED&quot; | &quot;FAILED&quot; | &quot;FAULT&quot; | &quot;TIMED_OUT&quot; | &quot;IN_PROGRESS&quot; | &quot;STOPPED&quot; | &quot;INVALID&quot; | &quot;STARTED&quot; | &quot;UNKNOWN&quot; | &quot;QUEUED&quot;&gt;</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>excludeStatus</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="pageNumber"></a>
+                                        <span class="name "><b>pageNumber</b>
+                                            <a href="#pageNumber">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>pageNumber:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>pageNumber</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="pageSize"></a>
+                                        <span class="name "><b>pageSize</b>
+                                            <a href="#pageSize">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>pageSize:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>pageSize</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="releaseType"></a>
+                                        <span class="name "><b>releaseType</b>
+                                            <a href="#releaseType">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>releaseType:     <code>&quot;HOTFIX&quot; | &quot;RELEASE&quot; | &quot;LAUNCH&quot; | &quot;DESTROY&quot; | &quot;CUSTOM&quot; | &quot;UNLOCK_STATE&quot; | &quot;PLAN&quot; | &quot;HOTFIX_PLAN&quot; | &quot;APPLY_PLAN&quot; | &quot;APPLY_HOTFIX_PLAN&quot; | &quot;SCALE_UP&quot; | &quot;SCALE_DOWN&quot;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>&quot;HOTFIX&quot; | &quot;RELEASE&quot; | &quot;LAUNCH&quot; | &quot;DESTROY&quot; | &quot;CUSTOM&quot; | &quot;UNLOCK_STATE&quot; | &quot;PLAN&quot; | &quot;HOTFIX_PLAN&quot; | &quot;APPLY_PLAN&quot; | &quot;APPLY_HOTFIX_PLAN&quot; | &quot;SCALE_UP&quot; | &quot;SCALE_DOWN&quot;</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>releaseType</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="signedOff"></a>
+                                        <span class="name "><b>signedOff</b>
+                                            <a href="#signedOff">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>signedOff:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>signedOff</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="start"></a>
+                                        <span class="name "><b>start</b>
+                                            <a href="#start">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>start:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>start</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="status"></a>
+                                        <span class="name "><b>status</b>
+                                            <a href="#status">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>status:     <code>&quot;SUCCEEDED&quot; | &quot;FAILED&quot; | &quot;FAULT&quot; | &quot;TIMED_OUT&quot; | &quot;IN_PROGRESS&quot; | &quot;STOPPED&quot; | &quot;INVALID&quot; | &quot;STARTED&quot; | &quot;UNKNOWN&quot; | &quot;QUEUED&quot;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>&quot;SUCCEEDED&quot; | &quot;FAILED&quot; | &quot;FAULT&quot; | &quot;TIMED_OUT&quot; | &quot;IN_PROGRESS&quot; | &quot;STOPPED&quot; | &quot;INVALID&quot; | &quot;STARTED&quot; | &quot;UNKNOWN&quot; | &quot;QUEUED&quot;</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>status</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="triggeredBy"></a>
+                                        <span class="name "><b>triggeredBy</b>
+                                            <a href="#triggeredBy">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>triggeredBy:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>triggeredBy</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpHeaders,
+} from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { ListDeploymentsWrapper } from &#x27;../models/list-deployments-wrapper&#x27;;
+import { DeploymentLog } from &#x27;../models/deployment-log&#x27;;
+import { DeploymentRequest } from &#x27;../models/deployment-request&#x27;;
+import { DeploymentOverview } from &#x27;../models/deployment-overview&#x27;;
+import { HotfixDeploymentRecipe } from &#x27;../models/hotfix-deployment-recipe&#x27;;
+import { PageDeploymentLog } from &#x27;../models/page-deployment-log&#x27;;
+import { ChangeRepresentation } from &#x27;../models/change-representation&#x27;;
+import { TokenPaginatedResponse } from &#x27;../models/token-paginated-response&#x27;;
+import { StreamingResponseBody } from &#x27;../models/streaming-response-body&#x27;;
+import { ReleaseChanges } from &#x27;../models/release-changes&#x27;;
+
+/**
+ * Ui Deployment Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class UiDeploymentControllerService extends __BaseService {
+  static readonly getDeploymentsUsingGET1Path &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments&#x27;;
+  static readonly createDeploymentUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments&#x27;;
+  static readonly destroyClusterUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/destroy&#x27;;
+  static readonly getLatestReleaseUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/latest-successful-release&#x27;;
+  static readonly getLatestReleaseByApplicationUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/latest-successful-release/{application}&#x27;;
+  static readonly launchClusterUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/launch&#x27;;
+  static readonly getDeploymentsOverviewUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/overview&#x27;;
+  static readonly abortAutomationSuiteUsingDELETE1Path &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/qa/{executionId}/abortSuite&#x27;;
+  static readonly runHotfixDeploymentRecipeUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/recipes/deployment/hotfix&#x27;;
+  static readonly releaseUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/release&#x27;;
+  static readonly releaseV2UsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/releaseV2/{releaseType}&#x27;;
+  static readonly searchDeploymentsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/search&#x27;;
+  static readonly simulateUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/simulate&#x27;;
+  static readonly getClusterStateUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/state&#x27;;
+  static readonly stateUnlockUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/unlock&#x27;;
+  static readonly getDeploymentUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/{deploymentId}&#x27;;
+  static readonly getDeploymentLogsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/{deploymentId}/logs&#x27;;
+  static readonly streamDeploymentLogsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/{deploymentId}/logs/stream&#x27;;
+  static readonly getReleaseChangesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/{deploymentId}/release-changes&#x27;;
+  static readonly signOffDeploymentUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/deployments/{deploymentId}/signoff&#x27;;
+
+  constructor(config: __Configuration, http: HttpClient) {
+    super(config, http);
+  }
+
+  /**
+   * getDeployments
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getDeploymentsUsingGET1Response(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;ListDeploymentsWrapper&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/deployments&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ListDeploymentsWrapper&gt;;
+      }),
+    );
+  }
+  /**
+   * getDeployments
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getDeploymentsUsingGET1(
+    clusterId: string,
+  ): __Observable&lt;ListDeploymentsWrapper&gt; {
+    return this.getDeploymentsUsingGET1Response(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ListDeploymentsWrapper),
+    );
+  }
+
+  /**
+   * createDeployment
+   * @param params The &#x60;UiDeploymentControllerService.CreateDeploymentUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentRequest&#x60;: deploymentRequest
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  createDeploymentUsingPOSTResponse(
+    params: UiDeploymentControllerService.CreateDeploymentUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;DeploymentLog&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.deploymentRequest;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/deployments&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;DeploymentLog&gt;;
+      }),
+    );
+  }
+  /**
+   * createDeployment
+   * @param params The &#x60;UiDeploymentControllerService.CreateDeploymentUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentRequest&#x60;: deploymentRequest
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  createDeploymentUsingPOST(
+    params: UiDeploymentControllerService.CreateDeploymentUsingPOSTParams,
+  ): __Observable&lt;DeploymentLog&gt; {
+    return this.createDeploymentUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as DeploymentLog),
+    );
+  }
+
+  /**
+   * destroyCluster
+   * @param clusterId clusterId
+   * @return OK
+   */
+  destroyClusterUsingDELETEResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;DeploymentLog&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/deployments/destroy&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;DeploymentLog&gt;;
+      }),
+    );
+  }
+  /**
+   * destroyCluster
+   * @param clusterId clusterId
+   * @return OK
+   */
+  destroyClusterUsingDELETE(clusterId: string): __Observable&lt;DeploymentLog&gt; {
+    return this.destroyClusterUsingDELETEResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as DeploymentLog),
+    );
+  }
+
+  /**
+   * getLatestRelease
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getLatestReleaseUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;DeploymentLog&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/deployments/latest-successful-release&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;DeploymentLog&gt;;
+      }),
+    );
+  }
+  /**
+   * getLatestRelease
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getLatestReleaseUsingGET(clusterId: string): __Observable&lt;DeploymentLog&gt; {
+    return this.getLatestReleaseUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as DeploymentLog),
+    );
+  }
+
+  /**
+   * getLatestReleaseByApplication
+   * @param params The &#x60;UiDeploymentControllerService.GetLatestReleaseByApplicationUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;application&#x60;: application
+   *
+   * @return OK
+   */
+  getLatestReleaseByApplicationUsingGETResponse(
+    params: UiDeploymentControllerService.GetLatestReleaseByApplicationUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;DeploymentLog&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/deployments/latest-successful-release/${encodeURIComponent(
+          String(params.application),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;DeploymentLog&gt;;
+      }),
+    );
+  }
+  /**
+   * getLatestReleaseByApplication
+   * @param params The &#x60;UiDeploymentControllerService.GetLatestReleaseByApplicationUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;application&#x60;: application
+   *
+   * @return OK
+   */
+  getLatestReleaseByApplicationUsingGET(
+    params: UiDeploymentControllerService.GetLatestReleaseByApplicationUsingGETParams,
+  ): __Observable&lt;DeploymentLog&gt; {
+    return this.getLatestReleaseByApplicationUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as DeploymentLog),
+    );
+  }
+
+  /**
+   * launchCluster
+   * @param clusterId clusterId
+   * @return OK
+   */
+  launchClusterUsingPUTResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;DeploymentLog&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/deployments/launch&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;DeploymentLog&gt;;
+      }),
+    );
+  }
+  /**
+   * launchCluster
+   * @param clusterId clusterId
+   * @return OK
+   */
+  launchClusterUsingPUT(clusterId: string): __Observable&lt;DeploymentLog&gt; {
+    return this.launchClusterUsingPUTResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as DeploymentLog),
+    );
+  }
+
+  /**
+   * getDeploymentsOverview
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getDeploymentsOverviewUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;DeploymentOverview&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/deployments/overview&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;DeploymentOverview&gt;;
+      }),
+    );
+  }
+  /**
+   * getDeploymentsOverview
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getDeploymentsOverviewUsingGET(
+    clusterId: string,
+  ): __Observable&lt;DeploymentOverview&gt; {
+    return this.getDeploymentsOverviewUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as DeploymentOverview),
+    );
+  }
+
+  /**
+   * abortAutomationSuite
+   * @param params The &#x60;UiDeploymentControllerService.AbortAutomationSuiteUsingDELETE1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;executionId&#x60;: executionId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   */
+  abortAutomationSuiteUsingDELETE1Response(
+    params: UiDeploymentControllerService.AbortAutomationSuiteUsingDELETE1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/deployments/qa/${encodeURIComponent(
+          String(params.executionId),
+        )}/abortSuite&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * abortAutomationSuite
+   * @param params The &#x60;UiDeploymentControllerService.AbortAutomationSuiteUsingDELETE1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;executionId&#x60;: executionId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   */
+  abortAutomationSuiteUsingDELETE1(
+    params: UiDeploymentControllerService.AbortAutomationSuiteUsingDELETE1Params,
+  ): __Observable&lt;null&gt; {
+    return this.abortAutomationSuiteUsingDELETE1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * runHotfixDeploymentRecipe
+   * @param params The &#x60;UiDeploymentControllerService.RunHotfixDeploymentRecipeUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentRecipe&#x60;: deploymentRecipe
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;withRefresh&#x60;: withRefresh
+   *
+   * - &#x60;isPlan&#x60;: isPlan
+   *
+   * - &#x60;forceRelease&#x60;: forceRelease
+   *
+   * - &#x60;comment&#x60;: comment
+   *
+   * - &#x60;canQueue&#x60;: canQueue
+   *
+   * - &#x60;allowDestroy&#x60;: allowDestroy
+   *
+   * @return OK
+   */
+  runHotfixDeploymentRecipeUsingPOSTResponse(
+    params: UiDeploymentControllerService.RunHotfixDeploymentRecipeUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;DeploymentLog&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.deploymentRecipe;
+
+    if (params.withRefresh !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;withRefresh&#x27;, params.withRefresh.toString());
+    if (params.isPlan !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;isPlan&#x27;, params.isPlan.toString());
+    if (params.forceRelease !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;forceRelease&#x27;, params.forceRelease.toString());
+    if (params.comment !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;comment&#x27;, params.comment.toString());
+    if (params.canQueue !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;canQueue&#x27;, params.canQueue.toString());
+    if (params.allowDestroy !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;allowDestroy&#x27;, params.allowDestroy.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/deployments/recipes/deployment/hotfix&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;DeploymentLog&gt;;
+      }),
+    );
+  }
+  /**
+   * runHotfixDeploymentRecipe
+   * @param params The &#x60;UiDeploymentControllerService.RunHotfixDeploymentRecipeUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentRecipe&#x60;: deploymentRecipe
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;withRefresh&#x60;: withRefresh
+   *
+   * - &#x60;isPlan&#x60;: isPlan
+   *
+   * - &#x60;forceRelease&#x60;: forceRelease
+   *
+   * - &#x60;comment&#x60;: comment
+   *
+   * - &#x60;canQueue&#x60;: canQueue
+   *
+   * - &#x60;allowDestroy&#x60;: allowDestroy
+   *
+   * @return OK
+   */
+  runHotfixDeploymentRecipeUsingPOST(
+    params: UiDeploymentControllerService.RunHotfixDeploymentRecipeUsingPOSTParams,
+  ): __Observable&lt;DeploymentLog&gt; {
+    return this.runHotfixDeploymentRecipeUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as DeploymentLog),
+    );
+  }
+
+  /**
+   * release
+   * @param params The &#x60;UiDeploymentControllerService.ReleaseUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;withRefresh&#x60;: withRefresh
+   *
+   * - &#x60;forceRelease&#x60;: forceRelease
+   *
+   * - &#x60;comment&#x60;: comment
+   *
+   * - &#x60;canQueue&#x60;: canQueue
+   *
+   * - &#x60;allowDestroy&#x60;: allowDestroy
+   *
+   * @return OK
+   */
+  releaseUsingPUTResponse(
+    params: UiDeploymentControllerService.ReleaseUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;DeploymentLog&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.withRefresh !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;withRefresh&#x27;, params.withRefresh.toString());
+    if (params.forceRelease !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;forceRelease&#x27;, params.forceRelease.toString());
+    if (params.comment !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;comment&#x27;, params.comment.toString());
+    if (params.canQueue !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;canQueue&#x27;, params.canQueue.toString());
+    if (params.allowDestroy !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;allowDestroy&#x27;, params.allowDestroy.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/deployments/release&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;DeploymentLog&gt;;
+      }),
+    );
+  }
+  /**
+   * release
+   * @param params The &#x60;UiDeploymentControllerService.ReleaseUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;withRefresh&#x60;: withRefresh
+   *
+   * - &#x60;forceRelease&#x60;: forceRelease
+   *
+   * - &#x60;comment&#x60;: comment
+   *
+   * - &#x60;canQueue&#x60;: canQueue
+   *
+   * - &#x60;allowDestroy&#x60;: allowDestroy
+   *
+   * @return OK
+   */
+  releaseUsingPUT(
+    params: UiDeploymentControllerService.ReleaseUsingPUTParams,
+  ): __Observable&lt;DeploymentLog&gt; {
+    return this.releaseUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as DeploymentLog),
+    );
+  }
+
+  /**
+   * releaseV2
+   * @param params The &#x60;UiDeploymentControllerService.ReleaseV2UsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;releaseType&#x60;: releaseType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;withRefresh&#x60;: withRefresh
+   *
+   * - &#x60;forceRelease&#x60;: forceRelease
+   *
+   * - &#x60;comment&#x60;: comment
+   *
+   * - &#x60;canQueue&#x60;: canQueue
+   *
+   * - &#x60;allowDestroy&#x60;: allowDestroy
+   *
+   * @return OK
+   */
+  releaseV2UsingPUTResponse(
+    params: UiDeploymentControllerService.ReleaseV2UsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;DeploymentLog&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.withRefresh !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;withRefresh&#x27;, params.withRefresh.toString());
+    if (params.forceRelease !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;forceRelease&#x27;, params.forceRelease.toString());
+    if (params.comment !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;comment&#x27;, params.comment.toString());
+    if (params.canQueue !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;canQueue&#x27;, params.canQueue.toString());
+    if (params.allowDestroy !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;allowDestroy&#x27;, params.allowDestroy.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/deployments/releaseV2/${encodeURIComponent(
+          String(params.releaseType),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;DeploymentLog&gt;;
+      }),
+    );
+  }
+  /**
+   * releaseV2
+   * @param params The &#x60;UiDeploymentControllerService.ReleaseV2UsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;releaseType&#x60;: releaseType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;withRefresh&#x60;: withRefresh
+   *
+   * - &#x60;forceRelease&#x60;: forceRelease
+   *
+   * - &#x60;comment&#x60;: comment
+   *
+   * - &#x60;canQueue&#x60;: canQueue
+   *
+   * - &#x60;allowDestroy&#x60;: allowDestroy
+   *
+   * @return OK
+   */
+  releaseV2UsingPUT(
+    params: UiDeploymentControllerService.ReleaseV2UsingPUTParams,
+  ): __Observable&lt;DeploymentLog&gt; {
+    return this.releaseV2UsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as DeploymentLog),
+    );
+  }
+
+  /**
+   * searchDeployments
+   * @param params The &#x60;UiDeploymentControllerService.SearchDeploymentsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;triggeredBy&#x60;: triggeredBy
+   *
+   * - &#x60;status&#x60;: status
+   *
+   * - &#x60;start&#x60;: start
+   *
+   * - &#x60;signedOff&#x60;: signedOff
+   *
+   * - &#x60;releaseType&#x60;: releaseType
+   *
+   * - &#x60;pageSize&#x60;: pageSize
+   *
+   * - &#x60;pageNumber&#x60;: pageNumber
+   *
+   * - &#x60;excludeStatus&#x60;: excludeStatus
+   *
+   * - &#x60;end&#x60;: end
+   *
+   * @return OK
+   */
+  searchDeploymentsUsingGETResponse(
+    params: UiDeploymentControllerService.SearchDeploymentsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;PageDeploymentLog&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.triggeredBy !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;triggeredBy&#x27;, params.triggeredBy.toString());
+    if (params.status !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;status&#x27;, params.status.toString());
+    if (params.start !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;start&#x27;, params.start.toString());
+    if (params.signedOff !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;signedOff&#x27;, params.signedOff.toString());
+    if (params.releaseType !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;releaseType&#x27;, params.releaseType.toString());
+    if (params.pageSize !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;pageSize&#x27;, params.pageSize.toString());
+    if (params.pageNumber !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;pageNumber&#x27;, params.pageNumber.toString());
+    (params.excludeStatus || []).forEach((val) &#x3D;&gt; {
+      if (val !&#x3D; null)
+        __params &#x3D; __params.append(&#x27;excludeStatus&#x27;, val.toString());
+    });
+    if (params.end !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;end&#x27;, params.end.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/deployments/search&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;PageDeploymentLog&gt;;
+      }),
+    );
+  }
+  /**
+   * searchDeployments
+   * @param params The &#x60;UiDeploymentControllerService.SearchDeploymentsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;triggeredBy&#x60;: triggeredBy
+   *
+   * - &#x60;status&#x60;: status
+   *
+   * - &#x60;start&#x60;: start
+   *
+   * - &#x60;signedOff&#x60;: signedOff
+   *
+   * - &#x60;releaseType&#x60;: releaseType
+   *
+   * - &#x60;pageSize&#x60;: pageSize
+   *
+   * - &#x60;pageNumber&#x60;: pageNumber
+   *
+   * - &#x60;excludeStatus&#x60;: excludeStatus
+   *
+   * - &#x60;end&#x60;: end
+   *
+   * @return OK
+   */
+  searchDeploymentsUsingGET(
+    params: UiDeploymentControllerService.SearchDeploymentsUsingGETParams,
+  ): __Observable&lt;PageDeploymentLog&gt; {
+    return this.searchDeploymentsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as PageDeploymentLog),
+    );
+  }
+
+  /**
+   * simulate
+   * @param clusterId clusterId
+   * @return OK
+   */
+  simulateUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ChangeRepresentation&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/deployments/simulate&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ChangeRepresentation&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * simulate
+   * @param clusterId clusterId
+   * @return OK
+   */
+  simulateUsingGET(
+    clusterId: string,
+  ): __Observable&lt;Array&lt;ChangeRepresentation&gt;&gt; {
+    return this.simulateUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ChangeRepresentation&gt;),
+    );
+  }
+
+  /**
+   * getClusterState
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getClusterStateUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;
+    __StrictHttpResponse&lt;
+      | &#x27;STOPPED&#x27;
+      | &#x27;RUNNING&#x27;
+      | &#x27;LAUNCHING&#x27;
+      | &#x27;DESTROYING&#x27;
+      | &#x27;LAUNCH_FAILED&#x27;
+      | &#x27;DESTROY_FAILED&#x27;
+      | &#x27;UNKNOWN&#x27;
+      | &#x27;SCALE_DOWN&#x27;
+      | &#x27;SCALING_DOWN&#x27;
+      | &#x27;SCALE_DOWN_FAILED&#x27;
+      | &#x27;SCALING_UP&#x27;
+      | &#x27;SCALE_UP_FAILED&#x27;
+    &gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/deployments/state&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;
+          | &#x27;STOPPED&#x27;
+          | &#x27;RUNNING&#x27;
+          | &#x27;LAUNCHING&#x27;
+          | &#x27;DESTROYING&#x27;
+          | &#x27;LAUNCH_FAILED&#x27;
+          | &#x27;DESTROY_FAILED&#x27;
+          | &#x27;UNKNOWN&#x27;
+          | &#x27;SCALE_DOWN&#x27;
+          | &#x27;SCALING_DOWN&#x27;
+          | &#x27;SCALE_DOWN_FAILED&#x27;
+          | &#x27;SCALING_UP&#x27;
+          | &#x27;SCALE_UP_FAILED&#x27;
+        &gt;;
+      }),
+    );
+  }
+  /**
+   * getClusterState
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getClusterStateUsingGET(
+    clusterId: string,
+  ): __Observable&lt;
+    | &#x27;STOPPED&#x27;
+    | &#x27;RUNNING&#x27;
+    | &#x27;LAUNCHING&#x27;
+    | &#x27;DESTROYING&#x27;
+    | &#x27;LAUNCH_FAILED&#x27;
+    | &#x27;DESTROY_FAILED&#x27;
+    | &#x27;UNKNOWN&#x27;
+    | &#x27;SCALE_DOWN&#x27;
+    | &#x27;SCALING_DOWN&#x27;
+    | &#x27;SCALE_DOWN_FAILED&#x27;
+    | &#x27;SCALING_UP&#x27;
+    | &#x27;SCALE_UP_FAILED&#x27;
+  &gt; {
+    return this.getClusterStateUsingGETResponse(clusterId).pipe(
+      __map(
+        (_r) &#x3D;&gt;
+          _r.body as
+            | &#x27;STOPPED&#x27;
+            | &#x27;RUNNING&#x27;
+            | &#x27;LAUNCHING&#x27;
+            | &#x27;DESTROYING&#x27;
+            | &#x27;LAUNCH_FAILED&#x27;
+            | &#x27;DESTROY_FAILED&#x27;
+            | &#x27;UNKNOWN&#x27;
+            | &#x27;SCALE_DOWN&#x27;
+            | &#x27;SCALING_DOWN&#x27;
+            | &#x27;SCALE_DOWN_FAILED&#x27;
+            | &#x27;SCALING_UP&#x27;
+            | &#x27;SCALE_UP_FAILED&#x27;,
+      ),
+    );
+  }
+
+  /**
+   * stateUnlock
+   * @param params The &#x60;UiDeploymentControllerService.StateUnlockUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;lockId&#x60;: lockId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  stateUnlockUsingPUTResponse(
+    params: UiDeploymentControllerService.StateUnlockUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;DeploymentLog&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.lockId !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;lockId&#x27;, params.lockId.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/deployments/unlock&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;DeploymentLog&gt;;
+      }),
+    );
+  }
+  /**
+   * stateUnlock
+   * @param params The &#x60;UiDeploymentControllerService.StateUnlockUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;lockId&#x60;: lockId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  stateUnlockUsingPUT(
+    params: UiDeploymentControllerService.StateUnlockUsingPUTParams,
+  ): __Observable&lt;DeploymentLog&gt; {
+    return this.stateUnlockUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as DeploymentLog),
+    );
+  }
+
+  /**
+   * getDeployment
+   * @param params The &#x60;UiDeploymentControllerService.GetDeploymentUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentId&#x60;: deploymentId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getDeploymentUsingGETResponse(
+    params: UiDeploymentControllerService.GetDeploymentUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;DeploymentLog&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/deployments/${encodeURIComponent(String(params.deploymentId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;DeploymentLog&gt;;
+      }),
+    );
+  }
+  /**
+   * getDeployment
+   * @param params The &#x60;UiDeploymentControllerService.GetDeploymentUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentId&#x60;: deploymentId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getDeploymentUsingGET(
+    params: UiDeploymentControllerService.GetDeploymentUsingGETParams,
+  ): __Observable&lt;DeploymentLog&gt; {
+    return this.getDeploymentUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as DeploymentLog),
+    );
+  }
+
+  /**
+   * getDeploymentLogs
+   * @param params The &#x60;UiDeploymentControllerService.GetDeploymentLogsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentId&#x60;: deploymentId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;nextToken&#x60;: nextToken
+   *
+   * @return OK
+   */
+  getDeploymentLogsUsingGETResponse(
+    params: UiDeploymentControllerService.GetDeploymentLogsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;TokenPaginatedResponse&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.nextToken !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;nextToken&#x27;, params.nextToken.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/deployments/${encodeURIComponent(String(params.deploymentId))}/logs&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;TokenPaginatedResponse&gt;;
+      }),
+    );
+  }
+  /**
+   * getDeploymentLogs
+   * @param params The &#x60;UiDeploymentControllerService.GetDeploymentLogsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentId&#x60;: deploymentId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;nextToken&#x60;: nextToken
+   *
+   * @return OK
+   */
+  getDeploymentLogsUsingGET(
+    params: UiDeploymentControllerService.GetDeploymentLogsUsingGETParams,
+  ): __Observable&lt;TokenPaginatedResponse&gt; {
+    return this.getDeploymentLogsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as TokenPaginatedResponse),
+    );
+  }
+
+  /**
+   * streamDeploymentLogs
+   * @param params The &#x60;UiDeploymentControllerService.StreamDeploymentLogsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentId&#x60;: deploymentId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  streamDeploymentLogsUsingGETResponse(
+    params: UiDeploymentControllerService.StreamDeploymentLogsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;StreamingResponseBody&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/deployments/${encodeURIComponent(
+          String(params.deploymentId),
+        )}/logs/stream&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;StreamingResponseBody&gt;;
+      }),
+    );
+  }
+  /**
+   * streamDeploymentLogs
+   * @param params The &#x60;UiDeploymentControllerService.StreamDeploymentLogsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentId&#x60;: deploymentId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  streamDeploymentLogsUsingGET(
+    params: UiDeploymentControllerService.StreamDeploymentLogsUsingGETParams,
+  ): __Observable&lt;StreamingResponseBody&gt; {
+    return this.streamDeploymentLogsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as StreamingResponseBody),
+    );
+  }
+
+  /**
+   * getReleaseChanges
+   * @param params The &#x60;UiDeploymentControllerService.GetReleaseChangesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentId&#x60;: deploymentId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getReleaseChangesUsingGETResponse(
+    params: UiDeploymentControllerService.GetReleaseChangesUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;ReleaseChanges&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/deployments/${encodeURIComponent(
+          String(params.deploymentId),
+        )}/release-changes&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ReleaseChanges&gt;;
+      }),
+    );
+  }
+  /**
+   * getReleaseChanges
+   * @param params The &#x60;UiDeploymentControllerService.GetReleaseChangesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentId&#x60;: deploymentId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getReleaseChangesUsingGET(
+    params: UiDeploymentControllerService.GetReleaseChangesUsingGETParams,
+  ): __Observable&lt;ReleaseChanges&gt; {
+    return this.getReleaseChangesUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ReleaseChanges),
+    );
+  }
+
+  /**
+   * signOffDeployment
+   * @param params The &#x60;UiDeploymentControllerService.SignOffDeploymentUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentId&#x60;: deploymentId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  signOffDeploymentUsingPUTResponse(
+    params: UiDeploymentControllerService.SignOffDeploymentUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;DeploymentLog&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/deployments/${encodeURIComponent(
+          String(params.deploymentId),
+        )}/signoff&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;DeploymentLog&gt;;
+      }),
+    );
+  }
+  /**
+   * signOffDeployment
+   * @param params The &#x60;UiDeploymentControllerService.SignOffDeploymentUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;deploymentId&#x60;: deploymentId
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  signOffDeploymentUsingPUT(
+    params: UiDeploymentControllerService.SignOffDeploymentUsingPUTParams,
+  ): __Observable&lt;DeploymentLog&gt; {
+    return this.signOffDeploymentUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as DeploymentLog),
+    );
+  }
+}
+
+module UiDeploymentControllerService {
+  /**
+   * Parameters for createDeploymentUsingPOST
+   */
+  export interface CreateDeploymentUsingPOSTParams {
+    /**
+     * deploymentRequest
+     */
+    deploymentRequest: DeploymentRequest;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getLatestReleaseByApplicationUsingGET
+   */
+  export interface GetLatestReleaseByApplicationUsingGETParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * application
+     */
+    application: string;
+  }
+
+  /**
+   * Parameters for abortAutomationSuiteUsingDELETE1
+   */
+  export interface AbortAutomationSuiteUsingDELETE1Params {
+    /**
+     * executionId
+     */
+    executionId: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for runHotfixDeploymentRecipeUsingPOST
+   */
+  export interface RunHotfixDeploymentRecipeUsingPOSTParams {
+    /**
+     * deploymentRecipe
+     */
+    deploymentRecipe: HotfixDeploymentRecipe;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * withRefresh
+     */
+    withRefresh?: boolean;
+
+    /**
+     * isPlan
+     */
+    isPlan?: boolean;
+
+    /**
+     * forceRelease
+     */
+    forceRelease?: boolean;
+
+    /**
+     * comment
+     */
+    comment?: string;
+
+    /**
+     * canQueue
+     */
+    canQueue?: boolean;
+
+    /**
+     * allowDestroy
+     */
+    allowDestroy?: boolean;
+  }
+
+  /**
+   * Parameters for releaseUsingPUT
+   */
+  export interface ReleaseUsingPUTParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * withRefresh
+     */
+    withRefresh?: boolean;
+
+    /**
+     * forceRelease
+     */
+    forceRelease?: boolean;
+
+    /**
+     * comment
+     */
+    comment?: string;
+
+    /**
+     * canQueue
+     */
+    canQueue?: boolean;
+
+    /**
+     * allowDestroy
+     */
+    allowDestroy?: boolean;
+  }
+
+  /**
+   * Parameters for releaseV2UsingPUT
+   */
+  export interface ReleaseV2UsingPUTParams {
+    /**
+     * releaseType
+     */
+    releaseType: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * withRefresh
+     */
+    withRefresh?: boolean;
+
+    /**
+     * forceRelease
+     */
+    forceRelease?: boolean;
+
+    /**
+     * comment
+     */
+    comment?: string;
+
+    /**
+     * canQueue
+     */
+    canQueue?: boolean;
+
+    /**
+     * allowDestroy
+     */
+    allowDestroy?: boolean;
+  }
+
+  /**
+   * Parameters for searchDeploymentsUsingGET
+   */
+  export interface SearchDeploymentsUsingGETParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * triggeredBy
+     */
+    triggeredBy?: string;
+
+    /**
+     * status
+     */
+    status?:
+      | &#x27;SUCCEEDED&#x27;
+      | &#x27;FAILED&#x27;
+      | &#x27;FAULT&#x27;
+      | &#x27;TIMED_OUT&#x27;
+      | &#x27;IN_PROGRESS&#x27;
+      | &#x27;STOPPED&#x27;
+      | &#x27;INVALID&#x27;
+      | &#x27;STARTED&#x27;
+      | &#x27;UNKNOWN&#x27;
+      | &#x27;QUEUED&#x27;;
+
+    /**
+     * start
+     */
+    start?: string;
+
+    /**
+     * signedOff
+     */
+    signedOff?: boolean;
+
+    /**
+     * releaseType
+     */
+    releaseType?:
+      | &#x27;HOTFIX&#x27;
+      | &#x27;RELEASE&#x27;
+      | &#x27;LAUNCH&#x27;
+      | &#x27;DESTROY&#x27;
+      | &#x27;CUSTOM&#x27;
+      | &#x27;UNLOCK_STATE&#x27;
+      | &#x27;PLAN&#x27;
+      | &#x27;HOTFIX_PLAN&#x27;
+      | &#x27;APPLY_PLAN&#x27;
+      | &#x27;APPLY_HOTFIX_PLAN&#x27;
+      | &#x27;SCALE_UP&#x27;
+      | &#x27;SCALE_DOWN&#x27;;
+
+    /**
+     * pageSize
+     */
+    pageSize?: number;
+
+    /**
+     * pageNumber
+     */
+    pageNumber?: number;
+
+    /**
+     * excludeStatus
+     */
+    excludeStatus?: Array&lt;
+      | &#x27;SUCCEEDED&#x27;
+      | &#x27;FAILED&#x27;
+      | &#x27;FAULT&#x27;
+      | &#x27;TIMED_OUT&#x27;
+      | &#x27;IN_PROGRESS&#x27;
+      | &#x27;STOPPED&#x27;
+      | &#x27;INVALID&#x27;
+      | &#x27;STARTED&#x27;
+      | &#x27;UNKNOWN&#x27;
+      | &#x27;QUEUED&#x27;
+    &gt;;
+
+    /**
+     * end
+     */
+    end?: string;
+  }
+
+  /**
+   * Parameters for stateUnlockUsingPUT
+   */
+  export interface StateUnlockUsingPUTParams {
+    /**
+     * lockId
+     */
+    lockId: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getDeploymentUsingGET
+   */
+  export interface GetDeploymentUsingGETParams {
+    /**
+     * deploymentId
+     */
+    deploymentId: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getDeploymentLogsUsingGET
+   */
+  export interface GetDeploymentLogsUsingGETParams {
+    /**
+     * deploymentId
+     */
+    deploymentId: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * nextToken
+     */
+    nextToken?: string;
+  }
+
+  /**
+   * Parameters for streamDeploymentLogsUsingGET
+   */
+  export interface StreamDeploymentLogsUsingGETParams {
+    /**
+     * deploymentId
+     */
+    deploymentId: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getReleaseChangesUsingGET
+   */
+  export interface GetReleaseChangesUsingGETParams {
+    /**
+     * deploymentId
+     */
+    deploymentId: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for signOffDeploymentUsingPUT
+   */
+  export interface SignOffDeploymentUsingPUTParams {
+    /**
+     * deploymentId
+     */
+    deploymentId: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+}
+
+export { UiDeploymentControllerService };
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'SearchDeploymentsUsingGETParams.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

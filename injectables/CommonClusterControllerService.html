@@ -1,0 +1,3673 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >CommonClusterControllerService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/common-cluster-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Common Cluster Controller</p>
+
+            </p>
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../classes/BaseService.html" target="_self" >__BaseService</a></code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#addClusterK8sCredentialsUsingPOSTPath" >addClusterK8sCredentialsUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#deleteClusterUsingDELETEPath" >deleteClusterUsingDELETEPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getOverridesUsingGETPath" >getOverridesUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getPinnedSnapshotUsingGETPath" >getPinnedSnapshotUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#listSnapshotsUsingGETPath" >listSnapshotsUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#notifyAlertsUsingPOSTPath" >notifyAlertsUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#notifyApplicationDeploymentCompleteUsingPOSTPath" >notifyApplicationDeploymentCompleteUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#notifyResourceDeploymentCompleteUsingPOSTPath" >notifyResourceDeploymentCompleteUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#overrideSizingUsingPOSTPath" >overrideSizingUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#pinSnapshotUsingPOSTPath" >pinSnapshotUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#upsertVarsUsingPOSTPath" >upsertVarsUsingPOSTPath</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addClusterK8sCredentialsUsingPOST" >addClusterK8sCredentialsUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#addClusterK8sCredentialsUsingPOSTResponse" >addClusterK8sCredentialsUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#deleteClusterUsingDELETE" >deleteClusterUsingDELETE</a>
+                            </li>
+                            <li>
+                                <a href="#deleteClusterUsingDELETEResponse" >deleteClusterUsingDELETEResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getOverridesUsingGET" >getOverridesUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getOverridesUsingGETResponse" >getOverridesUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getPinnedSnapshotUsingGET" >getPinnedSnapshotUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getPinnedSnapshotUsingGETResponse" >getPinnedSnapshotUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#listSnapshotsUsingGET" >listSnapshotsUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#listSnapshotsUsingGETResponse" >listSnapshotsUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#notifyAlertsUsingPOST" >notifyAlertsUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#notifyAlertsUsingPOSTResponse" >notifyAlertsUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#notifyApplicationDeploymentCompleteUsingPOST" >notifyApplicationDeploymentCompleteUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#notifyApplicationDeploymentCompleteUsingPOSTResponse" >notifyApplicationDeploymentCompleteUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#notifyResourceDeploymentCompleteUsingPOST" >notifyResourceDeploymentCompleteUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#notifyResourceDeploymentCompleteUsingPOSTResponse" >notifyResourceDeploymentCompleteUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#overrideSizingUsingPOST" >overrideSizingUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#overrideSizingUsingPOSTResponse" >overrideSizingUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#pinSnapshotUsingPOST" >pinSnapshotUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#pinSnapshotUsingPOSTResponse" >pinSnapshotUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#upsertVarsUsingPOST" >upsertVarsUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#upsertVarsUsingPOSTResponse" >upsertVarsUsingPOSTResponse</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(config: <a href="../interfaces/Config.html" target="_self">___Configuration</a>, http: HttpClient)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:48</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>config</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Config.html" target="_self" >___Configuration</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addClusterK8sCredentialsUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>addClusterK8sCredentialsUsingPOST</b></span>
+                        <a href="#addClusterK8sCredentialsUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addClusterK8sCredentialsUsingPOST(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.AddClusterK8sCredentialsUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="282"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:282</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>addClusterK8sCredentials</p>
+<ul>
+<li><p><code>request</code>: request</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.AddClusterK8sCredentialsUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.AddClusterK8sCredentialsUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>request</code>: request</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addClusterK8sCredentialsUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>addClusterK8sCredentialsUsingPOSTResponse</b></span>
+                        <a href="#addClusterK8sCredentialsUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addClusterK8sCredentialsUsingPOSTResponse(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.AddClusterK8sCredentialsUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="241"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:241</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>addClusterK8sCredentials</p>
+<ul>
+<li><p><code>request</code>: request</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.AddClusterK8sCredentialsUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.AddClusterK8sCredentialsUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>request</code>: request</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;boolean&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteClusterUsingDELETE"></a>
+                    <span class="name">
+                        <span ><b>deleteClusterUsingDELETE</b></span>
+                        <a href="#deleteClusterUsingDELETE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteClusterUsingDELETE(clusterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteCluster</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clusterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>clusterId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteClusterUsingDELETEResponse"></a>
+                    <span class="name">
+                        <span ><b>deleteClusterUsingDELETEResponse</b></span>
+                        <a href="#deleteClusterUsingDELETEResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteClusterUsingDELETEResponse(clusterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteCluster</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clusterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>clusterId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;boolean&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getOverridesUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getOverridesUsingGET</b></span>
+                        <a href="#getOverridesUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getOverridesUsingGET(clusterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="521"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:521</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getOverrides</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clusterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>clusterId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/OverrideObject.html" target="_self" >___Observable&lt;Array&lt;OverrideObject&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getOverridesUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getOverridesUsingGETResponse</b></span>
+                        <a href="#getOverridesUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getOverridesUsingGETResponse(clusterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="490"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:490</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getOverrides</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clusterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>clusterId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;OverrideObject&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPinnedSnapshotUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getPinnedSnapshotUsingGET</b></span>
+                        <a href="#getPinnedSnapshotUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPinnedSnapshotUsingGET(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.GetPinnedSnapshotUsingGETParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="408"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:408</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getPinnedSnapshot</p>
+<ul>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>instanceName</code>: instanceName</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.GetPinnedSnapshotUsingGETParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.GetPinnedSnapshotUsingGETParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>instanceName</code>: instanceName</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;SnapshotInfo&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPinnedSnapshotUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getPinnedSnapshotUsingGETResponse</b></span>
+                        <a href="#getPinnedSnapshotUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPinnedSnapshotUsingGETResponse(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.GetPinnedSnapshotUsingGETParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="364"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:364</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getPinnedSnapshot</p>
+<ul>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>instanceName</code>: instanceName</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.GetPinnedSnapshotUsingGETParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.GetPinnedSnapshotUsingGETParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>instanceName</code>: instanceName</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;SnapshotInfo&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listSnapshotsUsingGET"></a>
+                    <span class="name">
+                        <span ><b>listSnapshotsUsingGET</b></span>
+                        <a href="#listSnapshotsUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listSnapshotsUsingGET(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.ListSnapshotsUsingGETParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="344"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:344</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>listSnapshots</p>
+<ul>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>instanceName</code>: instanceName</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.ListSnapshotsUsingGETParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.ListSnapshotsUsingGETParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>instanceName</code>: instanceName</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;Array&lt;SnapshotInfo&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listSnapshotsUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>listSnapshotsUsingGETResponse</b></span>
+                        <a href="#listSnapshotsUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listSnapshotsUsingGETResponse(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.ListSnapshotsUsingGETParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="302"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:302</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>listSnapshots</p>
+<ul>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>instanceName</code>: instanceName</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.ListSnapshotsUsingGETParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.ListSnapshotsUsingGETParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>instanceName</code>: instanceName</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;SnapshotInfo&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notifyAlertsUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>notifyAlertsUsingPOST</b></span>
+                        <a href="#notifyAlertsUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>notifyAlertsUsingPOST(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.NotifyAlertsUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="148"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:148</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>notifyAlerts</p>
+<ul>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+<li><p><code>alerts</code>: alerts</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.NotifyAlertsUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.NotifyAlertsUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+<li><p><code>alerts</code>: alerts</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notifyAlertsUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>notifyAlertsUsingPOSTResponse</b></span>
+                        <a href="#notifyAlertsUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>notifyAlertsUsingPOSTResponse(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.NotifyAlertsUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>notifyAlerts</p>
+<ul>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+<li><p><code>alerts</code>: alerts</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.NotifyAlertsUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.NotifyAlertsUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+<li><p><code>alerts</code>: alerts</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;boolean&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notifyApplicationDeploymentCompleteUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>notifyApplicationDeploymentCompleteUsingPOST</b></span>
+                        <a href="#notifyApplicationDeploymentCompleteUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>notifyApplicationDeploymentCompleteUsingPOST(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.NotifyApplicationDeploymentCompleteUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="223"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:223</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>notifyApplicationDeploymentComplete</p>
+<ul>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+<li><p><code>appName</code>: appName</p>
+</li>
+<li><p><code>deploymentStatus</code>: deploymentStatus</p>
+</li>
+<li><p><code>buildId</code>: buildId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.NotifyApplicationDeploymentCompleteUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.NotifyApplicationDeploymentCompleteUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+<li><p><code>appName</code>: appName</p>
+</li>
+<li><p><code>deploymentStatus</code>: deploymentStatus</p>
+</li>
+<li><p><code>buildId</code>: buildId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notifyApplicationDeploymentCompleteUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>notifyApplicationDeploymentCompleteUsingPOSTResponse</b></span>
+                        <a href="#notifyApplicationDeploymentCompleteUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>notifyApplicationDeploymentCompleteUsingPOSTResponse(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.NotifyApplicationDeploymentCompleteUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="170"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:170</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>notifyApplicationDeploymentComplete</p>
+<ul>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+<li><p><code>appName</code>: appName</p>
+</li>
+<li><p><code>deploymentStatus</code>: deploymentStatus</p>
+</li>
+<li><p><code>buildId</code>: buildId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.NotifyApplicationDeploymentCompleteUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.NotifyApplicationDeploymentCompleteUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+<li><p><code>appName</code>: appName</p>
+</li>
+<li><p><code>deploymentStatus</code>: deploymentStatus</p>
+</li>
+<li><p><code>buildId</code>: buildId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;boolean&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notifyResourceDeploymentCompleteUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>notifyResourceDeploymentCompleteUsingPOST</b></span>
+                        <a href="#notifyResourceDeploymentCompleteUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>notifyResourceDeploymentCompleteUsingPOST(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.NotifyResourceDeploymentCompleteUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="652"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:652</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>notifyResourceDeploymentComplete</p>
+<ul>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>resourceName</code>: resourceName</p>
+</li>
+<li><p><code>deploymentStatus</code>: deploymentStatus</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+<li><p><code>buildId</code>: buildId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.NotifyResourceDeploymentCompleteUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.NotifyResourceDeploymentCompleteUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>resourceName</code>: resourceName</p>
+</li>
+<li><p><code>deploymentStatus</code>: deploymentStatus</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+<li><p><code>buildId</code>: buildId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/variables.html#undefined" target="_self" >___Observable&lt;undefined&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notifyResourceDeploymentCompleteUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>notifyResourceDeploymentCompleteUsingPOSTResponse</b></span>
+                        <a href="#notifyResourceDeploymentCompleteUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>notifyResourceDeploymentCompleteUsingPOSTResponse(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.NotifyResourceDeploymentCompleteUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="598"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:598</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>notifyResourceDeploymentComplete</p>
+<ul>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>resourceName</code>: resourceName</p>
+</li>
+<li><p><code>deploymentStatus</code>: deploymentStatus</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+<li><p><code>buildId</code>: buildId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.NotifyResourceDeploymentCompleteUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.NotifyResourceDeploymentCompleteUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>resourceName</code>: resourceName</p>
+</li>
+<li><p><code>deploymentStatus</code>: deploymentStatus</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+<li><p><code>buildId</code>: buildId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;undefined&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="overrideSizingUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>overrideSizingUsingPOST</b></span>
+                        <a href="#overrideSizingUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>overrideSizingUsingPOST(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.OverrideSizingUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="576"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:576</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>overrideSizing</p>
+<ul>
+<li><p><code>request</code>: request</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.OverrideSizingUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.OverrideSizingUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>request</code>: request</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/OverrideObject.html" target="_self" >___Observable&lt;Array&lt;OverrideObject&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="overrideSizingUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>overrideSizingUsingPOSTResponse</b></span>
+                        <a href="#overrideSizingUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>overrideSizingUsingPOSTResponse(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.OverrideSizingUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="537"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:537</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>overrideSizing</p>
+<ul>
+<li><p><code>request</code>: request</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.OverrideSizingUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.OverrideSizingUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>request</code>: request</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;OverrideObject&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pinSnapshotUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>pinSnapshotUsingPOST</b></span>
+                        <a href="#pinSnapshotUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pinSnapshotUsingPOST(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.PinSnapshotUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="477"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:477</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>pinSnapshot</p>
+<ul>
+<li><p><code>snapshotInfo</code>: snapshotInfo</p>
+</li>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>instanceName</code>: instanceName</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.PinSnapshotUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.PinSnapshotUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>snapshotInfo</code>: snapshotInfo</p>
+</li>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>instanceName</code>: instanceName</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;SnapshotInfo&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pinSnapshotUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>pinSnapshotUsingPOSTResponse</b></span>
+                        <a href="#pinSnapshotUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pinSnapshotUsingPOSTResponse(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.PinSnapshotUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="430"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:430</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>pinSnapshot</p>
+<ul>
+<li><p><code>snapshotInfo</code>: snapshotInfo</p>
+</li>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>instanceName</code>: instanceName</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.PinSnapshotUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.PinSnapshotUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>snapshotInfo</code>: snapshotInfo</p>
+</li>
+<li><p><code>resourceType</code>: resourceType</p>
+</li>
+<li><p><code>instanceName</code>: instanceName</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;SnapshotInfo&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="upsertVarsUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>upsertVarsUsingPOST</b></span>
+                        <a href="#upsertVarsUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>upsertVarsUsingPOST(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.UpsertVarsUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="709"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:709</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>upsertVars</p>
+<ul>
+<li><p><code>clusterVars</code>: clusterVars</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.UpsertVarsUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.UpsertVarsUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>clusterVars</code>: clusterVars</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="upsertVarsUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>upsertVarsUsingPOSTResponse</b></span>
+                        <a href="#upsertVarsUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>upsertVarsUsingPOSTResponse(params: <a href="../injectables/CommonClusterControllerService.html" target="_self">CommonClusterControllerService.UpsertVarsUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="670"
+                                    class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:670</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>upsertVars</p>
+<ul>
+<li><p><code>clusterVars</code>: clusterVars</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/CommonClusterControllerService.html" target="_self" >CommonClusterControllerService.UpsertVarsUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>CommonClusterControllerService.UpsertVarsUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>clusterVars</code>: clusterVars</p>
+</li>
+<li><p><code>clusterId</code>: clusterId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;literal type&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addClusterK8sCredentialsUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>addClusterK8sCredentialsUsingPOSTPath</b></span>
+                        <a href="#addClusterK8sCredentialsUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc/v1/clusters/{clusterId}/credentials&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteClusterUsingDELETEPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>deleteClusterUsingDELETEPath</b></span>
+                        <a href="#deleteClusterUsingDELETEPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc/v1/clusters/{clusterId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getOverridesUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getOverridesUsingGETPath</b></span>
+                        <a href="#getOverridesUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc/v1/clusters/{clusterId}/overrides&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPinnedSnapshotUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getPinnedSnapshotUsingGETPath</b></span>
+                        <a href="#getPinnedSnapshotUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc/v1/clusters/{clusterId}/dr/{resourceType}/snapshots/{instanceName}/pinnedSnapshot&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listSnapshotsUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>listSnapshotsUsingGETPath</b></span>
+                        <a href="#listSnapshotsUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc/v1/clusters/{clusterId}/dr/{resourceType}/snapshots/{instanceName}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notifyAlertsUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>notifyAlertsUsingPOSTPath</b></span>
+                        <a href="#notifyAlertsUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc/v1/clusters/{clusterId}/alerts&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notifyApplicationDeploymentCompleteUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>notifyApplicationDeploymentCompleteUsingPOSTPath</b></span>
+                        <a href="#notifyApplicationDeploymentCompleteUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc/v1/clusters/{clusterId}/app-name/{appName}/application-deployment-completed&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notifyResourceDeploymentCompleteUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>notifyResourceDeploymentCompleteUsingPOSTPath</b></span>
+                        <a href="#notifyResourceDeploymentCompleteUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc/v1/clusters/{clusterId}/resource-type/{resourceType}/resource-name/{resourceName}/resource-deployment-completed&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="overrideSizingUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>overrideSizingUsingPOSTPath</b></span>
+                        <a href="#overrideSizingUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc/v1/clusters/{clusterId}/overrides&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pinSnapshotUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>pinSnapshotUsingPOSTPath</b></span>
+                        <a href="#pinSnapshotUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc/v1/clusters/{clusterId}/dr/{resourceType}/snapshots/{instanceName}/pinnedSnapshot&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="upsertVarsUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>upsertVarsUsingPOSTPath</b></span>
+                        <a href="#upsertVarsUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc/v1/clusters/{clusterId}/vars/upsert&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/cc-api/services/common-cluster-controller.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpHeaders,
+} from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { Response } from &#x27;../models/response&#x27;;
+import { K8sCredentials } from &#x27;../models/k8s-credentials&#x27;;
+import { SnapshotInfo } from &#x27;../models/snapshot-info&#x27;;
+import { OverrideObject } from &#x27;../models/override-object&#x27;;
+import { OverrideRequest } from &#x27;../models/override-request&#x27;;
+
+/**
+ * Common Cluster Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class CommonClusterControllerService extends __BaseService {
+  static readonly deleteClusterUsingDELETEPath &#x3D; &#x27;/cc/v1/clusters/{clusterId}&#x27;;
+  static readonly notifyAlertsUsingPOSTPath &#x3D;
+    &#x27;/cc/v1/clusters/{clusterId}/alerts&#x27;;
+  static readonly notifyApplicationDeploymentCompleteUsingPOSTPath &#x3D;
+    &#x27;/cc/v1/clusters/{clusterId}/app-name/{appName}/application-deployment-completed&#x27;;
+  static readonly addClusterK8sCredentialsUsingPOSTPath &#x3D;
+    &#x27;/cc/v1/clusters/{clusterId}/credentials&#x27;;
+  static readonly listSnapshotsUsingGETPath &#x3D;
+    &#x27;/cc/v1/clusters/{clusterId}/dr/{resourceType}/snapshots/{instanceName}&#x27;;
+  static readonly getPinnedSnapshotUsingGETPath &#x3D;
+    &#x27;/cc/v1/clusters/{clusterId}/dr/{resourceType}/snapshots/{instanceName}/pinnedSnapshot&#x27;;
+  static readonly pinSnapshotUsingPOSTPath &#x3D;
+    &#x27;/cc/v1/clusters/{clusterId}/dr/{resourceType}/snapshots/{instanceName}/pinnedSnapshot&#x27;;
+  static readonly getOverridesUsingGETPath &#x3D;
+    &#x27;/cc/v1/clusters/{clusterId}/overrides&#x27;;
+  static readonly overrideSizingUsingPOSTPath &#x3D;
+    &#x27;/cc/v1/clusters/{clusterId}/overrides&#x27;;
+  static readonly notifyResourceDeploymentCompleteUsingPOSTPath &#x3D;
+    &#x27;/cc/v1/clusters/{clusterId}/resource-type/{resourceType}/resource-name/{resourceName}/resource-deployment-completed&#x27;;
+  static readonly upsertVarsUsingPOSTPath &#x3D;
+    &#x27;/cc/v1/clusters/{clusterId}/vars/upsert&#x27;;
+
+  constructor(config: __Configuration, http: HttpClient) {
+    super(config, http);
+  }
+
+  /**
+   * deleteCluster
+   * @param clusterId clusterId
+   * @return OK
+   */
+  deleteClusterUsingDELETEResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;boolean&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl + &#x60;/cc/v1/clusters/${encodeURIComponent(String(clusterId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteCluster
+   * @param clusterId clusterId
+   * @return OK
+   */
+  deleteClusterUsingDELETE(clusterId: string): __Observable&lt;boolean&gt; {
+    return this.deleteClusterUsingDELETEResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as boolean),
+    );
+  }
+
+  /**
+   * notifyAlerts
+   * @param params The &#x60;CommonClusterControllerService.NotifyAlertsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;alerts&#x60;: alerts
+   *
+   * @return OK
+   */
+  notifyAlertsUsingPOSTResponse(
+    params: CommonClusterControllerService.NotifyAlertsUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;boolean&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.alerts;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/alerts&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * notifyAlerts
+   * @param params The &#x60;CommonClusterControllerService.NotifyAlertsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;alerts&#x60;: alerts
+   *
+   * @return OK
+   */
+  notifyAlertsUsingPOST(
+    params: CommonClusterControllerService.NotifyAlertsUsingPOSTParams,
+  ): __Observable&lt;boolean&gt; {
+    return this.notifyAlertsUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as boolean),
+    );
+  }
+
+  /**
+   * notifyApplicationDeploymentComplete
+   * @param params The &#x60;CommonClusterControllerService.NotifyApplicationDeploymentCompleteUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;appName&#x60;: appName
+   *
+   * - &#x60;deploymentStatus&#x60;: deploymentStatus
+   *
+   * - &#x60;buildId&#x60;: buildId
+   *
+   * @return OK
+   */
+  notifyApplicationDeploymentCompleteUsingPOSTResponse(
+    params: CommonClusterControllerService.NotifyApplicationDeploymentCompleteUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;boolean&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.deploymentStatus !&#x3D; null)
+      __params &#x3D; __params.set(
+        &#x27;deploymentStatus&#x27;,
+        params.deploymentStatus.toString(),
+      );
+    if (params.buildId !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;buildId&#x27;, params.buildId.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/app-name/${encodeURIComponent(
+          String(params.appName),
+        )}/application-deployment-completed&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * notifyApplicationDeploymentComplete
+   * @param params The &#x60;CommonClusterControllerService.NotifyApplicationDeploymentCompleteUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;appName&#x60;: appName
+   *
+   * - &#x60;deploymentStatus&#x60;: deploymentStatus
+   *
+   * - &#x60;buildId&#x60;: buildId
+   *
+   * @return OK
+   */
+  notifyApplicationDeploymentCompleteUsingPOST(
+    params: CommonClusterControllerService.NotifyApplicationDeploymentCompleteUsingPOSTParams,
+  ): __Observable&lt;boolean&gt; {
+    return this.notifyApplicationDeploymentCompleteUsingPOSTResponse(
+      params,
+    ).pipe(__map((_r) &#x3D;&gt; _r.body as boolean));
+  }
+
+  /**
+   * addClusterK8sCredentials
+   * @param params The &#x60;CommonClusterControllerService.AddClusterK8sCredentialsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;request&#x60;: request
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  addClusterK8sCredentialsUsingPOSTResponse(
+    params: CommonClusterControllerService.AddClusterK8sCredentialsUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;boolean&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.request;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/credentials&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * addClusterK8sCredentials
+   * @param params The &#x60;CommonClusterControllerService.AddClusterK8sCredentialsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;request&#x60;: request
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  addClusterK8sCredentialsUsingPOST(
+    params: CommonClusterControllerService.AddClusterK8sCredentialsUsingPOSTParams,
+  ): __Observable&lt;boolean&gt; {
+    return this.addClusterK8sCredentialsUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as boolean),
+    );
+  }
+
+  /**
+   * listSnapshots
+   * @param params The &#x60;CommonClusterControllerService.ListSnapshotsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listSnapshotsUsingGETResponse(
+    params: CommonClusterControllerService.ListSnapshotsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;SnapshotInfo&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/dr/${encodeURIComponent(
+          String(params.resourceType),
+        )}/snapshots/${encodeURIComponent(String(params.instanceName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;SnapshotInfo&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listSnapshots
+   * @param params The &#x60;CommonClusterControllerService.ListSnapshotsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listSnapshotsUsingGET(
+    params: CommonClusterControllerService.ListSnapshotsUsingGETParams,
+  ): __Observable&lt;Array&lt;SnapshotInfo&gt;&gt; {
+    return this.listSnapshotsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;SnapshotInfo&gt;),
+    );
+  }
+
+  /**
+   * getPinnedSnapshot
+   * @param params The &#x60;CommonClusterControllerService.GetPinnedSnapshotUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getPinnedSnapshotUsingGETResponse(
+    params: CommonClusterControllerService.GetPinnedSnapshotUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;SnapshotInfo&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/dr/${encodeURIComponent(
+          String(params.resourceType),
+        )}/snapshots/${encodeURIComponent(
+          String(params.instanceName),
+        )}/pinnedSnapshot&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;SnapshotInfo&gt;;
+      }),
+    );
+  }
+  /**
+   * getPinnedSnapshot
+   * @param params The &#x60;CommonClusterControllerService.GetPinnedSnapshotUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getPinnedSnapshotUsingGET(
+    params: CommonClusterControllerService.GetPinnedSnapshotUsingGETParams,
+  ): __Observable&lt;SnapshotInfo&gt; {
+    return this.getPinnedSnapshotUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as SnapshotInfo),
+    );
+  }
+
+  /**
+   * pinSnapshot
+   * @param params The &#x60;CommonClusterControllerService.PinSnapshotUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;snapshotInfo&#x60;: snapshotInfo
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  pinSnapshotUsingPOSTResponse(
+    params: CommonClusterControllerService.PinSnapshotUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;SnapshotInfo&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.snapshotInfo;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/dr/${encodeURIComponent(
+          String(params.resourceType),
+        )}/snapshots/${encodeURIComponent(
+          String(params.instanceName),
+        )}/pinnedSnapshot&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;SnapshotInfo&gt;;
+      }),
+    );
+  }
+  /**
+   * pinSnapshot
+   * @param params The &#x60;CommonClusterControllerService.PinSnapshotUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;snapshotInfo&#x60;: snapshotInfo
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;instanceName&#x60;: instanceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  pinSnapshotUsingPOST(
+    params: CommonClusterControllerService.PinSnapshotUsingPOSTParams,
+  ): __Observable&lt;SnapshotInfo&gt; {
+    return this.pinSnapshotUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as SnapshotInfo),
+    );
+  }
+
+  /**
+   * getOverrides
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getOverridesUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;OverrideObject&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc/v1/clusters/${encodeURIComponent(String(clusterId))}/overrides&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;OverrideObject&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getOverrides
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getOverridesUsingGET(clusterId: string): __Observable&lt;Array&lt;OverrideObject&gt;&gt; {
+    return this.getOverridesUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;OverrideObject&gt;),
+    );
+  }
+
+  /**
+   * overrideSizing
+   * @param params The &#x60;CommonClusterControllerService.OverrideSizingUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;request&#x60;: request
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  overrideSizingUsingPOSTResponse(
+    params: CommonClusterControllerService.OverrideSizingUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;OverrideObject&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.request;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/overrides&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;OverrideObject&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * overrideSizing
+   * @param params The &#x60;CommonClusterControllerService.OverrideSizingUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;request&#x60;: request
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  overrideSizingUsingPOST(
+    params: CommonClusterControllerService.OverrideSizingUsingPOSTParams,
+  ): __Observable&lt;Array&lt;OverrideObject&gt;&gt; {
+    return this.overrideSizingUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;OverrideObject&gt;),
+    );
+  }
+
+  /**
+   * notifyResourceDeploymentComplete
+   * @param params The &#x60;CommonClusterControllerService.NotifyResourceDeploymentCompleteUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;deploymentStatus&#x60;: deploymentStatus
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;buildId&#x60;: buildId
+   */
+  notifyResourceDeploymentCompleteUsingPOSTResponse(
+    params: CommonClusterControllerService.NotifyResourceDeploymentCompleteUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.deploymentStatus !&#x3D; null)
+      __params &#x3D; __params.set(
+        &#x27;deploymentStatus&#x27;,
+        params.deploymentStatus.toString(),
+      );
+
+    if (params.buildId !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;buildId&#x27;, params.buildId.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resource-type/${encodeURIComponent(
+          String(params.resourceType),
+        )}/resource-name/${encodeURIComponent(
+          String(params.resourceName),
+        )}/resource-deployment-completed&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * notifyResourceDeploymentComplete
+   * @param params The &#x60;CommonClusterControllerService.NotifyResourceDeploymentCompleteUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;deploymentStatus&#x60;: deploymentStatus
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;buildId&#x60;: buildId
+   */
+  notifyResourceDeploymentCompleteUsingPOST(
+    params: CommonClusterControllerService.NotifyResourceDeploymentCompleteUsingPOSTParams,
+  ): __Observable&lt;null&gt; {
+    return this.notifyResourceDeploymentCompleteUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * upsertVars
+   * @param params The &#x60;CommonClusterControllerService.UpsertVarsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterVars&#x60;: clusterVars
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  upsertVarsUsingPOSTResponse(
+    params: CommonClusterControllerService.UpsertVarsUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;{ [key: string]: string }&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.clusterVars;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/vars/upsert&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{ [key: string]: string }&gt;;
+      }),
+    );
+  }
+  /**
+   * upsertVars
+   * @param params The &#x60;CommonClusterControllerService.UpsertVarsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterVars&#x60;: clusterVars
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  upsertVarsUsingPOST(
+    params: CommonClusterControllerService.UpsertVarsUsingPOSTParams,
+  ): __Observable&lt;{ [key: string]: string }&gt; {
+    return this.upsertVarsUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as { [key: string]: string }),
+    );
+  }
+}
+
+module CommonClusterControllerService {
+  /**
+   * Parameters for notifyAlertsUsingPOST
+   */
+  export interface NotifyAlertsUsingPOSTParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * alerts
+     */
+    alerts: Response;
+  }
+
+  /**
+   * Parameters for notifyApplicationDeploymentCompleteUsingPOST
+   */
+  export interface NotifyApplicationDeploymentCompleteUsingPOSTParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * appName
+     */
+    appName: string;
+
+    /**
+     * deploymentStatus
+     */
+    deploymentStatus?:
+      | &#x27;SUCCEEDED&#x27;
+      | &#x27;FAILED&#x27;
+      | &#x27;FAULT&#x27;
+      | &#x27;TIMED_OUT&#x27;
+      | &#x27;IN_PROGRESS&#x27;
+      | &#x27;STOPPED&#x27;
+      | &#x27;INVALID&#x27;
+      | &#x27;STARTED&#x27;
+      | &#x27;UNKNOWN&#x27;
+      | &#x27;QUEUED&#x27;;
+
+    /**
+     * buildId
+     */
+    buildId?: string;
+  }
+
+  /**
+   * Parameters for addClusterK8sCredentialsUsingPOST
+   */
+  export interface AddClusterK8sCredentialsUsingPOSTParams {
+    /**
+     * request
+     */
+    request: K8sCredentials;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listSnapshotsUsingGET
+   */
+  export interface ListSnapshotsUsingGETParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * instanceName
+     */
+    instanceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getPinnedSnapshotUsingGET
+   */
+  export interface GetPinnedSnapshotUsingGETParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * instanceName
+     */
+    instanceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for pinSnapshotUsingPOST
+   */
+  export interface PinSnapshotUsingPOSTParams {
+    /**
+     * snapshotInfo
+     */
+    snapshotInfo: SnapshotInfo;
+
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * instanceName
+     */
+    instanceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for overrideSizingUsingPOST
+   */
+  export interface OverrideSizingUsingPOSTParams {
+    /**
+     * request
+     */
+    request: Array&lt;OverrideRequest&gt;;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for notifyResourceDeploymentCompleteUsingPOST
+   */
+  export interface NotifyResourceDeploymentCompleteUsingPOSTParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+
+    /**
+     * deploymentStatus
+     */
+    deploymentStatus:
+      | &#x27;SUCCEEDED&#x27;
+      | &#x27;FAILED&#x27;
+      | &#x27;FAULT&#x27;
+      | &#x27;TIMED_OUT&#x27;
+      | &#x27;IN_PROGRESS&#x27;
+      | &#x27;STOPPED&#x27;
+      | &#x27;INVALID&#x27;
+      | &#x27;STARTED&#x27;
+      | &#x27;UNKNOWN&#x27;
+      | &#x27;QUEUED&#x27;;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * buildId
+     */
+    buildId?: string;
+  }
+
+  /**
+   * Parameters for upsertVarsUsingPOST
+   */
+  export interface UpsertVarsUsingPOSTParams {
+    /**
+     * clusterVars
+     */
+    clusterVars: { [key: string]: string };
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+}
+
+export { CommonClusterControllerService };
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CommonClusterControllerService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

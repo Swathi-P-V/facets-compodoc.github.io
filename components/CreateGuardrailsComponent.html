@@ -1,0 +1,3881 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CreateGuardrailsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+    </p>
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-create-guardrails</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./create-guardrails.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./create-guardrails.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#blueprintEnvironmentsMap" >blueprintEnvironmentsMap</a>
+                            </li>
+                            <li>
+                                <a href="#blueprintsDropdown" >blueprintsDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#clonedPolicyName" >clonedPolicyName</a>
+                            </li>
+                            <li>
+                                <a href="#clusterSpecificResourcesMap" >clusterSpecificResourcesMap</a>
+                            </li>
+                            <li>
+                                <a href="#environmentsDropdown" >environmentsDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#errorList" >errorList</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingEditDetails" >fetchingEditDetails</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingEnvsDropdown" >fetchingEnvsDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingResNamesDropdown" >fetchingResNamesDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingResTypeDropdown" >fetchingResTypeDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#handleBack" >handleBack</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#mode" >mode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#OPA_WRITE" >OPA_WRITE</a>
+                            </li>
+                            <li>
+                                <a href="#policyForm" >policyForm</a>
+                            </li>
+                            <li>
+                                <a href="#policyRequestInProgress" >policyRequestInProgress</a>
+                            </li>
+                            <li>
+                                <a href="#resourceNamesDropdown" >resourceNamesDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#resourceTypesDropdown" >resourceTypesDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#resourceTypesDropdownForSelectedStack" >resourceTypesDropdownForSelectedStack</a>
+                            </li>
+                            <li>
+                                <a href="#sampleRegoCode" >sampleRegoCode</a>
+                            </li>
+                            <li>
+                                <a href="#selectedClusterResourcesMap" >selectedClusterResourcesMap</a>
+                            </li>
+                            <li>
+                                <a href="#stackSpecificResourcesMap" >stackSpecificResourcesMap</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#asyncOnPageLoad" >asyncOnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#clearDropdownValues" >clearDropdownValues</a>
+                            </li>
+                            <li>
+                                <a href="#constructEnvironmentsDropdown" >constructEnvironmentsDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#constructResourcesDropdown" >constructResourcesDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#constructResourcesMapForSelectedClusters" >constructResourcesMapForSelectedClusters</a>
+                            </li>
+                            <li>
+                                <a href="#createOrEditPolicy" >createOrEditPolicy</a>
+                            </li>
+                            <li>
+                                <a href="#findDeletedItems" >findDeletedItems</a>
+                            </li>
+                            <li>
+                                <a href="#generateErrorList" >generateErrorList</a>
+                            </li>
+                            <li>
+                                <a href="#getBlueprintsDropdown" >getBlueprintsDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#getClusterAndBlueprintMapping" >getClusterAndBlueprintMapping</a>
+                            </li>
+                            <li>
+                                <a href="#getClusterLevelResourceTypeAndResourcesMap" >getClusterLevelResourceTypeAndResourcesMap</a>
+                            </li>
+                            <li>
+                                <a href="#getPolicyDetails" >getPolicyDetails</a>
+                            </li>
+                            <li>
+                                <a href="#getStackLevelResourceTypeAndResourcesMapping" >getStackLevelResourceTypeAndResourcesMapping</a>
+                            </li>
+                            <li>
+                                <a href="#markSelectedOptionsAsChecked" >markSelectedOptionsAsChecked</a>
+                            </li>
+                            <li>
+                                <a href="#markSelectedOptionsAsCheckedForGrouped" >markSelectedOptionsAsCheckedForGrouped</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onBlueprintSelection" >onBlueprintSelection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onEnvironmentSelection" >onEnvironmentSelection</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageLoad" >OnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#onResourceSelection" >onResourceSelection</a>
+                            </li>
+                            <li>
+                                <a href="#onResourceTypeSelection" >onResourceTypeSelection</a>
+                            </li>
+                            <li>
+                                <a href="#parseErrorMessage" >parseErrorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageInit" >OnPageInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#policyName" >policyName</a>
+                                </li>
+                                <li>
+                                    <a href="#description" >description</a>
+                                </li>
+                                <li>
+                                    <a href="#stackName" >stackName</a>
+                                </li>
+                                <li>
+                                    <a href="#clusterIds" >clusterIds</a>
+                                </li>
+                                <li>
+                                    <a href="#resourceTypeAndResourceNamesMap" >resourceTypeAndResourceNamesMap</a>
+                                </li>
+                                <li>
+                                    <a href="#resourceTypes" >resourceTypes</a>
+                                </li>
+                                <li>
+                                    <a href="#rawPolicy" >rawPolicy</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: Router, _route: ActivatedRoute, uiStackControllerService: <a href="../injectables/UiStackControllerService.html" target="_self">UiStackControllerService</a>, uiDropdownsControllerService: <a href="../injectables/UiDropdownsControllerService.html" target="_self">UiDropdownsControllerService</a>, uiOpaControllerService: <a href="../injectables/UiOpaControllerService.html" target="_self">UiOpaControllerService</a>, customToastService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:73</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiStackControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiStackControllerService.html" target="_self" >UiStackControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiDropdownsControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiDropdownsControllerService.html" target="_self" >UiDropdownsControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiOpaControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiOpaControllerService.html" target="_self" >UiOpaControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToastService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="asyncOnPageLoad"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>asyncOnPageLoad</b></span>
+                        <a href="#asyncOnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>asyncOnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="121"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:121</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearDropdownValues"></a>
+                    <span class="name">
+                        <span ><b>clearDropdownValues</b></span>
+                        <a href="#clearDropdownValues"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clearDropdownValues(dropdown)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="441"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:441</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dropdown</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="constructEnvironmentsDropdown"></a>
+                    <span class="name">
+                        <span ><b>constructEnvironmentsDropdown</b></span>
+                        <a href="#constructEnvironmentsDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>constructEnvironmentsDropdown(stackName, blueprintEnvironmentsMap)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="473"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:473</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>stackName</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>blueprintEnvironmentsMap</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="constructResourcesDropdown"></a>
+                    <span class="name">
+                        <span ><b>constructResourcesDropdown</b></span>
+                        <a href="#constructResourcesDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>constructResourcesDropdown(selectedResourceTypes, resourceTypesResourceNamesMap)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="448"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:448</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selectedResourceTypes</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>resourceTypesResourceNamesMap</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="constructResourcesMapForSelectedClusters"></a>
+                    <span class="name">
+                        <span ><b>constructResourcesMapForSelectedClusters</b></span>
+                        <a href="#constructResourcesMapForSelectedClusters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>constructResourcesMapForSelectedClusters(selectedClusters)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="384"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:384</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selectedClusters</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createOrEditPolicy"></a>
+                    <span class="name">
+                        <span ><b>createOrEditPolicy</b></span>
+                        <a href="#createOrEditPolicy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createOrEditPolicy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="626"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:626</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findDeletedItems"></a>
+                    <span class="name">
+                        <span ><b>findDeletedItems</b></span>
+                        <a href="#findDeletedItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findDeletedItems(originalArray, updatedArray)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="485"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:485</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>originalArray</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>updatedArray</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateErrorList"></a>
+                    <span class="name">
+                        <span ><b>generateErrorList</b></span>
+                        <a href="#generateErrorList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generateErrorList(parsedError)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="681"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:681</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>parsedError</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBlueprintsDropdown"></a>
+                    <span class="name">
+                        <span ><b>getBlueprintsDropdown</b></span>
+                        <a href="#getBlueprintsDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getBlueprintsDropdown(blueprintEnvironmentsMap)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="418"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:418</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>blueprintEnvironmentsMap</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClusterAndBlueprintMapping"></a>
+                    <span class="name">
+                        <span ><b>getClusterAndBlueprintMapping</b></span>
+                        <a href="#getClusterAndBlueprintMapping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getClusterAndBlueprintMapping()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="276"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:276</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClusterLevelResourceTypeAndResourcesMap"></a>
+                    <span class="name">
+                        <span ><b>getClusterLevelResourceTypeAndResourcesMap</b></span>
+                        <a href="#getClusterLevelResourceTypeAndResourcesMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getClusterLevelResourceTypeAndResourcesMap(stackName)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="350"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:350</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>stackName</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPolicyDetails"></a>
+                    <span class="name">
+                        <span ><b>getPolicyDetails</b></span>
+                        <a href="#getPolicyDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPolicyDetails(policyName)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="489"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:489</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>policyName</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStackLevelResourceTypeAndResourcesMapping"></a>
+                    <span class="name">
+                        <span ><b>getStackLevelResourceTypeAndResourcesMapping</b></span>
+                        <a href="#getStackLevelResourceTypeAndResourcesMapping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStackLevelResourceTypeAndResourcesMapping(stackName)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="303"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:303</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>stackName</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="markSelectedOptionsAsChecked"></a>
+                    <span class="name">
+                        <span ><b>markSelectedOptionsAsChecked</b></span>
+                        <a href="#markSelectedOptionsAsChecked"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>markSelectedOptionsAsChecked(dropdown, selectedValues)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="424"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:424</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dropdown</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>selectedValues</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="markSelectedOptionsAsCheckedForGrouped"></a>
+                    <span class="name">
+                        <span ><b>markSelectedOptionsAsCheckedForGrouped</b></span>
+                        <a href="#markSelectedOptionsAsCheckedForGrouped"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>markSelectedOptionsAsCheckedForGrouped(dropdown, selectedValues)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="431"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:431</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dropdown</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>selectedValues</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onBlueprintSelection"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>onBlueprintSelection</b></span>
+                        <a href="#onBlueprintSelection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onBlueprintSelection()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="144"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:144</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onEnvironmentSelection"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>onEnvironmentSelection</b></span>
+                        <a href="#onEnvironmentSelection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onEnvironmentSelection(selectedEnvs)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:176</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selectedEnvs</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>OnPageLoad</b></span>
+                        <a href="#OnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:114</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onResourceSelection"></a>
+                    <span class="name">
+                        <span ><b>onResourceSelection</b></span>
+                        <a href="#onResourceSelection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onResourceSelection(selectedResources)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="255"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:255</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selectedResources</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onResourceTypeSelection"></a>
+                    <span class="name">
+                        <span ><b>onResourceTypeSelection</b></span>
+                        <a href="#onResourceTypeSelection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onResourceTypeSelection(selectedResTypes)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="212"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:212</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selectedResTypes</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parseErrorMessage"></a>
+                    <span class="name">
+                        <span ><b>parseErrorMessage</b></span>
+                        <a href="#parseErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>parseErrorMessage(errorMessage)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="663"
+                                    class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:663</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>errorMessage</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageInit"></a>
+                    <span class="name">
+                        <span ><b>OnPageInit</b></span>
+                        <a href="#OnPageInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:20</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blueprintEnvironmentsMap"></a>
+                    <span class="name">
+                        <span ><b>blueprintEnvironmentsMap</b></span>
+                        <a href="#blueprintEnvironmentsMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blueprintsDropdown"></a>
+                    <span class="name">
+                        <span ><b>blueprintsDropdown</b></span>
+                        <a href="#blueprintsDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clonedPolicyName"></a>
+                    <span class="name">
+                        <span ><b>clonedPolicyName</b></span>
+                        <a href="#clonedPolicyName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusterSpecificResourcesMap"></a>
+                    <span class="name">
+                        <span ><b>clusterSpecificResourcesMap</b></span>
+                        <a href="#clusterSpecificResourcesMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environmentsDropdown"></a>
+                    <span class="name">
+                        <span ><b>environmentsDropdown</b></span>
+                        <a href="#environmentsDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorList"></a>
+                    <span class="name">
+                        <span ><b>errorList</b></span>
+                        <a href="#errorList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingEditDetails"></a>
+                    <span class="name">
+                        <span ><b>fetchingEditDetails</b></span>
+                        <a href="#fetchingEditDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingEnvsDropdown"></a>
+                    <span class="name">
+                        <span ><b>fetchingEnvsDropdown</b></span>
+                        <a href="#fetchingEnvsDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingResNamesDropdown"></a>
+                    <span class="name">
+                        <span ><b>fetchingResNamesDropdown</b></span>
+                        <a href="#fetchingResNamesDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingResTypeDropdown"></a>
+                    <span class="name">
+                        <span ><b>fetchingResTypeDropdown</b></span>
+                        <a href="#fetchingResTypeDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleBack"></a>
+                    <span class="name">
+                        <span ><b>handleBack</b></span>
+                        <a href="#handleBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:138</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mode"></a>
+                    <span class="name">
+                        <span ><b>mode</b></span>
+                        <a href="#mode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;create&quot; | &quot;edit&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;create&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OPA_WRITE"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>OPA_WRITE</b></span>
+                        <a href="#OPA_WRITE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>OPA_WRITE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="policyForm"></a>
+                    <span class="name">
+                        <span ><b>policyForm</b></span>
+                        <a href="#policyForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    policyName: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(40),
+      Validators.pattern(&#x27;^[a-zA-Z_][a-zA-Z0-9_]*$&#x27;),
+    ]),
+    description: new FormControl(&#x27;&#x27;),
+    stackName: new FormControl(&#x27;&#x27;, [Validators.required]),
+    clusterIds: new FormControl([]),
+    resourceTypes: new FormControl([]),
+    resourceTypeAndResourceNamesMap: new FormControl({}),
+    policyType: new FormControl(&#x27;RAW&#x27;),
+    rawPolicy: new FormControl(
+      this.mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? this.sampleRegoCode : &#x27;&#x27;,
+      [Validators.required],
+    ),
+    packageName: new FormControl(&#x27;&#x27;),
+    parameters: new FormControl({}),
+    policyTemplateName: new FormControl(&#x27;&#x27;),
+    severity: new FormControl(&#x27;WARNING&#x27;, [Validators.required]),
+    disabled: new FormControl(false),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="policyRequestInProgress"></a>
+                    <span class="name">
+                        <span ><b>policyRequestInProgress</b></span>
+                        <a href="#policyRequestInProgress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceNamesDropdown"></a>
+                    <span class="name">
+                        <span ><b>resourceNamesDropdown</b></span>
+                        <a href="#resourceNamesDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceTypesDropdown"></a>
+                    <span class="name">
+                        <span ><b>resourceTypesDropdown</b></span>
+                        <a href="#resourceTypesDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceTypesDropdownForSelectedStack"></a>
+                    <span class="name">
+                        <span ><b>resourceTypesDropdownForSelectedStack</b></span>
+                        <a href="#resourceTypesDropdownForSelectedStack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sampleRegoCode"></a>
+                    <span class="name">
+                        <span ><b>sampleRegoCode</b></span>
+                        <a href="#sampleRegoCode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;package &lt;package_name&gt;\ndefault allow &#x3D; false\nallow {\n\t// your code\n}\nelse &#x3D; {&quot;error&quot;: &quot;&lt;your_error&gt;&quot;}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedClusterResourcesMap"></a>
+                    <span class="name">
+                        <span ><b>selectedClusterResourcesMap</b></span>
+                        <a href="#selectedClusterResourcesMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stackSpecificResourcesMap"></a>
+                    <span class="name">
+                        <span ><b>stackSpecificResourcesMap</b></span>
+                        <a href="#stackSpecificResourcesMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="policyName"></a>
+                        <span class="name"><b>policyName</b><a href="#policyName"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>policyName()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:86</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="description"></a>
+                        <span class="name"><b>description</b><a href="#description"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>description()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:90</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stackName"></a>
+                        <span class="name"><b>stackName</b><a href="#stackName"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>stackName()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:94</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clusterIds"></a>
+                        <span class="name"><b>clusterIds</b><a href="#clusterIds"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>clusterIds()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:98</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resourceTypeAndResourceNamesMap"></a>
+                        <span class="name"><b>resourceTypeAndResourceNamesMap</b><a href="#resourceTypeAndResourceNamesMap"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>resourceTypeAndResourceNamesMap()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:102</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resourceTypes"></a>
+                        <span class="name"><b>resourceTypes</b><a href="#resourceTypes"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>resourceTypes()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:106</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rawPolicy"></a>
+                        <span class="name"><b>rawPolicy</b><a href="#rawPolicy"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>rawPolicy()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/app/pages/guardrails/create-guardrails/create-guardrails.component.ts:110</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormControl, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { ActivatedRoute, Params, Router } from &#x27;@angular/router&#x27;;
+import { cloneDeep } from &#x27;lodash&#x27;;
+import {
+  OpaPolicy,
+  OpaPolicyExecutionResult,
+  OpaPolicyRequest,
+} from &#x27;src/app/cc-api/models&#x27;;
+import {
+  UiDropdownsControllerService,
+  UiOpaControllerService,
+  UiStackControllerService,
+} from &#x27;src/app/cc-api/services&#x27;;
+import { OPA_WRITE } from &#x27;src/app/constants/permissions&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import { CustomToastService } from &#x27;src/app/pages/custom-toast/custom-toast.service&#x27;;
+
+@Component({
+  selector: &#x27;app-create-guardrails&#x27;,
+  templateUrl: &#x27;./create-guardrails.component.html&#x27;,
+  styleUrls: [&#x27;./create-guardrails.component.scss&#x27;],
+})
+export class CreateGuardrailsComponent extends FacetsPage {
+  readonly OPA_WRITE &#x3D; OPA_WRITE;
+  sampleRegoCode &#x3D;
+    &#x27;package &lt;package_name&gt;\ndefault allow &#x3D; false\nallow {\n\t// your code\n}\nelse &#x3D; {&quot;error&quot;: &quot;&lt;your_error&gt;&quot;}&#x27;;
+  mode: &#x27;create&#x27; | &#x27;edit&#x27; &#x3D; &#x27;create&#x27;;
+  // Form
+  policyForm &#x3D; new FormGroup({
+    policyName: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(40),
+      Validators.pattern(&#x27;^[a-zA-Z_][a-zA-Z0-9_]*$&#x27;),
+    ]),
+    description: new FormControl(&#x27;&#x27;),
+    stackName: new FormControl(&#x27;&#x27;, [Validators.required]),
+    clusterIds: new FormControl([]),
+    resourceTypes: new FormControl([]),
+    resourceTypeAndResourceNamesMap: new FormControl({}),
+    policyType: new FormControl(&#x27;RAW&#x27;),
+    rawPolicy: new FormControl(
+      this.mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? this.sampleRegoCode : &#x27;&#x27;,
+      [Validators.required],
+    ),
+    packageName: new FormControl(&#x27;&#x27;),
+    parameters: new FormControl({}),
+    policyTemplateName: new FormControl(&#x27;&#x27;),
+    severity: new FormControl(&#x27;WARNING&#x27;, [Validators.required]),
+    disabled: new FormControl(false),
+  });
+  // Dropdown options
+  blueprintsDropdown &#x3D; [];
+  environmentsDropdown &#x3D; [];
+  resourceTypesDropdown &#x3D; [];
+  resourceNamesDropdown &#x3D; [];
+  resourceTypesDropdownForSelectedStack: any[];
+  // Map
+  blueprintEnvironmentsMap: {};
+  stackSpecificResourcesMap: {};
+  clusterSpecificResourcesMap: {};
+  selectedClusterResourcesMap: {};
+  //  Loaders
+  loading: boolean &#x3D; true;
+  policyRequestInProgress: boolean &#x3D; false;
+  fetchingEnvsDropdown: boolean &#x3D; false;
+  fetchingResTypeDropdown: boolean &#x3D; false;
+  fetchingResNamesDropdown: boolean &#x3D; false;
+  fetchingEditDetails: boolean;
+
+  errorList: string[] &#x3D; [];
+  clonedPolicyName: any;
+
+  constructor(
+    private router: Router,
+    private _route: ActivatedRoute,
+    private uiStackControllerService: UiStackControllerService,
+    private uiDropdownsControllerService: UiDropdownsControllerService,
+    private uiOpaControllerService: UiOpaControllerService,
+    private customToastService: CustomToastService,
+  ) {
+    super(_route);
+  }
+
+  get policyName() {
+    return this.policyForm.get(&#x27;policyName&#x27;);
+  }
+
+  get description() {
+    return this.policyForm.get(&#x27;description&#x27;);
+  }
+
+  get stackName() {
+    return this.policyForm.get(&#x27;stackName&#x27;);
+  }
+
+  get clusterIds() {
+    return this.policyForm.get(&#x27;clusterIds&#x27;);
+  }
+
+  get resourceTypeAndResourceNamesMap() {
+    return this.policyForm.get(&#x27;resourceTypeAndResourceNamesMap&#x27;);
+  }
+
+  get resourceTypes() {
+    return this.policyForm.get(&#x27;resourceTypes&#x27;);
+  }
+
+  get rawPolicy() {
+    return this.policyForm.get(&#x27;rawPolicy&#x27;);
+  }
+
+  OnPageLoad(p: Params): void {
+    this.route.queryParams.subscribe((params) &#x3D;&gt; {
+      this.clonedPolicyName &#x3D; params[&#x27;clonePolicy&#x27;];
+    });
+    this.asyncOnPageLoad(p);
+  }
+
+  async asyncOnPageLoad(p: Params) {
+    // Get the blueprints and environments
+    await this.getClusterAndBlueprintMapping();
+    if (this.clonedPolicyName?.length &gt; 0) {
+      await this.getPolicyDetails(this.clonedPolicyName);
+      // Need to change the name
+      this.policyForm.patchValue({
+        policyName: this.policyName.value + &#x27;_copy&#x27;,
+      });
+    }
+    if (p?.policyName) {
+      this.mode &#x3D; &#x27;edit&#x27;;
+      await this.getPolicyDetails(p?.policyName);
+    }
+    this.loading &#x3D; false;
+  }
+
+  handleBack &#x3D; () &#x3D;&gt; {
+    this.router.navigate([&#x27;settings/guardrails&#x27;]);
+  };
+
+  // When blueprint is selected or changed, fetch environments and resourceTypes dropdown
+  // And reset environments, resourceTypes and resources fields.
+  async onBlueprintSelection() {
+    if (!this.fetchingEditDetails) {
+      this.fetchingEnvsDropdown &#x3D; true;
+      this.fetchingResTypeDropdown &#x3D; true;
+
+      await this.getStackLevelResourceTypeAndResourcesMapping(
+        this.stackName.value,
+      );
+      // Need not call this API on every select of cluster as this is stack specific
+      await this.getClusterLevelResourceTypeAndResourcesMap(
+        this.stackName.value,
+      );
+
+      this.environmentsDropdown &#x3D; this.constructEnvironmentsDropdown(
+        this.stackName.value,
+        this.blueprintEnvironmentsMap,
+      );
+      this.resourceTypesDropdown &#x3D; cloneDeep(
+        this.resourceTypesDropdownForSelectedStack,
+      );
+
+      this.policyForm.patchValue({
+        clusterIds: [],
+        resourceTypeAndResourceNamesMap: {},
+        resourceTypes: [],
+      });
+
+      this.fetchingEnvsDropdown &#x3D; false;
+      this.fetchingResTypeDropdown &#x3D; false;
+    }
+  }
+
+  async onEnvironmentSelection(selectedEnvs) {
+    // First set the selected values to formControl and reset value for resourceTypes and resourceNames
+    this.fetchingResTypeDropdown &#x3D; true;
+    let environments &#x3D; selectedEnvs.map((env) &#x3D;&gt; env?.value);
+    this.policyForm.patchValue({
+      clusterIds: environments,
+      resourceTypes: [],
+      resourceTypeAndResourceNamesMap: {},
+    });
+
+    // If last environment is deselected then fetch resourceType based on stackName
+    if (this.clusterIds.value?.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; this.stackName.value) {
+      this.resourceTypesDropdown &#x3D; cloneDeep(
+        this.resourceTypesDropdownForSelectedStack,
+      );
+      this.resourceNamesDropdown &#x3D; [];
+      this.fetchingResTypeDropdown &#x3D; false;
+      return;
+    }
+
+    // Now for these clusters get the resourceTypes and resources
+    this.resourceTypesDropdown &#x3D; Object.keys(
+      this.constructResourcesMapForSelectedClusters(this.clusterIds.value),
+    )?.map((resourceType) &#x3D;&gt; ({
+      label: resourceType,
+      value: resourceType,
+      checked: false,
+    }));
+
+    //  As no resourceType is selected, clear the resources dropdown
+    this.resourceNamesDropdown &#x3D; [];
+    this.fetchingResTypeDropdown &#x3D; false;
+
+    // TODO - Retain all the selected resourceTypes and resourceNames
+  }
+
+  onResourceTypeSelection(selectedResTypes) {
+    this.fetchingResNamesDropdown &#x3D; true;
+    let removedResourceType;
+    // First check if resourceType was removed or added
+    let resourceTypes &#x3D; selectedResTypes.map((resType) &#x3D;&gt; resType?.value);
+    if (resourceTypes?.length &lt; this.resourceTypes.value.length) {
+      removedResourceType &#x3D; this.findDeletedItems(
+        this.resourceTypes.value,
+        resourceTypes,
+      );
+    }
+    this.policyForm.patchValue({
+      resourceTypes: resourceTypes,
+    });
+
+    // There could be previously selected resourceNamesDropdown
+    const selectedResources &#x3D; this.resourceTypeAndResourceNamesMap.value;
+
+    // If clusters are selected then fetch resourceType at cluster level
+    const resourcesMap &#x3D;
+      this.clusterIds.value?.length &gt; 0
+        ? this.selectedClusterResourcesMap
+        : this.stackSpecificResourcesMap;
+
+    this.resourceNamesDropdown &#x3D; this.constructResourcesDropdown(
+      this.resourceTypes.value,
+      resourcesMap,
+    );
+
+    if (Object.keys(selectedResources).length &gt; 0) {
+      const updatedResources &#x3D; selectedResources;
+      delete updatedResources[removedResourceType];
+      this.resourceNamesDropdown &#x3D; this.markSelectedOptionsAsCheckedForGrouped(
+        this.resourceNamesDropdown,
+        updatedResources,
+      );
+      this.policyForm.patchValue({
+        resourceTypeAndResourceNamesMap: updatedResources,
+      });
+    }
+    this.fetchingResNamesDropdown &#x3D; false;
+  }
+
+  onResourceSelection(selectedResources) {
+    let resources &#x3D; {};
+    selectedResources?.selectedOptionsList?.forEach((group) &#x3D;&gt; {
+      if (group?.children) {
+        group?.children?.forEach((res) &#x3D;&gt; {
+          const resourceType &#x3D; group?.value;
+          const resourceName &#x3D; res?.value;
+          if (resources?.hasOwnProperty(resourceType)) {
+            resources[resourceType].push(resourceName);
+          } else {
+            resources[resourceType] &#x3D; [resourceName];
+          }
+        });
+      }
+    });
+    this.policyForm.patchValue({
+      resourceTypeAndResourceNamesMap: resources,
+    });
+  }
+
+  // Make an API to get all the clusters, create blueprint-&gt;cluster map, construct blueprint dropdown
+  getClusterAndBlueprintMapping() {
+    return new Promise((resolve) &#x3D;&gt; {
+      this.uiStackControllerService
+        .getAllClustersUsingGET({
+          page: 0,
+          perPage: 20000,
+          sortBy: &#x27;ID&#x27;,
+        })
+        .subscribe(async (envs) &#x3D;&gt; {
+          this.blueprintEnvironmentsMap &#x3D; {};
+          envs.content.forEach((cluster) &#x3D;&gt; {
+            const stackName &#x3D; cluster?.stackName;
+            if (this.blueprintEnvironmentsMap.hasOwnProperty(stackName)) {
+              this.blueprintEnvironmentsMap[stackName].push(cluster);
+            } else {
+              this.blueprintEnvironmentsMap[stackName] &#x3D; [cluster];
+            }
+          });
+
+          this.blueprintsDropdown &#x3D; this.getBlueprintsDropdown(
+            this.blueprintEnvironmentsMap,
+          );
+          resolve(true);
+        });
+    });
+  }
+
+  getStackLevelResourceTypeAndResourcesMapping(stackName) {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.resourceNamesDropdown &#x3D; [];
+      this.resourceTypesDropdown &#x3D; [];
+      this.stackSpecificResourcesMap &#x3D; {};
+
+      let params &#x3D; {
+        stackName: stackName,
+      };
+
+      this.uiDropdownsControllerService
+        .getAllResourcesByStackUsingGET(params)
+        .subscribe(
+          (resources) &#x3D;&gt; {
+            resources.forEach((resource) &#x3D;&gt; {
+              const resourceType &#x3D; resource?.resourceType;
+              if (resourceType !&#x3D;&#x3D; &#x27;UNKNOWN&#x27;) {
+                if (
+                  this.stackSpecificResourcesMap.hasOwnProperty(resourceType)
+                ) {
+                  this.stackSpecificResourcesMap[resourceType].push(
+                    resource?.resourceName,
+                  );
+                } else {
+                  this.stackSpecificResourcesMap[resourceType] &#x3D; [
+                    resource?.resourceName,
+                  ];
+                }
+              }
+            });
+
+            this.resourceTypesDropdownForSelectedStack &#x3D; Object.keys(
+              this.stackSpecificResourcesMap || {},
+            ).map((resourceType) &#x3D;&gt; ({
+              label: resourceType,
+              value: resourceType,
+              checked: false,
+            }));
+            resolve(true);
+          },
+          (error) &#x3D;&gt; {
+            reject(error);
+          },
+        );
+    });
+  }
+
+  getClusterLevelResourceTypeAndResourcesMap(stackName) {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.uiDropdownsControllerService
+        .getAllResourcesForAllClusterOfStackUsingGET(stackName)
+        .subscribe(
+          (clusters) &#x3D;&gt; {
+            this.clusterSpecificResourcesMap &#x3D; {};
+            let resultMap &#x3D; {};
+
+            // Iterate over the API response to create the map
+            clusters?.forEach((cluster) &#x3D;&gt; {
+              const clusterId &#x3D; cluster?.clusterId;
+              resultMap[clusterId] &#x3D; {};
+
+              cluster?.resources?.forEach((resource) &#x3D;&gt; {
+                const { resourceType, resourceName } &#x3D; resource;
+                if (resultMap[clusterId]?.hasOwnProperty(resourceType)) {
+                  resultMap[clusterId][resourceType]?.push(resourceName);
+                } else {
+                  resultMap[clusterId][resourceType] &#x3D; [resourceName];
+                }
+              });
+            });
+
+            this.clusterSpecificResourcesMap &#x3D; resultMap;
+            resolve(true);
+          },
+          (error) &#x3D;&gt; {
+            reject(error);
+          },
+        );
+    });
+  }
+
+  constructResourcesMapForSelectedClusters(selectedClusters) {
+    const resourceTypeToResourcesMap &#x3D; {};
+
+    // Iterate through the selected clusters
+    selectedClusters?.forEach((clusterId) &#x3D;&gt; {
+      const clusterData &#x3D; this.clusterSpecificResourcesMap[clusterId];
+      for (const resourceType in clusterData) {
+        if (resourceType !&#x3D;&#x3D; &#x27;UNKNOWN&#x27;) {
+          if (resourceTypeToResourcesMap?.hasOwnProperty(resourceType)) {
+            // Use a Set to ensure unique resources for each resource type
+            const uniqueResources &#x3D; new Set(
+              resourceTypeToResourcesMap[resourceType],
+            );
+
+            // Add resources from the current cluster
+            clusterData[resourceType]?.forEach((resource) &#x3D;&gt; {
+              uniqueResources?.add(resource);
+            });
+
+            // Convert the Set back to an array
+            resourceTypeToResourcesMap[resourceType] &#x3D; [...uniqueResources];
+          } else {
+            resourceTypeToResourcesMap[resourceType] &#x3D; [
+              ...clusterData[resourceType],
+            ];
+          }
+        }
+      }
+    });
+
+    this.selectedClusterResourcesMap &#x3D; resourceTypeToResourcesMap;
+    return resourceTypeToResourcesMap;
+  }
+
+  getBlueprintsDropdown(blueprintEnvironmentsMap) {
+    return Object.keys(blueprintEnvironmentsMap || {})?.map((stackName) &#x3D;&gt; {
+      return { label: stackName, value: stackName };
+    });
+  }
+
+  markSelectedOptionsAsChecked(dropdown, selectedValues) {
+    return dropdown?.map((option) &#x3D;&gt; ({
+      ...option,
+      checked: selectedValues?.includes(option?.value),
+    }));
+  }
+
+  markSelectedOptionsAsCheckedForGrouped(dropdown, selectedValues) {
+    return dropdown?.map((group) &#x3D;&gt; ({
+      ...group,
+      children: group?.children?.map((option) &#x3D;&gt; ({
+        ...option,
+        checked: selectedValues?.[group.label]?.includes(option.value),
+      })),
+    }));
+  }
+
+  clearDropdownValues(dropdown) {
+    return dropdown?.map((option) &#x3D;&gt; ({
+      ...option,
+      checked: false,
+    }));
+  }
+
+  constructResourcesDropdown(
+    selectedResourceTypes,
+    resourceTypesResourceNamesMap,
+  ) {
+    const resourceTypesArray &#x3D; [];
+
+    selectedResourceTypes.forEach((resourceType) &#x3D;&gt; {
+      if (resourceTypesResourceNamesMap?.hasOwnProperty(resourceType)) {
+        const resourceNames &#x3D; resourceTypesResourceNamesMap[resourceType];
+        const children &#x3D; resourceNames?.map((resourceName) &#x3D;&gt; ({
+          label: resourceName,
+          value: resourceName,
+        }));
+        resourceTypesArray.push({
+          label: resourceType,
+          value: resourceType,
+          expand: true,
+          children: children,
+        });
+      }
+    });
+
+    return resourceTypesArray;
+  }
+
+  constructEnvironmentsDropdown(stackName, blueprintEnvironmentsMap) {
+    if (stackName in blueprintEnvironmentsMap) {
+      return blueprintEnvironmentsMap[stackName]?.map((cluster) &#x3D;&gt; ({
+        checked: false,
+        label: cluster?.name,
+        value: cluster?.id,
+      }));
+    } else {
+      return []; // Return an empty array if the stackName is not found in the map
+    }
+  }
+
+  findDeletedItems(originalArray, updatedArray) {
+    return originalArray?.filter((item) &#x3D;&gt; !updatedArray?.includes(item));
+  }
+
+  getPolicyDetails(policyName) {
+    this.fetchingEditDetails &#x3D; true;
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      // Reset environments, resourceTypeOptions and resources
+      this.environmentsDropdown &#x3D; [];
+      this.resourceTypesDropdown &#x3D; [];
+      this.resourceNamesDropdown &#x3D; [];
+
+      this.uiOpaControllerService
+        .getPolicyUsingGET(policyName)
+        .subscribe(async (details: any) &#x3D;&gt; {
+          const {
+            policyName,
+            stackName,
+            policyCode,
+            description &#x3D; &#x27;&#x27;,
+            clusterIds,
+            resourceTypeAndResourceNamesMap,
+            resourceTypes,
+            packageName,
+            severity,
+            disabled,
+          } &#x3D; details;
+
+          this.policyForm.patchValue({
+            policyName,
+            stackName,
+            rawPolicy: policyCode,
+            description,
+            clusterIds,
+            resourceTypeAndResourceNamesMap,
+            resourceTypes,
+            packageName,
+            severity: severity || &#x27;WARNING&#x27;,
+            disabled,
+          });
+          // Once stackName is set, fetch environmentsDropdown dropdown
+          this.environmentsDropdown &#x3D; this.constructEnvironmentsDropdown(
+            this.stackName.value,
+            this.blueprintEnvironmentsMap,
+          );
+
+          //If only stack is set, then fetch resourceType dropdown options at stack level and cluster level
+          if (
+            !clusterIds?.length &amp;&amp;
+            !resourceTypes?.length &amp;&amp;
+            !Object.keys(resourceTypeAndResourceNamesMap).length
+          ) {
+            await this.getStackLevelResourceTypeAndResourcesMapping(stackName);
+            await this.getClusterLevelResourceTypeAndResourcesMap(stackName);
+            this.resourceTypesDropdown &#x3D; cloneDeep(
+              this.resourceTypesDropdownForSelectedStack,
+            );
+            this.fetchingEditDetails &#x3D; false;
+            resolve(true);
+            return;
+          }
+
+          // If clusterIds are present then manually mark all those checkboxes
+          if (clusterIds?.length &gt; 0) {
+            await this.getStackLevelResourceTypeAndResourcesMapping(stackName);
+            await this.getClusterLevelResourceTypeAndResourcesMap(stackName);
+            this.environmentsDropdown &#x3D; this.markSelectedOptionsAsChecked(
+              this.environmentsDropdown,
+              clusterIds,
+            );
+
+            // Construct resources map for selected cluster
+            this.resourceTypesDropdown &#x3D; Object.keys(
+              this.constructResourcesMapForSelectedClusters(
+                this.clusterIds.value,
+              ),
+            ).map((resourceType) &#x3D;&gt; ({
+              label: resourceType,
+              value: resourceType,
+              checked: false,
+            }));
+
+            //If resourceType is selected, then mark those checkboxes and construct resources dropdown.
+            if (resourceTypes?.length) {
+              this.resourceTypesDropdown &#x3D; this.markSelectedOptionsAsChecked(
+                this.resourceTypesDropdown,
+                resourceTypes,
+              );
+
+              // Based on selected resourceTypes construct resources dropdown
+              this.resourceNamesDropdown &#x3D; this.constructResourcesDropdown(
+                resourceTypes,
+                this.selectedClusterResourcesMap,
+              );
+
+              if (Object.keys(resourceTypeAndResourceNamesMap)?.length) {
+                this.resourceNamesDropdown &#x3D;
+                  this.markSelectedOptionsAsCheckedForGrouped(
+                    this.resourceNamesDropdown,
+                    resourceTypeAndResourceNamesMap,
+                  );
+              }
+            }
+            this.fetchingEditDetails &#x3D; false;
+            resolve(true);
+            return;
+          }
+
+          if (resourceTypes?.length) {
+            await this.getStackLevelResourceTypeAndResourcesMapping(stackName);
+            await this.getClusterLevelResourceTypeAndResourcesMap(stackName);
+            this.resourceTypesDropdown &#x3D; cloneDeep(
+              this.resourceTypesDropdownForSelectedStack,
+            );
+
+            this.resourceTypesDropdown &#x3D; this.markSelectedOptionsAsChecked(
+              this.resourceTypesDropdown,
+              resourceTypes,
+            );
+
+            // Based on selected resourceTypes construct resources dropdown
+            this.resourceNamesDropdown &#x3D; this.constructResourcesDropdown(
+              resourceTypes,
+              this.stackSpecificResourcesMap,
+            );
+
+            if (Object.keys(resourceTypeAndResourceNamesMap)?.length) {
+              this.resourceNamesDropdown &#x3D;
+                this.markSelectedOptionsAsCheckedForGrouped(
+                  this.resourceNamesDropdown,
+                  resourceTypeAndResourceNamesMap,
+                );
+            }
+            this.fetchingEditDetails &#x3D; false;
+            resolve(true);
+            return;
+          }
+        });
+    });
+  }
+
+  createOrEditPolicy() {
+    this.policyRequestInProgress &#x3D; true;
+    this.errorList &#x3D; [];
+    let params &#x3D; {
+      policyName: this.policyName?.value,
+      opaRequest: this.policyForm.value,
+    };
+    let httpReq &#x3D;
+      this.mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27;
+        ? this.uiOpaControllerService.createPolicyUsingPOST(params)
+        : this.uiOpaControllerService.editPolicyUsingPUT(params);
+    httpReq.subscribe(
+      (response) &#x3D;&gt; {
+        this.policyRequestInProgress &#x3D; false;
+        this.customToastService.success(
+          this.mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27;
+            ? &quot;The policy has been created successfully. To enforce the policy right away, &#x27;Run Validations&#x27; on the releases page.&quot;
+            : &quot;The policy has been updated successfully. To enforce the policy changes right away, &#x27;Run Validations&#x27; on the releases page.&quot;,
+        );
+        this.handleBack();
+      },
+      (error) &#x3D;&gt; {
+        this.policyRequestInProgress &#x3D; false;
+        if (error?.error?.code &#x3D;&#x3D;&#x3D; 400) {
+          let parsedError &#x3D; this.parseErrorMessage(error?.error?.message);
+          this.errorList &#x3D; this.generateErrorList(parsedError);
+        } else {
+          this.customToastService.error(
+            this.mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27;
+              ? error?.error?.message || &quot;Policy couldn&#x27;t be created.&quot;
+              : error?.error?.message || &quot;Policy couldn&#x27;t be updated.&quot;,
+          );
+        }
+      },
+    );
+  }
+
+  parseErrorMessage(errorMessage) {
+    const startIndex &#x3D; errorMessage.indexOf(&#x27;{&#x27;);
+    const endIndex &#x3D; errorMessage.lastIndexOf(&#x27;}&#x27;);
+
+    if (startIndex !&#x3D;&#x3D; -1 &amp;&amp; endIndex !&#x3D;&#x3D; -1) {
+      const jsonString &#x3D; errorMessage.substring(startIndex, endIndex + 1);
+      try {
+        const errorObject &#x3D; JSON.parse(jsonString);
+        return errorObject;
+      } catch (error) {
+        // Handle JSON parsing error
+        console.error(&#x27;Error parsing JSON:&#x27;, error);
+      }
+    }
+
+    return null; // Return null if no valid JSON object found
+  }
+
+  generateErrorList(parsedError): string[] {
+    let errorList: string[] &#x3D; [];
+    parsedError?.errors?.forEach((error, index) &#x3D;&gt; {
+      errorList.push(
+        &#x60;Error ${index + 1} at row: ${error?.location?.row} col: ${
+          error?.location?.col
+        } - ${error?.message}.&#x60;,
+      );
+    });
+    return errorList;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-page-header
+  *ngIf&#x3D;&quot;!loading&quot;
+  [heading]&#x3D;&quot;mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? &#x27;Create Policy&#x27; : &#x27;Update Policy&#x27;&quot;
+  [onBack]&#x3D;&quot;handleBack&quot;
+&gt;&lt;/app-page-header&gt;
+
+&lt;nb-card [ngClass]&#x3D;&quot;loading ? &#x27;background-grey mt-5&#x27; : &#x27;&#x27;&quot;&gt;
+  &lt;nb-card-body [nbSpinner]&#x3D;&quot;loading&quot;&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;!loading&quot;&gt;
+      &lt;form [formGroup]&#x3D;&quot;policyForm&quot;&gt;
+        &lt;!-- User alert note --&gt;
+        &lt;app-user-note-alert
+          *ngIf&#x3D;&quot;clonedPolicyName?.length &gt; 0&quot;
+          title&#x3D;&quot;Policy Clone Notice&quot;
+          type&#x3D;&quot;info&quot;
+          description&#x3D;&quot;Please ensure the policy name is unique, as two policies cannot share the same name. Additionally, update the package name in the Rego code to guarantee uniqueness.&quot;
+        &gt;
+        &lt;/app-user-note-alert&gt;
+
+        &lt;!-- Policy name --&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;div class&#x3D;&quot;col-xl-6 col-lg-9 col-md-12&quot;&gt;
+            &lt;app-reactive-form-field
+              label&#x3D;&quot;Policy Name&quot;
+              [required]&#x3D;&quot;true&quot;
+              tooltipText&#x3D;&quot;Enter a unique policy name&quot;
+              placeholder&#x3D;&quot;Enter Policy Name&quot;
+              [customFormControl]&#x3D;&quot;policyName&quot;
+              inputSize&#x3D;&quot;8&quot;
+              labelSize&#x3D;&quot;4&quot;
+              invalidPatternMsg&#x3D;&quot;Policy names cannot have spaces, special characters (e.g., @, #, $, %, &amp;, etc.), or punctuation marks (e.g., ., ,, :, etc.) in the input.&quot;
+              invalidLengthMsg&#x3D;&quot;Policy name must be 3 to 40 characters in length.&quot;
+            &gt;&lt;/app-reactive-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Policy description --&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;div class&#x3D;&quot;col-xl-6 col-lg-9 col-md-12&quot;&gt;
+            &lt;app-reactive-text-area
+              label&#x3D;&quot;Policy Description&quot;
+              toolTipText&#x3D;&quot;Describe this policy&#x27;s purpose&quot;
+              placeholder&#x3D;&quot;Enter Policy Description&quot;
+              [customFormControl]&#x3D;&quot;description&quot;
+              inputSize&#x3D;&quot;8&quot;
+              labelSize&#x3D;&quot;4&quot;
+              [formMargin]&#x3D;&quot;0&quot;
+            &gt;&lt;/app-reactive-text-area&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;row severity-field mb-3&quot;&gt;
+          &lt;div
+            class&#x3D;&quot;col-xl-6 col-lg-9 col-md-12 d-flex flex-md-row flex-sm-column&quot;
+          &gt;
+            &lt;app-custom-form-label
+              label&#x3D;&quot;Severity&quot;
+              [required]&#x3D;&quot;true&quot;
+              class&#x3D;&quot;col-md-4 col-xs-12 p-0 mt-2&quot;
+              toolTip&#x3D;&quot;Choose &#x27;Error&#x27; to block releases with critical issues, ensuring they are addressed before proceeding to release. Opt for &#x27;Warning&#x27; to flag potential issues, allowing the release to continue while alerting you to areas that may need attention.&quot;
+            &gt;
+            &lt;/app-custom-form-label&gt;
+            &lt;div class&#x3D;&quot;col-md-8 col-xs-12 d-flex flex-column&quot;&gt;
+              &lt;nb-radio-group
+                style&#x3D;&quot;border: 0&quot;
+                formControlName&#x3D;&quot;severity&quot;
+                name&#x3D;&quot;Severity&quot;
+                class&#x3D;&quot;d-flex&quot;
+              &gt;
+                &lt;nb-radio class&#x3D;&quot;mr-3&quot; [value]&#x3D;&quot;&#x27;WARNING&#x27;&quot;&gt;
+                  &lt;app-smart-table-with-badge
+                    [severityInput]&#x3D;&quot;&#x27;warning&#x27;&quot;
+                  &gt;&lt;/app-smart-table-with-badge&gt;
+                &lt;/nb-radio&gt;
+                &lt;nb-radio class&#x3D;&quot;mr-3&quot; [value]&#x3D;&quot;&#x27;ERROR&#x27;&quot;&gt;
+                  &lt;app-smart-table-with-badge
+                    [severityInput]&#x3D;&quot;&#x27;error&#x27;&quot;
+                  &gt;&lt;/app-smart-table-with-badge&gt;
+                &lt;/nb-radio&gt;
+              &lt;/nb-radio-group&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Blueprint --&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;div class&#x3D;&quot;col-xl-6 col-lg-9 col-md-12&quot;&gt;
+            &lt;app-reactive-form-field
+              label&#x3D;&quot;Blueprint&quot;
+              [required]&#x3D;&quot;true&quot;
+              tooltipText&#x3D;&quot;Choose the blueprint to which this policy should apply&quot;
+              placeholder&#x3D;&quot;Select Blueprint&quot;
+              [customFormControl]&#x3D;&quot;stackName&quot;
+              [select]&#x3D;&quot;true&quot;
+              inputSize&#x3D;&quot;8&quot;
+              labelSize&#x3D;&quot;4&quot;
+              [selectValues]&#x3D;&quot;blueprintsDropdown&quot;
+              (change)&#x3D;&quot;onBlueprintSelection()&quot;
+            &gt;&lt;/app-reactive-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Environments --&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;div class&#x3D;&quot;col-xl-6 col-lg-9 col-md-12&quot;&gt;
+            &lt;div class&#x3D;&quot;form-group row mb-4&quot;&gt;
+              &lt;app-custom-form-label
+                label&#x3D;&quot;Environment&quot;
+                toolTip&#x3D;&quot;Specify the environment(s) where this policy is relevant.&quot;
+                class&#x3D;&quot;col-md-4 col-xs-12&quot;
+              &gt;
+              &lt;/app-custom-form-label&gt;
+              &lt;div class&#x3D;&quot;col-md-8 col-xs-12&quot;&gt;
+                &lt;app-select-single-search
+                  inputColSize&#x3D;&quot;12&quot;
+                  [disableSelectInput]&#x3D;&quot;
+                    environmentsDropdown?.length &#x3D;&#x3D;&#x3D; 0 || fetchingEnvsDropdown
+                  &quot;
+                  [disabledInputTooltip]&#x3D;&quot;
+                    stackName?.value?.length &#x3D;&#x3D;&#x3D; 0
+                      ? &#x27;Select blueprint first&#x27;
+                      : environmentsDropdown?.length &#x3D;&#x3D;&#x3D; 0
+                      ? &#x27;There are no environments present&#x27;
+                      : &#x27;&#x27;
+                  &quot;
+                  [showDisabledInputTooltip]&#x3D;&quot;
+                    environmentsDropdown?.length &#x3D;&#x3D;&#x3D; 0
+                  &quot;
+                  (selectedOptionEvent)&#x3D;&quot;onEnvironmentSelection($event)&quot;
+                  [multiple]&#x3D;&quot;true&quot;
+                  [options]&#x3D;&quot;environmentsDropdown&quot;
+                  searchInputPlaceholder&#x3D;&quot;Search Environment&quot;
+                  selectInputPlaceholder&#x3D;&quot;Select Environments&quot;
+                  [showSelectionsOutside]&#x3D;&quot;true&quot;
+                  searchInputId&#x3D;&quot;environments&quot;
+                  selectionTextLabel&#x3D;&quot;Environment&quot;
+                  [showClearAllOptionsIcon]&#x3D;&quot;false&quot;
+                  [showSpinner]&#x3D;&quot;fetchingEnvsDropdown&quot;
+                &gt;&lt;/app-select-single-search&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Resource types --&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;div class&#x3D;&quot;col-xl-6 col-lg-9 col-md-12&quot;&gt;
+            &lt;div class&#x3D;&quot;form-group row mb-4&quot;&gt;
+              &lt;app-custom-form-label
+                label&#x3D;&quot;Resource Type&quot;
+                toolTip&#x3D;&quot;Determine the type(s) of resources this policy will oversee.&quot;
+                class&#x3D;&quot;col-md-4 col-xs-12&quot;
+              &gt;
+              &lt;/app-custom-form-label&gt;
+              &lt;div class&#x3D;&quot;col-md-8 col-xs-12&quot;&gt;
+                &lt;app-select-single-search
+                  inputColSize&#x3D;&quot;12&quot;
+                  [disableSelectInput]&#x3D;&quot;
+                    resourceTypesDropdown?.length &#x3D;&#x3D;&#x3D; 0 ||
+                    fetchingResTypeDropdown
+                  &quot;
+                  [disabledInputTooltip]&#x3D;&quot;
+                    resourceTypesDropdown?.length &#x3D;&#x3D;&#x3D; 0
+                      ? &#x27;There are no resource types present&#x27;
+                      : &#x27;&#x27;
+                  &quot;
+                  [showDisabledInputTooltip]&#x3D;&quot;
+                    resourceTypesDropdown?.length &#x3D;&#x3D;&#x3D; 0
+                  &quot;
+                  (selectedOptionEvent)&#x3D;&quot;onResourceTypeSelection($event)&quot;
+                  [multiple]&#x3D;&quot;true&quot;
+                  [options]&#x3D;&quot;resourceTypesDropdown&quot;
+                  searchInputPlaceholder&#x3D;&quot;Search Resource Type&quot;
+                  selectInputPlaceholder&#x3D;&quot;Select Resource Types&quot;
+                  [showSelectionsOutside]&#x3D;&quot;true&quot;
+                  searchInputId&#x3D;&quot;resourceTypes&quot;
+                  selectionTextLabel&#x3D;&quot;Resource Type&quot;
+                  [showClearAllOptionsIcon]&#x3D;&quot;false&quot;
+                  [showSpinner]&#x3D;&quot;fetchingResTypeDropdown&quot;
+                &gt;&lt;/app-select-single-search&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Resources --&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;div class&#x3D;&quot;col-xl-6 col-lg-9 col-md-12&quot;&gt;
+            &lt;div class&#x3D;&quot;form-group row mb-4&quot;&gt;
+              &lt;app-custom-form-label
+                label&#x3D;&quot;Resources&quot;
+                toolTip&#x3D;&quot;Pick specific resource names for a more granular policy application.&quot;
+                class&#x3D;&quot;col-md-4 col-xs-12&quot;
+              &gt;
+              &lt;/app-custom-form-label&gt;
+              &lt;div class&#x3D;&quot;col-md-8 col-xs-12&quot;&gt;
+                &lt;app-multi-select-search-v2
+                  inputColSize&#x3D;&quot;12&quot;
+                  (selectedOptionEvent)&#x3D;&quot;onResourceSelection($event)&quot;
+                  [options]&#x3D;&quot;resourceNamesDropdown&quot;
+                  searchInputPlaceholder&#x3D;&quot;Search Resource&quot;
+                  selectInputPlaceholder&#x3D;&quot;Select Resources&quot;
+                  [showSelectionsOutside]&#x3D;&quot;true&quot;
+                  searchInputId&#x3D;&quot;resources&quot;
+                  selectionTextLabel&#x3D;&quot;Resource&quot;
+                  [showClearAllOptionsIcon]&#x3D;&quot;false&quot;
+                  [showSpinner]&#x3D;&quot;fetchingResNamesDropdown&quot;
+                  [disabledInputTooltip]&#x3D;&quot;
+                    resourceNamesDropdown?.length &#x3D;&#x3D;&#x3D; 0
+                      ? &#x27;There are no resources present&#x27;
+                      : &#x27;&#x27;
+                  &quot;
+                  [showDisabledInputTooltip]&#x3D;&quot;
+                    resourceNamesDropdown?.length &#x3D;&#x3D;&#x3D; 0
+                  &quot;
+                  [disableSelectInput]&#x3D;&quot;resourceNamesDropdown?.length &#x3D;&#x3D;&#x3D; 0&quot;
+                  [showNoOptionsMessage]&#x3D;&quot;false&quot;
+                &gt;&lt;/app-multi-select-search-v2&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Rego code --&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;div class&#x3D;&quot;col-xl-6 col-lg-9 col-md-12&quot;&gt;
+            &lt;app-reactive-text-area
+              label&#x3D;&quot;Rego Code&quot;
+              [required]&#x3D;&quot;true&quot;
+              toolTipText&#x3D;&quot;Input your Rego code here. Ensure it&#x27;s accurate for effective policy enforcement&quot;
+              placeholder&#x3D;&quot;Enter Rego Code&quot;
+              [customFormControl]&#x3D;&quot;rawPolicy&quot;
+              inputSize&#x3D;&quot;8&quot;
+              labelSize&#x3D;&quot;4&quot;
+              rows&#x3D;&quot;15&quot;
+            &gt;
+              &lt;p&gt;
+                Consult
+                &lt;b
+                  &gt;&lt;a
+                    href&#x3D;&quot;https://app.clickup.com/3443930/docs/3936u-40207/3936u-64347&quot;
+                    target&#x3D;&quot;_blank&quot;
+                    style&#x3D;&quot;color: var(--icon-primary-color)&quot;
+                    &gt;Runbook&lt;/a
+                  &gt;&lt;/b
+                &gt;
+                for guidelines and validate your code in
+                &lt;b
+                  &gt;&lt;a
+                    href&#x3D;&quot;https://play.openpolicyagent.org/&quot;
+                    target&#x3D;&quot;_blank&quot;
+                    style&#x3D;&quot;color: var(--icon-primary-color)&quot;
+                    &gt;The Rego Playground.&lt;/a
+                  &gt;&lt;/b
+                &gt;
+              &lt;/p&gt;
+            &lt;/app-reactive-text-area&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;col-xl-6 col-lg-9 col-md-12&quot; *ngIf&#x3D;&quot;errorList?.length&quot;&gt;
+            &lt;nb-card&gt;
+              &lt;nb-card-body class&#x3D;&quot;rego-code-error-widget&quot;&gt;
+                &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                  &lt;nb-icon
+                    icon&#x3D;&quot;close_circle_outlined&quot;
+                    pack&#x3D;&quot;fci&quot;
+                    class&#x3D;&quot;mr-2&quot;
+                  &gt;&lt;/nb-icon&gt;
+                  &lt;p class&#x3D;&quot;weight-500 mb-1&quot; style&#x3D;&quot;font-size: 0.875rem&quot;&gt;
+                    Error detected in Rego Code
+                  &lt;/p&gt;
+                &lt;/div&gt;
+
+                &lt;p class&#x3D;&quot;mb-1&quot;&gt;
+                  The policy is not created because of following errors. Please
+                  resolve them.
+                &lt;/p&gt;
+                &lt;ul&gt;
+                  &lt;li *ngFor&#x3D;&quot;let error of errorList&quot;&gt;{{ error }}&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/nb-card-body&gt;
+            &lt;/nb-card&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/ng-container&gt;
+  &lt;/nb-card-body&gt;
+  &lt;nb-card-footer&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;!loading&quot;&gt;
+      &lt;app-rbac-button
+        [label]&#x3D;&quot;mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? &#x27;Create&#x27; : &#x27;Update&#x27;&quot;
+        status&#x3D;&quot;primary&quot;
+        size&#x3D;&quot;small&quot;
+        [action]&#x3D;&quot;OPA_WRITE&quot;
+        (onClick)&#x3D;&quot;createOrEditPolicy()&quot;
+        [disabled]&#x3D;&quot;
+          policyRequestInProgress ||
+          policyForm?.invalid ||
+          fetchingResTypeDropdown ||
+          fetchingEnvsDropdown
+        &quot;
+        class&#x3D;&quot;mr-3&quot;
+        [loading]&#x3D;&quot;policyRequestInProgress&quot;
+        [dataAttrActionId]&#x3D;&quot;
+          mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? &#x27;guard-rails-create&#x27; : &#x27;guard-rails-edit-save&#x27;
+        &quot;
+      &gt;&lt;/app-rbac-button&gt;
+      &lt;button
+        nbButton
+        size&#x3D;&quot;small&quot;
+        [disabled]&#x3D;&quot;policyRequestInProgress&quot;
+        (click)&#x3D;&quot;handleBack()&quot;
+      &gt;
+        Cancel
+      &lt;/button&gt;
+    &lt;/ng-container&gt;
+  &lt;/nb-card-footer&gt;
+&lt;/nb-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./create-guardrails.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.rego-code-error-widget {
+  border: 1px solid var(--color-danger);
+  border-left: 10px solid var(--color-danger);
+  background: var(--background-danger-faded);
+
+  ul {
+    margin-bottom: 0px;
+    padding-left: 1rem;
+    max-height: 290px;
+    overflow-y: scroll;
+  }
+}
+
+:host ::ng-deep .severity-field {
+  label {
+    margin-bottom: 0;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-page-header  *ngIf="!loading"  [heading]="mode === \'create\' ? \'Create Policy\' : \'Update Policy\'"  [onBack]="handleBack"></app-page-header><nb-card [ngClass]="loading ? \'background-grey mt-5\' : \'\'">  <nb-card-body [nbSpinner]="loading">    <ng-container *ngIf="!loading">      <form [formGroup]="policyForm">        <!-- User alert note -->        <app-user-note-alert          *ngIf="clonedPolicyName?.length > 0"          title="Policy Clone Notice"          type="info"          description="Please ensure the policy name is unique, as two policies cannot share the same name. Additionally, update the package name in the Rego code to guarantee uniqueness."        >        </app-user-note-alert>        <!-- Policy name -->        <div class="row">          <div class="col-xl-6 col-lg-9 col-md-12">            <app-reactive-form-field              label="Policy Name"              [required]="true"              tooltipText="Enter a unique policy name"              placeholder="Enter Policy Name"              [customFormControl]="policyName"              inputSize="8"              labelSize="4"              invalidPatternMsg="Policy names cannot have spaces, special characters (e.g., @, #, $, %, &, etc.), or punctuation marks (e.g., ., ,, :, etc.) in the input."              invalidLengthMsg="Policy name must be 3 to 40 characters in length."            ></app-reactive-form-field>          </div>        </div>        <!-- Policy description -->        <div class="row">          <div class="col-xl-6 col-lg-9 col-md-12">            <app-reactive-text-area              label="Policy Description"              toolTipText="Describe this policy\'s purpose"              placeholder="Enter Policy Description"              [customFormControl]="description"              inputSize="8"              labelSize="4"              [formMargin]="0"            ></app-reactive-text-area>          </div>        </div>        <div class="row severity-field mb-3">          <div            class="col-xl-6 col-lg-9 col-md-12 d-flex flex-md-row flex-sm-column"          >            <app-custom-form-label              label="Severity"              [required]="true"              class="col-md-4 col-xs-12 p-0 mt-2"              toolTip="Choose \'Error\' to block releases with critical issues, ensuring they are addressed before proceeding to release. Opt for \'Warning\' to flag potential issues, allowing the release to continue while alerting you to areas that may need attention."            >            </app-custom-form-label>            <div class="col-md-8 col-xs-12 d-flex flex-column">              <nb-radio-group                style="border: 0"                formControlName="severity"                name="Severity"                class="d-flex"              >                <nb-radio class="mr-3" [value]="\'WARNING\'">                  <app-smart-table-with-badge                    [severityInput]="\'warning\'"                  ></app-smart-table-with-badge>                </nb-radio>                <nb-radio class="mr-3" [value]="\'ERROR\'">                  <app-smart-table-with-badge                    [severityInput]="\'error\'"                  ></app-smart-table-with-badge>                </nb-radio>              </nb-radio-group>            </div>          </div>        </div>        <!-- Blueprint -->        <div class="row">          <div class="col-xl-6 col-lg-9 col-md-12">            <app-reactive-form-field              label="Blueprint"              [required]="true"              tooltipText="Choose the blueprint to which this policy should apply"              placeholder="Select Blueprint"              [customFormControl]="stackName"              [select]="true"              inputSize="8"              labelSize="4"              [selectValues]="blueprintsDropdown"              (change)="onBlueprintSelection()"            ></app-reactive-form-field>          </div>        </div>        <!-- Environments -->        <div class="row">          <div class="col-xl-6 col-lg-9 col-md-12">            <div class="form-group row mb-4">              <app-custom-form-label                label="Environment"                toolTip="Specify the environment(s) where this policy is relevant."                class="col-md-4 col-xs-12"              >              </app-custom-form-label>              <div class="col-md-8 col-xs-12">                <app-select-single-search                  inputColSize="12"                  [disableSelectInput]="                    environmentsDropdown?.length === 0 || fetchingEnvsDropdown                  "                  [disabledInputTooltip]="                    stackName?.value?.length === 0                      ? \'Select blueprint first\'                      : environmentsDropdown?.length === 0                      ? \'There are no environments present\'                      : \'\'                  "                  [showDisabledInputTooltip]="                    environmentsDropdown?.length === 0                  "                  (selectedOptionEvent)="onEnvironmentSelection($event)"                  [multiple]="true"                  [options]="environmentsDropdown"                  searchInputPlaceholder="Search Environment"                  selectInputPlaceholder="Select Environments"                  [showSelectionsOutside]="true"                  searchInputId="environments"                  selectionTextLabel="Environment"                  [showClearAllOptionsIcon]="false"                  [showSpinner]="fetchingEnvsDropdown"                ></app-select-single-search>              </div>            </div>          </div>        </div>        <!-- Resource types -->        <div class="row">          <div class="col-xl-6 col-lg-9 col-md-12">            <div class="form-group row mb-4">              <app-custom-form-label                label="Resource Type"                toolTip="Determine the type(s) of resources this policy will oversee."                class="col-md-4 col-xs-12"              >              </app-custom-form-label>              <div class="col-md-8 col-xs-12">                <app-select-single-search                  inputColSize="12"                  [disableSelectInput]="                    resourceTypesDropdown?.length === 0 ||                    fetchingResTypeDropdown                  "                  [disabledInputTooltip]="                    resourceTypesDropdown?.length === 0                      ? \'There are no resource types present\'                      : \'\'                  "                  [showDisabledInputTooltip]="                    resourceTypesDropdown?.length === 0                  "                  (selectedOptionEvent)="onResourceTypeSelection($event)"                  [multiple]="true"                  [options]="resourceTypesDropdown"                  searchInputPlaceholder="Search Resource Type"                  selectInputPlaceholder="Select Resource Types"                  [showSelectionsOutside]="true"                  searchInputId="resourceTypes"                  selectionTextLabel="Resource Type"                  [showClearAllOptionsIcon]="false"                  [showSpinner]="fetchingResTypeDropdown"                ></app-select-single-search>              </div>            </div>          </div>        </div>        <!-- Resources -->        <div class="row">          <div class="col-xl-6 col-lg-9 col-md-12">            <div class="form-group row mb-4">              <app-custom-form-label                label="Resources"                toolTip="Pick specific resource names for a more granular policy application."                class="col-md-4 col-xs-12"              >              </app-custom-form-label>              <div class="col-md-8 col-xs-12">                <app-multi-select-search-v2                  inputColSize="12"                  (selectedOptionEvent)="onResourceSelection($event)"                  [options]="resourceNamesDropdown"                  searchInputPlaceholder="Search Resource"                  selectInputPlaceholder="Select Resources"                  [showSelectionsOutside]="true"                  searchInputId="resources"                  selectionTextLabel="Resource"                  [showClearAllOptionsIcon]="false"                  [showSpinner]="fetchingResNamesDropdown"                  [disabledInputTooltip]="                    resourceNamesDropdown?.length === 0                      ? \'There are no resources present\'                      : \'\'                  "                  [showDisabledInputTooltip]="                    resourceNamesDropdown?.length === 0                  "                  [disableSelectInput]="resourceNamesDropdown?.length === 0"                  [showNoOptionsMessage]="false"                ></app-multi-select-search-v2>              </div>            </div>          </div>        </div>        <!-- Rego code -->        <div class="row">          <div class="col-xl-6 col-lg-9 col-md-12">            <app-reactive-text-area              label="Rego Code"              [required]="true"              toolTipText="Input your Rego code here. Ensure it\'s accurate for effective policy enforcement"              placeholder="Enter Rego Code"              [customFormControl]="rawPolicy"              inputSize="8"              labelSize="4"              rows="15"            >              <p>                Consult                <b                  ><a                    href="https://app.clickup.com/3443930/docs/3936u-40207/3936u-64347"                    target="_blank"                    style="color: var(--icon-primary-color)"                    >Runbook</a                  ></b                >                for guidelines and validate your code in                <b                  ><a                    href="https://play.openpolicyagent.org/"                    target="_blank"                    style="color: var(--icon-primary-color)"                    >The Rego Playground.</a                  ></b                >              </p>            </app-reactive-text-area>          </div>          <div class="col-xl-6 col-lg-9 col-md-12" *ngIf="errorList?.length">            <nb-card>              <nb-card-body class="rego-code-error-widget">                <div class="d-flex">                  <nb-icon                    icon="close_circle_outlined"                    pack="fci"                    class="mr-2"                  ></nb-icon>                  <p class="weight-500 mb-1" style="font-size: 0.875rem">                    Error detected in Rego Code                  </p>                </div>                <p class="mb-1">                  The policy is not created because of following errors. Please                  resolve them.                </p>                <ul>                  <li *ngFor="let error of errorList">{{ error }}</li>                </ul>              </nb-card-body>            </nb-card>          </div>        </div>      </form>    </ng-container>  </nb-card-body>  <nb-card-footer>    <ng-container *ngIf="!loading">      <app-rbac-button        [label]="mode === \'create\' ? \'Create\' : \'Update\'"        status="primary"        size="small"        [action]="OPA_WRITE"        (onClick)="createOrEditPolicy()"        [disabled]="          policyRequestInProgress ||          policyForm?.invalid ||          fetchingResTypeDropdown ||          fetchingEnvsDropdown        "        class="mr-3"        [loading]="policyRequestInProgress"        [dataAttrActionId]="          mode === \'create\' ? \'guard-rails-create\' : \'guard-rails-edit-save\'        "      ></app-rbac-button>      <button        nbButton        size="small"        [disabled]="policyRequestInProgress"        (click)="handleBack()"      >        Cancel      </button>    </ng-container>  </nb-card-footer></nb-card></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'CreateGuardrailsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CreateGuardrailsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

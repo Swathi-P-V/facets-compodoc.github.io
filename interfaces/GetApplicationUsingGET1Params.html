@@ -1,0 +1,1998 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  GetApplicationUsingGET1Params</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/ui-stack-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Parameters for getApplicationUsingGET1</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#appName" 
+>
+                                            appName
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#resourceType" 
+>
+                                            resourceType
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#stackName" 
+>
+                                            stackName
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="appName"></a>
+                                        <span class="name "><b>appName</b>
+                                            <a href="#appName">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>appName:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>appName</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="resourceType"></a>
+                                        <span class="name "><b>resourceType</b>
+                                            <a href="#resourceType">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>resourceType:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>resourceType</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="stackName"></a>
+                                        <span class="name "><b>stackName</b>
+                                            <a href="#stackName">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>stackName:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>stackName</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpHeaders,
+} from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { Stack } from &#x27;../models/stack&#x27;;
+import { ClusterTask } from &#x27;../models/cluster-task&#x27;;
+import { ClusterTaskRequest } from &#x27;../models/cluster-task-request&#x27;;
+import { PageAbstractCluster } from &#x27;../models/page-abstract-cluster&#x27;;
+import { Substack } from &#x27;../models/substack&#x27;;
+import { SubstackRequest } from &#x27;../models/substack-request&#x27;;
+import { StackTemplate } from &#x27;../models/stack-template&#x27;;
+import { CreateBlueprintRequest } from &#x27;../models/create-blueprint-request&#x27;;
+import { AbstractCluster } from &#x27;../models/abstract-cluster&#x27;;
+import { ClusterOverview } from &#x27;../models/cluster-overview&#x27;;
+import { DeploymentContext } from &#x27;../models/deployment-context&#x27;;
+import { Subscription } from &#x27;../models/subscription&#x27;;
+import { ClusterOverrideResponse } from &#x27;../models/cluster-override-response&#x27;;
+import { CreateTemplateRequest } from &#x27;../models/create-template-request&#x27;;
+import { ToggleRelease } from &#x27;../models/toggle-release&#x27;;
+
+/**
+ * Ui Stack Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class UiStackControllerService extends __BaseService {
+  static readonly getStacksUsingGET1Path &#x3D; &#x27;/cc-ui/v1/stacks/&#x27;;
+  static readonly createStackUsingPOST1Path &#x3D; &#x27;/cc-ui/v1/stacks/&#x27;;
+  static readonly createClusterTasksUsingPOST1Path &#x3D;
+    &#x27;/cc-ui/v1/stacks/clusterTask&#x27;;
+  static readonly getAllClusterTasksUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/stacks/clusterTask/{stackName}&#x27;;
+  static readonly getAllClustersUsingGETPath &#x3D; &#x27;/cc-ui/v1/stacks/clusters&#x27;;
+  static readonly createSubStackUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/stacks/substack/{substackName}&#x27;;
+  static readonly getStackTemplatesUsingGETPath &#x3D; &#x27;/cc-ui/v1/stacks/templates&#x27;;
+  static readonly createStackV2UsingPOSTPath &#x3D; &#x27;/cc-ui/v1/stacks/v2&#x27;;
+  static readonly getStackUsingGETPath &#x3D; &#x27;/cc-ui/v1/stacks/{stackName}&#x27;;
+  static readonly updateStackUsingPUT1Path &#x3D; &#x27;/cc-ui/v1/stacks/{stackName}&#x27;;
+  static readonly deleteStackUsingDELETEPath &#x3D; &#x27;/cc-ui/v1/stacks/{stackName}&#x27;;
+  static readonly getClustersUsingGET1Path &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/clusters&#x27;;
+  static readonly getClustersOverviewUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/clusters-overview&#x27;;
+  static readonly getClustersWithStatusUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/clustersWithStatus&#x27;;
+  static readonly getLocalDeploymentContextUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/localDeploymentContext&#x27;;
+  static readonly getAllSubscriptionsUsingGET1Path &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/notification/subscriptions&#x27;;
+  static readonly createSubscriptionUsingPOST1Path &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/notification/subscriptions&#x27;;
+  static readonly reloadStackUsingGET1Path &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/reload&#x27;;
+  static readonly getOverridesUsingGET2Path &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/resourceType/{resourceType}/resourceName/{resourceName}/overrides&#x27;;
+  static readonly getResourceTypesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/suggestions/resourceType&#x27;;
+  static readonly getResourcesByTypesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/suggestions/resourceType/{resourceType}&#x27;;
+  static readonly syncResourcesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/sync-resources&#x27;;
+  static readonly saveAsTemplateUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/template&#x27;;
+  static readonly getAllTemplateInputsMetaUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/templateInputs/meta&#x27;;
+  static readonly toggleReleaseUsingPOST1Path &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/toggleRelease&#x27;;
+  static readonly getStackWithAccountUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/withAccount&#x27;;
+  static readonly getApplicationListUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/{resourceType}/&#x27;;
+  static readonly getApplicationUsingGET1Path &#x3D;
+    &#x27;/cc-ui/v1/stacks/{stackName}/{resourceType}/{appName}&#x27;;
+
+  constructor(config: __Configuration, http: HttpClient) {
+    super(config, http);
+  }
+
+  /**
+   * getStacks
+   * @return OK
+   */
+  getStacksUsingGET1Response(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;Stack&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/stacks/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Stack&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getStacks
+   * @return OK
+   */
+  getStacksUsingGET1(): __Observable&lt;Array&lt;Stack&gt;&gt; {
+    return this.getStacksUsingGET1Response().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Stack&gt;),
+    );
+  }
+
+  /**
+   * createStack
+   * @param stack stack
+   * @return OK
+   */
+  createStackUsingPOST1Response(
+    stack: Stack,
+  ): __Observable&lt;__StrictHttpResponse&lt;Stack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; stack;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/stacks/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Stack&gt;;
+      }),
+    );
+  }
+  /**
+   * createStack
+   * @param stack stack
+   * @return OK
+   */
+  createStackUsingPOST1(stack: Stack): __Observable&lt;Stack&gt; {
+    return this.createStackUsingPOST1Response(stack).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Stack),
+    );
+  }
+
+  /**
+   * createClusterTasks
+   * @param taskRequest taskRequest
+   * @return OK
+   */
+  createClusterTasksUsingPOST1Response(
+    taskRequest: ClusterTaskRequest,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ClusterTask&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; taskRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/stacks/clusterTask&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ClusterTask&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * createClusterTasks
+   * @param taskRequest taskRequest
+   * @return OK
+   */
+  createClusterTasksUsingPOST1(
+    taskRequest: ClusterTaskRequest,
+  ): __Observable&lt;Array&lt;ClusterTask&gt;&gt; {
+    return this.createClusterTasksUsingPOST1Response(taskRequest).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ClusterTask&gt;),
+    );
+  }
+
+  /**
+   * getAllClusterTasks
+   * @param stackName stackName
+   * @return OK
+   */
+  getAllClusterTasksUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ClusterTask&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/clusterTask/${encodeURIComponent(String(stackName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ClusterTask&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllClusterTasks
+   * @param stackName stackName
+   * @return OK
+   */
+  getAllClusterTasksUsingGET(
+    stackName: string,
+  ): __Observable&lt;Array&lt;ClusterTask&gt;&gt; {
+    return this.getAllClusterTasksUsingGETResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ClusterTask&gt;),
+    );
+  }
+
+  /**
+   * getAllClusters
+   * @param params The &#x60;UiStackControllerService.GetAllClustersUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;sortBy&#x60;: sortBy
+   *
+   * - &#x60;perPage&#x60;: perPage
+   *
+   * - &#x60;page&#x60;: page
+   *
+   * @return OK
+   */
+  getAllClustersUsingGETResponse(
+    params: UiStackControllerService.GetAllClustersUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;PageAbstractCluster&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.sortBy !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;sortBy&#x27;, params.sortBy.toString());
+    if (params.perPage !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;perPage&#x27;, params.perPage.toString());
+    if (params.page !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;page&#x27;, params.page.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/stacks/clusters&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;PageAbstractCluster&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllClusters
+   * @param params The &#x60;UiStackControllerService.GetAllClustersUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;sortBy&#x60;: sortBy
+   *
+   * - &#x60;perPage&#x60;: perPage
+   *
+   * - &#x60;page&#x60;: page
+   *
+   * @return OK
+   */
+  getAllClustersUsingGET(
+    params: UiStackControllerService.GetAllClustersUsingGETParams,
+  ): __Observable&lt;PageAbstractCluster&gt; {
+    return this.getAllClustersUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as PageAbstractCluster),
+    );
+  }
+
+  /**
+   * createSubStack
+   * @param params The &#x60;UiStackControllerService.CreateSubStackUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;substackName&#x60;: substackName
+   *
+   * - &#x60;subStack&#x60;: subStack
+   *
+   * @return OK
+   */
+  createSubStackUsingPOSTResponse(
+    params: UiStackControllerService.CreateSubStackUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Substack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.subStack;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/substack/${encodeURIComponent(
+          String(params.substackName),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Substack&gt;;
+      }),
+    );
+  }
+  /**
+   * createSubStack
+   * @param params The &#x60;UiStackControllerService.CreateSubStackUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;substackName&#x60;: substackName
+   *
+   * - &#x60;subStack&#x60;: subStack
+   *
+   * @return OK
+   */
+  createSubStackUsingPOST(
+    params: UiStackControllerService.CreateSubStackUsingPOSTParams,
+  ): __Observable&lt;Substack&gt; {
+    return this.createSubStackUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Substack),
+    );
+  }
+
+  /**
+   * getStackTemplates
+   * @return OK
+   */
+  getStackTemplatesUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;StackTemplate&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/stacks/templates&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;StackTemplate&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getStackTemplates
+   * @return OK
+   */
+  getStackTemplatesUsingGET(): __Observable&lt;Array&lt;StackTemplate&gt;&gt; {
+    return this.getStackTemplatesUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;StackTemplate&gt;),
+    );
+  }
+
+  /**
+   * createStackV2
+   * @param createBlueprintRequest createBlueprintRequest
+   * @return OK
+   */
+  createStackV2UsingPOSTResponse(
+    createBlueprintRequest: CreateBlueprintRequest,
+  ): __Observable&lt;__StrictHttpResponse&lt;Stack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; createBlueprintRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/stacks/v2&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Stack&gt;;
+      }),
+    );
+  }
+  /**
+   * createStackV2
+   * @param createBlueprintRequest createBlueprintRequest
+   * @return OK
+   */
+  createStackV2UsingPOST(
+    createBlueprintRequest: CreateBlueprintRequest,
+  ): __Observable&lt;Stack&gt; {
+    return this.createStackV2UsingPOSTResponse(createBlueprintRequest).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Stack),
+    );
+  }
+
+  /**
+   * getStack
+   * @param stackName stackName
+   * @return OK
+   */
+  getStackUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Stack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(String(stackName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Stack&gt;;
+      }),
+    );
+  }
+  /**
+   * getStack
+   * @param stackName stackName
+   * @return OK
+   */
+  getStackUsingGET(stackName: string): __Observable&lt;Stack&gt; {
+    return this.getStackUsingGETResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Stack),
+    );
+  }
+
+  /**
+   * updateStack
+   * @param params The &#x60;UiStackControllerService.UpdateStackUsingPUT1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;stack&#x60;: stack
+   *
+   * @return OK
+   */
+  updateStackUsingPUT1Response(
+    params: UiStackControllerService.UpdateStackUsingPUT1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;Stack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.stack;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(String(params.stackName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Stack&gt;;
+      }),
+    );
+  }
+  /**
+   * updateStack
+   * @param params The &#x60;UiStackControllerService.UpdateStackUsingPUT1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;stack&#x60;: stack
+   *
+   * @return OK
+   */
+  updateStackUsingPUT1(
+    params: UiStackControllerService.UpdateStackUsingPUT1Params,
+  ): __Observable&lt;Stack&gt; {
+    return this.updateStackUsingPUT1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Stack),
+    );
+  }
+
+  /**
+   * deleteStack
+   * @param stackName stackName
+   * @return OK
+   */
+  deleteStackUsingDELETEResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Stack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(String(stackName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Stack&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteStack
+   * @param stackName stackName
+   * @return OK
+   */
+  deleteStackUsingDELETE(stackName: string): __Observable&lt;Stack&gt; {
+    return this.deleteStackUsingDELETEResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Stack),
+    );
+  }
+
+  /**
+   * getClusters
+   * @param stackName stackName
+   * @return OK
+   */
+  getClustersUsingGET1Response(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;AbstractCluster&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(String(stackName))}/clusters&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;AbstractCluster&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getClusters
+   * @param stackName stackName
+   * @return OK
+   */
+  getClustersUsingGET1(
+    stackName: string,
+  ): __Observable&lt;Array&lt;AbstractCluster&gt;&gt; {
+    return this.getClustersUsingGET1Response(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;AbstractCluster&gt;),
+    );
+  }
+
+  /**
+   * getClustersOverview
+   * @param stackName stackName
+   * @return OK
+   */
+  getClustersOverviewUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ClusterOverview&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(stackName),
+        )}/clusters-overview&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ClusterOverview&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getClustersOverview
+   * @param stackName stackName
+   * @return OK
+   */
+  getClustersOverviewUsingGET(
+    stackName: string,
+  ): __Observable&lt;Array&lt;ClusterOverview&gt;&gt; {
+    return this.getClustersOverviewUsingGETResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ClusterOverview&gt;),
+    );
+  }
+
+  /**
+   * getClustersWithStatus
+   * @param stackName stackName
+   * @return OK
+   */
+  getClustersWithStatusUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;AbstractCluster&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(stackName),
+        )}/clustersWithStatus&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;AbstractCluster&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getClustersWithStatus
+   * @param stackName stackName
+   * @return OK
+   */
+  getClustersWithStatusUsingGET(
+    stackName: string,
+  ): __Observable&lt;Array&lt;AbstractCluster&gt;&gt; {
+    return this.getClustersWithStatusUsingGETResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;AbstractCluster&gt;),
+    );
+  }
+
+  /**
+   * getLocalDeploymentContext
+   * @param stackName stackName
+   * @return OK
+   */
+  getLocalDeploymentContextUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;DeploymentContext&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(stackName),
+        )}/localDeploymentContext&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;DeploymentContext&gt;;
+      }),
+    );
+  }
+  /**
+   * getLocalDeploymentContext
+   * @param stackName stackName
+   * @return OK
+   */
+  getLocalDeploymentContextUsingGET(
+    stackName: string,
+  ): __Observable&lt;DeploymentContext&gt; {
+    return this.getLocalDeploymentContextUsingGETResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as DeploymentContext),
+    );
+  }
+
+  /**
+   * getAllSubscriptions
+   * @param stackName stackName
+   * @return OK
+   */
+  getAllSubscriptionsUsingGET1Response(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(stackName),
+        )}/notification/subscriptions&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllSubscriptions
+   * @param stackName stackName
+   * @return OK
+   */
+  getAllSubscriptionsUsingGET1(
+    stackName: string,
+  ): __Observable&lt;Array&lt;Subscription&gt;&gt; {
+    return this.getAllSubscriptionsUsingGET1Response(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Subscription&gt;),
+    );
+  }
+
+  /**
+   * createSubscription
+   * @param params The &#x60;UiStackControllerService.CreateSubscriptionUsingPOST1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;subscription&#x60;: subscription
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * @return OK
+   */
+  createSubscriptionUsingPOST1Response(
+    params: UiStackControllerService.CreateSubscriptionUsingPOST1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;Subscription&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.subscription;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(params.stackName),
+        )}/notification/subscriptions&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Subscription&gt;;
+      }),
+    );
+  }
+  /**
+   * createSubscription
+   * @param params The &#x60;UiStackControllerService.CreateSubscriptionUsingPOST1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;subscription&#x60;: subscription
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * @return OK
+   */
+  createSubscriptionUsingPOST1(
+    params: UiStackControllerService.CreateSubscriptionUsingPOST1Params,
+  ): __Observable&lt;Subscription&gt; {
+    return this.createSubscriptionUsingPOST1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Subscription),
+    );
+  }
+
+  /**
+   * reloadStack
+   * @param stackName stackName
+   * @return OK
+   */
+  reloadStackUsingGET1Response(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Stack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(String(stackName))}/reload&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Stack&gt;;
+      }),
+    );
+  }
+  /**
+   * reloadStack
+   * @param stackName stackName
+   * @return OK
+   */
+  reloadStackUsingGET1(stackName: string): __Observable&lt;Stack&gt; {
+    return this.reloadStackUsingGET1Response(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Stack),
+    );
+  }
+
+  /**
+   * getOverrides
+   * @param params The &#x60;UiStackControllerService.GetOverridesUsingGET2Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * @return OK
+   */
+  getOverridesUsingGET2Response(
+    params: UiStackControllerService.GetOverridesUsingGET2Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ClusterOverrideResponse&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(params.stackName),
+        )}/resourceType/${encodeURIComponent(
+          String(params.resourceType),
+        )}/resourceName/${encodeURIComponent(
+          String(params.resourceName),
+        )}/overrides&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ClusterOverrideResponse&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getOverrides
+   * @param params The &#x60;UiStackControllerService.GetOverridesUsingGET2Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * @return OK
+   */
+  getOverridesUsingGET2(
+    params: UiStackControllerService.GetOverridesUsingGET2Params,
+  ): __Observable&lt;Array&lt;ClusterOverrideResponse&gt;&gt; {
+    return this.getOverridesUsingGET2Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ClusterOverrideResponse&gt;),
+    );
+  }
+
+  /**
+   * getResourceTypes
+   * @param stackName stackName
+   * @return OK
+   */
+  getResourceTypesUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;string&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(stackName),
+        )}/suggestions/resourceType&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;string&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getResourceTypes
+   * @param stackName stackName
+   * @return OK
+   */
+  getResourceTypesUsingGET(stackName: string): __Observable&lt;Array&lt;string&gt;&gt; {
+    return this.getResourceTypesUsingGETResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;string&gt;),
+    );
+  }
+
+  /**
+   * getResourcesByTypes
+   * @param params The &#x60;UiStackControllerService.GetResourcesByTypesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * @return OK
+   */
+  getResourcesByTypesUsingGETResponse(
+    params: UiStackControllerService.GetResourcesByTypesUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;string&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(params.stackName),
+        )}/suggestions/resourceType/${encodeURIComponent(
+          String(params.resourceType),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;string&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getResourcesByTypes
+   * @param params The &#x60;UiStackControllerService.GetResourcesByTypesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * @return OK
+   */
+  getResourcesByTypesUsingGET(
+    params: UiStackControllerService.GetResourcesByTypesUsingGETParams,
+  ): __Observable&lt;Array&lt;string&gt;&gt; {
+    return this.getResourcesByTypesUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;string&gt;),
+    );
+  }
+
+  /**
+   * syncResources
+   * @param stackName stackName
+   */
+  syncResourcesUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(stackName),
+        )}/sync-resources&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * syncResources
+   * @param stackName stackName
+   */
+  syncResourcesUsingGET(stackName: string): __Observable&lt;null&gt; {
+    return this.syncResourcesUsingGETResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * saveAsTemplate
+   * @param params The &#x60;UiStackControllerService.SaveAsTemplateUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;createTemplateRequest&#x60;: createTemplateRequest
+   *
+   * @return OK
+   */
+  saveAsTemplateUsingPOSTResponse(
+    params: UiStackControllerService.SaveAsTemplateUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Stack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.createTemplateRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(params.stackName),
+        )}/template&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Stack&gt;;
+      }),
+    );
+  }
+  /**
+   * saveAsTemplate
+   * @param params The &#x60;UiStackControllerService.SaveAsTemplateUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;createTemplateRequest&#x60;: createTemplateRequest
+   *
+   * @return OK
+   */
+  saveAsTemplateUsingPOST(
+    params: UiStackControllerService.SaveAsTemplateUsingPOSTParams,
+  ): __Observable&lt;Stack&gt; {
+    return this.saveAsTemplateUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Stack),
+    );
+  }
+
+  /**
+   * getAllTemplateInputsMeta
+   * @param stackName stackName
+   * @return OK
+   */
+  getAllTemplateInputsMetaUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;{}&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(stackName),
+        )}/templateInputs/meta&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{}&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllTemplateInputsMeta
+   * @param stackName stackName
+   * @return OK
+   */
+  getAllTemplateInputsMetaUsingGET(stackName: string): __Observable&lt;{}&gt; {
+    return this.getAllTemplateInputsMetaUsingGETResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as {}),
+    );
+  }
+
+  /**
+   * toggleRelease
+   * @param params The &#x60;UiStackControllerService.ToggleReleaseUsingPOST1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;toggleRelease&#x60;: toggleRelease
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * @return OK
+   */
+  toggleReleaseUsingPOST1Response(
+    params: UiStackControllerService.ToggleReleaseUsingPOST1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;ToggleRelease&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.toggleRelease;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(params.stackName),
+        )}/toggleRelease&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ToggleRelease&gt;;
+      }),
+    );
+  }
+  /**
+   * toggleRelease
+   * @param params The &#x60;UiStackControllerService.ToggleReleaseUsingPOST1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;toggleRelease&#x60;: toggleRelease
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * @return OK
+   */
+  toggleReleaseUsingPOST1(
+    params: UiStackControllerService.ToggleReleaseUsingPOST1Params,
+  ): __Observable&lt;ToggleRelease&gt; {
+    return this.toggleReleaseUsingPOST1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ToggleRelease),
+    );
+  }
+
+  /**
+   * getStackWithAccount
+   * @param stackName stackName
+   * @return OK
+   */
+  getStackWithAccountUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Stack&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(String(stackName))}/withAccount&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Stack&gt;;
+      }),
+    );
+  }
+  /**
+   * getStackWithAccount
+   * @param stackName stackName
+   * @return OK
+   */
+  getStackWithAccountUsingGET(stackName: string): __Observable&lt;Stack&gt; {
+    return this.getStackWithAccountUsingGETResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Stack),
+    );
+  }
+
+  /**
+   * getApplicationList
+   * @param params The &#x60;UiStackControllerService.GetApplicationListUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * @return OK
+   */
+  getApplicationListUsingGETResponse(
+    params: UiStackControllerService.GetApplicationListUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;string&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(params.stackName),
+        )}/${encodeURIComponent(String(params.resourceType))}/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;string&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getApplicationList
+   * @param params The &#x60;UiStackControllerService.GetApplicationListUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * @return OK
+   */
+  getApplicationListUsingGET(
+    params: UiStackControllerService.GetApplicationListUsingGETParams,
+  ): __Observable&lt;Array&lt;string&gt;&gt; {
+    return this.getApplicationListUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;string&gt;),
+    );
+  }
+
+  /**
+   * getApplication
+   * @param params The &#x60;UiStackControllerService.GetApplicationUsingGET1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;appName&#x60;: appName
+   *
+   * @return OK
+   */
+  getApplicationUsingGET1Response(
+    params: UiStackControllerService.GetApplicationUsingGET1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;{}&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/stacks/${encodeURIComponent(
+          String(params.stackName),
+        )}/${encodeURIComponent(
+          String(params.resourceType),
+        )}/${encodeURIComponent(String(params.appName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{}&gt;;
+      }),
+    );
+  }
+  /**
+   * getApplication
+   * @param params The &#x60;UiStackControllerService.GetApplicationUsingGET1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;appName&#x60;: appName
+   *
+   * @return OK
+   */
+  getApplicationUsingGET1(
+    params: UiStackControllerService.GetApplicationUsingGET1Params,
+  ): __Observable&lt;{}&gt; {
+    return this.getApplicationUsingGET1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as {}),
+    );
+  }
+}
+
+module UiStackControllerService {
+  /**
+   * Parameters for getAllClustersUsingGET
+   */
+  export interface GetAllClustersUsingGETParams {
+    /**
+     * sortBy
+     */
+    sortBy?:
+      | &#x27;ID&#x27;
+      | &#x27;CREATION_DATE&#x27;
+      | &#x27;CREATED_BY&#x27;
+      | &#x27;LAST_MODIFIED_DATE&#x27;
+      | &#x27;LAST_MODIFIED_BY&#x27;;
+
+    /**
+     * perPage
+     */
+    perPage?: number;
+
+    /**
+     * page
+     */
+    page?: number;
+  }
+
+  /**
+   * Parameters for createSubStackUsingPOST
+   */
+  export interface CreateSubStackUsingPOSTParams {
+    /**
+     * substackName
+     */
+    substackName: string;
+
+    /**
+     * subStack
+     */
+    subStack: SubstackRequest;
+  }
+
+  /**
+   * Parameters for updateStackUsingPUT1
+   */
+  export interface UpdateStackUsingPUT1Params {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * stack
+     */
+    stack: Stack;
+  }
+
+  /**
+   * Parameters for createSubscriptionUsingPOST1
+   */
+  export interface CreateSubscriptionUsingPOST1Params {
+    /**
+     * subscription
+     */
+    subscription: Subscription;
+
+    /**
+     * stackName
+     */
+    stackName: string;
+  }
+
+  /**
+   * Parameters for getOverridesUsingGET2
+   */
+  export interface GetOverridesUsingGET2Params {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+  }
+
+  /**
+   * Parameters for getResourcesByTypesUsingGET
+   */
+  export interface GetResourcesByTypesUsingGETParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceType
+     */
+    resourceType: string;
+  }
+
+  /**
+   * Parameters for saveAsTemplateUsingPOST
+   */
+  export interface SaveAsTemplateUsingPOSTParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * createTemplateRequest
+     */
+    createTemplateRequest: CreateTemplateRequest;
+  }
+
+  /**
+   * Parameters for toggleReleaseUsingPOST1
+   */
+  export interface ToggleReleaseUsingPOST1Params {
+    /**
+     * toggleRelease
+     */
+    toggleRelease: ToggleRelease;
+
+    /**
+     * stackName
+     */
+    stackName: string;
+  }
+
+  /**
+   * Parameters for getApplicationListUsingGET
+   */
+  export interface GetApplicationListUsingGETParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceType
+     */
+    resourceType: string;
+  }
+
+  /**
+   * Parameters for getApplicationUsingGET1
+   */
+  export interface GetApplicationUsingGET1Params {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * appName
+     */
+    appName: string;
+  }
+}
+
+export { UiStackControllerService };
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'GetApplicationUsingGET1Params.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

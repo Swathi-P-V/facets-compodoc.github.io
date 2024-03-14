@@ -1,0 +1,1936 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  UserAccessTokenComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/account-settings/user-access-token/user-access-token.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-user-access-token</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./user-access-token.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./user-access-token.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#buttonText" >buttonText</a>
+                            </li>
+                            <li>
+                                <a href="#deleteInProgress" >deleteInProgress</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Private</span>
+                                <a href="#deletePopup" >deletePopup</a>
+                            </li>
+                            <li>
+                                <a href="#emptyStateLogo" >emptyStateLogo</a>
+                            </li>
+                            <li>
+                                <a href="#error" >error</a>
+                            </li>
+                            <li>
+                                <a href="#isSuccess" >isSuccess</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#primaryMsg" >primaryMsg</a>
+                            </li>
+                            <li>
+                                <a href="#saveTokenInProgress" >saveTokenInProgress</a>
+                            </li>
+                            <li>
+                                <a href="#secondaryMsg" >secondaryMsg</a>
+                            </li>
+                            <li>
+                                <a href="#showBtn" >showBtn</a>
+                            </li>
+                            <li>
+                                <a href="#showEmptyState" >showEmptyState</a>
+                            </li>
+                            <li>
+                                <a href="#smartTableCustomActionButtons" >smartTableCustomActionButtons</a>
+                            </li>
+                            <li>
+                                <a href="#status" >status</a>
+                            </li>
+                            <li>
+                                <a href="#tableSettings" >tableSettings</a>
+                            </li>
+                            <li>
+                                <a href="#token" >token</a>
+                            </li>
+                            <li>
+                                <a href="#tokenName" >tokenName</a>
+                            </li>
+                            <li>
+                                <a href="#tokens" >tokens</a>
+                            </li>
+                            <li>
+                                <a href="#whiteSpaceInputPattern" >whiteSpaceInputPattern</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#copyToken" >copyToken</a>
+                            </li>
+                            <li>
+                                <a href="#createTokenCall" >createTokenCall</a>
+                            </li>
+                            <li>
+                                <a href="#deleteToken" >deleteToken</a>
+                            </li>
+                            <li>
+                                <a href="#getAllTokens" >getAllTokens</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openCreatePopup" >openCreatePopup</a>
+                            </li>
+                            <li>
+                                <a href="#openDeletePopup" >openDeletePopup</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(userController: <a href="../injectables/UiUserControllerService.html" target="_self">UiUserControllerService</a>, dialogService: NbDialogService, clipboardService: ClipboardService, formatDateService: <a href="../injectables/FormatDateService.html" target="_self">FormatDateService</a>, customToastService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:112</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userController</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiUserControllerService.html" target="_self" >UiUserControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NbDialogService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>clipboardService</td>
+                                                  
+                                                        <td>
+                                                                    <code>ClipboardService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>formatDateService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FormatDateService.html" target="_self" >FormatDateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToastService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyToken"></a>
+                    <span class="name">
+                        <span ><b>copyToken</b></span>
+                        <a href="#copyToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>copyToken(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="213"
+                                    class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:213</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createTokenCall"></a>
+                    <span class="name">
+                        <span ><b>createTokenCall</b></span>
+                        <a href="#createTokenCall"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createTokenCall(ref: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="159"
+                                    class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ref</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteToken"></a>
+                    <span class="name">
+                        <span ><b>deleteToken</b></span>
+                        <a href="#deleteToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteToken(data, ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="189"
+                                    class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:189</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllTokens"></a>
+                    <span class="name">
+                        <span ><b>getAllTokens</b></span>
+                        <a href="#getAllTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllTokens()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openCreatePopup"></a>
+                    <span class="name">
+                        <span ><b>openCreatePopup</b></span>
+                        <a href="#openCreatePopup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openCreatePopup(createToken: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createToken</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDeletePopup"></a>
+                    <span class="name">
+                        <span ><b>openDeletePopup</b></span>
+                        <a href="#openDeletePopup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openDeletePopup(data)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="183"
+                                    class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:183</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buttonText"></a>
+                    <span class="name">
+                        <span ><b>buttonText</b></span>
+                        <a href="#buttonText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Generate Token&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteInProgress"></a>
+                    <span class="name">
+                        <span ><b>deleteInProgress</b></span>
+                        <a href="#deleteInProgress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deletePopup"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Private</span>
+                        <span ><b>deletePopup</b></span>
+                        <a href="#deletePopup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;deletePopup&#x27;, {static: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="emptyStateLogo"></a>
+                    <span class="name">
+                        <span ><b>emptyStateLogo</b></span>
+                        <a href="#emptyStateLogo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>emptyStateLogo</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="error"></a>
+                    <span class="name">
+                        <span ><b>error</b></span>
+                        <a href="#error"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSuccess"></a>
+                    <span class="name">
+                        <span ><b>isSuccess</b></span>
+                        <a href="#isSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="primaryMsg"></a>
+                    <span class="name">
+                        <span ><b>primaryMsg</b></span>
+                        <a href="#primaryMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;No personal tokens found!&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveTokenInProgress"></a>
+                    <span class="name">
+                        <span ><b>saveTokenInProgress</b></span>
+                        <a href="#saveTokenInProgress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="secondaryMsg"></a>
+                    <span class="name">
+                        <span ><b>secondaryMsg</b></span>
+                        <a href="#secondaryMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Generate personal tokens to access Facets API &amp; CLI&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showBtn"></a>
+                    <span class="name">
+                        <span ><b>showBtn</b></span>
+                        <a href="#showBtn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showEmptyState"></a>
+                    <span class="name">
+                        <span ><b>showEmptyState</b></span>
+                        <a href="#showEmptyState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="smartTableCustomActionButtons"></a>
+                    <span class="name">
+                        <span ><b>smartTableCustomActionButtons</b></span>
+                        <a href="#smartTableCustomActionButtons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      id: &#x27;delete&#x27;,
+      icon: &#x27;trash-2-outline&#x27;,
+      toolTip: &#x27;Delete Token&#x27;,
+      status: &#x27;danger&#x27;,
+      size: &#x27;medium&#x27;,
+      appearance: &#x27;ghost&#x27;,
+      action: undefined,
+      onClick: (data) &#x3D;&gt; {
+        this.openDeletePopup(data);
+      },
+    },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="status"></a>
+                    <span class="name">
+                        <span ><b>status</b></span>
+                        <a href="#status"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;info&quot; | &quot;error&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;info&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tableSettings"></a>
+                    <span class="name">
+                        <span ><b>tableSettings</b></span>
+                        <a href="#tableSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    columns: {
+      name: {
+        title: &#x27;Token Name&#x27;,
+        filter: false,
+      },
+      createdOn: {
+        title: &#x27;Created On&#x27;,
+        filter: false,
+        type: &#x27;custom&#x27;,
+        valuePrepareFunction: (date) &#x3D;&gt; {
+          if (date) {
+            let labelToSend &#x3D; &#x27;&#x27;;
+            return JSON.stringify({
+              label: date,
+              tooltipText: this.formatDateService.getFormattedDate(date),
+            });
+          } else {
+            return null;
+          }
+        },
+        renderComponent: SmartTableTimeagoTooltipComponent,
+      },
+      custom: {
+        type: &#x27;custom&#x27;,
+        title: &#x27;Actions&#x27;,
+        valuePrepareFunction: (value, row, cell) &#x3D;&gt; {
+          // DATA FROM HERE GOES TO renderComponent. rowData property holds row data and any custom data sent will reside in value
+          const displayVal &#x3D; {
+            smartTableCustomActionButtons: this.smartTableCustomActionButtons,
+          };
+          return JSON.stringify(displayVal);
+        },
+        renderComponent: CustomActionsComponent,
+        onComponentInitFunction: (instance) &#x3D;&gt; {
+          instance.byCustomActionButtonClick.subscribe((data) &#x3D;&gt; {
+            let customActionButton &#x3D; this.smartTableCustomActionButtons.filter(
+              (actionButton) &#x3D;&gt; {
+                return actionButton.id &#x3D;&#x3D;&#x3D; data.actionButton.id;
+              },
+            )[0];
+            customActionButton.onClick(data.rowData);
+          });
+        },
+        width: &#x27;12%&#x27;,
+        filter: false,
+      },
+    },
+    noDataMessage:
+      &#x27;No personal tokens found! Generate personal tokens to access Facets API &amp; CLI.&#x27;,
+    pager: {
+      display: false,
+      perPage: 15,
+    },
+    mode: &#x27;external&#x27;,
+    actions: false,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="token"></a>
+                    <span class="name">
+                        <span ><b>token</b></span>
+                        <a href="#token"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/UserAccessToken.html" target="_self" >UserAccessToken</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tokenName"></a>
+                    <span class="name">
+                        <span ><b>tokenName</b></span>
+                        <a href="#tokenName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormControl</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tokens"></a>
+                    <span class="name">
+                        <span ><b>tokens</b></span>
+                        <a href="#tokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Array&lt;UserAccessToken&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="whiteSpaceInputPattern"></a>
+                    <span class="name">
+                        <span ><b>whiteSpaceInputPattern</b></span>
+                        <a href="#whiteSpaceInputPattern"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>whiteSpaceInputPattern</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/account-settings/user-access-token/user-access-token.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, TemplateRef, ViewChild } from &#x27;@angular/core&#x27;;
+import { UiUserControllerService } from &#x27;../../../cc-api/services/ui-user-controller.service&#x27;;
+import { UserAccessToken } from &#x27;../../../cc-api/models/user-access-token&#x27;;
+import { NbDialogService } from &#x27;@nebular/theme&#x27;;
+import { v4 as uuid } from &#x27;uuid&#x27;;
+import { ClipboardService } from &#x27;ngx-clipboard&#x27;;
+import { CustomActionsComponent } from &#x27;src/app/components/custom-actions/custom-actions.component&#x27;;
+import { FormatDateService } from &#x27;src/app/services/format-date.service&#x27;;
+import { SmartTableTimeagoTooltipComponent } from &#x27;src/app/components/smart-table-timeago-tooltip/smart-table-timeago-tooltip.component&#x27;;
+import { whiteSpaceInputPattern } from &#x27;src/app/constants/inputPatterns&#x27;;
+import { FormControl } from &#x27;@angular/forms&#x27;;
+import { CustomToastService } from &#x27;src/app/pages/custom-toast/custom-toast.service&#x27;;
+const emptyStateLogo &#x3D; &#x27;./assets/token-empty.svg&#x27;;
+const errorIcon &#x3D; &#x27;./assets/error.svg&#x27;;
+
+@Component({
+  selector: &#x27;app-user-access-token&#x27;,
+  templateUrl: &#x27;./user-access-token.component.html&#x27;,
+  styleUrls: [&#x27;./user-access-token.component.scss&#x27;],
+})
+export class UserAccessTokenComponent implements OnInit {
+  tokens: Array&lt;UserAccessToken&gt;;
+  token: UserAccessToken;
+  whiteSpaceInputPattern &#x3D; whiteSpaceInputPattern;
+  isSuccess &#x3D; false;
+  secondaryMsg: string &#x3D; &#x27;Generate personal tokens to access Facets API &amp; CLI&#x27;;
+  emptyStateLogo &#x3D; emptyStateLogo;
+  primaryMsg: string &#x3D; &#x27;No personal tokens found!&#x27;;
+  showEmptyState: boolean &#x3D; false;
+  loading: boolean &#x3D; true;
+  buttonText: string &#x3D; &#x27;Generate Token&#x27;;
+  showBtn: boolean &#x3D; true;
+  status: &#x27;info&#x27; | &#x27;error&#x27; &#x3D; &#x27;info&#x27;;
+  smartTableCustomActionButtons &#x3D; [
+    {
+      id: &#x27;delete&#x27;,
+      icon: &#x27;trash-2-outline&#x27;,
+      toolTip: &#x27;Delete Token&#x27;,
+      status: &#x27;danger&#x27;,
+      size: &#x27;medium&#x27;,
+      appearance: &#x27;ghost&#x27;,
+      action: undefined,
+      onClick: (data) &#x3D;&gt; {
+        this.openDeletePopup(data);
+      },
+    },
+  ];
+  tokenName: FormControl &#x3D; new FormControl(&#x27;&#x27;);
+  saveTokenInProgress: boolean &#x3D; false;
+  deleteInProgress: boolean &#x3D; false;
+
+  @ViewChild(&#x27;deletePopup&#x27;, { static: true })
+  private deletePopup: TemplateRef&lt;any&gt;;
+
+  tableSettings: any &#x3D; {
+    columns: {
+      name: {
+        title: &#x27;Token Name&#x27;,
+        filter: false,
+      },
+      createdOn: {
+        title: &#x27;Created On&#x27;,
+        filter: false,
+        type: &#x27;custom&#x27;,
+        valuePrepareFunction: (date) &#x3D;&gt; {
+          if (date) {
+            let labelToSend &#x3D; &#x27;&#x27;;
+            return JSON.stringify({
+              label: date,
+              tooltipText: this.formatDateService.getFormattedDate(date),
+            });
+          } else {
+            return null;
+          }
+        },
+        renderComponent: SmartTableTimeagoTooltipComponent,
+      },
+      custom: {
+        type: &#x27;custom&#x27;,
+        title: &#x27;Actions&#x27;,
+        valuePrepareFunction: (value, row, cell) &#x3D;&gt; {
+          // DATA FROM HERE GOES TO renderComponent. rowData property holds row data and any custom data sent will reside in value
+          const displayVal &#x3D; {
+            smartTableCustomActionButtons: this.smartTableCustomActionButtons,
+          };
+          return JSON.stringify(displayVal);
+        },
+        renderComponent: CustomActionsComponent,
+        onComponentInitFunction: (instance) &#x3D;&gt; {
+          instance.byCustomActionButtonClick.subscribe((data) &#x3D;&gt; {
+            let customActionButton &#x3D; this.smartTableCustomActionButtons.filter(
+              (actionButton) &#x3D;&gt; {
+                return actionButton.id &#x3D;&#x3D;&#x3D; data.actionButton.id;
+              },
+            )[0];
+            customActionButton.onClick(data.rowData);
+          });
+        },
+        width: &#x27;12%&#x27;,
+        filter: false,
+      },
+    },
+    noDataMessage:
+      &#x27;No personal tokens found! Generate personal tokens to access Facets API &amp; CLI.&#x27;,
+    pager: {
+      display: false,
+      perPage: 15,
+    },
+    mode: &#x27;external&#x27;,
+    actions: false,
+  };
+  error: any;
+
+  constructor(
+    private userController: UiUserControllerService,
+    private dialogService: NbDialogService,
+    private clipboardService: ClipboardService,
+    private formatDateService: FormatDateService,
+    private customToastService: CustomToastService,
+  ) {}
+
+  ngOnInit(): void {
+    this.getAllTokens();
+  }
+
+  getAllTokens() {
+    this.loading &#x3D; true;
+    this.userController.getTokenUsingGET().subscribe(
+      (tokens) &#x3D;&gt; {
+        this.tokens &#x3D; tokens;
+        if (this.tokens?.length &gt; 0) {
+          this.showEmptyState &#x3D; false;
+        } else {
+          this.showEmptyState &#x3D; true;
+        }
+        this.loading &#x3D; false;
+      },
+      (error) &#x3D;&gt; {
+        this.loading &#x3D; false;
+        this.showEmptyState &#x3D; true;
+        this.secondaryMsg &#x3D;
+          error?.error?.message || &#x27; There is some error fetching tokens&#x27;;
+        this.primaryMsg &#x3D; &#x27;&#x27;;
+        this.showBtn &#x3D; false;
+        this.emptyStateLogo &#x3D; errorIcon;
+        this.status &#x3D; &#x27;error&#x27;;
+      },
+    );
+  }
+
+  openCreatePopup(createToken: any) {
+    this.isSuccess &#x3D; false;
+    this.token &#x3D; {};
+    this.token[&#x27;token&#x27;] &#x3D; uuid();
+    this.tokenName.reset();
+    this.dialogService.open(createToken, { context: { edit: false } });
+  }
+
+  createTokenCall(ref: any) {
+    this.saveTokenInProgress &#x3D; true;
+    this.userController
+      .createTokenUsingPOST({
+        ...this.token,
+        name: this.tokenName?.value?.trim(),
+      })
+      .subscribe(
+        (tokens) &#x3D;&gt; {
+          this.saveTokenInProgress &#x3D; false;
+          this.tokens &#x3D; tokens;
+          this.isSuccess &#x3D; true;
+          this.getAllTokens();
+        },
+        (error) &#x3D;&gt; {
+          this.saveTokenInProgress &#x3D; false;
+          this.error &#x3D; error?.error?.message || error?.message;
+          this.customToastService.error(
+            this.error || &#x27;Failed to create token!&#x27;,
+          );
+        },
+      );
+  }
+
+  openDeletePopup(data) {
+    this.dialogService.open(this.deletePopup, {
+      context: { data },
+    });
+  }
+
+  deleteToken(data, ref) {
+    this.deleteInProgress &#x3D; true;
+    this.userController.deleteTokenUsingDELETE(data?.tokenId).subscribe(
+      (tokens) &#x3D;&gt; {
+        this.tokens &#x3D; tokens;
+        this.isSuccess &#x3D; true;
+        this.deleteInProgress &#x3D; false;
+        ref.close();
+        this.customToastService.success(
+          &#x60;Token ${data?.name} has been deleted successfully&#x60;,
+        );
+        this.getAllTokens();
+      },
+      (err) &#x3D;&gt; {
+        this.deleteInProgress &#x3D; false;
+        this.customToastService.error(
+          err?.error?.message ||
+            err?.message ||
+            &#x60;Failed to delete token ${data?.name}&#x60;,
+        );
+      },
+    );
+  }
+
+  copyToken(token: string) {
+    this.clipboardService.copy(token);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;mt-3&quot;&gt;
+  &lt;div class&#x3D;&quot;d-flex justify-content-between mb-3&quot; *ngIf&#x3D;&quot;!loading&quot;&gt;
+    &lt;span subheading class&#x3D;&quot;mt-1&quot;
+      &gt;Tokens you have generated can be used to access the
+      &lt;a href&#x3D;&quot;/swagger-ui.html&quot; target&#x3D;&quot;_blank&quot;&gt;Facets API&lt;/a&gt; and
+      &lt;a
+        href&#x3D;&quot;https://www.npmjs.com/package/@facets-cloud/facetsctl&quot;
+        target&#x3D;&quot;_blank&quot;
+        &gt;CLI&lt;/a
+      &gt;.&lt;/span
+    &gt;
+
+    &lt;button
+      nbButton
+      size&#x3D;&quot;small&quot;
+      status&#x3D;&quot;primary&quot;
+      (click)&#x3D;&quot;openCreatePopup(createToken)&quot;
+    &gt;
+      Generate Token
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;nb-card
+    [nbSpinner]&#x3D;&quot;loading&quot;
+    [ngClass]&#x3D;&quot;{ &#x27;background-grey py-5&#x27;: loading }&quot;
+  &gt;
+    &lt;nb-card-body&gt;
+      &lt;ng2-smart-table
+        class&#x3D;&quot;cc-no-standard&quot;
+        [settings]&#x3D;&quot;tableSettings&quot;
+        [source]&#x3D;&quot;tokens&quot;
+        *ngIf&#x3D;&quot;!loading&quot;
+      &gt;&lt;/ng2-smart-table&gt;
+    &lt;/nb-card-body&gt;
+  &lt;/nb-card&gt;
+&lt;/div&gt;
+
+&lt;ng-template #createToken let-data let-ref&#x3D;&quot;dialogRef&quot;&gt;
+  &lt;nb-card *ngIf&#x3D;&quot;!isSuccess&quot; style&#x3D;&quot;width: 35rem&quot;&gt;
+    &lt;nb-card-header class&#x3D;&quot;d-flex align-items-cente justify-content-between&quot;&gt;
+      Create Personal Access Token
+      &lt;nb-icon
+        icon&#x3D;&quot;close-outline&quot;
+        pack&#x3D;&quot;fci&quot;
+        (click)&#x3D;&quot;ref.close()&quot;
+        class&#x3D;&quot;cursor-pointer&quot;
+      &gt;&lt;/nb-icon&gt;
+    &lt;/nb-card-header&gt;
+    &lt;nb-card-body&gt;
+      &lt;app-user-note-alert
+        title&#x3D;&quot;Note:&quot;
+        description&#x3D;&quot;Personal access tokens function like ordinary OAuth access tokens. They
+        can be used to authenticate to the Facets API over Basic Authentication.&quot;
+      &gt;
+      &lt;/app-user-note-alert&gt;
+      &lt;app-reactive-form-field
+        label&#x3D;&quot;Token Name&quot;
+        [required]&#x3D;&quot;true&quot;
+        labelSize&#x3D;&quot;4&quot;
+        fieldId&#x3D;&quot;tokenName&quot;
+        fieldName&#x3D;&quot;tokenName&quot;
+        inputSize&#x3D;&quot;8&quot;
+        placeholder&#x3D;&quot;Token Name&quot;
+        [customFormControl]&#x3D;&quot;tokenName&quot;
+        missingMsg&#x3D;&quot;Token Name is required!&quot;
+      &gt;&lt;/app-reactive-form-field&gt;
+    &lt;/nb-card-body&gt;
+    &lt;nb-card-footer&gt;
+      &lt;app-rbac-button
+        label&#x3D;&quot;Generate Token&quot;
+        class&#x3D;&quot;mr-3&quot;
+        status&#x3D;&quot;primary&quot;
+        [loading]&#x3D;&quot;&quot;
+        [disabled]&#x3D;&quot;
+          !tokenName?.value?.trim() || tokenName?.invalid || saveTokenInProgress
+        &quot;
+        [loading]&#x3D;&quot;saveTokenInProgress&quot;
+        (onClick)&#x3D;&quot;createTokenCall(ref)&quot;
+      &gt;&lt;/app-rbac-button&gt;
+      &lt;button nbButton size&#x3D;&quot;small&quot; (click)&#x3D;&quot;ref.close()&quot;&gt;Cancel&lt;/button&gt;
+    &lt;/nb-card-footer&gt;
+  &lt;/nb-card&gt;
+  &lt;nb-card *ngIf&#x3D;&quot;isSuccess&quot; style&#x3D;&quot;width: 35rem&quot;&gt;
+    &lt;nb-card-header class&#x3D;&quot;d-flex align-items-center justify-content-between&quot;&gt;
+      Personal Access Token
+      &lt;nb-icon
+        icon&#x3D;&quot;close-outline&quot;
+        pack&#x3D;&quot;fci&quot;
+        (click)&#x3D;&quot;ref.close()&quot;
+        class&#x3D;&quot;cursor-pointer&quot;
+      &gt;&lt;/nb-icon&gt;
+    &lt;/nb-card-header&gt;
+    &lt;nb-card-body class&#x3D;&quot;mb-3&quot;&gt;
+      &lt;div class&#x3D;&quot;mb-3&quot; nbTooltip&#x3D;&quot;Copied!&quot; nbTooltipTrigger&#x3D;&quot;click&quot;&gt;
+        Your personal access token has been generated successfully. Store it
+        securely since you won&#x27;t be able to see it again.
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;background-grey rounder p-2 d-flex&quot;&gt;
+        &lt;span&gt; {{ token[&#x27;token&#x27;] }}&lt;/span&gt;
+        &lt;nb-icon
+          icon&#x3D;&quot;copy-outline&quot;
+          pack&#x3D;&quot;fci&quot;
+          (click)&#x3D;&quot;copyToken(token[&#x27;token&#x27;])&quot;
+          class&#x3D;&quot;ml-auto cursor-pointer&quot;
+          nbTooltip&#x3D;&quot;Copied!&quot;
+          nbTooltipTrigger&#x3D;&quot;click&quot;
+        &gt;
+        &lt;/nb-icon&gt;
+      &lt;/div&gt;
+    &lt;/nb-card-body&gt;
+  &lt;/nb-card&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #deletePopup let-data let-ref&#x3D;&quot;dialogRef&quot;&gt;
+  &lt;app-delete-confirmation
+    [dialogRef]&#x3D;&quot;ref&quot;
+    [deleteItem]&#x3D;&quot;data?.data&quot;
+    [showSpinner]&#x3D;&quot;deleteInProgress&quot;
+    headerText&#x3D;&quot;Personal Access Token&quot;
+    [permanentDelete]&#x3D;&quot;true&quot;
+    (deleteConfirmEvent)&#x3D;&quot;deleteToken(data?.data, ref)&quot;
+  &gt;
+    &lt;app-user-note-alert
+      #warningAlert
+      title&#x3D;&quot;Warning!&quot;
+      type&#x3D;&quot;warning&quot;
+      description&#x3D;&quot;Any applications or scripts using this token will no longer be able to access the Facets API or CLI. You cannot undo this action.&quot;
+    &gt;&lt;/app-user-note-alert&gt;
+  &lt;/app-delete-confirmation&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./user-access-token.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@media only screen and (min-width: 768px) {
+  form {
+    min-width: 600px;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="mt-3">  <div class="d-flex justify-content-between mb-3" *ngIf="!loading">    <span subheading class="mt-1"      >Tokens you have generated can be used to access the      <a href="/swagger-ui.html" target="_blank">Facets API</a> and      <a        href="https://www.npmjs.com/package/@facets-cloud/facetsctl"        target="_blank"        >CLI</a      >.</span    >    <button      nbButton      size="small"      status="primary"      (click)="openCreatePopup(createToken)"    >      Generate Token    </button>  </div>  <nb-card    [nbSpinner]="loading"    [ngClass]="{ \'background-grey py-5\': loading }"  >    <nb-card-body>      <ng2-smart-table        class="cc-no-standard"        [settings]="tableSettings"        [source]="tokens"        *ngIf="!loading"      ></ng2-smart-table>    </nb-card-body>  </nb-card></div><ng-template #createToken let-data let-ref="dialogRef">  <nb-card *ngIf="!isSuccess" style="width: 35rem">    <nb-card-header class="d-flex align-items-cente justify-content-between">      Create Personal Access Token      <nb-icon        icon="close-outline"        pack="fci"        (click)="ref.close()"        class="cursor-pointer"      ></nb-icon>    </nb-card-header>    <nb-card-body>      <app-user-note-alert        title="Note:"        description="Personal access tokens function like ordinary OAuth access tokens. They        can be used to authenticate to the Facets API over Basic Authentication."      >      </app-user-note-alert>      <app-reactive-form-field        label="Token Name"        [required]="true"        labelSize="4"        fieldId="tokenName"        fieldName="tokenName"        inputSize="8"        placeholder="Token Name"        [customFormControl]="tokenName"        missingMsg="Token Name is required!"      ></app-reactive-form-field>    </nb-card-body>    <nb-card-footer>      <app-rbac-button        label="Generate Token"        class="mr-3"        status="primary"        [loading]=""        [disabled]="          !tokenName?.value?.trim() || tokenName?.invalid || saveTokenInProgress        "        [loading]="saveTokenInProgress"        (onClick)="createTokenCall(ref)"      ></app-rbac-button>      <button nbButton size="small" (click)="ref.close()">Cancel</button>    </nb-card-footer>  </nb-card>  <nb-card *ngIf="isSuccess" style="width: 35rem">    <nb-card-header class="d-flex align-items-center justify-content-between">      Personal Access Token      <nb-icon        icon="close-outline"        pack="fci"        (click)="ref.close()"        class="cursor-pointer"      ></nb-icon>    </nb-card-header>    <nb-card-body class="mb-3">      <div class="mb-3" nbTooltip="Copied!" nbTooltipTrigger="click">        Your personal access token has been generated successfully. Store it        securely since you won\'t be able to see it again.      </div>      <div class="background-grey rounder p-2 d-flex">        <span> {{ token[\'token\'] }}</span>        <nb-icon          icon="copy-outline"          pack="fci"          (click)="copyToken(token[\'token\'])"          class="ml-auto cursor-pointer"          nbTooltip="Copied!"          nbTooltipTrigger="click"        >        </nb-icon>      </div>    </nb-card-body>  </nb-card></ng-template><ng-template #deletePopup let-data let-ref="dialogRef">  <app-delete-confirmation    [dialogRef]="ref"    [deleteItem]="data?.data"    [showSpinner]="deleteInProgress"    headerText="Personal Access Token"    [permanentDelete]="true"    (deleteConfirmEvent)="deleteToken(data?.data, ref)"  >    <app-user-note-alert      #warningAlert      title="Warning!"      type="warning"      description="Any applications or scripts using this token will no longer be able to access the Facets API or CLI. You cannot undo this action."    ></app-user-note-alert>  </app-delete-confirmation></ng-template></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'UserAccessTokenComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserAccessTokenComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

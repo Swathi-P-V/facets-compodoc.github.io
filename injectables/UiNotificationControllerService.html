@@ -1,0 +1,4362 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >UiNotificationControllerService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/ui-notification-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Ui Notification Controller</p>
+
+            </p>
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../classes/BaseService.html" target="_self" >__BaseService</a></code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#createNotificationChannelUsingPOSTPath" >createNotificationChannelUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#createSubscriptionUsingPOSTPath" >createSubscriptionUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#deleteNotificationChannelUsingDELETEPath" >deleteNotificationChannelUsingDELETEPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#deleteSubscriptionUsingDELETEPath" >deleteSubscriptionUsingDELETEPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#editNotificationChannelUsingPUTPath" >editNotificationChannelUsingPUTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#editSubscriptionUsingPUTPath" >editSubscriptionUsingPUTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getAllChannelsUsingGETPath" >getAllChannelsUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getAllChannelTypesUsingGETPath" >getAllChannelTypesUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getAllNotificationTagsUsingGETPath" >getAllNotificationTagsUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getAllNotificationTypesUsingGETPath" >getAllNotificationTypesUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getAllSubscriptionsUsingGETPath" >getAllSubscriptionsUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getChannelUsingGETPath" >getChannelUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getFiltersForSubscriptionsUsingPOSTPath" >getFiltersForSubscriptionsUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getNotificationTagsForNotificationTypeUsingGETPath" >getNotificationTagsForNotificationTypeUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getSubscriptionAttributesUsingGETPath" >getSubscriptionAttributesUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getSubscriptionUsingGETPath" >getSubscriptionUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#testNotificationChannelUsingPOSTPath" >testNotificationChannelUsingPOSTPath</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#createNotificationChannelUsingPOST" >createNotificationChannelUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#createNotificationChannelUsingPOSTResponse" >createNotificationChannelUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#createSubscriptionUsingPOST" >createSubscriptionUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#createSubscriptionUsingPOSTResponse" >createSubscriptionUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#deleteNotificationChannelUsingDELETE" >deleteNotificationChannelUsingDELETE</a>
+                            </li>
+                            <li>
+                                <a href="#deleteNotificationChannelUsingDELETEResponse" >deleteNotificationChannelUsingDELETEResponse</a>
+                            </li>
+                            <li>
+                                <a href="#deleteSubscriptionUsingDELETE" >deleteSubscriptionUsingDELETE</a>
+                            </li>
+                            <li>
+                                <a href="#deleteSubscriptionUsingDELETEResponse" >deleteSubscriptionUsingDELETEResponse</a>
+                            </li>
+                            <li>
+                                <a href="#editNotificationChannelUsingPUT" >editNotificationChannelUsingPUT</a>
+                            </li>
+                            <li>
+                                <a href="#editNotificationChannelUsingPUTResponse" >editNotificationChannelUsingPUTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#editSubscriptionUsingPUT" >editSubscriptionUsingPUT</a>
+                            </li>
+                            <li>
+                                <a href="#editSubscriptionUsingPUTResponse" >editSubscriptionUsingPUTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getAllChannelsUsingGET" >getAllChannelsUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getAllChannelsUsingGETResponse" >getAllChannelsUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getAllChannelTypesUsingGET" >getAllChannelTypesUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getAllChannelTypesUsingGETResponse" >getAllChannelTypesUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getAllNotificationTagsUsingGET" >getAllNotificationTagsUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getAllNotificationTagsUsingGETResponse" >getAllNotificationTagsUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getAllNotificationTypesUsingGET" >getAllNotificationTypesUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getAllNotificationTypesUsingGETResponse" >getAllNotificationTypesUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getAllSubscriptionsUsingGET" >getAllSubscriptionsUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getAllSubscriptionsUsingGETResponse" >getAllSubscriptionsUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getChannelUsingGET" >getChannelUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getChannelUsingGETResponse" >getChannelUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getFiltersForSubscriptionsUsingPOST" >getFiltersForSubscriptionsUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#getFiltersForSubscriptionsUsingPOSTResponse" >getFiltersForSubscriptionsUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getNotificationTagsForNotificationTypeUsingGET" >getNotificationTagsForNotificationTypeUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getNotificationTagsForNotificationTypeUsingGETResponse" >getNotificationTagsForNotificationTypeUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getSubscriptionAttributesUsingGET" >getSubscriptionAttributesUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getSubscriptionAttributesUsingGETResponse" >getSubscriptionAttributesUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getSubscriptionUsingGET" >getSubscriptionUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getSubscriptionUsingGETResponse" >getSubscriptionUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#testNotificationChannelUsingPOST" >testNotificationChannelUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#testNotificationChannelUsingPOSTResponse" >testNotificationChannelUsingPOSTResponse</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(config: <a href="../interfaces/Config.html" target="_self">___Configuration</a>, http: HttpClient)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:64</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>config</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Config.html" target="_self" >___Configuration</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNotificationChannelUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>createNotificationChannelUsingPOST</b></span>
+                        <a href="#createNotificationChannelUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNotificationChannelUsingPOST(nc: <a href="../interfaces/NotificationChannel.html" target="_self">NotificationChannel</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="181"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:181</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>createNotificationChannel</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>nc</td>
+                                            <td>
+                                                            <code><a href="../interfaces/NotificationChannel.html" target="_self" >NotificationChannel</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>nc</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/NotificationChannel.html" target="_self" >___Observable&lt;Array&lt;NotificationChannel&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNotificationChannelUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>createNotificationChannelUsingPOSTResponse</b></span>
+                        <a href="#createNotificationChannelUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNotificationChannelUsingPOSTResponse(nc: <a href="../interfaces/NotificationChannel.html" target="_self">NotificationChannel</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>createNotificationChannel</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>nc</td>
+                                            <td>
+                                                            <code><a href="../interfaces/NotificationChannel.html" target="_self" >NotificationChannel</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>nc</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;NotificationChannel&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createSubscriptionUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>createSubscriptionUsingPOST</b></span>
+                        <a href="#createSubscriptionUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createSubscriptionUsingPOST(subscription: <a href="../interfaces/Subscription.html" target="_self">Subscription</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="606"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:606</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>createSubscription</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subscription</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Subscription.html" target="_self" >Subscription</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>subscription</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Subscription.html" target="_self" >___Observable&lt;Array&lt;Subscription&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createSubscriptionUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>createSubscriptionUsingPOSTResponse</b></span>
+                        <a href="#createSubscriptionUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createSubscriptionUsingPOSTResponse(subscription: <a href="../interfaces/Subscription.html" target="_self">Subscription</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="576"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:576</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>createSubscription</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subscription</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Subscription.html" target="_self" >Subscription</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>subscription</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteNotificationChannelUsingDELETE"></a>
+                    <span class="name">
+                        <span ><b>deleteNotificationChannelUsingDELETE</b></span>
+                        <a href="#deleteNotificationChannelUsingDELETE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteNotificationChannelUsingDELETE(channelId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="373"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:373</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteNotificationChannel</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>channelId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>channelId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/NotificationChannel.html" target="_self" >___Observable&lt;Array&lt;NotificationChannel&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteNotificationChannelUsingDELETEResponse"></a>
+                    <span class="name">
+                        <span ><b>deleteNotificationChannelUsingDELETEResponse</b></span>
+                        <a href="#deleteNotificationChannelUsingDELETEResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteNotificationChannelUsingDELETEResponse(channelId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="340"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:340</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteNotificationChannel</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>channelId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>channelId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;NotificationChannel&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteSubscriptionUsingDELETE"></a>
+                    <span class="name">
+                        <span ><b>deleteSubscriptionUsingDELETE</b></span>
+                        <a href="#deleteSubscriptionUsingDELETE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteSubscriptionUsingDELETE(subscriptionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="753"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:753</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteSubscription</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subscriptionId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>subscriptionId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Subscription.html" target="_self" >___Observable&lt;Array&lt;Subscription&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteSubscriptionUsingDELETEResponse"></a>
+                    <span class="name">
+                        <span ><b>deleteSubscriptionUsingDELETEResponse</b></span>
+                        <a href="#deleteSubscriptionUsingDELETEResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteSubscriptionUsingDELETEResponse(subscriptionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="720"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:720</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteSubscription</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subscriptionId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>subscriptionId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editNotificationChannelUsingPUT"></a>
+                    <span class="name">
+                        <span ><b>editNotificationChannelUsingPUT</b></span>
+                        <a href="#editNotificationChannelUsingPUT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editNotificationChannelUsingPUT(params: <a href="../injectables/UiNotificationControllerService.html" target="_self">UiNotificationControllerService.EditNotificationChannelUsingPUTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="327"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:327</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>editNotificationChannel</p>
+<ul>
+<li><p><code>nc</code>: nc</p>
+</li>
+<li><p><code>channelId</code>: channelId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiNotificationControllerService.html" target="_self" >UiNotificationControllerService.EditNotificationChannelUsingPUTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiNotificationControllerService.EditNotificationChannelUsingPUTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>nc</code>: nc</p>
+</li>
+<li><p><code>channelId</code>: channelId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/NotificationChannel.html" target="_self" >___Observable&lt;Array&lt;NotificationChannel&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editNotificationChannelUsingPUTResponse"></a>
+                    <span class="name">
+                        <span ><b>editNotificationChannelUsingPUTResponse</b></span>
+                        <a href="#editNotificationChannelUsingPUTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editNotificationChannelUsingPUTResponse(params: <a href="../injectables/UiNotificationControllerService.html" target="_self">UiNotificationControllerService.EditNotificationChannelUsingPUTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="288"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:288</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>editNotificationChannel</p>
+<ul>
+<li><p><code>nc</code>: nc</p>
+</li>
+<li><p><code>channelId</code>: channelId</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiNotificationControllerService.html" target="_self" >UiNotificationControllerService.EditNotificationChannelUsingPUTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiNotificationControllerService.EditNotificationChannelUsingPUTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>nc</code>: nc</p>
+</li>
+<li><p><code>channelId</code>: channelId</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;NotificationChannel&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editSubscriptionUsingPUT"></a>
+                    <span class="name">
+                        <span ><b>editSubscriptionUsingPUT</b></span>
+                        <a href="#editSubscriptionUsingPUT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editSubscriptionUsingPUT(params: <a href="../injectables/UiNotificationControllerService.html" target="_self">UiNotificationControllerService.EditSubscriptionUsingPUTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="707"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:707</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>editSubscription</p>
+<ul>
+<li><p><code>subscriptionId</code>: subscriptionId</p>
+</li>
+<li><p><code>subscription</code>: subscription</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiNotificationControllerService.html" target="_self" >UiNotificationControllerService.EditSubscriptionUsingPUTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiNotificationControllerService.EditSubscriptionUsingPUTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>subscriptionId</code>: subscriptionId</p>
+</li>
+<li><p><code>subscription</code>: subscription</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Subscription.html" target="_self" >___Observable&lt;Array&lt;Subscription&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editSubscriptionUsingPUTResponse"></a>
+                    <span class="name">
+                        <span ><b>editSubscriptionUsingPUTResponse</b></span>
+                        <a href="#editSubscriptionUsingPUTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editSubscriptionUsingPUTResponse(params: <a href="../injectables/UiNotificationControllerService.html" target="_self">UiNotificationControllerService.EditSubscriptionUsingPUTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="668"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:668</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>editSubscription</p>
+<ul>
+<li><p><code>subscriptionId</code>: subscriptionId</p>
+</li>
+<li><p><code>subscription</code>: subscription</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiNotificationControllerService.html" target="_self" >UiNotificationControllerService.EditSubscriptionUsingPUTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiNotificationControllerService.EditSubscriptionUsingPUTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>subscriptionId</code>: subscriptionId</p>
+</li>
+<li><p><code>subscription</code>: subscription</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllChannelsUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getAllChannelsUsingGET</b></span>
+                        <a href="#getAllChannelsUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllChannelsUsingGET()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllChannels</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/NotificationChannel.html" target="_self" >___Observable&lt;Array&lt;NotificationChannel&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllChannelsUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getAllChannelsUsingGETResponse</b></span>
+                        <a href="#getAllChannelsUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllChannelsUsingGETResponse()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllChannels</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;NotificationChannel&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllChannelTypesUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getAllChannelTypesUsingGET</b></span>
+                        <a href="#getAllChannelTypesUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllChannelTypesUsingGET()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="102"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllChannelTypes</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/ChannelTypePayload.html" target="_self" >___Observable&lt;Array&lt;ChannelTypePayload&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllChannelTypesUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getAllChannelTypesUsingGETResponse</b></span>
+                        <a href="#getAllChannelTypesUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllChannelTypesUsingGETResponse()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllChannelTypes</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;ChannelTypePayload&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllNotificationTagsUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getAllNotificationTagsUsingGET</b></span>
+                        <a href="#getAllNotificationTagsUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllNotificationTagsUsingGET()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="413"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:413</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllNotificationTags</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/NotificationTagPayload.html" target="_self" >___Observable&lt;Array&lt;NotificationTagPayload&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllNotificationTagsUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getAllNotificationTagsUsingGETResponse</b></span>
+                        <a href="#getAllNotificationTagsUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllNotificationTagsUsingGETResponse()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="385"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:385</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllNotificationTags</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;NotificationTagPayload&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllNotificationTypesUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getAllNotificationTypesUsingGET</b></span>
+                        <a href="#getAllNotificationTypesUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllNotificationTypesUsingGET()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="525"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:525</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllNotificationTypes</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;Array&lt;NotificationTypeResponse&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllNotificationTypesUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getAllNotificationTypesUsingGETResponse</b></span>
+                        <a href="#getAllNotificationTypesUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllNotificationTypesUsingGETResponse()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="497"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:497</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllNotificationTypes</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;NotificationTypeResponse&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllSubscriptionsUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getAllSubscriptionsUsingGET</b></span>
+                        <a href="#getAllSubscriptionsUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllSubscriptionsUsingGET()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="565"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:565</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllSubscriptions</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Subscription.html" target="_self" >___Observable&lt;Array&lt;Subscription&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllSubscriptionsUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getAllSubscriptionsUsingGETResponse</b></span>
+                        <a href="#getAllSubscriptionsUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllSubscriptionsUsingGETResponse()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="537"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:537</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllSubscriptions</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getChannelUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getChannelUsingGET</b></span>
+                        <a href="#getChannelUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getChannelUsingGET(channelId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="272"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:272</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getChannel</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>channelId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>channelId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/NotificationChannel.html" target="_self" >___Observable&lt;NotificationChannel&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getChannelUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getChannelUsingGETResponse</b></span>
+                        <a href="#getChannelUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getChannelUsingGETResponse(channelId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="239"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:239</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getChannel</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>channelId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>channelId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;NotificationChannel&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFiltersForSubscriptionsUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>getFiltersForSubscriptionsUsingPOST</b></span>
+                        <a href="#getFiltersForSubscriptionsUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFiltersForSubscriptionsUsingPOST(params: <a href="../injectables/UiNotificationControllerService.html" target="_self">UiNotificationControllerService.GetFiltersForSubscriptionsUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="814"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:814</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getFiltersForSubscriptions</p>
+<ul>
+<li><p><code>tagName</code>: tagName</p>
+</li>
+<li><p><code>notificationType</code>: notificationType</p>
+</li>
+<li><p><code>filterParams</code>: filterParams</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiNotificationControllerService.html" target="_self" >UiNotificationControllerService.GetFiltersForSubscriptionsUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiNotificationControllerService.GetFiltersForSubscriptionsUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>tagName</code>: tagName</p>
+</li>
+<li><p><code>notificationType</code>: notificationType</p>
+</li>
+<li><p><code>filterParams</code>: filterParams</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/TagDataModel.html" target="_self" >___Observable&lt;TagDataModel&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFiltersForSubscriptionsUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>getFiltersForSubscriptionsUsingPOSTResponse</b></span>
+                        <a href="#getFiltersForSubscriptionsUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFiltersForSubscriptionsUsingPOSTResponse(params: <a href="../injectables/UiNotificationControllerService.html" target="_self">UiNotificationControllerService.GetFiltersForSubscriptionsUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="773"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:773</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getFiltersForSubscriptions</p>
+<ul>
+<li><p><code>tagName</code>: tagName</p>
+</li>
+<li><p><code>notificationType</code>: notificationType</p>
+</li>
+<li><p><code>filterParams</code>: filterParams</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiNotificationControllerService.html" target="_self" >UiNotificationControllerService.GetFiltersForSubscriptionsUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiNotificationControllerService.GetFiltersForSubscriptionsUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>tagName</code>: tagName</p>
+</li>
+<li><p><code>notificationType</code>: notificationType</p>
+</li>
+<li><p><code>filterParams</code>: filterParams</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;TagDataModel&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getNotificationTagsForNotificationTypeUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getNotificationTagsForNotificationTypeUsingGET</b></span>
+                        <a href="#getNotificationTagsForNotificationTypeUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getNotificationTagsForNotificationTypeUsingGET(notificationType: "DEPLOYMENT_STATUS_UPDATE" | "APP_DEPLOYMENT" | "QASUITE_SANITY" | "DR_RESULT" | "STACK_SIGNOFF" | "ALERT" | "TEST" | "APPLICATION_DEPLOYMENT_COMPLETE" | "ENVIRONMENT_CREATE" | "ENVIRONMENT_DELETE" | "ENVIRONMENT_LAUNCH" | "ENVIRONMENT_DESTROY" | "ENVIRONMENT_CONFIGURE")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="873"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:873</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getNotificationTagsForNotificationType</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>notificationType</td>
+                                            <td>
+                                                        <code>&quot;DEPLOYMENT_STATUS_UPDATE&quot; | &quot;APP_DEPLOYMENT&quot; | &quot;QASUITE_SANITY&quot; | &quot;DR_RESULT&quot; | &quot;STACK_SIGNOFF&quot; | &quot;ALERT&quot; | &quot;TEST&quot; | &quot;APPLICATION_DEPLOYMENT_COMPLETE&quot; | &quot;ENVIRONMENT_CREATE&quot; | &quot;ENVIRONMENT_DELETE&quot; | &quot;ENVIRONMENT_LAUNCH&quot; | &quot;ENVIRONMENT_DESTROY&quot; | &quot;ENVIRONMENT_CONFIGURE&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>notificationType</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;Array&lt;NotificationTagsForTypeResult&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getNotificationTagsForNotificationTypeUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getNotificationTagsForNotificationTypeUsingGETResponse</b></span>
+                        <a href="#getNotificationTagsForNotificationTypeUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getNotificationTagsForNotificationTypeUsingGETResponse(notificationType: "DEPLOYMENT_STATUS_UPDATE" | "APP_DEPLOYMENT" | "QASUITE_SANITY" | "DR_RESULT" | "STACK_SIGNOFF" | "ALERT" | "TEST" | "APPLICATION_DEPLOYMENT_COMPLETE" | "ENVIRONMENT_CREATE" | "ENVIRONMENT_DELETE" | "ENVIRONMENT_LAUNCH" | "ENVIRONMENT_DESTROY" | "ENVIRONMENT_CONFIGURE")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="827"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:827</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getNotificationTagsForNotificationType</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>notificationType</td>
+                                            <td>
+                                                        <code>&quot;DEPLOYMENT_STATUS_UPDATE&quot; | &quot;APP_DEPLOYMENT&quot; | &quot;QASUITE_SANITY&quot; | &quot;DR_RESULT&quot; | &quot;STACK_SIGNOFF&quot; | &quot;ALERT&quot; | &quot;TEST&quot; | &quot;APPLICATION_DEPLOYMENT_COMPLETE&quot; | &quot;ENVIRONMENT_CREATE&quot; | &quot;ENVIRONMENT_DELETE&quot; | &quot;ENVIRONMENT_LAUNCH&quot; | &quot;ENVIRONMENT_DESTROY&quot; | &quot;ENVIRONMENT_CONFIGURE&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>notificationType</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;NotificationTagsForTypeResult&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubscriptionAttributesUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getSubscriptionAttributesUsingGET</b></span>
+                        <a href="#getSubscriptionAttributesUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSubscriptionAttributesUsingGET(notificationType: "DEPLOYMENT_STATUS_UPDATE" | "APP_DEPLOYMENT" | "QASUITE_SANITY" | "DR_RESULT" | "STACK_SIGNOFF" | "ALERT" | "TEST" | "APPLICATION_DEPLOYMENT_COMPLETE" | "ENVIRONMENT_CREATE" | "ENVIRONMENT_DELETE" | "ENVIRONMENT_LAUNCH" | "ENVIRONMENT_DESTROY" | "ENVIRONMENT_CONFIGURE")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="472"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:472</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getSubscriptionAttributes</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>notificationType</td>
+                                            <td>
+                                                        <code>&quot;DEPLOYMENT_STATUS_UPDATE&quot; | &quot;APP_DEPLOYMENT&quot; | &quot;QASUITE_SANITY&quot; | &quot;DR_RESULT&quot; | &quot;STACK_SIGNOFF&quot; | &quot;ALERT&quot; | &quot;TEST&quot; | &quot;APPLICATION_DEPLOYMENT_COMPLETE&quot; | &quot;ENVIRONMENT_CREATE&quot; | &quot;ENVIRONMENT_DELETE&quot; | &quot;ENVIRONMENT_LAUNCH&quot; | &quot;ENVIRONMENT_DESTROY&quot; | &quot;ENVIRONMENT_CONFIGURE&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>notificationType</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;Array&lt;string&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubscriptionAttributesUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getSubscriptionAttributesUsingGETResponse</b></span>
+                        <a href="#getSubscriptionAttributesUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSubscriptionAttributesUsingGETResponse(notificationType: "DEPLOYMENT_STATUS_UPDATE" | "APP_DEPLOYMENT" | "QASUITE_SANITY" | "DR_RESULT" | "STACK_SIGNOFF" | "ALERT" | "TEST" | "APPLICATION_DEPLOYMENT_COMPLETE" | "ENVIRONMENT_CREATE" | "ENVIRONMENT_DELETE" | "ENVIRONMENT_LAUNCH" | "ENVIRONMENT_DESTROY" | "ENVIRONMENT_CONFIGURE")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="426"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:426</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getSubscriptionAttributes</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>notificationType</td>
+                                            <td>
+                                                        <code>&quot;DEPLOYMENT_STATUS_UPDATE&quot; | &quot;APP_DEPLOYMENT&quot; | &quot;QASUITE_SANITY&quot; | &quot;DR_RESULT&quot; | &quot;STACK_SIGNOFF&quot; | &quot;ALERT&quot; | &quot;TEST&quot; | &quot;APPLICATION_DEPLOYMENT_COMPLETE&quot; | &quot;ENVIRONMENT_CREATE&quot; | &quot;ENVIRONMENT_DELETE&quot; | &quot;ENVIRONMENT_LAUNCH&quot; | &quot;ENVIRONMENT_DESTROY&quot; | &quot;ENVIRONMENT_CONFIGURE&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>notificationType</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;string&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubscriptionUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getSubscriptionUsingGET</b></span>
+                        <a href="#getSubscriptionUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSubscriptionUsingGET(subscriptionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="652"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:652</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getSubscription</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subscriptionId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>subscriptionId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Subscription.html" target="_self" >___Observable&lt;Subscription&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubscriptionUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getSubscriptionUsingGETResponse</b></span>
+                        <a href="#getSubscriptionUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSubscriptionUsingGETResponse(subscriptionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="619"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:619</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getSubscription</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subscriptionId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>subscriptionId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Subscription&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testNotificationChannelUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>testNotificationChannelUsingPOST</b></span>
+                        <a href="#testNotificationChannelUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>testNotificationChannelUsingPOST(testNotificationRequest: <a href="../interfaces/TestNotificationRequest.html" target="_self">TestNotificationRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="226"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:226</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>testNotificationChannel</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>testNotificationRequest</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TestNotificationRequest.html" target="_self" >TestNotificationRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>testNotificationRequest</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testNotificationChannelUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>testNotificationChannelUsingPOSTResponse</b></span>
+                        <a href="#testNotificationChannelUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>testNotificationChannelUsingPOSTResponse(testNotificationRequest: <a href="../interfaces/TestNotificationRequest.html" target="_self">TestNotificationRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:194</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>testNotificationChannel</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>testNotificationRequest</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TestNotificationRequest.html" target="_self" >TestNotificationRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>testNotificationRequest</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;boolean&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNotificationChannelUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>createNotificationChannelUsingPOSTPath</b></span>
+                        <a href="#createNotificationChannelUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/channels&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createSubscriptionUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>createSubscriptionUsingPOSTPath</b></span>
+                        <a href="#createSubscriptionUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/subscriptions&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteNotificationChannelUsingDELETEPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>deleteNotificationChannelUsingDELETEPath</b></span>
+                        <a href="#deleteNotificationChannelUsingDELETEPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/channels/{channelId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteSubscriptionUsingDELETEPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>deleteSubscriptionUsingDELETEPath</b></span>
+                        <a href="#deleteSubscriptionUsingDELETEPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/subscriptions/{subscriptionId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editNotificationChannelUsingPUTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>editNotificationChannelUsingPUTPath</b></span>
+                        <a href="#editNotificationChannelUsingPUTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/channels/{channelId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editSubscriptionUsingPUTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>editSubscriptionUsingPUTPath</b></span>
+                        <a href="#editSubscriptionUsingPUTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/subscriptions/{subscriptionId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllChannelsUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getAllChannelsUsingGETPath</b></span>
+                        <a href="#getAllChannelsUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/channels&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllChannelTypesUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getAllChannelTypesUsingGETPath</b></span>
+                        <a href="#getAllChannelTypesUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/channelTypes&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllNotificationTagsUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getAllNotificationTagsUsingGETPath</b></span>
+                        <a href="#getAllNotificationTagsUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/notificationTags&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllNotificationTypesUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getAllNotificationTypesUsingGETPath</b></span>
+                        <a href="#getAllNotificationTypesUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/notificationTypes&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllSubscriptionsUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getAllSubscriptionsUsingGETPath</b></span>
+                        <a href="#getAllSubscriptionsUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/subscriptions&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getChannelUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getChannelUsingGETPath</b></span>
+                        <a href="#getChannelUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/channels/{channelId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFiltersForSubscriptionsUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getFiltersForSubscriptionsUsingPOSTPath</b></span>
+                        <a href="#getFiltersForSubscriptionsUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/{notificationType}/tag/{tagName}/values/&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getNotificationTagsForNotificationTypeUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getNotificationTagsForNotificationTypeUsingGETPath</b></span>
+                        <a href="#getNotificationTagsForNotificationTypeUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/{notificationType}/tags&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubscriptionAttributesUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getSubscriptionAttributesUsingGETPath</b></span>
+                        <a href="#getSubscriptionAttributesUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/notificationType/{notificationType}/attributes&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubscriptionUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getSubscriptionUsingGETPath</b></span>
+                        <a href="#getSubscriptionUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/subscriptions/{subscriptionId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testNotificationChannelUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>testNotificationChannelUsingPOSTPath</b></span>
+                        <a href="#testNotificationChannelUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/notification/channels/test&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/cc-api/services/ui-notification-controller.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpHeaders,
+} from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { ChannelTypePayload } from &#x27;../models/channel-type-payload&#x27;;
+import { NotificationChannel } from &#x27;../models/notification-channel&#x27;;
+import { TestNotificationRequest } from &#x27;../models/test-notification-request&#x27;;
+import { NotificationTagPayload } from &#x27;../models/notification-tag-payload&#x27;;
+import { NotificationTypeResponse } from &#x27;../models/notification-type-response&#x27;;
+import { Subscription } from &#x27;../models/subscription&#x27;;
+import { TagDataModel } from &#x27;../models/tag-data-model&#x27;;
+import { NotificationTagsForTypeResult } from &#x27;../models/notification-tags-for-type-result&#x27;;
+
+/**
+ * Ui Notification Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class UiNotificationControllerService extends __BaseService {
+  static readonly getAllChannelTypesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/notification/channelTypes&#x27;;
+  static readonly getAllChannelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/notification/channels&#x27;;
+  static readonly createNotificationChannelUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/notification/channels&#x27;;
+  static readonly testNotificationChannelUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/notification/channels/test&#x27;;
+  static readonly getChannelUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/notification/channels/{channelId}&#x27;;
+  static readonly editNotificationChannelUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/notification/channels/{channelId}&#x27;;
+  static readonly deleteNotificationChannelUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/notification/channels/{channelId}&#x27;;
+  static readonly getAllNotificationTagsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/notification/notificationTags&#x27;;
+  static readonly getSubscriptionAttributesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/notification/notificationType/{notificationType}/attributes&#x27;;
+  static readonly getAllNotificationTypesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/notification/notificationTypes&#x27;;
+  static readonly getAllSubscriptionsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/notification/subscriptions&#x27;;
+  static readonly createSubscriptionUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/notification/subscriptions&#x27;;
+  static readonly getSubscriptionUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/notification/subscriptions/{subscriptionId}&#x27;;
+  static readonly editSubscriptionUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/notification/subscriptions/{subscriptionId}&#x27;;
+  static readonly deleteSubscriptionUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/notification/subscriptions/{subscriptionId}&#x27;;
+  static readonly getFiltersForSubscriptionsUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/notification/{notificationType}/tag/{tagName}/values/&#x27;;
+  static readonly getNotificationTagsForNotificationTypeUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/notification/{notificationType}/tags&#x27;;
+
+  constructor(config: __Configuration, http: HttpClient) {
+    super(config, http);
+  }
+
+  /**
+   * getAllChannelTypes
+   * @return OK
+   */
+  getAllChannelTypesUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;ChannelTypePayload&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/notification/channelTypes&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ChannelTypePayload&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllChannelTypes
+   * @return OK
+   */
+  getAllChannelTypesUsingGET(): __Observable&lt;Array&lt;ChannelTypePayload&gt;&gt; {
+    return this.getAllChannelTypesUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ChannelTypePayload&gt;),
+    );
+  }
+
+  /**
+   * getAllChannels
+   * @return OK
+   */
+  getAllChannelsUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;NotificationChannel&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/notification/channels&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;NotificationChannel&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllChannels
+   * @return OK
+   */
+  getAllChannelsUsingGET(): __Observable&lt;Array&lt;NotificationChannel&gt;&gt; {
+    return this.getAllChannelsUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;NotificationChannel&gt;),
+    );
+  }
+
+  /**
+   * createNotificationChannel
+   * @param nc nc
+   * @return OK
+   */
+  createNotificationChannelUsingPOSTResponse(
+    nc: NotificationChannel,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;NotificationChannel&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; nc;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/notification/channels&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;NotificationChannel&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * createNotificationChannel
+   * @param nc nc
+   * @return OK
+   */
+  createNotificationChannelUsingPOST(
+    nc: NotificationChannel,
+  ): __Observable&lt;Array&lt;NotificationChannel&gt;&gt; {
+    return this.createNotificationChannelUsingPOSTResponse(nc).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;NotificationChannel&gt;),
+    );
+  }
+
+  /**
+   * testNotificationChannel
+   * @param testNotificationRequest testNotificationRequest
+   * @return OK
+   */
+  testNotificationChannelUsingPOSTResponse(
+    testNotificationRequest: TestNotificationRequest,
+  ): __Observable&lt;__StrictHttpResponse&lt;boolean&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; testNotificationRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/notification/channels/test&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * testNotificationChannel
+   * @param testNotificationRequest testNotificationRequest
+   * @return OK
+   */
+  testNotificationChannelUsingPOST(
+    testNotificationRequest: TestNotificationRequest,
+  ): __Observable&lt;boolean&gt; {
+    return this.testNotificationChannelUsingPOSTResponse(
+      testNotificationRequest,
+    ).pipe(__map((_r) &#x3D;&gt; _r.body as boolean));
+  }
+
+  /**
+   * getChannel
+   * @param channelId channelId
+   * @return OK
+   */
+  getChannelUsingGETResponse(
+    channelId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;NotificationChannel&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/notification/channels/${encodeURIComponent(
+          String(channelId),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;NotificationChannel&gt;;
+      }),
+    );
+  }
+  /**
+   * getChannel
+   * @param channelId channelId
+   * @return OK
+   */
+  getChannelUsingGET(channelId: string): __Observable&lt;NotificationChannel&gt; {
+    return this.getChannelUsingGETResponse(channelId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as NotificationChannel),
+    );
+  }
+
+  /**
+   * editNotificationChannel
+   * @param params The &#x60;UiNotificationControllerService.EditNotificationChannelUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;nc&#x60;: nc
+   *
+   * - &#x60;channelId&#x60;: channelId
+   *
+   * @return OK
+   */
+  editNotificationChannelUsingPUTResponse(
+    params: UiNotificationControllerService.EditNotificationChannelUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;NotificationChannel&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.nc;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/notification/channels/${encodeURIComponent(
+          String(params.channelId),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;NotificationChannel&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * editNotificationChannel
+   * @param params The &#x60;UiNotificationControllerService.EditNotificationChannelUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;nc&#x60;: nc
+   *
+   * - &#x60;channelId&#x60;: channelId
+   *
+   * @return OK
+   */
+  editNotificationChannelUsingPUT(
+    params: UiNotificationControllerService.EditNotificationChannelUsingPUTParams,
+  ): __Observable&lt;Array&lt;NotificationChannel&gt;&gt; {
+    return this.editNotificationChannelUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;NotificationChannel&gt;),
+    );
+  }
+
+  /**
+   * deleteNotificationChannel
+   * @param channelId channelId
+   * @return OK
+   */
+  deleteNotificationChannelUsingDELETEResponse(
+    channelId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;NotificationChannel&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/notification/channels/${encodeURIComponent(
+          String(channelId),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;NotificationChannel&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteNotificationChannel
+   * @param channelId channelId
+   * @return OK
+   */
+  deleteNotificationChannelUsingDELETE(
+    channelId: string,
+  ): __Observable&lt;Array&lt;NotificationChannel&gt;&gt; {
+    return this.deleteNotificationChannelUsingDELETEResponse(channelId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;NotificationChannel&gt;),
+    );
+  }
+
+  /**
+   * getAllNotificationTags
+   * @return OK
+   */
+  getAllNotificationTagsUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;NotificationTagPayload&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/notification/notificationTags&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;NotificationTagPayload&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllNotificationTags
+   * @return OK
+   */
+  getAllNotificationTagsUsingGET(): __Observable&lt;
+    Array&lt;NotificationTagPayload&gt;
+  &gt; {
+    return this.getAllNotificationTagsUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;NotificationTagPayload&gt;),
+    );
+  }
+
+  /**
+   * getSubscriptionAttributes
+   * @param notificationType notificationType
+   * @return OK
+   */
+  getSubscriptionAttributesUsingGETResponse(
+    notificationType:
+      | &#x27;DEPLOYMENT_STATUS_UPDATE&#x27;
+      | &#x27;APP_DEPLOYMENT&#x27;
+      | &#x27;QASUITE_SANITY&#x27;
+      | &#x27;DR_RESULT&#x27;
+      | &#x27;STACK_SIGNOFF&#x27;
+      | &#x27;ALERT&#x27;
+      | &#x27;TEST&#x27;
+      | &#x27;APPLICATION_DEPLOYMENT_COMPLETE&#x27;
+      | &#x27;ENVIRONMENT_CREATE&#x27;
+      | &#x27;ENVIRONMENT_DELETE&#x27;
+      | &#x27;ENVIRONMENT_LAUNCH&#x27;
+      | &#x27;ENVIRONMENT_DESTROY&#x27;
+      | &#x27;ENVIRONMENT_CONFIGURE&#x27;,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;string&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/notification/notificationType/${encodeURIComponent(
+          String(notificationType),
+        )}/attributes&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;string&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getSubscriptionAttributes
+   * @param notificationType notificationType
+   * @return OK
+   */
+  getSubscriptionAttributesUsingGET(
+    notificationType:
+      | &#x27;DEPLOYMENT_STATUS_UPDATE&#x27;
+      | &#x27;APP_DEPLOYMENT&#x27;
+      | &#x27;QASUITE_SANITY&#x27;
+      | &#x27;DR_RESULT&#x27;
+      | &#x27;STACK_SIGNOFF&#x27;
+      | &#x27;ALERT&#x27;
+      | &#x27;TEST&#x27;
+      | &#x27;APPLICATION_DEPLOYMENT_COMPLETE&#x27;
+      | &#x27;ENVIRONMENT_CREATE&#x27;
+      | &#x27;ENVIRONMENT_DELETE&#x27;
+      | &#x27;ENVIRONMENT_LAUNCH&#x27;
+      | &#x27;ENVIRONMENT_DESTROY&#x27;
+      | &#x27;ENVIRONMENT_CONFIGURE&#x27;,
+  ): __Observable&lt;Array&lt;string&gt;&gt; {
+    return this.getSubscriptionAttributesUsingGETResponse(
+      notificationType,
+    ).pipe(__map((_r) &#x3D;&gt; _r.body as Array&lt;string&gt;));
+  }
+
+  /**
+   * getAllNotificationTypes
+   * @return OK
+   */
+  getAllNotificationTypesUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;NotificationTypeResponse&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/notification/notificationTypes&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;NotificationTypeResponse&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllNotificationTypes
+   * @return OK
+   */
+  getAllNotificationTypesUsingGET(): __Observable&lt;
+    Array&lt;NotificationTypeResponse&gt;
+  &gt; {
+    return this.getAllNotificationTypesUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;NotificationTypeResponse&gt;),
+    );
+  }
+
+  /**
+   * getAllSubscriptions
+   * @return OK
+   */
+  getAllSubscriptionsUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/notification/subscriptions&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllSubscriptions
+   * @return OK
+   */
+  getAllSubscriptionsUsingGET(): __Observable&lt;Array&lt;Subscription&gt;&gt; {
+    return this.getAllSubscriptionsUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Subscription&gt;),
+    );
+  }
+
+  /**
+   * createSubscription
+   * @param subscription subscription
+   * @return OK
+   */
+  createSubscriptionUsingPOSTResponse(
+    subscription: Subscription,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; subscription;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/notification/subscriptions&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * createSubscription
+   * @param subscription subscription
+   * @return OK
+   */
+  createSubscriptionUsingPOST(
+    subscription: Subscription,
+  ): __Observable&lt;Array&lt;Subscription&gt;&gt; {
+    return this.createSubscriptionUsingPOSTResponse(subscription).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Subscription&gt;),
+    );
+  }
+
+  /**
+   * getSubscription
+   * @param subscriptionId subscriptionId
+   * @return OK
+   */
+  getSubscriptionUsingGETResponse(
+    subscriptionId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Subscription&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/notification/subscriptions/${encodeURIComponent(
+          String(subscriptionId),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Subscription&gt;;
+      }),
+    );
+  }
+  /**
+   * getSubscription
+   * @param subscriptionId subscriptionId
+   * @return OK
+   */
+  getSubscriptionUsingGET(subscriptionId: string): __Observable&lt;Subscription&gt; {
+    return this.getSubscriptionUsingGETResponse(subscriptionId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Subscription),
+    );
+  }
+
+  /**
+   * editSubscription
+   * @param params The &#x60;UiNotificationControllerService.EditSubscriptionUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;subscriptionId&#x60;: subscriptionId
+   *
+   * - &#x60;subscription&#x60;: subscription
+   *
+   * @return OK
+   */
+  editSubscriptionUsingPUTResponse(
+    params: UiNotificationControllerService.EditSubscriptionUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.subscription;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/notification/subscriptions/${encodeURIComponent(
+          String(params.subscriptionId),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * editSubscription
+   * @param params The &#x60;UiNotificationControllerService.EditSubscriptionUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;subscriptionId&#x60;: subscriptionId
+   *
+   * - &#x60;subscription&#x60;: subscription
+   *
+   * @return OK
+   */
+  editSubscriptionUsingPUT(
+    params: UiNotificationControllerService.EditSubscriptionUsingPUTParams,
+  ): __Observable&lt;Array&lt;Subscription&gt;&gt; {
+    return this.editSubscriptionUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Subscription&gt;),
+    );
+  }
+
+  /**
+   * deleteSubscription
+   * @param subscriptionId subscriptionId
+   * @return OK
+   */
+  deleteSubscriptionUsingDELETEResponse(
+    subscriptionId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/notification/subscriptions/${encodeURIComponent(
+          String(subscriptionId),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Subscription&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteSubscription
+   * @param subscriptionId subscriptionId
+   * @return OK
+   */
+  deleteSubscriptionUsingDELETE(
+    subscriptionId: string,
+  ): __Observable&lt;Array&lt;Subscription&gt;&gt; {
+    return this.deleteSubscriptionUsingDELETEResponse(subscriptionId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Subscription&gt;),
+    );
+  }
+
+  /**
+   * getFiltersForSubscriptions
+   * @param params The &#x60;UiNotificationControllerService.GetFiltersForSubscriptionsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;tagName&#x60;: tagName
+   *
+   * - &#x60;notificationType&#x60;: notificationType
+   *
+   * - &#x60;filterParams&#x60;: filterParams
+   *
+   * @return OK
+   */
+  getFiltersForSubscriptionsUsingPOSTResponse(
+    params: UiNotificationControllerService.GetFiltersForSubscriptionsUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;TagDataModel&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.filterParams;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/notification/${encodeURIComponent(
+          String(params.notificationType),
+        )}/tag/${encodeURIComponent(String(params.tagName))}/values/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;TagDataModel&gt;;
+      }),
+    );
+  }
+  /**
+   * getFiltersForSubscriptions
+   * @param params The &#x60;UiNotificationControllerService.GetFiltersForSubscriptionsUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;tagName&#x60;: tagName
+   *
+   * - &#x60;notificationType&#x60;: notificationType
+   *
+   * - &#x60;filterParams&#x60;: filterParams
+   *
+   * @return OK
+   */
+  getFiltersForSubscriptionsUsingPOST(
+    params: UiNotificationControllerService.GetFiltersForSubscriptionsUsingPOSTParams,
+  ): __Observable&lt;TagDataModel&gt; {
+    return this.getFiltersForSubscriptionsUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as TagDataModel),
+    );
+  }
+
+  /**
+   * getNotificationTagsForNotificationType
+   * @param notificationType notificationType
+   * @return OK
+   */
+  getNotificationTagsForNotificationTypeUsingGETResponse(
+    notificationType:
+      | &#x27;DEPLOYMENT_STATUS_UPDATE&#x27;
+      | &#x27;APP_DEPLOYMENT&#x27;
+      | &#x27;QASUITE_SANITY&#x27;
+      | &#x27;DR_RESULT&#x27;
+      | &#x27;STACK_SIGNOFF&#x27;
+      | &#x27;ALERT&#x27;
+      | &#x27;TEST&#x27;
+      | &#x27;APPLICATION_DEPLOYMENT_COMPLETE&#x27;
+      | &#x27;ENVIRONMENT_CREATE&#x27;
+      | &#x27;ENVIRONMENT_DELETE&#x27;
+      | &#x27;ENVIRONMENT_LAUNCH&#x27;
+      | &#x27;ENVIRONMENT_DESTROY&#x27;
+      | &#x27;ENVIRONMENT_CONFIGURE&#x27;,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;NotificationTagsForTypeResult&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/notification/${encodeURIComponent(
+          String(notificationType),
+        )}/tags&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;NotificationTagsForTypeResult&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getNotificationTagsForNotificationType
+   * @param notificationType notificationType
+   * @return OK
+   */
+  getNotificationTagsForNotificationTypeUsingGET(
+    notificationType:
+      | &#x27;DEPLOYMENT_STATUS_UPDATE&#x27;
+      | &#x27;APP_DEPLOYMENT&#x27;
+      | &#x27;QASUITE_SANITY&#x27;
+      | &#x27;DR_RESULT&#x27;
+      | &#x27;STACK_SIGNOFF&#x27;
+      | &#x27;ALERT&#x27;
+      | &#x27;TEST&#x27;
+      | &#x27;APPLICATION_DEPLOYMENT_COMPLETE&#x27;
+      | &#x27;ENVIRONMENT_CREATE&#x27;
+      | &#x27;ENVIRONMENT_DELETE&#x27;
+      | &#x27;ENVIRONMENT_LAUNCH&#x27;
+      | &#x27;ENVIRONMENT_DESTROY&#x27;
+      | &#x27;ENVIRONMENT_CONFIGURE&#x27;,
+  ): __Observable&lt;Array&lt;NotificationTagsForTypeResult&gt;&gt; {
+    return this.getNotificationTagsForNotificationTypeUsingGETResponse(
+      notificationType,
+    ).pipe(__map((_r) &#x3D;&gt; _r.body as Array&lt;NotificationTagsForTypeResult&gt;));
+  }
+}
+
+module UiNotificationControllerService {
+  /**
+   * Parameters for editNotificationChannelUsingPUT
+   */
+  export interface EditNotificationChannelUsingPUTParams {
+    /**
+     * nc
+     */
+    nc: NotificationChannel;
+
+    /**
+     * channelId
+     */
+    channelId: string;
+  }
+
+  /**
+   * Parameters for editSubscriptionUsingPUT
+   */
+  export interface EditSubscriptionUsingPUTParams {
+    /**
+     * subscriptionId
+     */
+    subscriptionId: string;
+
+    /**
+     * subscription
+     */
+    subscription: Subscription;
+  }
+
+  /**
+   * Parameters for getFiltersForSubscriptionsUsingPOST
+   */
+  export interface GetFiltersForSubscriptionsUsingPOSTParams {
+    /**
+     * tagName
+     */
+    tagName:
+      | &#x27;CLUSTER_NAME&#x27;
+      | &#x27;CLUSTER_TYPE&#x27;
+      | &#x27;QASUITE_RESULT&#x27;
+      | &#x27;DR_ACTION&#x27;
+      | &#x27;DR_STATUS&#x27;
+      | &#x27;STACK_NAME&#x27;
+      | &#x27;SEVERITY&#x27;
+      | &#x27;ALERT_NAME&#x27;
+      | &#x27;DEPLOYMENT_STATUS&#x27;
+      | &#x27;APPLICATION_NAME&#x27;
+      | &#x27;SEND_RESOLVED&#x27;;
+
+    /**
+     * notificationType
+     */
+    notificationType:
+      | &#x27;DEPLOYMENT_STATUS_UPDATE&#x27;
+      | &#x27;APP_DEPLOYMENT&#x27;
+      | &#x27;QASUITE_SANITY&#x27;
+      | &#x27;DR_RESULT&#x27;
+      | &#x27;STACK_SIGNOFF&#x27;
+      | &#x27;ALERT&#x27;
+      | &#x27;TEST&#x27;
+      | &#x27;APPLICATION_DEPLOYMENT_COMPLETE&#x27;
+      | &#x27;ENVIRONMENT_CREATE&#x27;
+      | &#x27;ENVIRONMENT_DELETE&#x27;
+      | &#x27;ENVIRONMENT_LAUNCH&#x27;
+      | &#x27;ENVIRONMENT_DESTROY&#x27;
+      | &#x27;ENVIRONMENT_CONFIGURE&#x27;;
+
+    /**
+     * filterParams
+     */
+    filterParams: { [key: string]: Array&lt;string&gt; };
+  }
+}
+
+export { UiNotificationControllerService };
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'UiNotificationControllerService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

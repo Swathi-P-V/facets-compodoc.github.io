@@ -1,0 +1,1538 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AppAlertsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/alerts/alerts.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-alerts</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./alerts.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./alerts.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#alertsData" >alertsData</a>
+                            </li>
+                            <li>
+                                <a href="#alertsEmptyIcon" >alertsEmptyIcon</a>
+                            </li>
+                            <li>
+                                <a href="#criticalAlertsData" >criticalAlertsData</a>
+                            </li>
+                            <li>
+                                <a href="#errorIcon" >errorIcon</a>
+                            </li>
+                            <li>
+                                <a href="#errorMessage" >errorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#loadingAlerts" >loadingAlerts</a>
+                            </li>
+                            <li>
+                                <a href="#loadingTotalAlerts" >loadingTotalAlerts</a>
+                            </li>
+                            <li>
+                                <a href="#pollInterval" >pollInterval</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#popover" >popover</a>
+                            </li>
+                            <li>
+                                <a href="#showErrorState" >showErrorState</a>
+                            </li>
+                            <li>
+                                <a href="#tabsData" >tabsData</a>
+                            </li>
+                            <li>
+                                <a href="#totalAlertsCount" >totalAlertsCount</a>
+                            </li>
+                            <li>
+                                <a href="#warningAlertsData" >warningAlertsData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeAlertPopover" >closeAlertPopover</a>
+                            </li>
+                            <li>
+                                <a href="#getAlertsCount" >getAlertsCount</a>
+                            </li>
+                            <li>
+                                <a href="#getAlertsData" >getAlertsData</a>
+                            </li>
+                            <li>
+                                <a href="#getTotalAlerts" >getTotalAlerts</a>
+                            </li>
+                            <li>
+                                <a href="#navigateToAlerts" >navigateToAlerts</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openAlertsPopover" >openAlertsPopover</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(alertsControllerService: <a href="../injectables/UiAlertsControllerService.html" target="_self">UiAlertsControllerService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/alerts/alerts.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>alertsControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiAlertsControllerService.html" target="_self" >UiAlertsControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeAlertPopover"></a>
+                    <span class="name">
+                        <span ><b>closeAlertPopover</b></span>
+                        <a href="#closeAlertPopover"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeAlertPopover()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="138"
+                                    class="link-to-prism">src/app/components/alerts/alerts.component.ts:138</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAlertsCount"></a>
+                    <span class="name">
+                        <span ><b>getAlertsCount</b></span>
+                        <a href="#getAlertsCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAlertsCount()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="130"
+                                    class="link-to-prism">src/app/components/alerts/alerts.component.ts:130</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAlertsData"></a>
+                    <span class="name">
+                        <span ><b>getAlertsData</b></span>
+                        <a href="#getAlertsData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAlertsData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/components/alerts/alerts.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTotalAlerts"></a>
+                    <span class="name">
+                        <span ><b>getTotalAlerts</b></span>
+                        <a href="#getTotalAlerts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTotalAlerts()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/components/alerts/alerts.component.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateToAlerts"></a>
+                    <span class="name">
+                        <span ><b>navigateToAlerts</b></span>
+                        <a href="#navigateToAlerts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateToAlerts(alert)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">src/app/components/alerts/alerts.component.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>alert</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/components/alerts/alerts.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openAlertsPopover"></a>
+                    <span class="name">
+                        <span ><b>openAlertsPopover</b></span>
+                        <a href="#openAlertsPopover"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openAlertsPopover()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="123"
+                                    class="link-to-prism">src/app/components/alerts/alerts.component.ts:123</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="alertsData"></a>
+                    <span class="name">
+                        <span ><b>alertsData</b></span>
+                        <a href="#alertsData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>AlertOverview[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/alerts/alerts.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="alertsEmptyIcon"></a>
+                    <span class="name">
+                        <span ><b>alertsEmptyIcon</b></span>
+                        <a href="#alertsEmptyIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;./assets/empty-env.svg&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/alerts/alerts.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="criticalAlertsData"></a>
+                    <span class="name">
+                        <span ><b>criticalAlertsData</b></span>
+                        <a href="#criticalAlertsData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/alerts/alerts.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorIcon"></a>
+                    <span class="name">
+                        <span ><b>errorIcon</b></span>
+                        <a href="#errorIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;./assets/error-red.svg&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/alerts/alerts.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorMessage"></a>
+                    <span class="name">
+                        <span ><b>errorMessage</b></span>
+                        <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/alerts/alerts.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadingAlerts"></a>
+                    <span class="name">
+                        <span ><b>loadingAlerts</b></span>
+                        <a href="#loadingAlerts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/alerts/alerts.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadingTotalAlerts"></a>
+                    <span class="name">
+                        <span ><b>loadingTotalAlerts</b></span>
+                        <a href="#loadingTotalAlerts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/alerts/alerts.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pollInterval"></a>
+                    <span class="name">
+                        <span ><b>pollInterval</b></span>
+                        <a href="#pollInterval"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>60000</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/alerts/alerts.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="popover"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>popover</b></span>
+                        <a href="#popover"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>NbPopoverDirective</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(NbPopoverDirective)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/alerts/alerts.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showErrorState"></a>
+                    <span class="name">
+                        <span ><b>showErrorState</b></span>
+                        <a href="#showErrorState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/alerts/alerts.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabsData"></a>
+                    <span class="name">
+                        <span ><b>tabsData</b></span>
+                        <a href="#tabsData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      title: &#x27;Critical State&#x27;,
+      data: this.criticalAlertsData,
+      badgeStatus: &#x27;danger&#x27;,
+      count: &#x27;0&#x27;,
+    },
+    {
+      title: &#x27;Risk State&#x27;,
+      data: this.warningAlertsData,
+      badgeStatus: &#x27;warning&#x27;,
+      count: &#x27;0&#x27;,
+    },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/alerts/alerts.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalAlertsCount"></a>
+                    <span class="name">
+                        <span ><b>totalAlertsCount</b></span>
+                        <a href="#totalAlertsCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/alerts/alerts.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="warningAlertsData"></a>
+                    <span class="name">
+                        <span ><b>warningAlertsData</b></span>
+                        <a href="#warningAlertsData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/alerts/alerts.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { NbPopoverDirective } from &#x27;@nebular/theme&#x27;;
+import { interval } from &#x27;rxjs&#x27;;
+import { switchMap } from &#x27;rxjs/operators&#x27;;
+import { UiAlertsControllerService } from &#x27;src/app/cc-api/services&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { AlertOverview } from &#x27;./../../cc-api/models/alert-overview&#x27;;
+
+@Component({
+  selector: &#x27;app-alerts&#x27;,
+  templateUrl: &#x27;./alerts.component.html&#x27;,
+  styleUrls: [&#x27;./alerts.component.scss&#x27;],
+})
+export class AppAlertsComponent implements OnInit {
+  @ViewChild(NbPopoverDirective) popover: NbPopoverDirective;
+  warningAlertsData: any &#x3D; [];
+  criticalAlertsData: any &#x3D; [];
+  alertsData: AlertOverview[] &#x3D; [];
+  loadingAlerts: boolean &#x3D; false;
+  alertsEmptyIcon: string &#x3D; &#x27;./assets/empty-env.svg&#x27;;
+  errorIcon: string &#x3D; &#x27;./assets/error-red.svg&#x27;;
+  showErrorState: boolean &#x3D; false;
+  errorMessage: string &#x3D; &#x27;&#x27;;
+  loadingTotalAlerts: boolean &#x3D; false;
+  totalAlertsCount: number &#x3D; 0;
+  pollInterval: number &#x3D; 60000;
+  tabsData &#x3D; [
+    {
+      title: &#x27;Critical State&#x27;,
+      data: this.criticalAlertsData,
+      badgeStatus: &#x27;danger&#x27;,
+      count: &#x27;0&#x27;,
+    },
+    {
+      title: &#x27;Risk State&#x27;,
+      data: this.warningAlertsData,
+      badgeStatus: &#x27;warning&#x27;,
+      count: &#x27;0&#x27;,
+    },
+  ];
+
+  constructor(
+    private alertsControllerService: UiAlertsControllerService,
+    private router: Router,
+  ) {}
+
+  ngOnInit(): void {
+    this.getTotalAlerts();
+    this.getAlertsCount();
+  }
+
+  getAlertsData(): void {
+    this.alertsData &#x3D; [];
+    this.criticalAlertsData &#x3D; [];
+    this.warningAlertsData &#x3D; [];
+    this.loadingAlerts &#x3D; true;
+    this.showErrorState &#x3D; false;
+    this.alertsControllerService.getAlertsOverviewUsingGET().subscribe(
+      (data) &#x3D;&gt; {
+        this.alertsData &#x3D; data;
+        this.alertsData.forEach((alert) &#x3D;&gt; {
+          if (alert?.stackName?.length) {
+            if (alert?.severityCounts?.critical &gt; 0) {
+              this.criticalAlertsData.push(alert);
+            }
+            if (alert?.severityCounts?.warning &gt; 0) {
+              this.warningAlertsData.push(alert);
+            }
+          }
+        });
+        this.tabsData[0].data &#x3D; this.criticalAlertsData;
+        this.tabsData[0].count &#x3D; this.criticalAlertsData.reduce(
+          (sum, alert) &#x3D;&gt; sum + alert?.severityCounts?.critical,
+          0,
+        );
+        this.tabsData[1].data &#x3D; this.warningAlertsData;
+        this.tabsData[1].count &#x3D; this.warningAlertsData.reduce(
+          (sum, alert) &#x3D;&gt; sum + alert?.severityCounts?.warning,
+          0,
+        );
+        this.loadingAlerts &#x3D; false;
+      },
+      (err) &#x3D;&gt; {
+        this.loadingAlerts &#x3D; false;
+        this.showErrorState &#x3D; true;
+        this.errorMessage &#x3D;
+          err?.error?.message || &#x27;There was some error fetching alerts data&#x27;;
+      },
+    );
+  }
+
+  /*
+   * Interval to call api every 5 seconds.
+   * Switchmap to run only 1 request at any point in time.
+   * get response and call getTotalAlerts again
+   */
+  getTotalAlerts() {
+    interval(this.pollInterval)
+      .pipe(
+        switchMap(() &#x3D;&gt; this.alertsControllerService.getAlertsCountUsingGET()),
+      )
+      .subscribe(
+        (alertsCountResponse: any) &#x3D;&gt; {
+          this.totalAlertsCount &#x3D; alertsCountResponse?.total;
+        },
+        () &#x3D;&gt; {
+          this.getTotalAlerts();
+        },
+      );
+  }
+
+  navigateToAlerts(alert) {
+    this.closeAlertPopover();
+    this.router.navigate([
+      &#x27;/&#x27;,
+      alert?.stackName,
+      &#x27;cluster&#x27;,
+      alert?.clusterId,
+      &#x27;alerts&#x27;,
+    ]);
+  }
+
+  openAlertsPopover() {
+    if (!this.popover.isShown) {
+      this.getAlertsData();
+      this.getAlertsCount();
+    }
+  }
+
+  getAlertsCount() {
+    this.alertsControllerService
+      .getAlertsCountUsingGET()
+      .subscribe((alertsCountResponse) &#x3D;&gt; {
+        this.totalAlertsCount &#x3D; alertsCountResponse?.total;
+      });
+  }
+
+  closeAlertPopover() {
+    this.popover.hide();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div
+  class&#x3D;&quot;mr-4 cursor-pointer position-relative d-inline-block mt-2 global-alert-parent&quot;
+  [ngClass]&#x3D;&quot;{
+    &#x27;mr-4&#x27;: totalAlertsCount &lt; 1000,
+    &#x27;mr-5&#x27;: totalAlertsCount &gt;&#x3D; 1000
+  }&quot;
+  [nbPopover]&#x3D;&quot;alertsTemplate&quot;
+  nbPopoverPlacement&#x3D;&quot;bottom&quot;
+  nbPopoverClass&#x3D;&quot;alert-popover&quot;
+  nbPopoverTrigger&#x3D;&quot;click&quot;
+  (click)&#x3D;&quot;openAlertsPopover()&quot;
+&gt;
+  &lt;nb-icon pack&#x3D;&quot;fci&quot; icon&#x3D;&quot;alert-bell-icon&quot; status&#x3D;&quot;primary&quot;&gt;&lt;/nb-icon&gt;
+  &lt;nb-badge
+    *ngIf&#x3D;&quot;totalAlertsCount &gt; 0&quot;
+    [text]&#x3D;&quot;totalAlertsCount&quot;
+    status&#x3D;&quot;danger&quot;
+    class&#x3D;&quot;alert-count weight-600&quot;
+  &gt;
+  &lt;/nb-badge&gt;
+&lt;/div&gt;
+&lt;ng-template #alertsTemplate let-data&gt;
+  &lt;nb-card
+    class&#x3D;&quot;global-alerts-card h-100&quot;
+    style&#x3D;&quot;max-width: 25rem; min-width: 22rem; min-height: 20rem&quot;
+  &gt;
+    &lt;nb-card-header class&#x3D;&quot;d-flex justify-content-between align-items-center&quot;&gt;
+      &lt;h6&gt;Environments&lt;/h6&gt;
+      &lt;nb-icon
+        icon&#x3D;&quot;close-outline&quot;
+        class&#x3D;&quot;cursor-pointer&quot;
+        (click)&#x3D;&quot;closeAlertPopover()&quot;
+      &gt;&lt;/nb-icon&gt;
+    &lt;/nb-card-header&gt;
+    &lt;nb-card-body class&#x3D;&quot;pt-0&quot; [nbSpinner]&#x3D;&quot;loadingAlerts&quot;&gt;
+      &lt;nb-tabset *ngIf&#x3D;&quot;!loadingAlerts &amp;&amp; !showErrorState&quot; fullWidth&gt;
+        &lt;nb-tab
+          *ngFor&#x3D;&quot;let tab of tabsData; let i &#x3D; index&quot;
+          [tabTitle]&#x3D;&quot;tab?.title&quot;
+          [badgeText]&#x3D;&quot;!tab?.count &amp;&amp; !loadingAlerts ? &#x27;0&#x27; : tab?.count&quot;
+          [badgeStatus]&#x3D;&quot;tab?.badgeStatus&quot;
+          class&#x3D;&quot;alert-tab p-0 mt-3&quot;
+        &gt;
+          &lt;div *ngIf&#x3D;&quot;tab?.data?.length &gt; 0&quot;&gt;
+            &lt;div
+              class&#x3D;&quot;cursor-pointer&quot;
+              *ngFor&#x3D;&quot;let alert of tab?.data; let i &#x3D; index&quot;
+              (click)&#x3D;&quot;navigateToAlerts(alert)&quot;
+            &gt;
+              &lt;div
+                class&#x3D;&quot;d-flex justify-content-between p-2 single-alert-parent align-items-center&quot;
+              &gt;
+                &lt;div class&#x3D;&quot;mr-2&quot;&gt;
+                  &lt;div
+                    class&#x3D;&quot;cursor-pointer d-inline-block p-2 background-green rounded&quot;
+                  &gt;
+                    &lt;div class&#x3D;&quot;d-flex flex-wrap&quot;&gt;
+                      &lt;ng-container&gt;
+                        &lt;div class&#x3D;&quot;d-flex align-items-center&quot;&gt;
+                          &lt;nb-icon icon&#x3D;&quot;layers-outline&quot;&gt;&lt;/nb-icon&gt;
+                          &lt;span class&#x3D;&quot;ml-1&quot;&gt;
+                            {{ alert?.stackName }}
+                          &lt;/span&gt;
+                        &lt;/div&gt;
+                      &lt;/ng-container&gt;
+                      &lt;ng-container&gt;
+                        &lt;div
+                          class&#x3D;&quot;d-flex align-items-center justify-content-center&quot;
+                        &gt;
+                          &lt;nb-icon icon&#x3D;&quot;arrow-ios-forward-outline&quot;&gt;&lt;/nb-icon&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;d-flex align-items-center env-green&quot;&gt;
+                          &lt;nb-icon icon&#x3D;&quot;cloud-download-outline&quot;&gt;&lt;/nb-icon&gt;
+                          &lt;span class&#x3D;&quot;ml-1&quot;&gt;
+                            {{ alert?.clusterName }}
+                          &lt;/span&gt;
+                        &lt;/div&gt;
+                      &lt;/ng-container&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;d-flex mt-2&quot;&gt;
+                    &lt;div
+                      *ngIf&#x3D;&quot;tab?.title &#x3D;&#x3D;&#x3D; &#x27;Critical State&#x27;&quot;
+                      class&#x3D;&quot;d-flex align-items-center&quot;
+                    &gt;
+                      &lt;nb-icon
+                        pack&#x3D;&quot;fci&quot;
+                        icon&#x3D;&quot;critical&quot;
+                        nbTooltip&#x3D;&quot;Critical Alerts&quot;
+                        class&#x3D;&quot;alert-cat-icon&quot;
+                      &gt;&lt;/nb-icon&gt;
+                      &lt;span class&#x3D;&quot;ml-1&quot;
+                        &gt;{{ alert?.severityCounts?.critical }} Critical
+                        Alert&lt;ng-container
+                          *ngIf&#x3D;&quot;alert?.severityCounts?.critical &gt; 1&quot;
+                          &gt;s&lt;/ng-container
+                        &gt;&lt;/span
+                      &gt;
+                    &lt;/div&gt;
+                    &lt;div
+                      *ngIf&#x3D;&quot;tab?.title &#x3D;&#x3D;&#x3D; &#x27;Risk State&#x27;&quot;
+                      class&#x3D;&quot;d-flex align-items-center&quot;
+                    &gt;
+                      &lt;nb-icon
+                        pack&#x3D;&quot;fci&quot;
+                        icon&#x3D;&quot;warning&quot;
+                        nbTooltip&#x3D;&quot;Warning Alerts&quot;
+                        class&#x3D;&quot;alert-cat-icon&quot;
+                      &gt;&lt;/nb-icon&gt;
+                      &lt;span class&#x3D;&quot;ml-1&quot;
+                        &gt;{{ alert?.severityCounts?.warning }} Warning
+                        Alert&lt;ng-container
+                          *ngIf&#x3D;&quot;alert?.severityCounts?.warning &gt; 1&quot;
+                          &gt;s&lt;/ng-container
+                        &gt;&lt;/span
+                      &gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;nb-icon
+                  class&#x3D;&quot;external-link&quot;
+                  icon&#x3D;&quot;chevron-right-outline&quot;
+                &gt;&lt;/nb-icon&gt;
+              &lt;/div&gt;
+              &lt;hr *ngIf&#x3D;&quot;i !&#x3D;&#x3D; tab?.data?.length - 1&quot; class&#x3D;&quot;my-2&quot; /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;app-message
+            *ngIf&#x3D;&quot;tab?.data?.length &lt;&#x3D; 0 &amp;&amp; !loadingAlerts&quot;
+            [imgUrl]&#x3D;&quot;alertsEmptyIcon&quot;
+            primaryMsg&#x3D;&quot;&quot;
+            secondaryMsg&#x3D;&quot;No Environments Found with {{ tab?.title }} Alerts&quot;
+            [showBtn]&#x3D;&quot;false&quot;
+            status&#x3D;&quot;info&quot;
+            [changeBackground]&#x3D;&quot;false&quot;
+          &gt;&lt;/app-message&gt;
+        &lt;/nb-tab&gt;
+      &lt;/nb-tabset&gt;
+      &lt;app-message
+        *ngIf&#x3D;&quot;showErrorState &amp;&amp; !loadingAlerts&quot;
+        [imgUrl]&#x3D;&quot;errorIcon&quot;
+        primaryMsg&#x3D;&quot;&quot;
+        [secondaryMsg]&#x3D;&quot;errorMessage&quot;
+        [showBtn]&#x3D;&quot;false&quot;
+        status&#x3D;&quot;error&quot;
+        [changeBackground]&#x3D;&quot;false&quot;
+      &gt;
+      &lt;/app-message&gt;
+    &lt;/nb-card-body&gt;
+  &lt;/nb-card&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./alerts.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.global-alerts-card {
+  ::ng-deep nb-tabset .tabset {
+    position: sticky;
+    top: 0;
+    padding-top: 8px;
+    z-index: 1;
+    background-color: var(--text-light-color);
+  }
+  .alert-cat-icon {
+    width: 1.25rem !important;
+  }
+  nb-card-body {
+    .background-green {
+      background-color: var(--background-green-faded);
+    }
+    .env-green {
+      color: var(--environment-color);
+    }
+    .external-link {
+      visibility: hidden;
+    }
+    .single-alert-parent:hover {
+      background-color: var(--hover-state-background-color);
+      .external-link {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+::ng-deep .alert-popover {
+  max-height: 50%;
+  nb-popover {
+    background-color: var(--text-light-color) !important;
+    color: var(--card-dark-background-color) !important;
+  }
+  nb-popover .arrow::after {
+    display: none;
+  }
+}
+
+.global-alert-parent {
+  ::ng-deep nb-badge {
+    font-size: 0.6rem;
+    position: absolute;
+    top: -0.7rem;
+    left: 0.4rem;
+    right: auto;
+    border-radius: 10rem;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div  class="mr-4 cursor-pointer position-relative d-inline-block mt-2 global-alert-parent"  [ngClass]="{    \'mr-4\': totalAlertsCount < 1000,    \'mr-5\': totalAlertsCount >= 1000  }"  [nbPopover]="alertsTemplate"  nbPopoverPlacement="bottom"  nbPopoverClass="alert-popover"  nbPopoverTrigger="click"  (click)="openAlertsPopover()">  <nb-icon pack="fci" icon="alert-bell-icon" status="primary"></nb-icon>  <nb-badge    *ngIf="totalAlertsCount > 0"    [text]="totalAlertsCount"    status="danger"    class="alert-count weight-600"  >  </nb-badge></div><ng-template #alertsTemplate let-data>  <nb-card    class="global-alerts-card h-100"    style="max-width: 25rem; min-width: 22rem; min-height: 20rem"  >    <nb-card-header class="d-flex justify-content-between align-items-center">      <h6>Environments</h6>      <nb-icon        icon="close-outline"        class="cursor-pointer"        (click)="closeAlertPopover()"      ></nb-icon>    </nb-card-header>    <nb-card-body class="pt-0" [nbSpinner]="loadingAlerts">      <nb-tabset *ngIf="!loadingAlerts && !showErrorState" fullWidth>        <nb-tab          *ngFor="let tab of tabsData; let i = index"          [tabTitle]="tab?.title"          [badgeText]="!tab?.count && !loadingAlerts ? \'0\' : tab?.count"          [badgeStatus]="tab?.badgeStatus"          class="alert-tab p-0 mt-3"        >          <div *ngIf="tab?.data?.length > 0">            <div              class="cursor-pointer"              *ngFor="let alert of tab?.data; let i = index"              (click)="navigateToAlerts(alert)"            >              <div                class="d-flex justify-content-between p-2 single-alert-parent align-items-center"              >                <div class="mr-2">                  <div                    class="cursor-pointer d-inline-block p-2 background-green rounded"                  >                    <div class="d-flex flex-wrap">                      <ng-container>                        <div class="d-flex align-items-center">                          <nb-icon icon="layers-outline"></nb-icon>                          <span class="ml-1">                            {{ alert?.stackName }}                          </span>                        </div>                      </ng-container>                      <ng-container>                        <div                          class="d-flex align-items-center justify-content-center"                        >                          <nb-icon icon="arrow-ios-forward-outline"></nb-icon>                        </div>                        <div class="d-flex align-items-center env-green">                          <nb-icon icon="cloud-download-outline"></nb-icon>                          <span class="ml-1">                            {{ alert?.clusterName }}                          </span>                        </div>                      </ng-container>                    </div>                  </div>                  <div class="d-flex mt-2">                    <div                      *ngIf="tab?.title === \'Critical State\'"                      class="d-flex align-items-center"                    >                      <nb-icon                        pack="fci"                        icon="critical"                        nbTooltip="Critical Alerts"                        class="alert-cat-icon"                      ></nb-icon>                      <span class="ml-1"                        >{{ alert?.severityCounts?.critical }} Critical                        Alert<ng-container                          *ngIf="alert?.severityCounts?.critical > 1"                          >s</ng-container                        ></span                      >                    </div>                    <div                      *ngIf="tab?.title === \'Risk State\'"                      class="d-flex align-items-center"                    >                      <nb-icon                        pack="fci"                        icon="warning"                        nbTooltip="Warning Alerts"                        class="alert-cat-icon"                      ></nb-icon>                      <span class="ml-1"                        >{{ alert?.severityCounts?.warning }} Warning                        Alert<ng-container                          *ngIf="alert?.severityCounts?.warning > 1"                          >s</ng-container                        ></span                      >                    </div>                  </div>                </div>                <nb-icon                  class="external-link"                  icon="chevron-right-outline"                ></nb-icon>              </div>              <hr *ngIf="i !== tab?.data?.length - 1" class="my-2" />            </div>          </div>          <app-message            *ngIf="tab?.data?.length <= 0 && !loadingAlerts"            [imgUrl]="alertsEmptyIcon"            primaryMsg=""            secondaryMsg="No Environments Found with {{ tab?.title }} Alerts"            [showBtn]="false"            status="info"            [changeBackground]="false"          ></app-message>        </nb-tab>      </nb-tabset>      <app-message        *ngIf="showErrorState && !loadingAlerts"        [imgUrl]="errorIcon"        primaryMsg=""        [secondaryMsg]="errorMessage"        [showBtn]="false"        status="error"        [changeBackground]="false"      >      </app-message>    </nb-card-body>  </nb-card></ng-template></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'AppAlertsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppAlertsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

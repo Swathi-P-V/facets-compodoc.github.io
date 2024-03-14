@@ -1,0 +1,2818 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ClusterReleasesValidationsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnChanges</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-cluster-releases-validations</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./cluster-releases-validations.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./cluster-releases-validations.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#categoryIconMapping" >categoryIconMapping</a>
+                            </li>
+                            <li>
+                                <a href="#categoryTotalValidationsMap" >categoryTotalValidationsMap</a>
+                            </li>
+                            <li>
+                                <a href="#emptyStateLogo" >emptyStateLogo</a>
+                            </li>
+                            <li>
+                                <a href="#errorCategoryMap" >errorCategoryMap</a>
+                            </li>
+                            <li>
+                                <a href="#errorMenuItems" >errorMenuItems</a>
+                            </li>
+                            <li>
+                                <a href="#errorsBeingDisplayed" >errorsBeingDisplayed</a>
+                            </li>
+                            <li>
+                                <a href="#filterForm" >filterForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#filterOptions" >filterOptions</a>
+                            </li>
+                            <li>
+                                <a href="#menuItemSubscriber" >menuItemSubscriber</a>
+                            </li>
+                            <li>
+                                <a href="#onMenuItemClick" >onMenuItemClick</a>
+                            </li>
+                            <li>
+                                <a href="#originalDataBackup" >originalDataBackup</a>
+                            </li>
+                            <li>
+                                <a href="#runningValidationCallInProgress" >runningValidationCallInProgress</a>
+                            </li>
+                            <li>
+                                <a href="#selectedMenuItemId" >selectedMenuItemId</a>
+                            </li>
+                            <li>
+                                <a href="#showCountdown" >showCountdown</a>
+                            </li>
+                            <li>
+                                <a href="#showingAllData" >showingAllData</a>
+                            </li>
+                            <li>
+                                <a href="#totalValidations" >totalValidations</a>
+                            </li>
+                            <li>
+                                <a href="#validationsAutoRefreshingIn" >validationsAutoRefreshingIn</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#applyFilter" >applyFilter</a>
+                            </li>
+                            <li>
+                                <a href="#beginAutoRefreshing" >beginAutoRefreshing</a>
+                            </li>
+                            <li>
+                                <a href="#categorizeErrors" >categorizeErrors</a>
+                            </li>
+                            <li>
+                                <a href="#fetchValidations" >fetchValidations</a>
+                            </li>
+                            <li>
+                                <a href="#filteredValidationsForSeverity" >filteredValidationsForSeverity</a>
+                            </li>
+                            <li>
+                                <a href="#filterValidationsForSearchString" >filterValidationsForSearchString</a>
+                            </li>
+                            <li>
+                                <a href="#getCategoryTotalValidationLength" >getCategoryTotalValidationLength</a>
+                            </li>
+                            <li>
+                                <a href="#getErrorMenuItems" >getErrorMenuItems</a>
+                            </li>
+                            <li>
+                                <a href="#getFilteredResults" >getFilteredResults</a>
+                            </li>
+                            <li>
+                                <a href="#getTime5MinutesFromNow" >getTime5MinutesFromNow</a>
+                            </li>
+                            <li>
+                                <a href="#initFilterFormAndListener" >initFilterFormAndListener</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#runValidation" >runValidation</a>
+                            </li>
+                            <li>
+                                <a href="#updateSidebarMenu" >updateSidebarMenu</a>
+                            </li>
+                            <li>
+                                <a href="#updateValidations" >updateValidations</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#clusterId" >clusterId</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingValidations" >fetchingValidations</a>
+                            </li>
+                            <li>
+                                <a href="#stackName" >stackName</a>
+                            </li>
+                            <li>
+                                <a href="#validations" >validations</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#fetchValidationsEmitter" >fetchValidationsEmitter</a>
+                            </li>
+                            <li>
+                                <a href="#setTotalValidations" >setTotalValidations</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#menuState" >menuState</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(uiApplicationControllerService: <a href="../injectables/UiApplicationControllerService.html" target="_self">UiApplicationControllerService</a>, customToasterService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>, formBuilder: <a href="../interfaces/Build.html" target="_self">FormBuilder</a>, menuService: NbMenuService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:80</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>uiApplicationControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiApplicationControllerService.html" target="_self" >UiApplicationControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToasterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Build.html" target="_self" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>menuService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NbMenuService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clusterId"></a>
+                        <b>clusterId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:54</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fetchingValidations"></a>
+                        <b>fetchingValidations</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:56</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stackName"></a>
+                        <b>stackName</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:55</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validations"></a>
+                        <b>validations</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ValidationResponse[]</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:57</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fetchValidationsEmitter"></a>
+                        <b>fetchValidationsEmitter</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Event.html" target="_self" >EventEmitter&lt;any&gt;</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="355" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:355</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setTotalValidations"></a>
+                        <b>setTotalValidations</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Event.html" target="_self" >EventEmitter&lt;number&gt;</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:182</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyFilter"></a>
+                    <span class="name">
+                        <span ><b>applyFilter</b></span>
+                        <a href="#applyFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>applyFilter(state)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>state</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="beginAutoRefreshing"></a>
+                    <span class="name">
+                        <span ><b>beginAutoRefreshing</b></span>
+                        <a href="#beginAutoRefreshing"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>beginAutoRefreshing()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categorizeErrors"></a>
+                    <span class="name">
+                        <span ><b>categorizeErrors</b></span>
+                        <a href="#categorizeErrors"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>categorizeErrors(validations: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="185"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:185</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>validations</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchValidations"></a>
+                    <span class="name">
+                        <span ><b>fetchValidations</b></span>
+                        <a href="#fetchValidations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>fetchValidations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="357"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:357</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filteredValidationsForSeverity"></a>
+                    <span class="name">
+                        <span ><b>filteredValidationsForSeverity</b></span>
+                        <a href="#filteredValidationsForSeverity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>filteredValidationsForSeverity(validations: ValidationResponse[], state: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="290"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:290</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>validations</td>
+                                            <td>
+                                                        <code>ValidationResponse[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>state</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterValidationsForSearchString"></a>
+                    <span class="name">
+                        <span ><b>filterValidationsForSearchString</b></span>
+                        <a href="#filterValidationsForSearchString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>filterValidationsForSearchString(validations: ValidationResponse[], state: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="316"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:316</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>validations</td>
+                                            <td>
+                                                        <code>ValidationResponse[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>state</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCategoryTotalValidationLength"></a>
+                    <span class="name">
+                        <span ><b>getCategoryTotalValidationLength</b></span>
+                        <a href="#getCategoryTotalValidationLength"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCategoryTotalValidationLength(errorCategoryMap: Map<string | ValidationResponse[]>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="365"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:365</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>errorCategoryMap</td>
+                                            <td>
+                                                        <code>Map&lt;string | ValidationResponse[]&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getErrorMenuItems"></a>
+                    <span class="name">
+                        <span ><b>getErrorMenuItems</b></span>
+                        <a href="#getErrorMenuItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getErrorMenuItems()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="214"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:214</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>NbMenuItem[]</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFilteredResults"></a>
+                    <span class="name">
+                        <span ><b>getFilteredResults</b></span>
+                        <a href="#getFilteredResults"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFilteredResults(state: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, errorsMap: Map<string | ValidationResponse[]>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="259"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:259</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>state</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>errorsMap</td>
+                                            <td>
+                                                        <code>Map&lt;string | ValidationResponse[]&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Map&lt;string, ValidationResponse[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTime5MinutesFromNow"></a>
+                    <span class="name">
+                        <span ><b>getTime5MinutesFromNow</b></span>
+                        <a href="#getTime5MinutesFromNow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTime5MinutesFromNow(currentTime: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="148"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:148</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>currentTime</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initFilterFormAndListener"></a>
+                    <span class="name">
+                        <span ><b>initFilterFormAndListener</b></span>
+                        <a href="#initFilterFormAndListener"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initFilterFormAndListener()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="380"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:380</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="runValidation"></a>
+                    <span class="name">
+                        <span ><b>runValidation</b></span>
+                        <a href="#runValidation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>runValidation()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="236"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:236</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateSidebarMenu"></a>
+                    <span class="name">
+                        <span ><b>updateSidebarMenu</b></span>
+                        <a href="#updateSidebarMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateSidebarMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="168"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:168</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateValidations"></a>
+                    <span class="name">
+                        <span ><b>updateValidations</b></span>
+                        <a href="#updateValidations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateValidations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="157"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:157</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categoryIconMapping"></a>
+                    <span class="name">
+                        <span ><b>categoryIconMapping</b></span>
+                        <a href="#categoryIconMapping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#CategoryKeys" target="_self" >CategoryKeys</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    &#x27;Disabled Resource References&#x27;: &#x27;file&#x27;,
+    &#x27;Invalid Reference Expression&#x27;: &#x27;file&#x27;,
+    &#x27;GuardRails Compliance Issues&#x27;: &#x27;file-guard&#x27;,
+    &#x27;Non-Existent Resource Reference&#x27;: &#x27;file&#x27;,
+    &#x27;Schema Compliance Error&#x27;: &#x27;flower-brackets&#x27;,
+    &#x27;Syntax Error&#x27;: &#x27;flower-brackets&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categoryTotalValidationsMap"></a>
+                    <span class="name">
+                        <span ><b>categoryTotalValidationsMap</b></span>
+                        <a href="#categoryTotalValidationsMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map&lt;string | number&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="emptyStateLogo"></a>
+                    <span class="name">
+                        <span ><b>emptyStateLogo</b></span>
+                        <a href="#emptyStateLogo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>emptyStateLogo</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorCategoryMap"></a>
+                    <span class="name">
+                        <span ><b>errorCategoryMap</b></span>
+                        <a href="#errorCategoryMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map&lt;string | ValidationResponse[]&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorMenuItems"></a>
+                    <span class="name">
+                        <span ><b>errorMenuItems</b></span>
+                        <a href="#errorMenuItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>NbMenuItem[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorsBeingDisplayed"></a>
+                    <span class="name">
+                        <span ><b>errorsBeingDisplayed</b></span>
+                        <a href="#errorsBeingDisplayed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="258" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:258</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterForm"></a>
+                    <span class="name">
+                        <span ><b>filterForm</b></span>
+                        <a href="#filterForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterOptions"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>filterOptions</b></span>
+                        <a href="#filterOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;filterOptions&#x27;, {read: TemplateRef})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menuItemSubscriber"></a>
+                    <span class="name">
+                        <span ><b>menuItemSubscriber</b></span>
+                        <a href="#menuItemSubscriber"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onMenuItemClick"></a>
+                    <span class="name">
+                        <span ><b>onMenuItemClick</b></span>
+                        <a href="#onMenuItemClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="originalDataBackup"></a>
+                    <span class="name">
+                        <span ><b>originalDataBackup</b></span>
+                        <a href="#originalDataBackup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map&lt;string | ValidationResponse[]&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;
+    string,
+    ValidationResponse[]
+  &gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:153</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="runningValidationCallInProgress"></a>
+                    <span class="name">
+                        <span ><b>runningValidationCallInProgress</b></span>
+                        <a href="#runningValidationCallInProgress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedMenuItemId"></a>
+                    <span class="name">
+                        <span ><b>selectedMenuItemId</b></span>
+                        <a href="#selectedMenuItemId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showCountdown"></a>
+                    <span class="name">
+                        <span ><b>showCountdown</b></span>
+                        <a href="#showCountdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showingAllData"></a>
+                    <span class="name">
+                        <span ><b>showingAllData</b></span>
+                        <a href="#showingAllData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:118</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalValidations"></a>
+                    <span class="name">
+                        <span ><b>totalValidations</b></span>
+                        <a href="#totalValidations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="184" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:184</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validationsAutoRefreshingIn"></a>
+                    <span class="name">
+                        <span ><b>validationsAutoRefreshingIn</b></span>
+                        <a href="#validationsAutoRefreshingIn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="menuState"></a>
+                        <span class="name"><b>menuState</b><a href="#menuState"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>menuState()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="361" class="link-to-prism">src/app/pages/cluster-pages/cluster-releases-new-v2/cluster-releases-validations/cluster-releases-validations.component.ts:361</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from &#x27;@angular/animations&#x27;;
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges,
+  TemplateRef,
+  ViewChild,
+} from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormControl, FormGroup } from &#x27;@angular/forms&#x27;;
+import { NbMenuItem, NbMenuService } from &#x27;@nebular/theme&#x27;;
+import cloneDeep from &#x27;lodash/cloneDeep&#x27;;
+import debounce from &#x27;lodash/debounce&#x27;;
+import groupBy from &#x27;lodash/groupBy&#x27;;
+import { filter, map } from &#x27;rxjs&#x27;;
+import {
+  BlueprintValidationError,
+  ValidationResponse,
+} from &#x27;src/app/cc-api/models&#x27;;
+import { UiApplicationControllerService } from &#x27;src/app/cc-api/services&#x27;;
+import { CustomToastService } from &#x27;src/app/pages/custom-toast/custom-toast.service&#x27;;
+const emptyStateLogo &#x3D; &#x27;./assets/empty.svg&#x27;;
+
+type CategoryKeys &#x3D; {
+  [category in BlueprintValidationError[&#x27;category&#x27;]]: string;
+};
+
+@Component({
+  selector: &#x27;app-cluster-releases-validations&#x27;,
+  templateUrl: &#x27;./cluster-releases-validations.component.html&#x27;,
+  styleUrls: [&#x27;./cluster-releases-validations.component.scss&#x27;],
+  animations: [
+    trigger(&#x27;menuSlide&#x27;, [
+      state(&#x27;hidden&#x27;, style({ transform: &#x27;translateX(-100%)&#x27; })),
+      state(&#x27;visible&#x27;, style({ transform: &#x27;translateX(0)&#x27; })),
+      transition(&#x27;hidden &#x3D;&gt; visible&#x27;, animate(&#x27;300ms ease-in&#x27;)),
+      transition(&#x27;visible &#x3D;&gt; hidden&#x27;, animate(&#x27;300ms ease-out&#x27;)),
+    ]),
+  ],
+})
+export class ClusterReleasesValidationsComponent
+  implements OnInit, OnChanges, OnDestroy
+{
+  @Input() clusterId: string;
+  @Input() stackName: string;
+  @Input() fetchingValidations: boolean &#x3D; false;
+  @Input() validations: ValidationResponse[];
+
+  errorCategoryMap: Map&lt;string, ValidationResponse[]&gt;;
+  runningValidationCallInProgress: boolean &#x3D; false;
+  errorMenuItems: NbMenuItem[] &#x3D; [];
+  validationsAutoRefreshingIn: Date;
+  showCountdown: boolean &#x3D; true;
+  selectedMenuItemId: string;
+  menuItemSubscriber: any;
+  emptyStateLogo: any &#x3D; emptyStateLogo;
+  categoryTotalValidationsMap: Map&lt;string, number&gt;;
+
+  filterForm: FormGroup;
+  @ViewChild(&#x27;filterOptions&#x27;, { read: TemplateRef })
+  filterOptions: TemplateRef&lt;any&gt;;
+
+  categoryIconMapping: CategoryKeys &#x3D; {
+    &#x27;Disabled Resource References&#x27;: &#x27;file&#x27;,
+    &#x27;Invalid Reference Expression&#x27;: &#x27;file&#x27;,
+    &#x27;GuardRails Compliance Issues&#x27;: &#x27;file-guard&#x27;,
+    &#x27;Non-Existent Resource Reference&#x27;: &#x27;file&#x27;,
+    &#x27;Schema Compliance Error&#x27;: &#x27;flower-brackets&#x27;,
+    &#x27;Syntax Error&#x27;: &#x27;flower-brackets&#x27;,
+  };
+
+  constructor(
+    private uiApplicationControllerService: UiApplicationControllerService,
+    private customToasterService: CustomToastService,
+    private formBuilder: FormBuilder,
+    private menuService: NbMenuService,
+  ) {
+    this.menuItemSubscriber &#x3D; this.menuService
+      .onItemClick()
+      .pipe(filter(({ tag }) &#x3D;&gt; tag &#x3D;&#x3D;&#x3D; &#x27;validations-category-side-menu&#x27;))
+      .subscribe(this.onMenuItemClick);
+    this.initFilterFormAndListener();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes?.validations?.currentValue) {
+      this.updateValidations();
+    }
+  }
+
+  ngOnInit(): void {
+    this.beginAutoRefreshing();
+  }
+
+  initFilterFormAndListener() {
+    this.filterForm &#x3D; this.formBuilder.group({
+      showWarnings: [true],
+      showErrors: [true],
+      searchKey: new FormControl(&#x27;&#x27;),
+    });
+    this.filterForm.valueChanges.subscribe(
+      debounce((state) &#x3D;&gt; {
+        this.applyFilter(state);
+      }, 300),
+    );
+  }
+
+  showingAllData: boolean &#x3D; true;
+  applyFilter(state) {
+    if (!state.searchKey?.length &amp;&amp; state.showWarnings &amp;&amp; state.showErrors) {
+      this.errorCategoryMap &#x3D; this.originalDataBackup;
+      this.showingAllData &#x3D; true;
+    } else {
+      this.errorCategoryMap &#x3D; this.getFilteredResults(
+        state,
+        this.originalDataBackup,
+      );
+      this.showingAllData &#x3D; false;
+    }
+  }
+
+  onMenuItemClick &#x3D; (event) &#x3D;&gt; {
+    this.selectedMenuItemId &#x3D; event?.item?.data?.id;
+    this.errorMenuItems.forEach((menuItem) &#x3D;&gt; {
+      menuItem.selected &#x3D; menuItem.data?.id &#x3D;&#x3D;&#x3D; this.selectedMenuItemId;
+    });
+    this.applyFilter(this.filterForm?.value);
+  };
+
+  beginAutoRefreshing() {
+    this.validationsAutoRefreshingIn &#x3D; this.getTime5MinutesFromNow(new Date());
+    this.showCountdown &#x3D; false;
+    setTimeout(() &#x3D;&gt; {
+      this.showCountdown &#x3D; true;
+    }, 0);
+  }
+
+  getTime5MinutesFromNow(currentTime: Date) {
+    const FIVE_MINUTES &#x3D; 5 * 60 * 1000;
+    return new Date(currentTime.getTime() + FIVE_MINUTES);
+  }
+
+  originalDataBackup: Map&lt;string, ValidationResponse[]&gt; &#x3D; new Map&lt;
+    string,
+    ValidationResponse[]
+  &gt;();
+  updateValidations() {
+    this.errorCategoryMap &#x3D; this.categorizeErrors(this.validations);
+    this.originalDataBackup &#x3D; this.errorCategoryMap;
+    this.categoryTotalValidationsMap &#x3D; this.getCategoryTotalValidationLength(
+      this.originalDataBackup,
+    );
+    this.applyFilter(this.filterForm.value);
+    this.updateSidebarMenu();
+    this.beginAutoRefreshing();
+  }
+
+  updateSidebarMenu() {
+    this.errorMenuItems &#x3D; this.getErrorMenuItems();
+    if (
+      !this.errorMenuItems?.find(
+        (menuItem) &#x3D;&gt; menuItem.data.id &#x3D;&#x3D;&#x3D; this.selectedMenuItemId,
+      )
+    ) {
+      this.selectedMenuItemId &#x3D; this.errorMenuItems?.length
+        ? this.errorMenuItems[0].data.id
+        : undefined;
+    }
+    this.onMenuItemClick({ item: { data: { id: this.selectedMenuItemId } } });
+  }
+
+  @Output() setTotalValidations: EventEmitter&lt;number&gt; &#x3D;
+    new EventEmitter&lt;number&gt;();
+  totalValidations: number;
+  categorizeErrors(validations: any[]): any {
+    this.totalValidations &#x3D; 0;
+
+    const updatedValidations &#x3D; validations?.map((validation) &#x3D;&gt; {
+      this.totalValidations +&#x3D; validation?.errors?.length;
+      return {
+        ...validation,
+        errorGroupedByCategory: groupBy(validation?.errors, &#x27;category&#x27;),
+      };
+    });
+    this.setTotalValidations.emit(this.totalValidations);
+
+    const errorCategoryMap &#x3D; new Map&lt;string, ValidationResponse[]&gt;();
+    updatedValidations?.forEach((resource) &#x3D;&gt; {
+      const errorGroups &#x3D; cloneDeep(resource?.errorGroupedByCategory);
+      delete resource?.errorGroupedByCategory;
+      Object.entries(errorGroups)?.forEach(([key, value]) &#x3D;&gt; {
+        if (!errorCategoryMap.has(key)) {
+          errorCategoryMap.set(key, []);
+        }
+        errorCategoryMap.get(key).push({
+          ...resource,
+          errors: value,
+        });
+      });
+    });
+    return errorCategoryMap;
+  }
+
+  getErrorMenuItems(): NbMenuItem[] {
+    const menuItems: NbMenuItem[] &#x3D; [];
+
+    Array.from(this.originalDataBackup?.keys()).forEach((errorCategory) &#x3D;&gt; {
+      menuItems.push({
+        title:
+          errorCategory +
+          &#x60; (${this.categoryTotalValidationsMap.get(errorCategory)})&#x60;,
+        data: { id: errorCategory },
+        selected: false,
+        icon: {
+          icon: this.categoryIconMapping[errorCategory] || &#x27;settings-outline&#x27;,
+          pack: &#x27;fci&#x27;,
+        },
+      });
+    });
+    if (menuItems?.length &amp;&amp; !this.selectedMenuItemId) {
+      this.selectedMenuItemId &#x3D; menuItems[0].data?.id;
+    }
+    return menuItems;
+  }
+
+  runValidation() {
+    this.runningValidationCallInProgress &#x3D; true;
+    this.uiApplicationControllerService
+      .runValidationUsingPOST(this.clusterId)
+      .subscribe(
+        (rsp) &#x3D;&gt; {
+          this.customToasterService.success(
+            &#x27;Syncing and fetching latest validations&#x27;,
+          );
+          this.fetchValidations();
+        },
+        (error) &#x3D;&gt; {
+          this.customToasterService.error(
+            &#x27;Validation request encountered an issue. Please try again later or raise a ClickUp ticket if the problem persists.&#x27;,
+          );
+        },
+      )
+      .add(() &#x3D;&gt; {
+        this.runningValidationCallInProgress &#x3D; false;
+      });
+  }
+
+  errorsBeingDisplayed: number;
+  getFilteredResults(
+    state: any,
+    errorsMap: Map&lt;string, ValidationResponse[]&gt;,
+  ): Map&lt;string, ValidationResponse[]&gt; {
+    let filteredErrorsMap &#x3D; cloneDeep(errorsMap);
+    this.errorsBeingDisplayed &#x3D; 0;
+    const selectedCategory &#x3D; this.selectedMenuItemId;
+
+    const filteredValidations &#x3D; this.filteredValidationsForSeverity(
+      filteredErrorsMap.get(selectedCategory),
+      state,
+    );
+
+    filteredErrorsMap?.set(selectedCategory, filteredValidations);
+
+    const filteredValidationsForFilter &#x3D; this.filterValidationsForSearchString(
+      filteredErrorsMap?.get(selectedCategory),
+      state,
+    );
+    filteredErrorsMap.set(selectedCategory, filteredValidationsForFilter);
+
+    const categoryValidationLength &#x3D;
+      this.getCategoryTotalValidationLength(filteredErrorsMap);
+    this.errorsBeingDisplayed &#x3D; categoryValidationLength?.get(selectedCategory);
+
+    if (!filteredErrorsMap?.get(selectedCategory)?.length) {
+      filteredErrorsMap?.delete(selectedCategory);
+    }
+    return filteredErrorsMap;
+  }
+
+  filteredValidationsForSeverity(
+    validations: ValidationResponse[],
+    state: any,
+  ) {
+    const clonedValidations &#x3D; cloneDeep(validations);
+    if (!state?.showErrors &amp;&amp; !state?.showWarnings) {
+      return [];
+    }
+    if (state?.showErrors &amp;&amp; state?.showWarnings) {
+      return validations;
+    }
+    clonedValidations?.forEach((validation) &#x3D;&gt; {
+      validation.errors &#x3D; validation.errors?.filter((error) &#x3D;&gt; {
+        return (
+          (state?.showWarnings &amp;&amp; error?.severity &#x3D;&#x3D;&#x3D; &#x27;WARNING&#x27;) ||
+          (state?.showErrors &amp;&amp; error?.severity &#x3D;&#x3D;&#x3D; &#x27;ERROR&#x27;)
+        );
+      });
+      return validation;
+    });
+    const filteredValidations &#x3D; clonedValidations?.filter(
+      (validation) &#x3D;&gt; validation?.errors?.length,
+    );
+    return filteredValidations;
+  }
+
+  filterValidationsForSearchString(
+    validations: ValidationResponse[],
+    state: any,
+  ) {
+    const clonedValidations &#x3D; cloneDeep(validations);
+
+    const searchedString &#x3D; state?.searchKey?.trim();
+    if (searchedString) {
+      const filteredValidations &#x3D; [];
+      clonedValidations?.forEach((validation) &#x3D;&gt; {
+        const matchingValidation &#x3D;
+          validation?.resourceName
+            ?.toLowerCase()
+            ?.includes(searchedString?.toLowerCase()) ||
+          validation?.directory
+            ?.toLowerCase()
+            ?.includes(searchedString?.toLowerCase()) ||
+          validation?.filename
+            ?.toLowerCase()
+            ?.includes(searchedString?.toLowerCase());
+
+        if (matchingValidation) {
+          filteredValidations?.push(validation);
+        } else {
+          const errors &#x3D; validation?.errors?.filter((error) &#x3D;&gt;
+            error?.message?.includes(searchedString),
+          );
+          validation.errors &#x3D; errors;
+          if (validation?.errors?.length) {
+            filteredValidations.push(validation);
+          }
+        }
+      });
+      return filteredValidations;
+    } else {
+      return validations;
+    }
+  }
+
+  @Output() fetchValidationsEmitter: EventEmitter&lt;any&gt; &#x3D;
+    new EventEmitter&lt;any&gt;();
+  fetchValidations() {
+    this.fetchValidationsEmitter.emit();
+  }
+
+  get menuState(): string {
+    return this.errorCategoryMap?.size ? &#x27;visible&#x27; : &#x27;hidden&#x27;;
+  }
+
+  getCategoryTotalValidationLength(
+    errorCategoryMap: Map&lt;string, ValidationResponse[]&gt;,
+  ) {
+    const categoryLengthMap &#x3D; new Map&lt;string, number&gt;();
+    Array.from(errorCategoryMap?.keys())?.forEach((errorCategory) &#x3D;&gt; {
+      const categoryTotalValidations &#x3D; errorCategoryMap
+        ?.get(errorCategory)
+        ?.reduce((acc, currentValue) &#x3D;&gt; {
+          return currentValue?.errors?.length + acc;
+        }, 0);
+      categoryLengthMap.set(errorCategory, categoryTotalValidations);
+    });
+    return categoryLengthMap;
+  }
+
+  ngOnDestroy(): void {
+    this.menuItemSubscriber?.unsubscribe();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;nb-card style&#x3D;&quot;display: none&quot;&gt;
+  &lt;nb-card-body class&#x3D;&quot;validations-header&quot;&gt;
+    &lt;nb-icon icon&#x3D;&quot;info-outline&quot; pack&#x3D;&quot;fci&quot;&gt;&lt;/nb-icon&gt;
+
+    &lt;div class&#x3D;&quot;d-flex&quot; style&#x3D;&quot;flex-wrap: wrap&quot;&gt;
+      &lt;app-countdown
+        *ngIf&#x3D;&quot;showCountdown&quot;
+        [executionTime]&#x3D;&quot;validationsAutoRefreshingIn&quot;
+        [countdownOverMessage]&#x3D;&quot;&#x27;Fetching...&#x27;&quot;
+        (countdownCompleted)&#x3D;&quot;fetchValidations()&quot;
+      &gt;&lt;/app-countdown&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;d-flex justify-content-center&quot;&gt;&lt;/div&gt;
+  &lt;/nb-card-body&gt;
+&lt;/nb-card&gt;
+
+&lt;nb-card class&#x3D;&quot;validations-menu-card&quot;&gt;
+  &lt;nb-card-header
+    class&#x3D;&quot;d-flex justify-content-center justify-content-between border-bottom py-2&quot;
+  &gt;
+    &lt;h6 [ngStyle]&#x3D;&quot;{ &#x27;line-height&#x27;: &#x27;2rem&#x27; }&quot;&gt;Validations Summary Panel&lt;/h6&gt;
+    &lt;app-rbac-button
+      label&#x3D;&quot;Run Validation&quot;
+      icon&#x3D;&quot;runValidations&quot;
+      toolTip&#x3D;&quot;Run Validation check for environment&quot;
+      action&#x3D;&quot;&quot;
+      (onClick)&#x3D;&quot;runValidation()&quot;
+      size&#x3D;&quot;small&quot;
+      status&#x3D;&quot;primary&quot;
+      [isFciPack]&#x3D;&quot;true&quot;
+      [nbSpinner]&#x3D;&quot;runningValidationCallInProgress&quot;
+      appearance&#x3D;&quot;outline&quot;
+      [dataAttrActionId]&#x3D;&quot;&#x27;releases-validations-run-validation&#x27;&quot;
+    &gt;&lt;/app-rbac-button&gt;
+  &lt;/nb-card-header&gt;
+  &lt;nb-card-body class&#x3D;&quot;row p-0&quot;&gt;
+    &lt;div
+      class&#x3D;&quot;col-3 p-0 validation-errors-side-menu&quot;
+      [style.display]&#x3D;&quot;!errorCategoryMap?.size ? &#x27;none&#x27; : &#x27;&#x27;&quot;
+      [@menuSlide]&#x3D;&quot;menuState&quot;
+    &gt;
+      &lt;nb-menu
+        [items]&#x3D;&quot;errorMenuItems&quot;
+        autoCollapse&#x3D;&quot;true&quot;
+        class&#x3D;&quot;side-menu&quot;
+        tag&#x3D;&quot;validations-category-side-menu&quot;
+        [nbSpinner]&#x3D;&quot;fetchingValidations&quot;
+      &gt;
+      &lt;/nb-menu&gt;
+      &lt;div
+        *ngIf&#x3D;&quot;!fetchingValidations &amp;&amp; !errorMenuItems?.length&quot;
+        class&#x3D;&quot;p-3 ml-2&quot;
+        style&#x3D;&quot;border-radius: 5px&quot;
+      &gt;
+        &lt;app-message
+          [imgUrl]&#x3D;&quot;emptyStateLogo&quot;
+          [secondaryMsg]&#x3D;&quot;&#x27;No error categories present&#x27;&quot;
+          [showBtn]&#x3D;&quot;false&quot;
+        &gt;&lt;/app-message&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div
+      [ngClass]&#x3D;&quot;
+        errorCategoryMap?.size ? &#x27;col-9 pl-3 pr-4&#x27; : &#x27;col-12 pl-3 pr-4&#x27;
+      &quot;
+      [nbSpinner]&#x3D;&quot;fetchingValidations&quot;
+    &gt;
+      &lt;nb-card&gt;
+        &lt;nb-card-header class&#x3D;&quot;pb-2&quot;&gt;
+          &lt;div class&#x3D;&quot;validation-search-bar-wrapper&quot;&gt;
+            &lt;nb-form-field
+              [ngClass]&#x3D;&quot;{
+                &#x27;disabled-input&#x27;:
+                  fetchingValidations || !this.originalDataBackup?.size
+              }&quot;
+            &gt;
+              &lt;input
+                type&#x3D;&quot;text&quot;
+                placeholder&#x3D;&quot;Search by resource name or location or error description.&quot;
+                nbInput
+                [formControl]&#x3D;&quot;filterForm.get(&#x27;searchKey&#x27;)&quot;
+                name&#x3D;&quot;searchKey&quot;
+                fullWidth
+                fieldSize&#x3D;&quot;small&quot;
+              /&gt;
+              &lt;nb-icon icon&#x3D;&quot;search&quot; nbSuffix pack&#x3D;&quot;fci&quot;&gt;&lt;/nb-icon&gt;
+            &lt;/nb-form-field&gt;
+            &lt;button
+              [disabled]&#x3D;&quot;fetchingValidations || !this.originalDataBackup?.size&quot;
+              [nbPopover]&#x3D;&quot;filterOptions&quot;
+              nbPopoverPlacement&#x3D;&quot;bottom&quot;
+              nbPopoverTrigger&#x3D;&quot;click&quot;
+              nbPopoverClass&#x3D;&quot;select-options-popover&quot;
+              nbButton
+            &gt;
+              &lt;nb-icon
+                class&#x3D;&quot;d-flex align-items-center justify-content-center&quot;
+                icon&#x3D;&quot;filter-outline&quot;
+                pack&#x3D;&quot;fci&quot;
+                ghost
+              &gt;&lt;/nb-icon&gt;
+            &lt;/button&gt;
+            &lt;ng-template #filterOptions&gt;
+              &lt;nb-card class&#x3D;&quot;mb-0&quot;&gt;
+                &lt;nb-card-body class&#x3D;&quot;d-flex flex-column&quot; style&#x3D;&quot;gap: 0.5rem&quot;&gt;
+                  &lt;nb-checkbox [formControl]&#x3D;&quot;filterForm.get(&#x27;showErrors&#x27;)&quot;
+                    &gt;Show Errors&lt;/nb-checkbox
+                  &gt;
+                  &lt;nb-checkbox [formControl]&#x3D;&quot;filterForm.get(&#x27;showWarnings&#x27;)&quot;
+                    &gt;Show Warnings&lt;/nb-checkbox
+                  &gt;
+                &lt;/nb-card-body&gt;
+              &lt;/nb-card&gt;
+            &lt;/ng-template&gt;
+          &lt;/div&gt;
+        &lt;/nb-card-header&gt;
+        &lt;nb-card-body class&#x3D;&quot;pt-0 pb-2&quot;&gt;
+          &lt;span *ngIf&#x3D;&quot;!showingAllData&quot; class&#x3D;&quot;filtered-result-text&quot;&gt;
+            Showing {{ errorsBeingDisplayed }}
+            {{ errorsBeingDisplayed | pluralize: &#x27;result&#x27; }}
+            out of {{ categoryTotalValidationsMap.get(selectedMenuItemId) }}
+          &lt;/span&gt;
+        &lt;/nb-card-body&gt;
+        &lt;nb-card-body class&#x3D;&quot;all-validation-cards pt-1&quot;&gt;
+          &lt;ng-container
+            *ngFor&#x3D;&quot;let validation of errorCategoryMap?.get(selectedMenuItemId)&quot;
+          &gt;
+            &lt;app-validation-card
+              [validation]&#x3D;&quot;validation&quot;
+              [stackName]&#x3D;&quot;stackName&quot;
+              [clusterId]&#x3D;&quot;clusterId&quot;
+            &gt;&lt;/app-validation-card&gt;
+          &lt;/ng-container&gt;
+          &lt;ng-container
+            *ngIf&#x3D;&quot;
+              !fetchingValidations &amp;&amp;
+              (!errorCategoryMap?.size ||
+                !errorCategoryMap?.get(selectedMenuItemId)?.length)
+            &quot;
+          &gt;
+            &lt;app-message
+              [imgUrl]&#x3D;&quot;emptyStateLogo&quot;
+              [primaryMsg]&#x3D;&quot;
+                &#x27;No validation errors/warnings found&#x27; +
+                (!errorCategoryMap?.get(selectedMenuItemId)?.length
+                  ? &#x27; for applied filters&#x27;
+                  : &#x27;&#x27;)
+              &quot;
+              [secondaryMsg]&#x3D;&quot;&#x27;Click on Run Validation to reevaluate&#x27;&quot;
+              [showBtn]&#x3D;&quot;false&quot;
+            &gt;&lt;/app-message&gt;
+          &lt;/ng-container&gt;
+        &lt;/nb-card-body&gt;
+      &lt;/nb-card&gt;
+    &lt;/div&gt;
+  &lt;/nb-card-body&gt;
+&lt;/nb-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./cluster-releases-validations.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.validations-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+:host ::ng-deep .validations-menu-card {
+  .all-validation-cards {
+    min-height: 60vh;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+
+  .filtered-result-text {
+    color: var(--text-caption-color-two);
+  }
+
+  .disabled-input {
+    opacity: 0.6 !important;
+    pointer-events: none !important;
+  }
+
+  .validation-errors-side-menu {
+    border-right: 0.5px solid var(--card-divider-color);
+  }
+
+  .validation-search-bar-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+
+    nb-form-field {
+      width: -webkit-fill-available;
+    }
+  }
+
+  .validation-errors-side-menu {
+    border-right: 1px solid var(--card-divider-color);
+    nb-menu.side-menu {
+      .menu-item a {
+        padding: 8px;
+        &amp;:hover {
+          background-color: unset;
+        }
+
+        &amp;.active,
+        &amp;.active:hover {
+          background-color: var(--icon-basic-color);
+          color: white;
+          border-radius: 0 0 0 0;
+
+          .menu-icon {
+            color: var(--bg-white);
+          }
+        }
+
+        .menu-icon {
+          color: black;
+
+          &amp;:hover {
+            color: black;
+          }
+        }
+      }
+
+      .menu-items {
+        padding: 0;
+      }
+
+      &amp; &gt; ul.menu-items {
+        padding-left: 8px;
+        &amp; &gt; li.menu-item &gt; a {
+          border-bottom: 1px solid var(--card-divider-color);
+        }
+      }
+
+      &amp; .menu-item &gt; .menu-items &gt; .menu-item a.active {
+        border-radius: 0px;
+        background-color: var(--icon-basic-color);
+        color: white;
+        border-radius: 0 0 0 0;
+      }
+    }
+  }
+}
+
+::ng-deep .select-options-popover {
+  nb-popover {
+    background-color: #fff !important;
+    width: 100%;
+  }
+  nb-popover .arrow::after {
+    display: none;
+  }
+}
+
+.validation-errors-side-menu {
+  transition: transform 0.3s ease;
+  transform: translateX(0);
+}
+
+.menu-hidden {
+  transform: translateX(-100%);
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><nb-card style="display: none">  <nb-card-body class="validations-header">    <nb-icon icon="info-outline" pack="fci"></nb-icon>    <div class="d-flex" style="flex-wrap: wrap">      <app-countdown        *ngIf="showCountdown"        [executionTime]="validationsAutoRefreshingIn"        [countdownOverMessage]="\'Fetching...\'"        (countdownCompleted)="fetchValidations()"      ></app-countdown>    </div>    <div class="d-flex justify-content-center"></div>  </nb-card-body></nb-card><nb-card class="validations-menu-card">  <nb-card-header    class="d-flex justify-content-center justify-content-between border-bottom py-2"  >    <h6 [ngStyle]="{ \'line-height\': \'2rem\' }">Validations Summary Panel</h6>    <app-rbac-button      label="Run Validation"      icon="runValidations"      toolTip="Run Validation check for environment"      action=""      (onClick)="runValidation()"      size="small"      status="primary"      [isFciPack]="true"      [nbSpinner]="runningValidationCallInProgress"      appearance="outline"      [dataAttrActionId]="\'releases-validations-run-validation\'"    ></app-rbac-button>  </nb-card-header>  <nb-card-body class="row p-0">    <div      class="col-3 p-0 validation-errors-side-menu"      [style.display]="!errorCategoryMap?.size ? \'none\' : \'\'"      [@menuSlide]="menuState"    >      <nb-menu        [items]="errorMenuItems"        autoCollapse="true"        class="side-menu"        tag="validations-category-side-menu"        [nbSpinner]="fetchingValidations"      >      </nb-menu>      <div        *ngIf="!fetchingValidations && !errorMenuItems?.length"        class="p-3 ml-2"        style="border-radius: 5px"      >        <app-message          [imgUrl]="emptyStateLogo"          [secondaryMsg]="\'No error categories present\'"          [showBtn]="false"        ></app-message>      </div>    </div>    <div      [ngClass]="        errorCategoryMap?.size ? \'col-9 pl-3 pr-4\' : \'col-12 pl-3 pr-4\'      "      [nbSpinner]="fetchingValidations"    >      <nb-card>        <nb-card-header class="pb-2">          <div class="validation-search-bar-wrapper">            <nb-form-field              [ngClass]="{                \'disabled-input\':                  fetchingValidations || !this.originalDataBackup?.size              }"            >              <input                type="text"                placeholder="Search by resource name or location or error description."                nbInput                [formControl]="filterForm.get(\'searchKey\')"                name="searchKey"                fullWidth                fieldSize="small"              />              <nb-icon icon="search" nbSuffix pack="fci"></nb-icon>            </nb-form-field>            <button              [disabled]="fetchingValidations || !this.originalDataBackup?.size"              [nbPopover]="filterOptions"              nbPopoverPlacement="bottom"              nbPopoverTrigger="click"              nbPopoverClass="select-options-popover"              nbButton            >              <nb-icon                class="d-flex align-items-center justify-content-center"                icon="filter-outline"                pack="fci"                ghost              ></nb-icon>            </button>            <ng-template #filterOptions>              <nb-card class="mb-0">                <nb-card-body class="d-flex flex-column" style="gap: 0.5rem">                  <nb-checkbox [formControl]="filterForm.get(\'showErrors\')"                    >Show Errors</nb-checkbox                  >                  <nb-checkbox [formControl]="filterForm.get(\'showWarnings\')"                    >Show Warnings</nb-checkbox                  >                </nb-card-body>              </nb-card>            </ng-template>          </div>        </nb-card-header>        <nb-card-body class="pt-0 pb-2">          <span *ngIf="!showingAllData" class="filtered-result-text">            Showing {{ errorsBeingDisplayed }}            {{ errorsBeingDisplayed | pluralize: \'result\' }}            out of {{ categoryTotalValidationsMap.get(selectedMenuItemId) }}          </span>        </nb-card-body>        <nb-card-body class="all-validation-cards pt-1">          <ng-container            *ngFor="let validation of errorCategoryMap?.get(selectedMenuItemId)"          >            <app-validation-card              [validation]="validation"              [stackName]="stackName"              [clusterId]="clusterId"            ></app-validation-card>          </ng-container>          <ng-container            *ngIf="              !fetchingValidations &&              (!errorCategoryMap?.size ||                !errorCategoryMap?.get(selectedMenuItemId)?.length)            "          >            <app-message              [imgUrl]="emptyStateLogo"              [primaryMsg]="                \'No validation errors/warnings found\' +                (!errorCategoryMap?.get(selectedMenuItemId)?.length                  ? \' for applied filters\'                  : \'\')              "              [secondaryMsg]="\'Click on Run Validation to reevaluate\'"              [showBtn]="false"            ></app-message>          </ng-container>        </nb-card-body>      </nb-card>    </div>  </nb-card-body></nb-card></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'ClusterReleasesValidationsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ClusterReleasesValidationsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

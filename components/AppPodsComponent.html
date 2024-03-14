@@ -1,0 +1,2326 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AppPodsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/resource-center/components/app-pods/app-pods.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-app-pods</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./app-pods.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./app-pods.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#appName" >appName</a>
+                            </li>
+                            <li>
+                                <a href="#clipboardServiceSubscriber" >clipboardServiceSubscriber</a>
+                            </li>
+                            <li>
+                                <a href="#clusterId" >clusterId</a>
+                            </li>
+                            <li>
+                                <a href="#errMsg" >errMsg</a>
+                            </li>
+                            <li>
+                                <a href="#errorMessage" >errorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingPods" >fetchingPods</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#formatDateService" >formatDateService</a>
+                            </li>
+                            <li>
+                                <a href="#icon" >icon</a>
+                            </li>
+                            <li>
+                                <a href="#message" >message</a>
+                            </li>
+                            <li>
+                                <a href="#podInfo" >podInfo</a>
+                            </li>
+                            <li>
+                                <a href="#pods" >pods</a>
+                            </li>
+                            <li>
+                                <a href="#podsUrl" >podsUrl</a>
+                            </li>
+                            <li>
+                                <a href="#resourceType" >resourceType</a>
+                            </li>
+                            <li>
+                                <a href="#rollingRestartInProgress" >rollingRestartInProgress</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#rootUrl" >rootUrl</a>
+                            </li>
+                            <li>
+                                <a href="#status" >status</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#tailLogsComponent" >tailLogsComponent</a>
+                            </li>
+                            <li>
+                                <a href="#tailLogsParams" >tailLogsParams</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#confirmRollingRestart" >confirmRollingRestart</a>
+                            </li>
+                            <li>
+                                <a href="#copyLogsToClipboard" >copyLogsToClipboard</a>
+                            </li>
+                            <li>
+                                <a href="#getContainerState" >getContainerState</a>
+                            </li>
+                            <li>
+                                <a href="#handleClipboardResponse" >handleClipboardResponse</a>
+                            </li>
+                            <li>
+                                <a href="#loadPodData" >loadPodData</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageInit" >OnPageInit</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageLoad" >OnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#openTailLogsDialog" >openTailLogsDialog</a>
+                            </li>
+                            <li>
+                                <a href="#rollingRestartAll" >rollingRestartAll</a>
+                            </li>
+                            <li>
+                                <a href="#showDetails" >showDetails</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(dialogService: NbDialogService, clipboardService: ClipboardService, activatedRoute: ActivatedRoute, uiApplicationControllerService: <a href="../injectables/UiApplicationControllerService.html" target="_self">UiApplicationControllerService</a>, formatDateService: <a href="../injectables/FormatDateService.html" target="_self">FormatDateService</a>, httpClient: HttpClient, customToastService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>, onAPIErrorService: <a href="../injectables/OnAPIErrorService.html" target="_self">OnAPIErrorService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NbDialogService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>clipboardService</td>
+                                                  
+                                                        <td>
+                                                                    <code>ClipboardService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiApplicationControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiApplicationControllerService.html" target="_self" >UiApplicationControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>formatDateService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FormatDateService.html" target="_self" >FormatDateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>httpClient</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToastService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>onAPIErrorService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OnAPIErrorService.html" target="_self" >OnAPIErrorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmRollingRestart"></a>
+                    <span class="name">
+                        <span ><b>confirmRollingRestart</b></span>
+                        <a href="#confirmRollingRestart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirmRollingRestart(confirmRollingRestartUI)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="188"
+                                    class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:188</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>confirmRollingRestartUI</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyLogsToClipboard"></a>
+                    <span class="name">
+                        <span ><b>copyLogsToClipboard</b></span>
+                        <a href="#copyLogsToClipboard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>copyLogsToClipboard()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="162"
+                                    class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:162</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getContainerState"></a>
+                    <span class="name">
+                        <span ><b>getContainerState</b></span>
+                        <a href="#getContainerState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getContainerState(obj)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>obj</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/variables.html#undefined" target="_self" >{ status: string; meta: { startedAt: any; message?: undefined; reason?: undefined; finishedAt?: undefined; containerID?: undefined; exitCode?: undefined; signal?: undefined; }; } | { status: string; meta: { ...; }; } | { ...; } | { ...; }</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleClipboardResponse"></a>
+                    <span class="name">
+                        <span ><b>handleClipboardResponse</b></span>
+                        <a href="#handleClipboardResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleClipboardResponse()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="171"
+                                    class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:171</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadPodData"></a>
+                    <span class="name">
+                        <span ><b>loadPodData</b></span>
+                        <a href="#loadPodData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadPodData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="221"
+                                    class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:221</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageInit"></a>
+                    <span class="name">
+                        <span ><b>OnPageInit</b></span>
+                        <a href="#OnPageInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:64</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>OnPageLoad</b></span>
+                        <a href="#OnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:66</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openTailLogsDialog"></a>
+                    <span class="name">
+                        <span ><b>openTailLogsDialog</b></span>
+                        <a href="#openTailLogsDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openTailLogsDialog(tailLogsUI, pod: <a href="../interfaces/Pod.html" target="_self">Pod</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="154"
+                                    class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:154</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tailLogsUI</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>pod</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Pod.html" target="_self" >Pod</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rollingRestartAll"></a>
+                    <span class="name">
+                        <span ><b>rollingRestartAll</b></span>
+                        <a href="#rollingRestartAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>rollingRestartAll(ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="192"
+                                    class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:192</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showDetails"></a>
+                    <span class="name">
+                        <span ><b>showDetails</b></span>
+                        <a href="#showDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showDetails(dialog: TemplateRef<any>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="184"
+                                    class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:184</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dialog</td>
+                                            <td>
+                                                        <code>TemplateRef&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appName"></a>
+                    <span class="name">
+                        <span ><b>appName</b></span>
+                        <a href="#appName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clipboardServiceSubscriber"></a>
+                    <span class="name">
+                        <span ><b>clipboardServiceSubscriber</b></span>
+                        <a href="#clipboardServiceSubscriber"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusterId"></a>
+                    <span class="name">
+                        <span ><b>clusterId</b></span>
+                        <a href="#clusterId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errMsg"></a>
+                    <span class="name">
+                        <span ><b>errMsg</b></span>
+                        <a href="#errMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorMessage"></a>
+                    <span class="name">
+                        <span ><b>errorMessage</b></span>
+                        <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingPods"></a>
+                    <span class="name">
+                        <span ><b>fetchingPods</b></span>
+                        <a href="#fetchingPods"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatDateService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>formatDateService</b></span>
+                        <a href="#formatDateService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/FormatDateService.html" target="_self" >FormatDateService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="icon"></a>
+                    <span class="name">
+                        <span ><b>icon</b></span>
+                        <a href="#icon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>emptyIcon</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="message"></a>
+                    <span class="name">
+                        <span ><b>message</b></span>
+                        <a href="#message"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;No pods found!&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="podInfo"></a>
+                    <span class="name">
+                        <span ><b>podInfo</b></span>
+                        <a href="#podInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Pod.html" target="_self" >Array&lt;Pod&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pods"></a>
+                    <span class="name">
+                        <span ><b>pods</b></span>
+                        <a href="#pods"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="podsUrl"></a>
+                    <span class="name">
+                        <span ><b>podsUrl</b></span>
+                        <a href="#podsUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceType"></a>
+                    <span class="name">
+                        <span ><b>resourceType</b></span>
+                        <a href="#resourceType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rollingRestartInProgress"></a>
+                    <span class="name">
+                        <span ><b>rollingRestartInProgress</b></span>
+                        <a href="#rollingRestartInProgress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rootUrl"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>rootUrl</b></span>
+                        <a href="#rootUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>window.location.origin</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="status"></a>
+                    <span class="name">
+                        <span ><b>status</b></span>
+                        <a href="#status"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;info&quot; | &quot;error&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;info&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tailLogsComponent"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>tailLogsComponent</b></span>
+                        <a href="#tailLogsComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/TailLogsComponent.html" target="_self" >TailLogsComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;tailLogsComponent&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tailLogsParams"></a>
+                    <span class="name">
+                        <span ><b>tailLogsParams</b></span>
+                        <a href="#tailLogsParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    tail: 100,
+    podName: &#x27;&#x27;,
+    clusterId: &#x27;&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/resource-center/components/app-pods/app-pods.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  TemplateRef,
+  ViewChild,
+} from &#x27;@angular/core&#x27;;
+import { NbDialogService } from &#x27;@nebular/theme&#x27;;
+import { ClipboardService } from &#x27;ngx-clipboard&#x27;;
+import { Pod } from &#x27;../../../../cc-api/models/pod&#x27;;
+import { ActivatedRoute, Params } from &#x27;@angular/router&#x27;;
+import { UiApplicationControllerService } from &#x27;src/app/cc-api/services&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import { FormatDateService } from &#x27;src/app/services/format-date.service&#x27;;
+import { TailLogsComponent } from &#x27;../tail-logs/tail-logs.component&#x27;;
+import { HttpClient, HttpParams } from &#x27;@angular/common/http&#x27;;
+import { CustomToastService } from &#x27;src/app/pages/custom-toast/custom-toast.service&#x27;;
+import { OnAPIErrorService } from &#x27;src/app/services/on-api-error.service&#x27;;
+const emptyIcon &#x3D; &#x27;./assets/pods-empty.svg&#x27;;
+const errorIcon &#x3D; &#x27;./assets/error.svg&#x27;;
+@Component({
+  selector: &#x27;app-app-pods&#x27;,
+  templateUrl: &#x27;./app-pods.component.html&#x27;,
+  styleUrls: [&#x27;./app-pods.component.scss&#x27;],
+})
+export class AppPodsComponent extends FacetsPage implements OnDestroy {
+  clusterId: any &#x3D; &#x27;&#x27;;
+  errorMessage: string &#x3D; &#x27;&#x27;;
+  fetchingPods &#x3D; false;
+  appName: string &#x3D; &#x27;&#x27;;
+  podInfo: Array&lt;Pod&gt; &#x3D; [];
+  pods: Array&lt;any&gt; &#x3D; [];
+  icon &#x3D; emptyIcon;
+  message &#x3D; &#x27;No pods found!&#x27;;
+  rollingRestartInProgress: boolean &#x3D; false;
+  status: &#x27;info&#x27; | &#x27;error&#x27; &#x3D; &#x27;info&#x27;;
+  errMsg: string &#x3D; &#x27;&#x27;;
+  clipboardServiceSubscriber: any;
+  private rootUrl: string &#x3D; window.location.origin;
+  tailLogsParams &#x3D; {
+    tail: 100,
+    podName: &#x27;&#x27;,
+    clusterId: &#x27;&#x27;,
+  };
+  resourceType: string;
+  podsUrl: string;
+
+  @ViewChild(&#x27;tailLogsComponent&#x27;) tailLogsComponent: TailLogsComponent;
+
+  constructor(
+    private dialogService: NbDialogService,
+    private clipboardService: ClipboardService,
+    activatedRoute: ActivatedRoute,
+    private uiApplicationControllerService: UiApplicationControllerService,
+    public formatDateService: FormatDateService,
+    private httpClient: HttpClient,
+    private customToastService: CustomToastService,
+    private onAPIErrorService: OnAPIErrorService,
+  ) {
+    super(activatedRoute);
+    this.handleClipboardResponse();
+  }
+
+  OnPageInit(): void {}
+
+  OnPageLoad(p: Params): void {
+    this.podInfo &#x3D; [];
+    this.pods &#x3D; [];
+    this.fetchingPods &#x3D; true;
+    this.errorMessage &#x3D; &#x27;&#x27;;
+    this.clusterId &#x3D; p?.clusterId;
+    this.appName &#x3D; p?.resourceName;
+    this.resourceType &#x3D; p?.resourceType;
+    this.uiApplicationControllerService
+      .listPodsUsingGET({
+        applicationName: this.appName,
+        clusterId: this.clusterId,
+      })
+      .subscribe(
+        (data) &#x3D;&gt; {
+          this.podInfo &#x3D; data;
+          this.loadPodData();
+          this.fetchingPods &#x3D; false;
+        },
+        (error) &#x3D;&gt; {
+          this.podInfo &#x3D; null;
+          this.pods &#x3D; null;
+          this.fetchingPods &#x3D; false;
+          this.message &#x3D; &#x27;&#x27;;
+          this.errMsg &#x3D;
+            error?.error?.message || &#x27; There is some error fetching pods&#x27;;
+          this.icon &#x3D; errorIcon;
+          this.status &#x3D; &#x27;error&#x27;;
+        },
+      );
+  }
+
+  loadPodData() {
+    this.podInfo.forEach((pod) &#x3D;&gt; {
+      let data &#x3D; {
+        name: pod?.metadata?.name || &#x27;N/A&#x27;,
+        status: pod?.status?.phase || &#x27;N/A&#x27;,
+        startTime:
+          this.formatDateService.getFormattedDate(pod?.status?.startTime) ||
+          &#x27;N/A&#x27;,
+        hostIp: pod?.status?.hostIP || &#x27;N/A&#x27;,
+        podIp: pod?.status?.podIP || &#x27;N/A&#x27;,
+        containers: [],
+      };
+      if (pod?.status?.containerStatuses) {
+        pod.status.containerStatuses.forEach((container) &#x3D;&gt; {
+          let cData &#x3D; {
+            name: container.name,
+            image: container.image,
+            state: this.getContainerState(container.state),
+          };
+          data.containers.push(cData);
+        });
+      }
+      this.pods.push(data);
+    });
+  }
+
+  getContainerState(obj) {
+    if (obj.running) {
+      return { status: &#x27;Running&#x27;, meta: { startedAt: obj.running.startedAt } };
+    } else if (obj.waiting) {
+      return {
+        status: &#x27;Waiting&#x27;,
+        meta: {
+          message: obj.waiting.message,
+          reason: obj.waiting.reason,
+        },
+      };
+    } else if (obj.terminated) {
+      return {
+        status: &#x27;Terminated&#x27;,
+        meta: {
+          startedAt: obj.terminated.startedAt,
+          finishedAt: obj.terminated.finishedAt,
+          containerID: obj.terminated.containerID,
+          exitCode: obj.terminated.exitCode,
+          message: obj.terminated.message,
+          reason: obj.terminated.reason,
+          signal: obj.terminated.signal,
+        },
+      };
+    } else {
+      return { status: &#x27;--&#x27;, meta: {} };
+    }
+  }
+
+  // Whenever this dialog box is opened, the auto-refresh mode for fetching logs is set as default with the interval of 5 seconds
+  openTailLogsDialog(tailLogsUI, pod: Pod) {
+    this.podsUrl &#x3D; &#x60;${this.rootUrl}/cc-ui/v1/clusters/${this.clusterId}/pods/${pod?.[&#x27;name&#x27;]}/logs?tail&#x3D;${this.tailLogsParams?.tail}&amp;resourceType&#x3D;${this.resourceType}&amp;resourceName&#x3D;${this.appName}&#x60;;
+    this.dialogService.open(tailLogsUI, {
+      context: pod,
+      closeOnBackdropClick: false,
+    });
+  }
+
+  copyLogsToClipboard() {
+    let logLines &#x3D; &#x27;&#x27;;
+    const logs &#x3D; this.tailLogsComponent.getLogsData();
+    logs.forEach((logLine) &#x3D;&gt; {
+      logLines +&#x3D; &#x60;${logLine.message}\n&#x60;;
+    });
+    this.clipboardService.copy(logLines);
+  }
+
+  handleClipboardResponse() {
+    this.clipboardServiceSubscriber &#x3D;
+      this.clipboardService.copyResponse$.subscribe((res: any) &#x3D;&gt; {
+        if (res.isSuccess) {
+          this.customToastService.show({
+            title: &#x27;Copied&#x27;,
+            content: &#x27;Logs copied to clipboard&#x27;,
+            duration: 1000,
+            type: &#x27;success&#x27;,
+          });
+        }
+      });
+  }
+  showDetails(dialog: TemplateRef&lt;any&gt;) {
+    this.dialogService.open(dialog);
+  }
+
+  confirmRollingRestart(confirmRollingRestartUI) {
+    this.dialogService.open(confirmRollingRestartUI);
+  }
+
+  rollingRestartAll(ref) {
+    this.rollingRestartInProgress &#x3D; true;
+    // uiApplicationControllerService.rollingRestartUsingPOST
+    const params &#x3D; new HttpParams()
+      .set(&#x27;resourceName&#x27;, this.appName)
+      .set(&#x27;resourceType&#x27;, this.resourceType);
+    this.httpClient
+      .post(
+        &#x60;${this.rootUrl}/cc-ui/v1/clusters/${this.clusterId}/restart/${this.appName}&#x60;,
+        null,
+        { params: params },
+      )
+      .subscribe(
+        (data) &#x3D;&gt; {
+          this.rollingRestartInProgress &#x3D; false;
+          ref.close();
+          this.customToastService.success(&#x27;Rolling Restart Started&#x27;);
+        },
+        (error) &#x3D;&gt; {
+          this.rollingRestartInProgress &#x3D; false;
+          ref.close();
+          this.onAPIErrorService.onAPIError(
+            error?.error?.message || &#x27;Failed to trigger Rolling Restart&#x27;,
+            error,
+          );
+        },
+      );
+  }
+
+  ngOnDestroy() {
+    this.clipboardServiceSubscriber?.unsubscribe();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row mb-3&quot;&gt;
+  &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+    &lt;h6 class&#x3D;&quot;float-left&quot;&gt;Pods&lt;/h6&gt;
+    &lt;div class&#x3D;&quot;float-right&quot; *ngIf&#x3D;&quot;!fetchingPods &amp;&amp; pods?.length&quot;&gt;
+      &lt;app-rbac-button
+        label&#x3D;&quot;Rolling Restart All&quot;
+        icon&#x3D;&quot;sync-outline&quot;
+        status&#x3D;&quot;primary&quot;
+        appearance&#x3D;&quot;outline&quot;
+        toolTip&#x3D;&quot;Rolling Restart all the Pods&quot;
+        action&#x3D;&quot;APPLICATION_ROLLING_RESTART&quot;
+        (onClick)&#x3D;&quot;confirmRollingRestart(confirmRollingRestartUI)&quot;
+      &gt;&lt;/app-rbac-button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;ng-container *ngIf&#x3D;&quot;!fetchingPods &amp;&amp; pods?.length&quot;&gt;
+  &lt;nb-card *ngFor&#x3D;&quot;let pod of pods&quot;&gt;
+    &lt;nb-card-body&gt;
+      &lt;div class&#x3D;&quot;row mb-3&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-8&quot;&gt;
+          &lt;app-display-field
+            [value]&#x3D;&quot;pod.name&quot;
+            label&#x3D;&quot;Name&quot;
+            flavor&#x3D;&quot;PLAIN&quot;
+            display&#x3D;&quot;primary&quot;
+          &gt;&lt;/app-display-field&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-4&quot;&gt;
+          &lt;div class&#x3D;&quot;text-right&quot;&gt;
+            &lt;button
+              nbButton
+              size&#x3D;&quot;small&quot;
+              (click)&#x3D;&quot;openTailLogsDialog(tailLogsUI, pod)&quot;
+            &gt;
+              &lt;nb-icon
+                icon&#x3D;&quot;file-text-outline&quot;
+                nbTooltip&#x3D;&quot;Tail the logs of this pod&quot;
+              &gt;&lt;/nb-icon&gt;
+              Tail Logs
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;row mb-3&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;app-display-field
+            [value]&#x3D;&quot;pod.status&quot;
+            label&#x3D;&quot;Pod Status&quot;
+            flavor&#x3D;&quot;PLAIN&quot;
+            display&#x3D;&quot;secondary&quot;
+          &gt;&lt;/app-display-field&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;app-display-field
+            [value]&#x3D;&quot;pod.startTime&quot;
+            label&#x3D;&quot;Start time&quot;
+            flavor&#x3D;&quot;PLAIN&quot;
+            display&#x3D;&quot;secondary&quot;
+          &gt;&lt;/app-display-field&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;row mb-3&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;app-display-field
+            [value]&#x3D;&quot;pod.hostIp&quot;
+            label&#x3D;&quot;Host IP&quot;
+            flavor&#x3D;&quot;PLAIN&quot;
+            display&#x3D;&quot;secondary&quot;
+          &gt;&lt;/app-display-field&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;app-display-field
+            [value]&#x3D;&quot;pod.podIp&quot;
+            label&#x3D;&quot;Pod IP&quot;
+            flavor&#x3D;&quot;PLAIN&quot;
+            display&#x3D;&quot;secondary&quot;
+          &gt;&lt;/app-display-field&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;row mb-3&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+          &lt;table *ngIf&#x3D;&quot;pod?.containers?.length&quot; class&#x3D;&quot;table table-striped&quot;&gt;
+            &lt;thead&gt;
+              &lt;tr&gt;
+                &lt;th&gt;Container&lt;/th&gt;
+                &lt;th&gt;Status&lt;/th&gt;
+                &lt;th&gt;Image&lt;/th&gt;
+                &lt;th&gt;&lt;/th&gt;
+              &lt;/tr&gt;
+              &lt;tr *ngFor&#x3D;&quot;let container of pod.containers&quot;&gt;
+                &lt;td&gt;{{ container.name }}&lt;/td&gt;
+                &lt;td&gt;{{ container.state.status }}&lt;/td&gt;
+                &lt;td&gt;{{ container.image }}&lt;/td&gt;
+                &lt;td&gt;
+                  &lt;button nbButton size&#x3D;&quot;small&quot; (click)&#x3D;&quot;showDetails(dialog)&quot;&gt;
+                    &lt;nb-icon icon&#x3D;&quot;info-outline&quot;&gt;&lt;/nb-icon&gt;
+                  &lt;/button&gt;
+
+                  &lt;ng-template #dialog let-data let-ref&#x3D;&quot;dialogRef&quot;&gt;
+                    &lt;nb-card&gt;
+                      &lt;nb-card-body&gt;
+                        &lt;div class&#x3D;&quot;row m-4&quot;&gt;
+                          &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+                            &lt;ng-container
+                              *ngIf&#x3D;&quot;container.state.status &#x3D;&#x3D;&#x3D; &#x27;Running&#x27;&quot;
+                            &gt;
+                              &lt;table class&#x3D;&quot;table&quot;&gt;
+                                &lt;thead&gt;
+                                  &lt;tr&gt;
+                                    &lt;th&gt;Data&lt;/th&gt;
+                                    &lt;th&gt;Value&lt;/th&gt;
+                                  &lt;/tr&gt;
+                                &lt;/thead&gt;
+                                &lt;tbody&gt;
+                                  &lt;tr&gt;
+                                    &lt;td&gt;Started At&lt;/td&gt;
+                                    &lt;td&gt;
+                                      {{
+                                        formatDateService.getFormattedDate(
+                                          pod?.status?.startTime
+                                        )
+                                      }}
+                                    &lt;/td&gt;
+                                  &lt;/tr&gt;
+                                &lt;/tbody&gt;
+                              &lt;/table&gt;
+                            &lt;/ng-container&gt;
+                            &lt;ng-container
+                              *ngIf&#x3D;&quot;container.state.status &#x3D;&#x3D;&#x3D; &#x27;Waiting&#x27;&quot;
+                            &gt;
+                              &lt;table class&#x3D;&quot;table&quot;&gt;
+                                &lt;thead&gt;
+                                  &lt;tr&gt;
+                                    &lt;th&gt;Data&lt;/th&gt;
+                                    &lt;th&gt;Value&lt;/th&gt;
+                                  &lt;/tr&gt;
+                                &lt;/thead&gt;
+                                &lt;tbody&gt;
+                                  &lt;tr&gt;
+                                    &lt;td&gt;Message&lt;/td&gt;
+                                    &lt;td&gt;{{ container.state.meta.message }}&lt;/td&gt;
+                                  &lt;/tr&gt;
+                                  &lt;tr&gt;
+                                    &lt;td&gt;Reason&lt;/td&gt;
+                                    &lt;td&gt;{{ container.state.meta.reason }}&lt;/td&gt;
+                                  &lt;/tr&gt;
+                                &lt;/tbody&gt;
+                              &lt;/table&gt;
+                            &lt;/ng-container&gt;
+                            &lt;ng-container
+                              *ngIf&#x3D;&quot;container.state.status &#x3D;&#x3D;&#x3D; &#x27;Terminated&#x27;&quot;
+                            &gt;
+                              &lt;table class&#x3D;&quot;table&quot;&gt;
+                                &lt;thead&gt;
+                                  &lt;tr&gt;
+                                    &lt;th&gt;Data&lt;/th&gt;
+                                    &lt;th&gt;Value&lt;/th&gt;
+                                  &lt;/tr&gt;
+                                &lt;/thead&gt;
+                                &lt;tbody&gt;
+                                  &lt;tr&gt;
+                                    &lt;td&gt;Started At&lt;/td&gt;
+                                    &lt;td&gt;
+                                      {{
+                                        container.state.meta.startedAt
+                                          | date: &#x27;medium&#x27;
+                                      }}
+                                    &lt;/td&gt;
+                                  &lt;/tr&gt;
+                                  &lt;tr&gt;
+                                    &lt;td&gt;Finished At&lt;/td&gt;
+                                    &lt;td&gt;
+                                      {{
+                                        container.state.meta.finishedAt
+                                          | date: &#x27;medium&#x27;
+                                      }}
+                                    &lt;/td&gt;
+                                  &lt;/tr&gt;
+                                  &lt;tr&gt;
+                                    &lt;td&gt;Container ID&lt;/td&gt;
+                                    &lt;td&gt;
+                                      {{ container.state.meta.containerID }}
+                                    &lt;/td&gt;
+                                  &lt;/tr&gt;
+                                  &lt;tr&gt;
+                                    &lt;td&gt;Exit code&lt;/td&gt;
+                                    &lt;td&gt;{{ container.state.meta.exitCode }}&lt;/td&gt;
+                                  &lt;/tr&gt;
+                                  &lt;tr&gt;
+                                    &lt;td&gt;Message&lt;/td&gt;
+                                    &lt;td&gt;{{ container.state.meta.message }}&lt;/td&gt;
+                                  &lt;/tr&gt;
+                                  &lt;tr&gt;
+                                    &lt;td&gt;Reason&lt;/td&gt;
+                                    &lt;td&gt;{{ container.state.meta.reason }}&lt;/td&gt;
+                                  &lt;/tr&gt;
+                                  &lt;tr&gt;
+                                    &lt;td&gt;Signal&lt;/td&gt;
+                                    &lt;td&gt;{{ container.state.meta.signal }}&lt;/td&gt;
+                                  &lt;/tr&gt;
+                                &lt;/tbody&gt;
+                              &lt;/table&gt;
+                            &lt;/ng-container&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/nb-card-body&gt;
+                    &lt;/nb-card&gt;
+                  &lt;/ng-template&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/thead&gt;
+          &lt;/table&gt;
+          &lt;h4 *ngIf&#x3D;&quot;!pod?.containers?.length&quot;&gt;
+            Containers not available in the pod
+          &lt;/h4&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nb-card-body&gt;
+  &lt;/nb-card&gt;
+&lt;/ng-container&gt;
+
+&lt;nb-card
+  *ngIf&#x3D;&quot;fetchingPods || (!fetchingPods &amp;&amp; !pods?.length)&quot;
+  [nbSpinner]&#x3D;&quot;fetchingPods&quot;
+  [ngClass]&#x3D;&quot;[fetchingPods ? &#x27;py-5&#x27; : &#x27;px-3 pt-3&#x27;]&quot;
+&gt;
+  &lt;app-message
+    *ngIf&#x3D;&quot;!fetchingPods &amp;&amp; !pods?.length&quot;
+    [imgUrl]&#x3D;&quot;icon&quot;
+    [primaryMsg]&#x3D;&quot;message&quot;
+    [secondaryMsg]&#x3D;&quot;errMsg&quot;
+    [status]&#x3D;&quot;status&quot;
+  &gt;&lt;/app-message&gt;
+&lt;/nb-card&gt;
+&lt;ng-template #tailLogsUI let-data let-ref&#x3D;&quot;dialogRef&quot;&gt;
+  &lt;nb-card size&#x3D;&quot;giant&quot; style&#x3D;&quot;width: 1200px&quot;&gt;
+    &lt;nb-card-header&gt;
+      &lt;label class&#x3D;&quot;float-left mr-3&quot;
+        &gt;Fetching logs of pod - {{ data.name }}&lt;/label
+      &gt;
+      &lt;button
+        nbButton
+        size&#x3D;&quot;small&quot;
+        ghost
+        class&#x3D;&quot;float-right&quot;
+        status&#x3D;&quot;basic&quot;
+        (click)&#x3D;&quot;ref.close()&quot;
+      &gt;
+        &lt;nb-icon icon&#x3D;&quot;close&quot;&gt;&lt;/nb-icon&gt;
+      &lt;/button&gt;
+      &lt;button
+        nbButton
+        size&#x3D;&quot;small&quot;
+        ghost
+        class&#x3D;&quot;float-right mr-3&quot;
+        status&#x3D;&quot;basic&quot;
+        nbToolTip&#x3D;&quot;Copy logs to clipboard&quot;
+        (click)&#x3D;&quot;copyLogsToClipboard()&quot;
+      &gt;
+        &lt;nb-icon icon&#x3D;&quot;clipboard-outline&quot;&gt;&lt;/nb-icon&gt;
+      &lt;/button&gt;
+    &lt;/nb-card-header&gt;
+    &lt;nb-card-body style&#x3D;&quot;overflow: hidden&quot;&gt;
+      &lt;app-tail-logs
+        [logsUrl]&#x3D;&quot;podsUrl&quot;
+        [selectedPodName]&#x3D;&quot;data?.name&quot;
+        [clusterId]&#x3D;&quot;clusterId&quot;
+        #tailLogsComponent
+      &gt;&lt;/app-tail-logs&gt;
+    &lt;/nb-card-body&gt;
+  &lt;/nb-card&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #confirmRollingRestartUI let-data let-ref&#x3D;&quot;dialogRef&quot;&gt;
+  &lt;nb-card&gt;
+    &lt;nb-card-header&gt;Confirm Rolling Restart All&lt;/nb-card-header&gt;
+    &lt;nb-card-body&gt;
+      &lt;p&gt;This will sequentially restart all the pods. Are you sure?&lt;/p&gt;
+    &lt;/nb-card-body&gt;
+    &lt;nb-card-footer&gt;
+      &lt;button
+        nbButton
+        size&#x3D;&quot;small&quot;
+        status&#x3D;&quot;primary&quot;
+        class&#x3D;&quot;cc-margin-right&quot;
+        (click)&#x3D;&quot;rollingRestartAll(ref)&quot;
+        [nbSpinner]&#x3D;&quot;rollingRestartInProgress&quot;
+        [disabled]&#x3D;&quot;rollingRestartInProgress&quot;
+      &gt;
+        Confirm
+      &lt;/button&gt;
+      &lt;button
+        nbButton
+        size&#x3D;&quot;small&quot;
+        status&#x3D;&quot;basic&quot;
+        (click)&#x3D;&quot;ref.close()&quot;
+        class&#x3D;&quot;cc-margin-right&quot;
+        [disabled]&#x3D;&quot;rollingRestartInProgress&quot;
+      &gt;
+        Cancel
+      &lt;/button&gt;
+    &lt;/nb-card-footer&gt;
+  &lt;/nb-card&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./app-pods.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.tailLogs {
+  width: 100vw;
+
+  nb-card-body {
+    background-color: #000;
+  }
+}
+
+#terminalFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2rem;
+  padding-top: 0;
+  margin-right: 0.5rem;
+
+  nb-toggle {
+    margin-top: 0.5rem;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="row mb-3">  <div class="col-sm-12">    <h6 class="float-left">Pods</h6>    <div class="float-right" *ngIf="!fetchingPods && pods?.length">      <app-rbac-button        label="Rolling Restart All"        icon="sync-outline"        status="primary"        appearance="outline"        toolTip="Rolling Restart all the Pods"        action="APPLICATION_ROLLING_RESTART"        (onClick)="confirmRollingRestart(confirmRollingRestartUI)"      ></app-rbac-button>    </div>  </div></div><ng-container *ngIf="!fetchingPods && pods?.length">  <nb-card *ngFor="let pod of pods">    <nb-card-body>      <div class="row mb-3">        <div class="col-md-8">          <app-display-field            [value]="pod.name"            label="Name"            flavor="PLAIN"            display="primary"          ></app-display-field>        </div>        <div class="col-md-4">          <div class="text-right">            <button              nbButton              size="small"              (click)="openTailLogsDialog(tailLogsUI, pod)"            >              <nb-icon                icon="file-text-outline"                nbTooltip="Tail the logs of this pod"              ></nb-icon>              Tail Logs            </button>          </div>        </div>      </div>      <div class="row mb-3">        <div class="col-md-6">          <app-display-field            [value]="pod.status"            label="Pod Status"            flavor="PLAIN"            display="secondary"          ></app-display-field>        </div>        <div class="col-md-6">          <app-display-field            [value]="pod.startTime"            label="Start time"            flavor="PLAIN"            display="secondary"          ></app-display-field>        </div>      </div>      <div class="row mb-3">        <div class="col-md-6">          <app-display-field            [value]="pod.hostIp"            label="Host IP"            flavor="PLAIN"            display="secondary"          ></app-display-field>        </div>        <div class="col-md-6">          <app-display-field            [value]="pod.podIp"            label="Pod IP"            flavor="PLAIN"            display="secondary"          ></app-display-field>        </div>      </div>      <div class="row mb-3">        <div class="col-md-12">          <table *ngIf="pod?.containers?.length" class="table table-striped">            <thead>              <tr>                <th>Container</th>                <th>Status</th>                <th>Image</th>                <th></th>              </tr>              <tr *ngFor="let container of pod.containers">                <td>{{ container.name }}</td>                <td>{{ container.state.status }}</td>                <td>{{ container.image }}</td>                <td>                  <button nbButton size="small" (click)="showDetails(dialog)">                    <nb-icon icon="info-outline"></nb-icon>                  </button>                  <ng-template #dialog let-data let-ref="dialogRef">                    <nb-card>                      <nb-card-body>                        <div class="row m-4">                          <div class="col-md-12">                            <ng-container                              *ngIf="container.state.status === \'Running\'"                            >                              <table class="table">                                <thead>                                  <tr>                                    <th>Data</th>                                    <th>Value</th>                                  </tr>                                </thead>                                <tbody>                                  <tr>                                    <td>Started At</td>                                    <td>                                      {{                                        formatDateService.getFormattedDate(                                          pod?.status?.startTime                                        )                                      }}                                    </td>                                  </tr>                                </tbody>                              </table>                            </ng-container>                            <ng-container                              *ngIf="container.state.status === \'Waiting\'"                            >                              <table class="table">                                <thead>                                  <tr>                                    <th>Data</th>                                    <th>Value</th>                                  </tr>                                </thead>                                <tbody>                                  <tr>                                    <td>Message</td>                                    <td>{{ container.state.meta.message }}</td>                                  </tr>                                  <tr>                                    <td>Reason</td>                                    <td>{{ container.state.meta.reason }}</td>                                  </tr>                                </tbody>                              </table>                            </ng-container>                            <ng-container                              *ngIf="container.state.status === \'Terminated\'"                            >                              <table class="table">                                <thead>                                  <tr>                                    <th>Data</th>                                    <th>Value</th>                                  </tr>                                </thead>                                <tbody>                                  <tr>                                    <td>Started At</td>                                    <td>                                      {{                                        container.state.meta.startedAt                                          | date: \'medium\'                                      }}                                    </td>                                  </tr>                                  <tr>                                    <td>Finished At</td>                                    <td>                                      {{                                        container.state.meta.finishedAt                                          | date: \'medium\'                                      }}                                    </td>                                  </tr>                                  <tr>                                    <td>Container ID</td>                                    <td>                                      {{ container.state.meta.containerID }}                                    </td>                                  </tr>                                  <tr>                                    <td>Exit code</td>                                    <td>{{ container.state.meta.exitCode }}</td>                                  </tr>                                  <tr>                                    <td>Message</td>                                    <td>{{ container.state.meta.message }}</td>                                  </tr>                                  <tr>                                    <td>Reason</td>                                    <td>{{ container.state.meta.reason }}</td>                                  </tr>                                  <tr>                                    <td>Signal</td>                                    <td>{{ container.state.meta.signal }}</td>                                  </tr>                                </tbody>                              </table>                            </ng-container>                          </div>                        </div>                      </nb-card-body>                    </nb-card>                  </ng-template>                </td>              </tr>            </thead>          </table>          <h4 *ngIf="!pod?.containers?.length">            Containers not available in the pod          </h4>        </div>      </div>    </nb-card-body>  </nb-card></ng-container><nb-card  *ngIf="fetchingPods || (!fetchingPods && !pods?.length)"  [nbSpinner]="fetchingPods"  [ngClass]="[fetchingPods ? \'py-5\' : \'px-3 pt-3\']">  <app-message    *ngIf="!fetchingPods && !pods?.length"    [imgUrl]="icon"    [primaryMsg]="message"    [secondaryMsg]="errMsg"    [status]="status"  ></app-message></nb-card><ng-template #tailLogsUI let-data let-ref="dialogRef">  <nb-card size="giant" style="width: 1200px">    <nb-card-header>      <label class="float-left mr-3"        >Fetching logs of pod - {{ data.name }}</label      >      <button        nbButton        size="small"        ghost        class="float-right"        status="basic"        (click)="ref.close()"      >        <nb-icon icon="close"></nb-icon>      </button>      <button        nbButton        size="small"        ghost        class="float-right mr-3"        status="basic"        nbToolTip="Copy logs to clipboard"        (click)="copyLogsToClipboard()"      >        <nb-icon icon="clipboard-outline"></nb-icon>      </button>    </nb-card-header>    <nb-card-body style="overflow: hidden">      <app-tail-logs        [logsUrl]="podsUrl"        [selectedPodName]="data?.name"        [clusterId]="clusterId"        #tailLogsComponent      ></app-tail-logs>    </nb-card-body>  </nb-card></ng-template><ng-template #confirmRollingRestartUI let-data let-ref="dialogRef">  <nb-card>    <nb-card-header>Confirm Rolling Restart All</nb-card-header>    <nb-card-body>      <p>This will sequentially restart all the pods. Are you sure?</p>    </nb-card-body>    <nb-card-footer>      <button        nbButton        size="small"        status="primary"        class="cc-margin-right"        (click)="rollingRestartAll(ref)"        [nbSpinner]="rollingRestartInProgress"        [disabled]="rollingRestartInProgress"      >        Confirm      </button>      <button        nbButton        size="small"        status="basic"        (click)="ref.close()"        class="cc-margin-right"        [disabled]="rollingRestartInProgress"      >        Cancel      </button>    </nb-card-footer>  </nb-card></ng-template></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'AppPodsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppPodsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

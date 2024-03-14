@@ -1,0 +1,2264 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  TerminalComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/terminal/terminal.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnChanges</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-terminal</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./terminal.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./terminal.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancelTimeout" >cancelTimeout</a>
+                            </li>
+                            <li>
+                                <a href="#contentPresent" >contentPresent</a>
+                            </li>
+                            <li>
+                                <a href="#convert" >convert</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Private</span>
+                                <a href="#endOfStream" >endOfStream</a>
+                            </li>
+                            <li>
+                                <a href="#errorStateIcon" >errorStateIcon</a>
+                            </li>
+                            <li>
+                                <a href="#handleWheelEvent" >handleWheelEvent</a>
+                            </li>
+                            <li>
+                                <a href="#matchingResults" >matchingResults</a>
+                            </li>
+                            <li>
+                                <a href="#matchingResultsOriginalCopy" >matchingResultsOriginalCopy</a>
+                            </li>
+                            <li>
+                                <a href="#noOfResults" >noOfResults</a>
+                            </li>
+                            <li>
+                                <a href="#resultInFocus" >resultInFocus</a>
+                            </li>
+                            <li>
+                                <a href="#scrollingTimeout" >scrollingTimeout</a>
+                            </li>
+                            <li>
+                                <a href="#searchKey" >searchKey</a>
+                            </li>
+                            <li>
+                                <a href="#shouldScrollToBottom" >shouldScrollToBottom</a>
+                            </li>
+                            <li>
+                                <a href="#showNewLogLinesNotif" >showNewLogLinesNotif</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Private</span>
+                                <a href="#terminal" >terminal</a>
+                            </li>
+                            <li>
+                                <a href="#updateScrollBehavior" >updateScrollBehavior</a>
+                            </li>
+                            <li>
+                                <a href="#wheelEventListener" >wheelEventListener</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addWheelEventListener" >addWheelEventListener</a>
+                            </li>
+                            <li>
+                                <a href="#atBottom10Percent" >atBottom10Percent</a>
+                            </li>
+                            <li>
+                                <a href="#bringSearchResultIntoFocus" >bringSearchResultIntoFocus</a>
+                            </li>
+                            <li>
+                                <a href="#highlightResults" >highlightResults</a>
+                            </li>
+                            <li>
+                                <a href="#moveToResult" >moveToResult</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#removeCurrentHighlights" >removeCurrentHighlights</a>
+                            </li>
+                            <li>
+                                <a href="#removeFocusedLogHighlights" >removeFocusedLogHighlights</a>
+                            </li>
+                            <li>
+                                <a href="#removeSearchState" >removeSearchState</a>
+                            </li>
+                            <li>
+                                <a href="#removeWheelEventListener" >removeWheelEventListener</a>
+                            </li>
+                            <li>
+                                <a href="#scrollToBottom" >scrollToBottom</a>
+                            </li>
+                            <li>
+                                <a href="#scrollToResult" >scrollToResult</a>
+                            </li>
+                            <li>
+                                <a href="#search" >search</a>
+                            </li>
+                            <li>
+                                <a href="#storeOriginalState" >storeOriginalState</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#errorMessage" >errorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#logLines" >logLines</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/terminal/terminal.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorMessage"></a>
+                        <b>errorMessage</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/terminal/terminal.component.ts:21</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="logLines"></a>
+                        <b>logLines</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/terminal/terminal.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addWheelEventListener"></a>
+                    <span class="name">
+                        <span ><b>addWheelEventListener</b></span>
+                        <a href="#addWheelEventListener"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addWheelEventListener()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="atBottom10Percent"></a>
+                    <span class="name">
+                        <span ><b>atBottom10Percent</b></span>
+                        <a href="#atBottom10Percent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>atBottom10Percent()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bringSearchResultIntoFocus"></a>
+                    <span class="name">
+                        <span ><b>bringSearchResultIntoFocus</b></span>
+                        <a href="#bringSearchResultIntoFocus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>bringSearchResultIntoFocus()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="highlightResults"></a>
+                    <span class="name">
+                        <span ><b>highlightResults</b></span>
+                        <a href="#highlightResults"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>highlightResults(results, key)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="195"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:195</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>results</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>key</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="moveToResult"></a>
+                    <span class="name">
+                        <span ><b>moveToResult</b></span>
+                        <a href="#moveToResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>moveToResult(move: "next" | "previous")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="216"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:216</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>move</td>
+                                            <td>
+                                                        <code>&quot;next&quot; | &quot;previous&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeCurrentHighlights"></a>
+                    <span class="name">
+                        <span ><b>removeCurrentHighlights</b></span>
+                        <a href="#removeCurrentHighlights"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeCurrentHighlights()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="208"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:208</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeFocusedLogHighlights"></a>
+                    <span class="name">
+                        <span ><b>removeFocusedLogHighlights</b></span>
+                        <a href="#removeFocusedLogHighlights"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeFocusedLogHighlights()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="241"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:241</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeSearchState"></a>
+                    <span class="name">
+                        <span ><b>removeSearchState</b></span>
+                        <a href="#removeSearchState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeSearchState()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="180"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:180</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeWheelEventListener"></a>
+                    <span class="name">
+                        <span ><b>removeWheelEventListener</b></span>
+                        <a href="#removeWheelEventListener"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeWheelEventListener()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scrollToBottom"></a>
+                    <span class="name">
+                        <span ><b>scrollToBottom</b></span>
+                        <a href="#scrollToBottom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>scrollToBottom()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="138"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:138</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scrollToResult"></a>
+                    <span class="name">
+                        <span ><b>scrollToResult</b></span>
+                        <a href="#scrollToResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>scrollToResult(result: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="231"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:231</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>result</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="search"></a>
+                    <span class="name">
+                        <span ><b>search</b></span>
+                        <a href="#search"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>search(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="storeOriginalState"></a>
+                    <span class="name">
+                        <span ><b>storeOriginalState</b></span>
+                        <a href="#storeOriginalState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>storeOriginalState()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="187"
+                                    class="link-to-prism">src/app/components/terminal/terminal.component.ts:187</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelTimeout"></a>
+                    <span class="name">
+                        <span ><b>cancelTimeout</b></span>
+                        <a href="#cancelTimeout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/terminal/terminal.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contentPresent"></a>
+                    <span class="name">
+                        <span ><b>contentPresent</b></span>
+                        <a href="#contentPresent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/terminal/terminal.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="convert"></a>
+                    <span class="name">
+                        <span ><b>convert</b></span>
+                        <a href="#convert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Convert</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/terminal/terminal.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="endOfStream"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Private</span>
+                        <span ><b>endOfStream</b></span>
+                        <a href="#endOfStream"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;endOfStream&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/terminal/terminal.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorStateIcon"></a>
+                    <span class="name">
+                        <span ><b>errorStateIcon</b></span>
+                        <a href="#errorStateIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>errorStateIcon</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/terminal/terminal.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleWheelEvent"></a>
+                    <span class="name">
+                        <span ><b>handleWheelEvent</b></span>
+                        <a href="#handleWheelEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/app/components/terminal/terminal.component.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matchingResults"></a>
+                    <span class="name">
+                        <span ><b>matchingResults</b></span>
+                        <a href="#matchingResults"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/terminal/terminal.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matchingResultsOriginalCopy"></a>
+                    <span class="name">
+                        <span ><b>matchingResultsOriginalCopy</b></span>
+                        <a href="#matchingResultsOriginalCopy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/terminal/terminal.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="noOfResults"></a>
+                    <span class="name">
+                        <span ><b>noOfResults</b></span>
+                        <a href="#noOfResults"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>-1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/terminal/terminal.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resultInFocus"></a>
+                    <span class="name">
+                        <span ><b>resultInFocus</b></span>
+                        <a href="#resultInFocus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>-1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/terminal/terminal.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scrollingTimeout"></a>
+                    <span class="name">
+                        <span ><b>scrollingTimeout</b></span>
+                        <a href="#scrollingTimeout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/components/terminal/terminal.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchKey"></a>
+                    <span class="name">
+                        <span ><b>searchKey</b></span>
+                        <a href="#searchKey"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/terminal/terminal.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shouldScrollToBottom"></a>
+                    <span class="name">
+                        <span ><b>shouldScrollToBottom</b></span>
+                        <a href="#shouldScrollToBottom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/terminal/terminal.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showNewLogLinesNotif"></a>
+                    <span class="name">
+                        <span ><b>showNewLogLinesNotif</b></span>
+                        <a href="#showNewLogLinesNotif"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/terminal/terminal.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="terminal"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Private</span>
+                        <span ><b>terminal</b></span>
+                        <a href="#terminal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;terminal&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/terminal/terminal.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateScrollBehavior"></a>
+                    <span class="name">
+                        <span ><b>updateScrollBehavior</b></span>
+                        <a href="#updateScrollBehavior"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/components/terminal/terminal.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="wheelEventListener"></a>
+                    <span class="name">
+                        <span ><b>wheelEventListener</b></span>
+                        <a href="#wheelEventListener"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/terminal/terminal.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import * as Convert from &#x27;ansi-to-html&#x27;;
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnDestroy,
+  SimpleChanges,
+  ViewChild,
+} from &#x27;@angular/core&#x27;;
+import { debounce } from &#x27;lodash&#x27;;
+const errorStateIcon &#x3D; &#x27;./assets/error.svg&#x27;;
+@Component({
+  selector: &#x27;app-terminal&#x27;,
+  templateUrl: &#x27;./terminal.component.html&#x27;,
+  styleUrls: [&#x27;./terminal.component.scss&#x27;],
+})
+export class TerminalComponent implements OnChanges, OnDestroy {
+  @Input() logLines: any[]; // Logs in form of an array of {timestamp, message} type
+  @Input() errorMessage: string; // Error message in case there are no log lines
+  @ViewChild(&#x27;terminal&#x27;) private terminal: ElementRef; // HTML element reference for terminal div
+  @ViewChild(&#x27;endOfStream&#x27;) private endOfStream: ElementRef; // HTML element reference for the end of stream line from the bottom of the terminal
+  convert: Convert; // Used for converting string to html type
+  contentPresent: boolean &#x3D; false; // If content is present, the terminal doesn&#x27;t have to automatically scroll to the bottom
+  // Used at first load
+
+  searchKey: string; // Search keyword
+  noOfResults: number &#x3D; -1; // Number of logs consisting of N number of search keyword
+  resultInFocus: number &#x3D; -1; // The index of the log which the user is currently at (while navigating through up and down arrow buttons)
+  matchingResults: any[]; // The list of log elements of which consist of the search keyword
+  matchingResultsOriginalCopy: any[]; // A copy of the original log elements before the &#x27;highlight&#x27; span was added to it after processing
+
+  showNewLogLinesNotif: boolean &#x3D; false; // Flag for checking if the new log notification should pop up or not
+  cancelTimeout: boolean &#x3D; false; // Flag for cancelling the timeout which was set to remove the ne log notification pop up
+
+  errorStateIcon &#x3D; errorStateIcon;
+
+  shouldScrollToBottom: boolean &#x3D; true;
+
+  wheelEventListener: any;
+
+  constructor() {
+    this.convert &#x3D; new Convert();
+  }
+
+  // If there&#x27;s some content on the terminal already, we&#x27;ll check if the user is already at the bottom of the
+  // terminal - if they&#x27;re not, we will show the pop up for them to see that a more recent version of logs is present at the bottom now
+  // (if the user had some active search results, we need to reapply that filter)
+  // Else if the content is being loaded for the first time, we&#x27;ll just  automatically scroll to the bottom of the div
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes) {
+      if (changes?.logLines?.currentValue?.length) {
+        if (!this.contentPresent) {
+          this.scrollToBottom();
+          this.contentPresent &#x3D; true;
+        } else {
+          if (this.shouldScrollToBottom) {
+            this.scrollToBottom();
+          }
+          // this.bringSearchResultIntoFocus(); [NOT IN USE RIGHT NOW BUT DO NOT REMOVE]
+        }
+      } else if (changes.errorMessage?.currentValue?.length) {
+        this.errorMessage &#x3D; changes.errorMessage.currentValue;
+      }
+
+      // Remove the previous wheel event listener if it exists
+      this.removeWheelEventListener();
+
+      // Add a new wheel event listener
+      const logLinesElement &#x3D; document?.getElementById(&#x27;logLines&#x27;);
+      if (logLinesElement) {
+        logLinesElement.addEventListener(&#x27;wheel&#x27;, this.handleWheelEvent);
+      }
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.removeWheelEventListener();
+  }
+
+  updateScrollBehavior &#x3D; () &#x3D;&gt; {
+    this.shouldScrollToBottom &#x3D; this.atBottom10Percent();
+  };
+
+  scrollingTimeout: any;
+
+  // Function to remove the wheel event listener
+  removeWheelEventListener() {
+    if (this.wheelEventListener) {
+      document
+        ?.getElementById(&#x27;logLines&#x27;)
+        ?.removeEventListener(&#x27;wheel&#x27;, this.handleWheelEvent);
+      clearTimeout(this.scrollingTimeout); // Clear any existing timeout
+      this.wheelEventListener &#x3D; null;
+    }
+  }
+
+  // Function to add the wheel event listener
+  addWheelEventListener() {
+    const logLinesElement &#x3D; document?.getElementById(&#x27;logLines&#x27;);
+    if (logLinesElement) {
+      logLinesElement.addEventListener(&#x27;wheel&#x27;, this.handleWheelEvent);
+    }
+  }
+
+  // Clear any existing timeout
+  // Remove the current listener after a pause in wheel events
+  // Add a new listener for the next wheel event
+  handleWheelEvent &#x3D; () &#x3D;&gt; {
+    clearTimeout(this.scrollingTimeout);
+    this.scrollingTimeout &#x3D; setTimeout(() &#x3D;&gt; {
+      this.removeWheelEventListener();
+      this.updateScrollBehavior();
+      this.addWheelEventListener();
+    }, 100);
+  };
+
+  // Bring search result into focus
+  bringSearchResultIntoFocus() {
+    if (this.searchKey &amp;&amp; this.noOfResults &gt; 0) {
+      setTimeout(() &#x3D;&gt; {
+        const resultInFocus &#x3D; this.resultInFocus;
+        this.search(this.searchKey);
+        this.scrollToResult(resultInFocus);
+        this.resultInFocus &#x3D; resultInFocus;
+      }, 500);
+    }
+  }
+
+  // Checks if the user is at the bottom 10% area of the div or has scrolled up
+  atBottom10Percent() {
+    let el &#x3D; this.terminal?.nativeElement;
+    return el?.offsetHeight + el?.scrollTop &gt;&#x3D; el?.scrollHeight * 0.9;
+  }
+
+  // Scrolls to the bottom of the terminal
+  scrollToBottom() {
+    setTimeout(() &#x3D;&gt; {
+      this.endOfStream.nativeElement.scrollIntoView({
+        behavior: &#x27;smooth&#x27;,
+        block: &#x27;end&#x27;,
+      });
+      this.cancelTimeout &#x3D; true;
+      this.showNewLogLinesNotif &#x3D; false;
+    }, 500);
+  }
+
+  // Resets if the search state of the previous search keyword (if required)
+  // Searches for all the log lines which have more than 0 occurrences of the search keyword and adds a highlight span wrapper around all the matches
+  search(key: string) {
+    if (this.matchingResultsOriginalCopy) {
+      this.removeSearchState();
+    }
+    this.removeFocusedLogHighlights();
+
+    key &#x3D; key?.toLowerCase();
+
+    if (!this.searchKey || !this.searchKey?.length) {
+      this.matchingResultsOriginalCopy &#x3D; null;
+      this.resultInFocus &#x3D; -1;
+      this.noOfResults &#x3D; -1;
+      return;
+    }
+
+    let allLogItems &#x3D; Array.from(document.querySelectorAll(&#x27;.logItem&#x27;));
+    this.matchingResults &#x3D; allLogItems.filter((logItem) &#x3D;&gt;
+      logItem.innerHTML?.toLowerCase().includes(key),
+    );
+    this.storeOriginalState();
+    this.noOfResults &#x3D; this.matchingResults?.length;
+    this.resultInFocus &#x3D; -1;
+
+    this.removeCurrentHighlights();
+    this.highlightResults(this.matchingResults, key);
+  }
+
+  // While searching and highlighting, the matching log lines are converted to lowercase
+  // Once the search key word is updated or removed, these logs should go back to their original state
+  removeSearchState() {
+    for (let i &#x3D; 0; i &lt; this.matchingResults?.length; i++) {
+      this.matchingResults[i].innerHTML &#x3D; this.matchingResultsOriginalCopy[i];
+    }
+  }
+
+  // Storing original innerHTML data for all the logs (used in removeSearchState() while resetting)
+  storeOriginalState() {
+    this.matchingResultsOriginalCopy &#x3D; [];
+    for (let i &#x3D; 0; i &lt; this.matchingResults?.length; i++) {
+      this.matchingResultsOriginalCopy[i] &#x3D; this.matchingResults[i].innerHTML;
+    }
+  }
+
+  // Highlights all the occurrences of the matching keyword
+  highlightResults(results, key) {
+    for (let i &#x3D; 0; i &lt; results?.length; i++) {
+      let HTMLLowerCase: string &#x3D; results[i].innerHTML?.toLowerCase();
+      // @ts-ignore
+      let newHTML &#x3D; HTMLLowerCase.replaceAll(
+        new RegExp(key, &#x27;ig&#x27;),
+        &#x27;&lt;span class&#x3D;&quot;highlight__&quot;&gt;&#x27; + key + &#x27;&lt;/span&gt;&#x27;,
+      );
+      results[i].innerHTML &#x3D; newHTML;
+    }
+  }
+
+  // Removes highlight from all the occurrences of the search keyword
+  removeCurrentHighlights() {
+    var highlights &#x3D; document.getElementsByClassName(&#x27;highlight__&#x27;);
+    while (highlights?.length) highlights[0].classList.remove(&#x27;highlight__&#x27;);
+  }
+
+  // Moves up and down through the log lines which have match(s) for the search keyword
+  // Highlights the currently focused log line with a gray background
+  // (only happens once the use starts navigating through the search results using the arrow buttons)
+  moveToResult(move: &#x27;next&#x27; | &#x27;previous&#x27;) {
+    if (this.resultInFocus &#x3D;&#x3D;&#x3D; -1) {
+      this.resultInFocus &#x3D; 0;
+    } else {
+      let step &#x3D; move &#x3D;&#x3D;&#x3D; &#x27;next&#x27; ? +1 : -1;
+      this.matchingResults[this.resultInFocus].classList.remove(
+        &#x27;activeTerminalLogLine&#x27;,
+      );
+      this.removeFocusedLogHighlights();
+      this.resultInFocus &#x3D;
+        (this.resultInFocus + this.noOfResults + step) % this.noOfResults;
+    }
+    this.scrollToResult(this.resultInFocus);
+  }
+
+  scrollToResult(result: any) {
+    this.matchingResults[result].scrollIntoView({
+      behavior: &#x27;smooth&#x27;,
+      block: &#x27;center&#x27;,
+      inline: &#x27;nearest&#x27;,
+    });
+    this.matchingResults[result].classList.add(&#x27;activeTerminalLogLine&#x27;);
+  }
+
+  // Removes any other highlighted log lines
+  removeFocusedLogHighlights() {
+    var activeLogs &#x3D; document.getElementsByClassName(&#x27;activeTerminalLogLine&#x27;);
+    while (activeLogs?.length)
+      activeLogs[0].classList.remove(&#x27;activeTerminalLogLine&#x27;);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container
+  *ngIf&#x3D;&quot;(logLines &amp;&amp; logLines.length) || errorMessage; else emptyTerminal&quot;
+&gt;
+  &lt;!-- &lt;div  id&#x3D;&quot;searchWrapper&quot; *ngIf&#x3D;&quot;logLines &amp;&amp; logLines.length&quot;&gt;
+    &lt;nb-form-field style&#x3D;&quot;width: fit-content&quot;&gt;
+      &lt;input
+        [(ngModel)]&#x3D;&quot;searchKey&quot;
+        placeholder&#x3D;&quot;Search&quot;
+        type&#x3D;&quot;text&quot;
+        nbInput
+        style&#x3D;&quot;border-radius: 0&quot;
+        (keydown.enter)&#x3D;&quot;search(searchKey)&quot;
+      /&gt;
+      &lt;button
+        nbSuffix
+        nbButton
+        ghost
+        size&#x3D;&quot;tiny&quot;
+        (click)&#x3D;&quot;search(searchKey)&quot;
+        [disabled]&#x3D;&quot;!searchKey&quot;
+      &gt;
+        &lt;nb-icon icon&#x3D;&quot;search-outline&quot; pack&#x3D;&quot;eva&quot;&gt;&lt;/nb-icon&gt;
+      &lt;/button&gt;
+    &lt;/nb-form-field&gt;
+    &lt;div id&#x3D;&quot;controllerWrapper&quot; *ngIf&#x3D;&quot;noOfResults !&#x3D; -1&quot;&gt;
+      &lt;div id&#x3D;&quot;resultHeading&quot;&gt;
+        &lt;span *ngIf&#x3D;&quot;resultInFocus &#x3D;&#x3D; -1&quot;&gt;
+          {{ noOfResults }}
+          &lt;ng-container *ngIf&#x3D;&quot;noOfResults &gt; 1; else singleResult&quot;&gt;
+            results
+          &lt;/ng-container&gt;
+          &lt;ng-template #singleResult&gt; result &lt;/ng-template&gt;
+          found
+        &lt;/span&gt;
+        &lt;span *ngIf&#x3D;&quot;resultInFocus !&#x3D; -1&quot;&gt;
+          {{ resultInFocus + 1 }} of {{ noOfResults }}
+          &lt;ng-container *ngIf&#x3D;&quot;noOfResults &#x3D;&#x3D; 1&quot;&gt; result &lt;/ng-container&gt;
+          &lt;ng-container *ngIf&#x3D;&quot;noOfResults &gt; 1&quot;&gt; results &lt;/ng-container&gt;
+        &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div id&#x3D;&quot;arrows&quot;&gt;
+        &lt;button
+          nbButton
+          size&#x3D;&quot;tiny&quot;
+          ghost
+          style&#x3D;&quot;margin: auto&quot;
+          (click)&#x3D;&quot;moveToResult(&#x27;previous&#x27;)&quot;
+          [disabled]&#x3D;&quot;!noOfResults&quot;
+        &gt;
+          &lt;nb-icon icon&#x3D;&quot;arrow-up-outline&quot; pack&#x3D;&quot;eva&quot;&gt;&lt;/nb-icon&gt;
+        &lt;/button&gt;
+        &lt;button
+          nbButton
+          size&#x3D;&quot;tiny&quot;
+          ghost
+          style&#x3D;&quot;margin: auto&quot;
+          (click)&#x3D;&quot;moveToResult(&#x27;next&#x27;)&quot;
+          [disabled]&#x3D;&quot;!noOfResults&quot;
+        &gt;
+          &lt;nb-icon icon&#x3D;&quot;arrow-down-outline&quot; pack&#x3D;&quot;eva&quot;&gt;&lt;/nb-icon&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt; --&gt;
+
+  &lt;!-- &lt;div id&#x3D;&quot;newLogNotif&quot; *ngIf&#x3D;&quot;showNewLogLinesNotif&quot;&gt;
+    &lt;div id&#x3D;&quot;messageWrapper&quot;&gt;Scroll to check new log messages&lt;/div&gt;
+    &lt;button nbButton status&#x3D;&quot;tiny&quot; ghost (click)&#x3D;&quot;scrollToBottom()&quot;&gt;
+      &lt;nb-icon icon&#x3D;&quot;arrow-downward-outline&quot; pack&#x3D;&quot;eva&quot;&gt;&lt;/nb-icon&gt;
+    &lt;/button&gt;
+  &lt;/div&gt; --&gt;
+
+  &lt;ng-container *ngIf&#x3D;&quot;logLines &amp;&amp; logLines.length; else errMsg&quot;&gt;
+    &lt;div class&#x3D;&quot;d-flex&quot; style&#x3D;&quot;flex-direction: column; max-height: 37rem&quot;&gt;
+      &lt;div #terminal id&#x3D;&quot;logLines&quot; class&#x3D;&quot;bg-dark text-white&quot;&gt;
+        &lt;div *ngFor&#x3D;&quot;let log of logLines; let i &#x3D; index&quot;&gt;
+          &lt;div class&#x3D;&quot;logItem logItemNew&quot; *ngIf&#x3D;&quot;!log?.children&quot;&gt;
+            &lt;p
+              class&#x3D;&quot;badge badge-dark text-light mr-3&quot;
+              *ngIf&#x3D;&quot;log.timestamp &gt; 0&quot;
+            &gt;
+              {{ log.timestamp | date: &#x27;short&#x27; }}
+            &lt;/p&gt;
+            &lt;div [innerHTML]&#x3D;&quot;convert.toHtml(log.message) | safeHtml&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div style&#x3D;&quot;width: 70%&quot; class&#x3D;&quot;m-2&quot; *ngIf&#x3D;&quot;log?.children&quot;&gt;
+            &lt;nb-accordion multi&gt;
+              &lt;nb-accordion-item
+                [expanded]&#x3D;&quot;log.children &amp;&amp; i &#x3D;&#x3D;&#x3D; logLines.length - 1&quot;
+              &gt;
+                &lt;nb-accordion-item-header class&#x3D;&quot;p-1 logItem&quot;&gt;
+                  &lt;div
+                    class&#x3D;&quot;header-logs-accordion&quot;
+                    [innerHTML]&#x3D;&quot;convert.toHtml(log?.message) | safeHtml&quot;
+                  &gt;&lt;/div&gt;
+                &lt;/nb-accordion-item-header&gt;
+                &lt;nb-accordion-item-body&gt;
+                  &lt;div *ngFor&#x3D;&quot;let child of log?.children&quot;&gt;
+                    &lt;p
+                      class&#x3D;&quot;badge badge-dark text-light mr-3&quot;
+                      *ngIf&#x3D;&quot;child?.timestamp &gt; 0&quot;
+                    &gt;
+                      {{ child?.timestamp | date: &#x27;short&#x27; }}
+                    &lt;/p&gt;
+                    &lt;div
+                      class&#x3D;&quot;logItem&quot;
+                      [innerHTML]&#x3D;&quot;convert.toHtml(child?.message) | safeHtml&quot;
+                    &gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/nb-accordion-item-body&gt;
+              &lt;/nb-accordion-item&gt;
+            &lt;/nb-accordion&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;span
+          #endOfStream
+          class&#x3D;&quot;bg-dark text-white border-0 pl-2&quot;
+          id&#x3D;&quot;endOfStream&quot;
+        &gt;
+          End of stream
+        &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/ng-container&gt;
+  &lt;ng-template #errMsg&gt;
+    &lt;!-- &lt;div id&#x3D;&quot;errorMessageWrapper&quot;&gt;
+            &lt;div id&#x3D;&quot;errorMessage&quot;&gt;
+                {{ errorMessage }}
+            &lt;/div&gt;
+        &lt;/div&gt; --&gt;
+    &lt;div
+      style&#x3D;&quot;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      &quot;
+    &gt;
+      &lt;app-message
+        style&#x3D;&quot;width: 100%&quot;
+        [imgUrl]&#x3D;&quot;errorStateIcon&quot;
+        [primaryMsg]&#x3D;&quot;&#x27;Failed to fetch logs&#x27;&quot;
+        [secondaryMsg]&#x3D;&quot;errorMessage&quot;
+        [showBtn]&#x3D;&quot;false&quot;
+      &gt;&lt;/app-message&gt;
+    &lt;/div&gt;
+  &lt;/ng-template&gt;
+&lt;/ng-container&gt;
+
+&lt;ng-template #emptyTerminal&gt;
+  &lt;div id&#x3D;&quot;emptyTerminal&quot;&gt;
+    &lt;span style&#x3D;&quot;color: white&quot;&gt;No logs available yet&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./terminal.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.logItemNew {
+  text-align: left;
+  margin: 0;
+  padding: 0.08rem;
+  border-radius: 0;
+  padding-left: 0.5rem;
+  width: fit-content;
+}
+
+#logLines {
+  overflow: auto;
+  height: 74.5vh;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+
+  #endOfStream {
+    text-align: center;
+    background: #202020 !important;
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: 0.15rem;
+  }
+}
+
+#logLines::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+#logLines::-webkit-scrollbar-track {
+  background: #343a40;
+}
+
+#logLines::-webkit-scrollbar-thumb {
+  background: #000;
+}
+
+#logLines::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+#searchWrapper {
+  position: absolute;
+  right: 1.1rem;
+  opacity: 0.35;
+  transition: 0.2s all;
+
+  #controllerWrapper {
+    background: #1e2227;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+
+    #resultHeading {
+      color: white;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 0.5rem;
+    }
+
+    #arrows {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+}
+#searchWrapper:hover {
+  opacity: 1 !important;
+  z-index: 2;
+}
+
+#newLogNotif {
+  position: absolute;
+  bottom: 3rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background: #00d68f;
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+  gap: 1rem;
+
+  button {
+    color: white;
+  }
+}
+
+#errorMessageWrapper {
+  color: #979797;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  height: 70vh;
+  align-items: center;
+}
+
+#emptyTerminal {
+  background: #343a40 !important;
+  padding: 0.5rem;
+  height: 67vh;
+  border-radius: 5px;
+}
+
+.header-logs-accordion {
+  word-break: break-word;
+  width: 95%;
+  display: inline-block;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container  *ngIf="(logLines && logLines.length) || errorMessage; else emptyTerminal">  <!-- <div  id="searchWrapper" *ngIf="logLines && logLines.length">    <nb-form-field style="width: fit-content">      <input        [(ngModel)]="searchKey"        placeholder="Search"        type="text"        nbInput        style="border-radius: 0"        (keydown.enter)="search(searchKey)"      />      <button        nbSuffix        nbButton        ghost        size="tiny"        (click)="search(searchKey)"        [disabled]="!searchKey"      >        <nb-icon icon="search-outline" pack="eva"></nb-icon>      </button>    </nb-form-field>    <div id="controllerWrapper" *ngIf="noOfResults != -1">      <div id="resultHeading">        <span *ngIf="resultInFocus == -1">          {{ noOfResults }}          <ng-container *ngIf="noOfResults > 1; else singleResult">            results          </ng-container>          <ng-template #singleResult> result </ng-template>          found        </span>        <span *ngIf="resultInFocus != -1">          {{ resultInFocus + 1 }} of {{ noOfResults }}          <ng-container *ngIf="noOfResults == 1"> result </ng-container>          <ng-container *ngIf="noOfResults > 1"> results </ng-container>        </span>      </div>      <div id="arrows">        <button          nbButton          size="tiny"          ghost          style="margin: auto"          (click)="moveToResult(\'previous\')"          [disabled]="!noOfResults"        >          <nb-icon icon="arrow-up-outline" pack="eva"></nb-icon>        </button>        <button          nbButton          size="tiny"          ghost          style="margin: auto"          (click)="moveToResult(\'next\')"          [disabled]="!noOfResults"        >          <nb-icon icon="arrow-down-outline" pack="eva"></nb-icon>        </button>      </div>    </div>  </div> -->  <!-- <div id="newLogNotif" *ngIf="showNewLogLinesNotif">    <div id="messageWrapper">Scroll to check new log messages</div>    <button nbButton status="tiny" ghost (click)="scrollToBottom()">      <nb-icon icon="arrow-downward-outline" pack="eva"></nb-icon>    </button>  </div> -->  <ng-container *ngIf="logLines && logLines.length; else errMsg">    <div class="d-flex" style="flex-direction: column; max-height: 37rem">      <div #terminal id="logLines" class="bg-dark text-white">        <div *ngFor="let log of logLines; let i = index">          <div class="logItem logItemNew" *ngIf="!log?.children">            <p              class="badge badge-dark text-light mr-3"              *ngIf="log.timestamp > 0"            >              {{ log.timestamp | date: \'short\' }}            </p>            <div [innerHTML]="convert.toHtml(log.message) | safeHtml"></div>          </div>          <div style="width: 70%" class="m-2" *ngIf="log?.children">            <nb-accordion multi>              <nb-accordion-item                [expanded]="log.children && i === logLines.length - 1"              >                <nb-accordion-item-header class="p-1 logItem">                  <div                    class="header-logs-accordion"                    [innerHTML]="convert.toHtml(log?.message) | safeHtml"                  ></div>                </nb-accordion-item-header>                <nb-accordion-item-body>                  <div *ngFor="let child of log?.children">                    <p                      class="badge badge-dark text-light mr-3"                      *ngIf="child?.timestamp > 0"                    >                      {{ child?.timestamp | date: \'short\' }}                    </p>                    <div                      class="logItem"                      [innerHTML]="convert.toHtml(child?.message) | safeHtml"                    ></div>                  </div>                </nb-accordion-item-body>              </nb-accordion-item>            </nb-accordion>          </div>        </div>        <span          #endOfStream          class="bg-dark text-white border-0 pl-2"          id="endOfStream"        >          End of stream        </span>      </div>    </div>  </ng-container>  <ng-template #errMsg>    <!-- <div id="errorMessageWrapper">            <div id="errorMessage">                {{ errorMessage }}            </div>        </div> -->    <div      style="        height: 100%;        display: flex;        justify-content: center;        align-items: center;      "    >      <app-message        style="width: 100%"        [imgUrl]="errorStateIcon"        [primaryMsg]="\'Failed to fetch logs\'"        [secondaryMsg]="errorMessage"        [showBtn]="false"      ></app-message>    </div>  </ng-template></ng-container><ng-template #emptyTerminal>  <div id="emptyTerminal">    <span style="color: white">No logs available yet</span>  </div></ng-template></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'TerminalComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TerminalComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

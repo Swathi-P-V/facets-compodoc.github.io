@@ -1,0 +1,2256 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >UiArtifactCiControllerService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/ui-artifact-ci-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Ui Artifact Ci Controller</p>
+
+            </p>
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../classes/BaseService.html" target="_self" >__BaseService</a></code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#bulkEditWorkflowUsingPOSTPath" >bulkEditWorkflowUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#createArtifactCIUsingPOSTPath" >createArtifactCIUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#deleteArtifactCIUsingDELETEPath" >deleteArtifactCIUsingDELETEPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getAllArtifactsCIUsingGETPath" >getAllArtifactsCIUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getArtifactCisByStackUsingGETPath" >getArtifactCisByStackUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getArtifactCIUsingGETPath" >getArtifactCIUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getArtifactsForCIUsingGETPath" >getArtifactsForCIUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#updateArtifactCIUsingPUTPath" >updateArtifactCIUsingPUTPath</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#bulkEditWorkflowUsingPOST" >bulkEditWorkflowUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#bulkEditWorkflowUsingPOSTResponse" >bulkEditWorkflowUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#createArtifactCIUsingPOST" >createArtifactCIUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#createArtifactCIUsingPOSTResponse" >createArtifactCIUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#deleteArtifactCIUsingDELETE" >deleteArtifactCIUsingDELETE</a>
+                            </li>
+                            <li>
+                                <a href="#deleteArtifactCIUsingDELETEResponse" >deleteArtifactCIUsingDELETEResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getAllArtifactsCIUsingGET" >getAllArtifactsCIUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getAllArtifactsCIUsingGETResponse" >getAllArtifactsCIUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getArtifactCisByStackUsingGET" >getArtifactCisByStackUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getArtifactCisByStackUsingGETResponse" >getArtifactCisByStackUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getArtifactCIUsingGET" >getArtifactCIUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getArtifactCIUsingGETResponse" >getArtifactCIUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getArtifactsForCIUsingGET" >getArtifactsForCIUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getArtifactsForCIUsingGETResponse" >getArtifactsForCIUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#updateArtifactCIUsingPUT" >updateArtifactCIUsingPUT</a>
+                            </li>
+                            <li>
+                                <a href="#updateArtifactCIUsingPUTResponse" >updateArtifactCIUsingPUTResponse</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(config: <a href="../interfaces/Config.html" target="_self">___Configuration</a>, http: HttpClient)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:38</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>config</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Config.html" target="_self" >___Configuration</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bulkEditWorkflowUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>bulkEditWorkflowUsingPOST</b></span>
+                        <a href="#bulkEditWorkflowUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>bulkEditWorkflowUsingPOST(bulkWorkflowAttachRequest: <a href="../interfaces/BulkWorkflowAttachRequest.html" target="_self">BulkWorkflowAttachRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="202"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:202</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>bulkEditWorkflow</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>bulkWorkflowAttachRequest</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BulkWorkflowAttachRequest.html" target="_self" >BulkWorkflowAttachRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>bulkWorkflowAttachRequest</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/variables.html#undefined" target="_self" >___Observable&lt;undefined&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bulkEditWorkflowUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>bulkEditWorkflowUsingPOSTResponse</b></span>
+                        <a href="#bulkEditWorkflowUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>bulkEditWorkflowUsingPOSTResponse(bulkWorkflowAttachRequest: <a href="../interfaces/BulkWorkflowAttachRequest.html" target="_self">BulkWorkflowAttachRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>bulkEditWorkflow</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>bulkWorkflowAttachRequest</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BulkWorkflowAttachRequest.html" target="_self" >BulkWorkflowAttachRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>bulkWorkflowAttachRequest</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;undefined&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createArtifactCIUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>createArtifactCIUsingPOST</b></span>
+                        <a href="#createArtifactCIUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createArtifactCIUsingPOST(artifactCI: <a href="../interfaces/ArtifactCI.html" target="_self">ArtifactCI</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>createArtifactCI</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>artifactCI</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ArtifactCI.html" target="_self" >ArtifactCI</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>artifactCI</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;ArtifactCI&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createArtifactCIUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>createArtifactCIUsingPOSTResponse</b></span>
+                        <a href="#createArtifactCIUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createArtifactCIUsingPOSTResponse(artifactCI: <a href="../interfaces/ArtifactCI.html" target="_self">ArtifactCI</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>createArtifactCI</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>artifactCI</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ArtifactCI.html" target="_self" >ArtifactCI</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>artifactCI</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;ArtifactCI&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteArtifactCIUsingDELETE"></a>
+                    <span class="name">
+                        <span ><b>deleteArtifactCIUsingDELETE</b></span>
+                        <a href="#deleteArtifactCIUsingDELETE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteArtifactCIUsingDELETE(ciId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="343"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:343</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteArtifactCI</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ciId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ciId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;ArtifactCI&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteArtifactCIUsingDELETEResponse"></a>
+                    <span class="name">
+                        <span ><b>deleteArtifactCIUsingDELETEResponse</b></span>
+                        <a href="#deleteArtifactCIUsingDELETEResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteArtifactCIUsingDELETEResponse(ciId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="312"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:312</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteArtifactCI</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ciId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ciId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;ArtifactCI&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllArtifactsCIUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getAllArtifactsCIUsingGET</b></span>
+                        <a href="#getAllArtifactsCIUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllArtifactsCIUsingGET()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllArtifactsCI</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;Array&lt;ArtifactCI&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllArtifactsCIUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getAllArtifactsCIUsingGETResponse</b></span>
+                        <a href="#getAllArtifactsCIUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllArtifactsCIUsingGETResponse()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllArtifactsCI</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;ArtifactCI&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArtifactCisByStackUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getArtifactCisByStackUsingGET</b></span>
+                        <a href="#getArtifactCisByStackUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getArtifactCisByStackUsingGET(stackName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="161"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:161</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getArtifactCisByStack</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>stackName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>stackName</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;Array&lt;ArtifactCI&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArtifactCisByStackUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getArtifactCisByStackUsingGETResponse</b></span>
+                        <a href="#getArtifactCisByStackUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getArtifactCisByStackUsingGETResponse(stackName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getArtifactCisByStack</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>stackName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>stackName</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;ArtifactCI&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArtifactCIUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getArtifactCIUsingGET</b></span>
+                        <a href="#getArtifactCIUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getArtifactCIUsingGET(ciId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="246"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:246</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getArtifactCI</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ciId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ciId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;ArtifactCI&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArtifactCIUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getArtifactCIUsingGETResponse</b></span>
+                        <a href="#getArtifactCIUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getArtifactCIUsingGETResponse(ciId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="215"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:215</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getArtifactCI</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ciId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ciId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;ArtifactCI&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArtifactsForCIUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getArtifactsForCIUsingGET</b></span>
+                        <a href="#getArtifactsForCIUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getArtifactsForCIUsingGET(ciName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="387"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:387</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getArtifactsForCI</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ciName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ciName</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;Array&lt;CiArtifactResponse&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArtifactsForCIUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getArtifactsForCIUsingGETResponse</b></span>
+                        <a href="#getArtifactsForCIUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getArtifactsForCIUsingGETResponse(ciName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="354"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:354</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getArtifactsForCI</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ciName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ciName</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;CiArtifactResponse&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateArtifactCIUsingPUT"></a>
+                    <span class="name">
+                        <span ><b>updateArtifactCIUsingPUT</b></span>
+                        <a href="#updateArtifactCIUsingPUT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateArtifactCIUsingPUT(params: <a href="../injectables/UiArtifactCiControllerService.html" target="_self">UiArtifactCiControllerService.UpdateArtifactCIUsingPUTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="299"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:299</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>updateArtifactCI</p>
+<ul>
+<li><p><code>ciId</code>: ciId</p>
+</li>
+<li><p><code>artifactCI</code>: artifactCI</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiArtifactCiControllerService.html" target="_self" >UiArtifactCiControllerService.UpdateArtifactCIUsingPUTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiArtifactCiControllerService.UpdateArtifactCIUsingPUTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>ciId</code>: ciId</p>
+</li>
+<li><p><code>artifactCI</code>: artifactCI</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;ArtifactCI&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateArtifactCIUsingPUTResponse"></a>
+                    <span class="name">
+                        <span ><b>updateArtifactCIUsingPUTResponse</b></span>
+                        <a href="#updateArtifactCIUsingPUTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateArtifactCIUsingPUTResponse(params: <a href="../injectables/UiArtifactCiControllerService.html" target="_self">UiArtifactCiControllerService.UpdateArtifactCIUsingPUTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="262"
+                                    class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:262</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>updateArtifactCI</p>
+<ul>
+<li><p><code>ciId</code>: ciId</p>
+</li>
+<li><p><code>artifactCI</code>: artifactCI</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiArtifactCiControllerService.html" target="_self" >UiArtifactCiControllerService.UpdateArtifactCIUsingPUTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiArtifactCiControllerService.UpdateArtifactCIUsingPUTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>ciId</code>: ciId</p>
+</li>
+<li><p><code>artifactCI</code>: artifactCI</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;ArtifactCI&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bulkEditWorkflowUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>bulkEditWorkflowUsingPOSTPath</b></span>
+                        <a href="#bulkEditWorkflowUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifacts-ci/bulk-edit-workflow&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createArtifactCIUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>createArtifactCIUsingPOSTPath</b></span>
+                        <a href="#createArtifactCIUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifacts-ci&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteArtifactCIUsingDELETEPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>deleteArtifactCIUsingDELETEPath</b></span>
+                        <a href="#deleteArtifactCIUsingDELETEPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifacts-ci/{ciId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllArtifactsCIUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getAllArtifactsCIUsingGETPath</b></span>
+                        <a href="#getAllArtifactsCIUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifacts-ci&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArtifactCisByStackUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getArtifactCisByStackUsingGETPath</b></span>
+                        <a href="#getArtifactCisByStackUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifacts-ci/blueprint/{stackName}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArtifactCIUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getArtifactCIUsingGETPath</b></span>
+                        <a href="#getArtifactCIUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifacts-ci/{ciId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArtifactsForCIUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getArtifactsForCIUsingGETPath</b></span>
+                        <a href="#getArtifactsForCIUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifacts-ci/{ciName}/artifacts&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateArtifactCIUsingPUTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>updateArtifactCIUsingPUTPath</b></span>
+                        <a href="#updateArtifactCIUsingPUTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/artifacts-ci/{ciId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/cc-api/services/ui-artifact-ci-controller.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpHeaders,
+} from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { ArtifactCI } from &#x27;../models/artifact-ci&#x27;;
+import { BulkWorkflowAttachRequest } from &#x27;../models/bulk-workflow-attach-request&#x27;;
+import { CiArtifactResponse } from &#x27;../models/ci-artifact-response&#x27;;
+
+/**
+ * Ui Artifact Ci Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class UiArtifactCiControllerService extends __BaseService {
+  static readonly getAllArtifactsCIUsingGETPath &#x3D; &#x27;/cc-ui/v1/artifacts-ci&#x27;;
+  static readonly createArtifactCIUsingPOSTPath &#x3D; &#x27;/cc-ui/v1/artifacts-ci&#x27;;
+  static readonly getArtifactCisByStackUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/artifacts-ci/blueprint/{stackName}&#x27;;
+  static readonly bulkEditWorkflowUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/artifacts-ci/bulk-edit-workflow&#x27;;
+  static readonly getArtifactCIUsingGETPath &#x3D; &#x27;/cc-ui/v1/artifacts-ci/{ciId}&#x27;;
+  static readonly updateArtifactCIUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/artifacts-ci/{ciId}&#x27;;
+  static readonly deleteArtifactCIUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/artifacts-ci/{ciId}&#x27;;
+  static readonly getArtifactsForCIUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/artifacts-ci/{ciName}/artifacts&#x27;;
+
+  constructor(config: __Configuration, http: HttpClient) {
+    super(config, http);
+  }
+
+  /**
+   * getAllArtifactsCI
+   * @return OK
+   */
+  getAllArtifactsCIUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;ArtifactCI&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/artifacts-ci&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ArtifactCI&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllArtifactsCI
+   * @return OK
+   */
+  getAllArtifactsCIUsingGET(): __Observable&lt;Array&lt;ArtifactCI&gt;&gt; {
+    return this.getAllArtifactsCIUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ArtifactCI&gt;),
+    );
+  }
+
+  /**
+   * createArtifactCI
+   * @param artifactCI artifactCI
+   * @return OK
+   */
+  createArtifactCIUsingPOSTResponse(
+    artifactCI: ArtifactCI,
+  ): __Observable&lt;__StrictHttpResponse&lt;ArtifactCI&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; artifactCI;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/artifacts-ci&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ArtifactCI&gt;;
+      }),
+    );
+  }
+  /**
+   * createArtifactCI
+   * @param artifactCI artifactCI
+   * @return OK
+   */
+  createArtifactCIUsingPOST(artifactCI: ArtifactCI): __Observable&lt;ArtifactCI&gt; {
+    return this.createArtifactCIUsingPOSTResponse(artifactCI).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ArtifactCI),
+    );
+  }
+
+  /**
+   * getArtifactCisByStack
+   * @param stackName stackName
+   * @return OK
+   */
+  getArtifactCisByStackUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ArtifactCI&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/artifacts-ci/blueprint/${encodeURIComponent(
+          String(stackName),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ArtifactCI&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getArtifactCisByStack
+   * @param stackName stackName
+   * @return OK
+   */
+  getArtifactCisByStackUsingGET(
+    stackName: string,
+  ): __Observable&lt;Array&lt;ArtifactCI&gt;&gt; {
+    return this.getArtifactCisByStackUsingGETResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ArtifactCI&gt;),
+    );
+  }
+
+  /**
+   * bulkEditWorkflow
+   * @param bulkWorkflowAttachRequest bulkWorkflowAttachRequest
+   */
+  bulkEditWorkflowUsingPOSTResponse(
+    bulkWorkflowAttachRequest: BulkWorkflowAttachRequest,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; bulkWorkflowAttachRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/artifacts-ci/bulk-edit-workflow&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * bulkEditWorkflow
+   * @param bulkWorkflowAttachRequest bulkWorkflowAttachRequest
+   */
+  bulkEditWorkflowUsingPOST(
+    bulkWorkflowAttachRequest: BulkWorkflowAttachRequest,
+  ): __Observable&lt;null&gt; {
+    return this.bulkEditWorkflowUsingPOSTResponse(
+      bulkWorkflowAttachRequest,
+    ).pipe(__map((_r) &#x3D;&gt; _r.body as null));
+  }
+
+  /**
+   * getArtifactCI
+   * @param ciId ciId
+   * @return OK
+   */
+  getArtifactCIUsingGETResponse(
+    ciId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;ArtifactCI&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/artifacts-ci/${encodeURIComponent(String(ciId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ArtifactCI&gt;;
+      }),
+    );
+  }
+  /**
+   * getArtifactCI
+   * @param ciId ciId
+   * @return OK
+   */
+  getArtifactCIUsingGET(ciId: string): __Observable&lt;ArtifactCI&gt; {
+    return this.getArtifactCIUsingGETResponse(ciId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ArtifactCI),
+    );
+  }
+
+  /**
+   * updateArtifactCI
+   * @param params The &#x60;UiArtifactCiControllerService.UpdateArtifactCIUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;ciId&#x60;: ciId
+   *
+   * - &#x60;artifactCI&#x60;: artifactCI
+   *
+   * @return OK
+   */
+  updateArtifactCIUsingPUTResponse(
+    params: UiArtifactCiControllerService.UpdateArtifactCIUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;ArtifactCI&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.artifactCI;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/artifacts-ci/${encodeURIComponent(String(params.ciId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ArtifactCI&gt;;
+      }),
+    );
+  }
+  /**
+   * updateArtifactCI
+   * @param params The &#x60;UiArtifactCiControllerService.UpdateArtifactCIUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;ciId&#x60;: ciId
+   *
+   * - &#x60;artifactCI&#x60;: artifactCI
+   *
+   * @return OK
+   */
+  updateArtifactCIUsingPUT(
+    params: UiArtifactCiControllerService.UpdateArtifactCIUsingPUTParams,
+  ): __Observable&lt;ArtifactCI&gt; {
+    return this.updateArtifactCIUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ArtifactCI),
+    );
+  }
+
+  /**
+   * deleteArtifactCI
+   * @param ciId ciId
+   * @return OK
+   */
+  deleteArtifactCIUsingDELETEResponse(
+    ciId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;ArtifactCI&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/artifacts-ci/${encodeURIComponent(String(ciId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ArtifactCI&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteArtifactCI
+   * @param ciId ciId
+   * @return OK
+   */
+  deleteArtifactCIUsingDELETE(ciId: string): __Observable&lt;ArtifactCI&gt; {
+    return this.deleteArtifactCIUsingDELETEResponse(ciId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ArtifactCI),
+    );
+  }
+
+  /**
+   * getArtifactsForCI
+   * @param ciName ciName
+   * @return OK
+   */
+  getArtifactsForCIUsingGETResponse(
+    ciName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;CiArtifactResponse&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/artifacts-ci/${encodeURIComponent(
+          String(ciName),
+        )}/artifacts&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;CiArtifactResponse&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getArtifactsForCI
+   * @param ciName ciName
+   * @return OK
+   */
+  getArtifactsForCIUsingGET(
+    ciName: string,
+  ): __Observable&lt;Array&lt;CiArtifactResponse&gt;&gt; {
+    return this.getArtifactsForCIUsingGETResponse(ciName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;CiArtifactResponse&gt;),
+    );
+  }
+}
+
+module UiArtifactCiControllerService {
+  /**
+   * Parameters for updateArtifactCIUsingPUT
+   */
+  export interface UpdateArtifactCIUsingPUTParams {
+    /**
+     * ciId
+     */
+    ciId: string;
+
+    /**
+     * artifactCI
+     */
+    artifactCI: ArtifactCI;
+  }
+}
+
+export { UiArtifactCiControllerService };
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'UiArtifactCiControllerService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

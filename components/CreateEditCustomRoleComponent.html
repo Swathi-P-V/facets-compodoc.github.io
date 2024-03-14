@@ -1,0 +1,2706 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CreateEditCustomRoleComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+    </p>
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-create-edit-custom-role</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./create-edit-custom-role.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./create-edit-custom-role.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allPermissions" >allPermissions</a>
+                            </li>
+                            <li>
+                                <a href="#allRoles" >allRoles</a>
+                            </li>
+                            <li>
+                                <a href="#backToUserManagement" >backToUserManagement</a>
+                            </li>
+                            <li>
+                                <a href="#basicInfoForm" >basicInfoForm</a>
+                            </li>
+                            <li>
+                                <a href="#basicInfoFormKeys" >basicInfoFormKeys</a>
+                            </li>
+                            <li>
+                                <a href="#clonePermissions" >clonePermissions</a>
+                            </li>
+                            <li>
+                                <a href="#cloneRequired" >cloneRequired</a>
+                            </li>
+                            <li>
+                                <a href="#copyRole" >copyRole</a>
+                            </li>
+                            <li>
+                                <a href="#customRoleWrite" >customRoleWrite</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingClonePermissions" >fetchingClonePermissions</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingPermissions" >fetchingPermissions</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingRoles" >fetchingRoles</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingRolesError" >fetchingRolesError</a>
+                            </li>
+                            <li>
+                                <a href="#mode" >mode</a>
+                            </li>
+                            <li>
+                                <a href="#noDataIcon" >noDataIcon</a>
+                            </li>
+                            <li>
+                                <a href="#origRole" >origRole</a>
+                            </li>
+                            <li>
+                                <a href="#permissionGroups" >permissionGroups</a>
+                            </li>
+                            <li>
+                                <a href="#permissionGroupsArray" >permissionGroupsArray</a>
+                            </li>
+                            <li>
+                                <a href="#permissionsForm" >permissionsForm</a>
+                            </li>
+                            <li>
+                                <a href="#permissionsFormError" >permissionsFormError</a>
+                            </li>
+                            <li>
+                                <a href="#permissionsFormErrorMessage" >permissionsFormErrorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#permissionsFormKeys" >permissionsFormKeys</a>
+                            </li>
+                            <li>
+                                <a href="#populateBasicInfo" >populateBasicInfo</a>
+                            </li>
+                            <li>
+                                <a href="#releasePermissionsOrder" >releasePermissionsOrder</a>
+                            </li>
+                            <li>
+                                <a href="#role" >role</a>
+                            </li>
+                            <li>
+                                <a href="#savingRole" >savingRole</a>
+                            </li>
+                            <li>
+                                <a href="#secondaryMessage" >secondaryMessage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#copyRolePermissions" >copyRolePermissions</a>
+                            </li>
+                            <li>
+                                <a href="#createRole" >createRole</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#fetchAllPermissions" >fetchAllPermissions</a>
+                            </li>
+                            <li>
+                                <a href="#fetchAllRoles" >fetchAllRoles</a>
+                            </li>
+                            <li>
+                                <a href="#initBasicInfoForm" >initBasicInfoForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#initForm" >initForm</a>
+                            </li>
+                            <li>
+                                <a href="#initPermissionsForm" >initPermissionsForm</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageLoad" >OnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#saveRole" >saveRole</a>
+                            </li>
+                            <li>
+                                <a href="#setRouterStateListener" >setRouterStateListener</a>
+                            </li>
+                            <li>
+                                <a href="#syncPermissionsWithClone" >syncPermissionsWithClone</a>
+                            </li>
+                            <li>
+                                <a href="#togglePermission" >togglePermission</a>
+                            </li>
+                            <li>
+                                <a href="#updateRole" >updateRole</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageInit" >OnPageInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(uiCustomRoleControllerService: <a href="../injectables/UiCustomRoleControllerService.html" target="_self">UiCustomRoleControllerService</a>, uiDropDownController: <a href="../injectables/UiDropdownsControllerService.html" target="_self">UiDropdownsControllerService</a>, activatedRoute: ActivatedRoute, router: Router, customRoleControllerService: <a href="../injectables/UiCustomRoleControllerService.html" target="_self">UiCustomRoleControllerService</a>, customToastService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>, onAPIErrorService: <a href="../injectables/OnAPIErrorService.html" target="_self">OnAPIErrorService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:90</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>uiCustomRoleControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiCustomRoleControllerService.html" target="_self" >UiCustomRoleControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiDropDownController</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiDropdownsControllerService.html" target="_self" >UiDropdownsControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customRoleControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiCustomRoleControllerService.html" target="_self" >UiCustomRoleControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToastService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>onAPIErrorService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OnAPIErrorService.html" target="_self" >OnAPIErrorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyRolePermissions"></a>
+                    <span class="name">
+                        <span ><b>copyRolePermissions</b></span>
+                        <a href="#copyRolePermissions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>copyRolePermissions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="270"
+                                    class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:270</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createRole"></a>
+                    <span class="name">
+                        <span ><b>createRole</b></span>
+                        <a href="#createRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createRole(newRole: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="325"
+                                    class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:325</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>newRole</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchAllPermissions"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>fetchAllPermissions</b></span>
+                        <a href="#fetchAllPermissions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fetchAllPermissions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="180"
+                                    class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:180</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchAllRoles"></a>
+                    <span class="name">
+                        <span ><b>fetchAllRoles</b></span>
+                        <a href="#fetchAllRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>fetchAllRoles()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initBasicInfoForm"></a>
+                    <span class="name">
+                        <span ><b>initBasicInfoForm</b></span>
+                        <a href="#initBasicInfoForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initBasicInfoForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="236"
+                                    class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:236</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initForm"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>initForm</b></span>
+                        <a href="#initForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="164"
+                                    class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:164</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initPermissionsForm"></a>
+                    <span class="name">
+                        <span ><b>initPermissionsForm</b></span>
+                        <a href="#initPermissionsForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initPermissionsForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="248"
+                                    class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:248</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>OnPageLoad</b></span>
+                        <a href="#OnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:104</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveRole"></a>
+                    <span class="name">
+                        <span ><b>saveRole</b></span>
+                        <a href="#saveRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>saveRole()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="307"
+                                    class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:307</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setRouterStateListener"></a>
+                    <span class="name">
+                        <span ><b>setRouterStateListener</b></span>
+                        <a href="#setRouterStateListener"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setRouterStateListener()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="syncPermissionsWithClone"></a>
+                    <span class="name">
+                        <span ><b>syncPermissionsWithClone</b></span>
+                        <a href="#syncPermissionsWithClone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>syncPermissionsWithClone()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="297"
+                                    class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:297</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="togglePermission"></a>
+                    <span class="name">
+                        <span ><b>togglePermission</b></span>
+                        <a href="#togglePermission"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>togglePermission(permission: <a href="../interfaces/Permission.html" target="_self">Permission</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="265"
+                                    class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:265</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>permission</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Permission.html" target="_self" >Permission</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateRole"></a>
+                    <span class="name">
+                        <span ><b>updateRole</b></span>
+                        <a href="#updateRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateRole(existingRole: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="349"
+                                    class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:349</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>existingRole</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageInit"></a>
+                    <span class="name">
+                        <span ><b>OnPageInit</b></span>
+                        <a href="#OnPageInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:20</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allPermissions"></a>
+                    <span class="name">
+                        <span ><b>allPermissions</b></span>
+                        <a href="#allPermissions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Permission[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allRoles"></a>
+                    <span class="name">
+                        <span ><b>allRoles</b></span>
+                        <a href="#allRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="backToUserManagement"></a>
+                    <span class="name">
+                        <span ><b>backToUserManagement</b></span>
+                        <a href="#backToUserManagement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="376" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:376</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="basicInfoForm"></a>
+                    <span class="name">
+                        <span ><b>basicInfoForm</b></span>
+                        <a href="#basicInfoForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="basicInfoFormKeys"></a>
+                    <span class="name">
+                        <span ><b>basicInfoFormKeys</b></span>
+                        <a href="#basicInfoFormKeys"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clonePermissions"></a>
+                    <span class="name">
+                        <span ><b>clonePermissions</b></span>
+                        <a href="#clonePermissions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Permission[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cloneRequired"></a>
+                    <span class="name">
+                        <span ><b>cloneRequired</b></span>
+                        <a href="#cloneRequired"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyRole"></a>
+                    <span class="name">
+                        <span ><b>copyRole</b></span>
+                        <a href="#copyRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="customRoleWrite"></a>
+                    <span class="name">
+                        <span ><b>customRoleWrite</b></span>
+                        <a href="#customRoleWrite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>CUSTOM_ROLE_WRITE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingClonePermissions"></a>
+                    <span class="name">
+                        <span ><b>fetchingClonePermissions</b></span>
+                        <a href="#fetchingClonePermissions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingPermissions"></a>
+                    <span class="name">
+                        <span ><b>fetchingPermissions</b></span>
+                        <a href="#fetchingPermissions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingRoles"></a>
+                    <span class="name">
+                        <span ><b>fetchingRoles</b></span>
+                        <a href="#fetchingRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingRolesError"></a>
+                    <span class="name">
+                        <span ><b>fetchingRolesError</b></span>
+                        <a href="#fetchingRolesError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mode"></a>
+                    <span class="name">
+                        <span ><b>mode</b></span>
+                        <a href="#mode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;Edit&quot; | &quot;Create&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Create&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="noDataIcon"></a>
+                    <span class="name">
+                        <span ><b>noDataIcon</b></span>
+                        <a href="#noDataIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="origRole"></a>
+                    <span class="name">
+                        <span ><b>origRole</b></span>
+                        <a href="#origRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permissionGroups"></a>
+                    <span class="name">
+                        <span ><b>permissionGroups</b></span>
+                        <a href="#permissionGroups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map&lt;string | Permission[]&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permissionGroupsArray"></a>
+                    <span class="name">
+                        <span ><b>permissionGroupsArray</b></span>
+                        <a href="#permissionGroupsArray"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Array&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permissionsForm"></a>
+                    <span class="name">
+                        <span ><b>permissionsForm</b></span>
+                        <a href="#permissionsForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permissionsFormError"></a>
+                    <span class="name">
+                        <span ><b>permissionsFormError</b></span>
+                        <a href="#permissionsFormError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permissionsFormErrorMessage"></a>
+                    <span class="name">
+                        <span ><b>permissionsFormErrorMessage</b></span>
+                        <a href="#permissionsFormErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permissionsFormKeys"></a>
+                    <span class="name">
+                        <span ><b>permissionsFormKeys</b></span>
+                        <a href="#permissionsFormKeys"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="populateBasicInfo"></a>
+                    <span class="name">
+                        <span ><b>populateBasicInfo</b></span>
+                        <a href="#populateBasicInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="releasePermissionsOrder"></a>
+                    <span class="name">
+                        <span ><b>releasePermissionsOrder</b></span>
+                        <a href="#releasePermissionsOrder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    RELEASE_FULL,
+    RELEASE_SELECTIVE,
+    RELEASE_CUSTOM,
+    RELEASE_FULL_ALLOW_DESTROY,
+    RELEASE_SELECTIVE_ALLOW_DESTROY,
+    RELEASE_CUSTOM_ALLOW_DESTROY,
+    RELEASE_SCALE_UP,
+    RELEASE_SCALE_DOWN,
+    ENVIRONMENT_LAUNCH,
+    ENVIRONMENT_DESTROY,
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="role"></a>
+                    <span class="name">
+                        <span ><b>role</b></span>
+                        <a href="#role"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="savingRole"></a>
+                    <span class="name">
+                        <span ><b>savingRole</b></span>
+                        <a href="#savingRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="secondaryMessage"></a>
+                    <span class="name">
+                        <span ><b>secondaryMessage</b></span>
+                        <a href="#secondaryMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/pages/user-management/user-roles/create-edit-custom-role/create-edit-custom-role.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { FormControl, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { ActivatedRoute, Params, Router } from &#x27;@angular/router&#x27;;
+import { map } from &#x27;rxjs&#x27;;
+import mixpanel from &#x27;mixpanel-browser&#x27;;
+import {
+  UiCustomRoleControllerService,
+  UiDropdownsControllerService,
+} from &#x27;src/app/cc-api/services&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import { Permission } from &#x27;../user-roles.component&#x27;;
+import { whiteSpaceInputPattern } from &#x27;./../../../../constants/inputPatterns&#x27;;
+import { CUSTOM_ROLE_WRITE } from &#x27;src/app/constants/permissions&#x27;;
+import {
+  ENVIRONMENT_LAUNCH,
+  ENVIRONMENT_DESTROY,
+  RELEASE_FULL,
+  RELEASE_FULL_ALLOW_DESTROY,
+  RELEASE_SELECTIVE,
+  RELEASE_SELECTIVE_ALLOW_DESTROY,
+  RELEASE_CUSTOM,
+  RELEASE_CUSTOM_ALLOW_DESTROY,
+  RELEASE_SCALE_UP,
+  RELEASE_SCALE_DOWN,
+} from &#x27;src/app/constants/permissions&#x27;;
+import { sortPermissionsInPermissionGroups } from &#x27;src/app/utils/permissions/permissions.utils&#x27;;
+import { CustomToastService } from &#x27;src/app/pages/custom-toast/custom-toast.service&#x27;;
+import { OnAPIErrorService } from &#x27;src/app/services/on-api-error.service&#x27;;
+import {
+  USER_ROLE_CREATE_FAIL,
+  USER_ROLE_CREATE_SUCCESS,
+  USER_ROLE_EDIT_FAIL,
+  USER_ROLE_EDIT_SUCCESS,
+} from &#x27;src/app/constants/analytics-track-events&#x27;;
+const errorStateIcon &#x3D; &#x27;./assets/error.svg&#x27;;
+
+@Component({
+  selector: &#x27;app-create-edit-custom-role&#x27;,
+  templateUrl: &#x27;./create-edit-custom-role.component.html&#x27;,
+  styleUrls: [&#x27;./create-edit-custom-role.component.scss&#x27;],
+})
+export class CreateEditCustomRoleComponent extends FacetsPage {
+  mode: &#x27;Edit&#x27; | &#x27;Create&#x27; &#x3D; &#x27;Create&#x27;;
+
+  // Role(s)
+  origRole: any; // Original copy of the role
+  role: any; // The role for which the component is invoked
+  fetchingRoles: boolean &#x3D; false;
+  fetchingRolesError: boolean &#x3D; false;
+  secondaryMessage: string;
+  noDataIcon: any;
+  allRoles: any[]; // Comes from either the custom roles table component or is fetched from the BE
+
+  // Basic information form
+  basicInfoForm: FormGroup;
+  basicInfoFormKeys: string[];
+
+  // Permissions form
+  allPermissions: Permission[];
+  permissionGroups: Map&lt;string, Permission[]&gt; &#x3D; new Map();
+  permissionGroupsArray: Array&lt;{ categoryLabel: any; categoryName: any }&gt; &#x3D; [];
+  permissionsFormError: boolean &#x3D; false;
+  permissionsFormErrorMessage: boolean &#x3D; false;
+  fetchingPermissions: boolean &#x3D; false;
+  permissionsForm: FormGroup;
+  permissionsFormKeys: string[];
+
+  // Clone permissions
+  fetchingClonePermissions: boolean &#x3D; false;
+  copyRole: any;
+  cloneRequired: boolean &#x3D; false;
+  clonePermissions: Permission[];
+  populateBasicInfo: boolean &#x3D; false;
+  customRoleWrite &#x3D; CUSTOM_ROLE_WRITE;
+
+  releasePermissionsOrder &#x3D; [
+    RELEASE_FULL,
+    RELEASE_SELECTIVE,
+    RELEASE_CUSTOM,
+    RELEASE_FULL_ALLOW_DESTROY,
+    RELEASE_SELECTIVE_ALLOW_DESTROY,
+    RELEASE_CUSTOM_ALLOW_DESTROY,
+    RELEASE_SCALE_UP,
+    RELEASE_SCALE_DOWN,
+    ENVIRONMENT_LAUNCH,
+    ENVIRONMENT_DESTROY,
+  ];
+
+  // Create
+  savingRole: boolean &#x3D; false;
+
+  constructor(
+    private uiCustomRoleControllerService: UiCustomRoleControllerService,
+    private uiDropDownController: UiDropdownsControllerService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private customRoleControllerService: UiCustomRoleControllerService,
+    private customToastService: CustomToastService,
+    private onAPIErrorService: OnAPIErrorService,
+  ) {
+    super(activatedRoute);
+  }
+
+  OnPageLoad(p: Params): void {
+    if (p.roleName) {
+      this.role &#x3D; {
+        roleName: p.roleName,
+      };
+      this.origRole &#x3D; { ...this.role };
+      this.mode &#x3D; &#x27;Edit&#x27;;
+      this.populateBasicInfo &#x3D; true;
+    }
+    this.setRouterStateListener();
+  }
+
+  setRouterStateListener() {
+    this.activatedRoute.paramMap
+      .pipe(map(() &#x3D;&gt; window.history.state))
+      .subscribe((state) &#x3D;&gt; {
+        // console.log(&#x27;state &#x3D;&gt; &#x27;, state);
+        if (!state.allRoles || !state.allRoles.length) {
+          this.fetchAllRoles();
+        } else {
+          this.allRoles &#x3D; state.allRoles;
+        }
+        if (state.currentRole) {
+          this.role &#x3D; state.currentRole;
+          this.origRole &#x3D; { ...this.role };
+          this.populateBasicInfo &#x3D; true;
+          this.mode &#x3D; &#x27;Edit&#x27;;
+        }
+        this.initForm();
+      });
+  }
+
+  fetchAllRoles() {
+    function setErrorData(error: any, _this: any) {
+      _this.fetchingRolesError &#x3D; true;
+      (_this.primaryMessage &#x3D; &#x27;Failed to fetch roles&#x27;),
+        (_this.secondaryMessage &#x3D;
+          error?.error?.message ||
+          &#x27;Something went wrong, please try again later or contact your admin&#x27;);
+      _this.noDataIcon &#x3D; errorStateIcon;
+    }
+
+    this.fetchingRoles &#x3D; true;
+    this.fetchingRolesError &#x3D; false;
+
+    this.customRoleControllerService
+      .getAllRolesUsingGET()
+      .subscribe(
+        (allRoles: any[]) &#x3D;&gt; {
+          this.allRoles &#x3D; allRoles.filter((role) &#x3D;&gt; role?.baseRole);
+        },
+        (error: any) &#x3D;&gt; {
+          setErrorData(error, this);
+        },
+      )
+      .add(() &#x3D;&gt; {
+        this.fetchingRoles &#x3D; false;
+      });
+  }
+
+  async initForm() {
+    let fetch &#x3D; await this.fetchAllPermissions();
+    if (!fetch) {
+      // Handle error
+    } else {
+      // Create form
+      this.initBasicInfoForm();
+      this.initPermissionsForm();
+      if (this.role) {
+        this.copyRole &#x3D; this.role;
+        this.basicInfoForm.controls[&#x27;name&#x27;].setValue(this.role.roleName);
+        this.copyRolePermissions();
+      }
+    }
+  }
+
+  async fetchAllPermissions() {
+    return new Promise((resolve) &#x3D;&gt; {
+      this.uiDropDownController
+        .getAllPermissionsUsingGET()
+        .subscribe(
+          (permissions: any) &#x3D;&gt; {
+            const filteredPermissions &#x3D; permissions.filter(
+              (permission) &#x3D;&gt; permission?.key !&#x3D;&#x3D; &#x27;K8S_PERMISSION&#x27;,
+            );
+            this.allPermissions &#x3D; filteredPermissions;
+            filteredPermissions.forEach((p) &#x3D;&gt; {
+              let permissionGroup &#x3D; p?.category?.categoryName;
+              if (!this.permissionGroups.has(permissionGroup)) {
+                this.permissionGroups.set(permissionGroup, []);
+                this.permissionGroupsArray.push(p?.category);
+              }
+              this.permissionGroups.get(permissionGroup).push(p);
+            });
+            /*
+             * If release permissions are present in the permissions list,
+             * then sort them according to the predefined sorted permission keys list
+             */
+            this.permissionGroups &#x3D; sortPermissionsInPermissionGroups(
+              this.permissionGroups,
+            );
+            if (this.permissionGroups.get(&#x27;RELEASE&#x27;)?.length &gt; 0) {
+              this.permissionGroups.set(
+                &#x27;RELEASE&#x27;,
+                this.permissionGroups
+                  .get(&#x27;RELEASE&#x27;)
+                  ?.sort(
+                    (a, b) &#x3D;&gt;
+                      this.releasePermissionsOrder.indexOf(a?.key) -
+                      this.releasePermissionsOrder.indexOf(b?.key),
+                  ),
+              );
+            }
+            this.permissionGroupsArray.sort((a, b) &#x3D;&gt;
+              a?.categoryLabel?.localeCompare(b?.categoryLabel),
+            );
+            resolve(true);
+          },
+          (error: any) &#x3D;&gt; {
+            this.permissionsFormError &#x3D; true;
+            this.permissionsFormErrorMessage &#x3D;
+              error?.error?.message ||
+              &#x27;Something went wrong, please try again later or contact your admin&#x27;;
+            resolve(false);
+          },
+        )
+        .add(() &#x3D;&gt; {
+          this.fetchingPermissions &#x3D; false;
+        });
+    });
+  }
+
+  initBasicInfoForm() {
+    this.basicInfoForm &#x3D; new FormGroup({
+      name: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(1),
+        Validators.pattern(whiteSpaceInputPattern),
+      ]),
+      description: new FormControl(null),
+    });
+    this.basicInfoFormKeys &#x3D; Object.keys(this.basicInfoForm.controls);
+  }
+
+  initPermissionsForm() {
+    // Create the form controls object looping through the received permissions;
+
+    let formControls &#x3D; {};
+    this.permissionGroupsArray.forEach((permissionGroup) &#x3D;&gt; {
+      let permissionTypes &#x3D; this.permissionGroups.get(
+        permissionGroup?.categoryName,
+      );
+      permissionTypes.forEach((permission: Permission) &#x3D;&gt; {
+        formControls[permission.key] &#x3D; new FormControl(&#x27;&#x27;);
+      });
+    });
+    this.permissionsForm &#x3D; new FormGroup(formControls);
+
+    this.permissionsFormKeys &#x3D; Object.keys(this.permissionsForm.controls);
+  }
+
+  togglePermission(permission: Permission) {
+    let currentVal &#x3D; this.permissionsForm.controls[permission.key].value;
+    this.permissionsForm.controls[permission.key].setValue(!currentVal);
+  }
+
+  copyRolePermissions() {
+    this.fetchingClonePermissions &#x3D; true;
+    this.clonePermissions &#x3D; [];
+    this.uiCustomRoleControllerService
+      .getCustomRoleUsingGET(this.copyRole.roleName)
+      .subscribe(
+        (roleData: any) &#x3D;&gt; {
+          if (this.populateBasicInfo) {
+            this.basicInfoForm.controls[&#x27;description&#x27;].setValue(
+              roleData.description,
+            );
+          }
+          this.clonePermissions &#x3D; roleData.entities;
+        },
+        (error: any) &#x3D;&gt; {
+          this.onAPIErrorService.onAPIError(
+            &#x27;Could not fetch permissions - &#x27; + error?.error?.message,
+            error,
+          );
+        },
+      )
+      .add(() &#x3D;&gt; {
+        this.syncPermissionsWithClone();
+        this.fetchingClonePermissions &#x3D; false;
+      });
+  }
+
+  syncPermissionsWithClone() {
+    this.permissionsFormKeys.forEach((permissionKey) &#x3D;&gt; {
+      this.permissionsForm.controls[permissionKey].setValue(false);
+    });
+
+    this.clonePermissions.forEach((permission: Permission) &#x3D;&gt; {
+      this.permissionsForm.controls[permission.key].setValue(true);
+    });
+  }
+
+  saveRole() {
+    this.savingRole &#x3D; true;
+
+    let allPermissions &#x3D; [];
+    this.permissionsFormKeys.forEach((permissionKey) &#x3D;&gt; {
+      if (this.permissionsForm.controls[permissionKey].value) {
+        allPermissions.push(permissionKey);
+      }
+    });
+    let role &#x3D; {
+      roleName: this.basicInfoForm.controls.name.value,
+      description: this.basicInfoForm.controls.description.value,
+      permissions: allPermissions,
+    };
+
+    this.mode &#x3D;&#x3D;&#x3D; &#x27;Create&#x27; ? this.createRole(role) : this.updateRole(role);
+  }
+
+  createRole(newRole: any) {
+    this.uiCustomRoleControllerService
+      .createCustomRoleUsingPOST(newRole)
+      .subscribe(
+        (rsp) &#x3D;&gt; {
+          mixpanel.track(USER_ROLE_CREATE_SUCCESS);
+          this.customToastService.success(
+            &#x60;Successfully created custom role ${newRole.roleName}&#x60;,
+          );
+          this.backToUserManagement();
+        },
+        (error) &#x3D;&gt; {
+          mixpanel.track(USER_ROLE_CREATE_FAIL, { error });
+          this.onAPIErrorService.onAPIError(
+            &#x60;Failed to create custom role - ${error?.error?.message}&#x60;,
+            error,
+          );
+        },
+      )
+      .add(() &#x3D;&gt; {
+        this.savingRole &#x3D; false;
+      });
+  }
+
+  updateRole(existingRole: any) {
+    this.uiCustomRoleControllerService
+      .updateCustomRoleUsingPUT({
+        request: existingRole,
+        roleName: this.origRole.roleName,
+      })
+      .subscribe(
+        (rsp) &#x3D;&gt; {
+          mixpanel.track(USER_ROLE_EDIT_SUCCESS);
+          this.customToastService.success(
+            &#x60;Successfully updated role ${existingRole.roleName}&#x60;,
+          );
+          this.backToUserManagement();
+        },
+        (error) &#x3D;&gt; {
+          mixpanel.track(USER_ROLE_EDIT_FAIL, { error });
+          this.onAPIErrorService.onAPIError(
+            error?.error?.message || &#x60;Failed to update role&#x60;,
+            error,
+          );
+        },
+      )
+      .add(() &#x3D;&gt; {
+        this.savingRole &#x3D; false;
+      });
+  }
+
+  backToUserManagement &#x3D; () &#x3D;&gt; {
+    this.router.navigate([&#x27;/settings/users/roles&#x27;]);
+  };
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;pb-3&quot;&gt;
+  &lt;app-page-header
+    *ngIf&#x3D;&quot;mode&quot;
+    [onBack]&#x3D;&quot;backToUserManagement&quot;
+    [heading]&#x3D;&quot;mode + &#x27; Custom Role&#x27;&quot;
+  &gt;&lt;/app-page-header&gt;
+
+  &lt;nb-card&gt;
+    &lt;nb-card-header&gt; Basic information &lt;/nb-card-header&gt;
+    &lt;nb-card-body [nbSpinner]&#x3D;&quot;!basicInfoForm&quot;&gt;
+      &lt;div id&#x3D;&quot;basicInfoFormWrapper&quot; *ngIf&#x3D;&quot;basicInfoForm&quot;&gt;
+        &lt;form [formGroup]&#x3D;&quot;basicInfoForm&quot;&gt;
+          &lt;div class&#x3D;&quot;formItem&quot;&gt;
+            &lt;div class&#x3D;&quot;formItemName pt-2&quot;&gt;Name*&lt;/div&gt;
+            &lt;div class&#x3D;&quot;formItemInput&quot;&gt;
+              &lt;nb-form-field&gt;
+                &lt;input
+                  required
+                  placeholder&#x3D;&quot;Custom role name&quot;
+                  type&#x3D;&quot;text&quot;
+                  nbInput
+                  fieldSize&#x3D;&quot;small&quot;
+                  formControlName&#x3D;&quot;name&quot;
+                  fullWidth
+                  [ngClass]&#x3D;&quot;{ disabled: mode &#x3D;&#x3D;&#x3D; &#x27;Edit&#x27; }&quot;
+                  [status]&#x3D;&quot;
+                    basicInfoForm?.controls?.name?.dirty
+                      ? basicInfoForm?.controls?.name?.invalid
+                        ? &#x27;danger&#x27;
+                        : &#x27;success&#x27;
+                      : &#x27;basic&#x27;
+                  &quot;
+                /&gt;
+              &lt;/nb-form-field&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;formItem&quot;&gt;
+            &lt;div class&#x3D;&quot;formItemName&quot;&gt;Description&lt;/div&gt;
+            &lt;div class&#x3D;&quot;formItemInput&quot;&gt;
+              &lt;nb-form-field&gt;
+                &lt;textarea
+                  placeholder&#x3D;&quot;Describe what someone with this role can do&quot;
+                  type&#x3D;&quot;text&quot;
+                  nbInput
+                  size&#x3D;&quot;small&quot;
+                  formControlName&#x3D;&quot;description&quot;
+                  fullWidth
+                &gt;&lt;/textarea&gt;
+              &lt;/nb-form-field&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+        &lt;div class&#x3D;&quot;basicFormExtras&quot;&gt;
+          &lt;div class&#x3D;&quot;formItem&quot;&gt;
+            &lt;div class&#x3D;&quot;formItemName&quot;&gt;Clone Permission&lt;/div&gt;
+            &lt;div class&#x3D;&quot;formItemInput&quot;&gt;
+              &lt;nb-toggle
+                [(ngModel)]&#x3D;&quot;cloneRequired&quot;
+                (checkedChange)&#x3D;&quot;cloneRequired &#x3D; !cloneRequired&quot;
+              &gt;&lt;/nb-toggle&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;app-smooth-height [trigger]&#x3D;&quot;cloneRequired&quot;&gt;
+            &lt;div class&#x3D;&quot;formItem&quot; *ngIf&#x3D;&quot;cloneRequired&quot;&gt;
+              &lt;div class&#x3D;&quot;formItemName&quot;&gt;
+                Choose role to duplicate permissions from
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;formItemInput&quot;&gt;
+                &lt;nb-form-field&gt;
+                  &lt;nb-select
+                    [nbSpinner]&#x3D;&quot;!allRoles || !allRoles.length&quot;
+                    [(ngModel)]&#x3D;&quot;copyRole&quot;
+                    placeholder&#x3D;&quot;Choose role&quot;
+                    [(selected)]&#x3D;&quot;copyRole&quot;
+                    (selectedChange)&#x3D;&quot;copyRolePermissions()&quot;
+                  &gt;
+                    &lt;nb-option *ngFor&#x3D;&quot;let role of allRoles&quot; [value]&#x3D;&quot;role&quot;&gt;{{
+                      role?.label
+                    }}&lt;/nb-option&gt;
+                  &lt;/nb-select&gt;
+                &lt;/nb-form-field&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/app-smooth-height&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nb-card-body&gt;
+    &lt;nb-card-body [nbSpinner]&#x3D;&quot;!permissionsForm&quot;&gt;
+      &lt;h6&gt;Permissions&lt;/h6&gt;
+      &lt;div id&#x3D;&quot;permissionsFormWrapper&quot; *ngIf&#x3D;&quot;permissionsForm&quot;&gt;
+        &lt;form
+          [formGroup]&#x3D;&quot;permissionsForm&quot;
+          id&#x3D;&quot;permissionsForm-form&quot;
+          [nbSpinner]&#x3D;&quot;fetchingClonePermissions&quot;
+        &gt;
+          &lt;ng-container *ngFor&#x3D;&quot;let pGroup of permissionGroupsArray&quot;&gt;
+            &lt;div class&#x3D;&quot;permissionGroupWrapper&quot;&gt;
+              &lt;div class&#x3D;&quot;permissionGroupName&quot;&gt;{{ pGroup?.categoryLabel }}&lt;/div&gt;
+              &lt;div class&#x3D;&quot;allPermissionTypes&quot;&gt;
+                &lt;ng-container
+                  *ngFor&#x3D;&quot;
+                    let permission of permissionGroups.get(pGroup?.categoryName)
+                  &quot;
+                &gt;
+                  &lt;div class&#x3D;&quot;permissionWrapper&quot;&gt;
+                    &lt;nb-checkbox [formControlName]&#x3D;&quot;permission.key&quot;&gt;
+                      {{ permission.permission }}
+                    &lt;/nb-checkbox&gt;
+                    &lt;nb-icon
+                      icon&#x3D;&quot;info-outline&quot;
+                      [nbTooltip]&#x3D;&quot;permission.description&quot;
+                    &gt;&lt;/nb-icon&gt;
+                  &lt;/div&gt;
+                &lt;/ng-container&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/ng-container&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/nb-card-body&gt;
+    &lt;nb-card-body *ngIf&#x3D;&quot;fetchingRolesError&quot;&gt;
+      &lt;app-message
+        *ngIf&#x3D;&quot;!fetchingRoles &amp;&amp; (!allRoles || !allRoles?.length)&quot;
+        [imgUrl]&#x3D;&quot;noDataIcon&quot;
+        [primaryMsg]&#x3D;&quot;&#x27;Could not fetch roles&#x27;&quot;
+        [secondaryMsg]&#x3D;&quot;secondaryMessage&quot;
+        [status]&#x3D;&quot;&#x27;error&#x27;&quot;
+        [showBtn]&#x3D;&quot;false&quot;
+      &gt;&lt;/app-message&gt;
+    &lt;/nb-card-body&gt;
+    &lt;nb-card-footer&gt;
+      &lt;app-rbac-button
+        [label]&#x3D;&quot;mode &#x3D;&#x3D;&#x3D; &#x27;Create&#x27; ? &#x27;Create&#x27; : &#x27;Save Changes&#x27;&quot;
+        [toolTip]&#x3D;&quot;mode &#x3D;&#x3D;&#x3D; &#x27;Create&#x27; ? &#x27;Add role&#x27; : &#x27;Update role&#x27;&quot;
+        size&#x3D;&quot;small&quot;
+        status&#x3D;&quot;primary&quot;
+        [action]&#x3D;&quot;customRoleWrite&quot;
+        (onClick)&#x3D;&quot;saveRole()&quot;
+        [disabled]&#x3D;&quot;
+          savingRole || !basicInfoForm?.valid || !permissionsForm?.valid
+        &quot;
+        class&#x3D;&quot;mr-3&quot;
+        [loading]&#x3D;&quot;savingRole&quot;
+        [dataAttrActionId]&#x3D;&quot;
+          mode &#x3D;&#x3D;&#x3D; &#x27;Create&#x27; ? &#x27;custom-roles-create&#x27; : &#x27;custom-roles-edit-save&#x27;
+        &quot;
+      &gt;&lt;/app-rbac-button&gt;
+      &lt;button
+        nbButton
+        size&#x3D;&quot;small&quot;
+        ghost
+        [disabled]&#x3D;&quot;savingRole&quot;
+        (click)&#x3D;&quot;backToUserManagement()&quot;
+      &gt;
+        Cancel
+      &lt;/button&gt;
+    &lt;/nb-card-footer&gt;
+  &lt;/nb-card&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./create-edit-custom-role.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">#basicInfoFormWrapper {
+  padding: 1rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .formItem {
+    display: flex;
+    gap: 2rem;
+
+    .formItemName {
+      min-width: 20rem;
+    }
+
+    .formItemInput {
+      width: 45%;
+    }
+  }
+
+  .basicFormExtras {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+#permissionsForm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid #dee2fe;
+  border-radius: 5px;
+  padding: 1.25rem 1rem;
+
+  .permissionGroupWrapper {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #dee2fe;
+    padding-top: 0rem;
+
+    .permissionGroupName {
+      min-width: 10rem;
+    }
+
+    .allPermissionTypes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      .permissionWrapper {
+        min-width: 15rem;
+        cursor: pointer;
+
+        ::ng-deep nb-checkbox .custom-checkbox {
+          cursor: pointer;
+        }
+
+        nb-icon {
+          font-size: 1rem;
+          height: 100%;
+          position: relative;
+          top: -0.6rem;
+          left: 0.3rem;
+          color: #00b5af;
+        }
+      }
+    }
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="pb-3">  <app-page-header    *ngIf="mode"    [onBack]="backToUserManagement"    [heading]="mode + \' Custom Role\'"  ></app-page-header>  <nb-card>    <nb-card-header> Basic information </nb-card-header>    <nb-card-body [nbSpinner]="!basicInfoForm">      <div id="basicInfoFormWrapper" *ngIf="basicInfoForm">        <form [formGroup]="basicInfoForm">          <div class="formItem">            <div class="formItemName pt-2">Name*</div>            <div class="formItemInput">              <nb-form-field>                <input                  required                  placeholder="Custom role name"                  type="text"                  nbInput                  fieldSize="small"                  formControlName="name"                  fullWidth                  [ngClass]="{ disabled: mode === \'Edit\' }"                  [status]="                    basicInfoForm?.controls?.name?.dirty                      ? basicInfoForm?.controls?.name?.invalid                        ? \'danger\'                        : \'success\'                      : \'basic\'                  "                />              </nb-form-field>            </div>          </div>          <div class="formItem">            <div class="formItemName">Description</div>            <div class="formItemInput">              <nb-form-field>                <textarea                  placeholder="Describe what someone with this role can do"                  type="text"                  nbInput                  size="small"                  formControlName="description"                  fullWidth                ></textarea>              </nb-form-field>            </div>          </div>        </form>        <div class="basicFormExtras">          <div class="formItem">            <div class="formItemName">Clone Permission</div>            <div class="formItemInput">              <nb-toggle                [(ngModel)]="cloneRequired"                (checkedChange)="cloneRequired = !cloneRequired"              ></nb-toggle>            </div>          </div>          <app-smooth-height [trigger]="cloneRequired">            <div class="formItem" *ngIf="cloneRequired">              <div class="formItemName">                Choose role to duplicate permissions from              </div>              <div class="formItemInput">                <nb-form-field>                  <nb-select                    [nbSpinner]="!allRoles || !allRoles.length"                    [(ngModel)]="copyRole"                    placeholder="Choose role"                    [(selected)]="copyRole"                    (selectedChange)="copyRolePermissions()"                  >                    <nb-option *ngFor="let role of allRoles" [value]="role">{{                      role?.label                    }}</nb-option>                  </nb-select>                </nb-form-field>              </div>            </div>          </app-smooth-height>        </div>      </div>    </nb-card-body>    <nb-card-body [nbSpinner]="!permissionsForm">      <h6>Permissions</h6>      <div id="permissionsFormWrapper" *ngIf="permissionsForm">        <form          [formGroup]="permissionsForm"          id="permissionsForm-form"          [nbSpinner]="fetchingClonePermissions"        >          <ng-container *ngFor="let pGroup of permissionGroupsArray">            <div class="permissionGroupWrapper">              <div class="permissionGroupName">{{ pGroup?.categoryLabel }}</div>              <div class="allPermissionTypes">                <ng-container                  *ngFor="                    let permission of permissionGroups.get(pGroup?.categoryName)                  "                >                  <div class="permissionWrapper">                    <nb-checkbox [formControlName]="permission.key">                      {{ permission.permission }}                    </nb-checkbox>                    <nb-icon                      icon="info-outline"                      [nbTooltip]="permission.description"                    ></nb-icon>                  </div>                </ng-container>              </div>            </div>          </ng-container>        </form>      </div>    </nb-card-body>    <nb-card-body *ngIf="fetchingRolesError">      <app-message        *ngIf="!fetchingRoles && (!allRoles || !allRoles?.length)"        [imgUrl]="noDataIcon"        [primaryMsg]="\'Could not fetch roles\'"        [secondaryMsg]="secondaryMessage"        [status]="\'error\'"        [showBtn]="false"      ></app-message>    </nb-card-body>    <nb-card-footer>      <app-rbac-button        [label]="mode === \'Create\' ? \'Create\' : \'Save Changes\'"        [toolTip]="mode === \'Create\' ? \'Add role\' : \'Update role\'"        size="small"        status="primary"        [action]="customRoleWrite"        (onClick)="saveRole()"        [disabled]="          savingRole || !basicInfoForm?.valid || !permissionsForm?.valid        "        class="mr-3"        [loading]="savingRole"        [dataAttrActionId]="          mode === \'Create\' ? \'custom-roles-create\' : \'custom-roles-edit-save\'        "      ></app-rbac-button>      <button        nbButton        size="small"        ghost        [disabled]="savingRole"        (click)="backToUserManagement()"      >        Cancel      </button>    </nb-card-footer>  </nb-card></div></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'CreateEditCustomRoleComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CreateEditCustomRoleComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

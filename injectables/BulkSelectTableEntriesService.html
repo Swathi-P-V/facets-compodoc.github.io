@@ -1,0 +1,850 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >BulkSelectTableEntriesService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/bulk-select-table-entries.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#determineSelectedEntityState" >determineSelectedEntityState</a>
+                            </li>
+                            <li>
+                                <a href="#getSelectAllCheckboxState" >getSelectAllCheckboxState</a>
+                            </li>
+                            <li>
+                                <a href="#updateSelectedPropOnCheckboxClick" >updateSelectedPropOnCheckboxClick</a>
+                            </li>
+                            <li>
+                                <a href="#updateSelectedPropOnSelectAllClick" >updateSelectedPropOnSelectAllClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/services/bulk-select-table-entries.service.ts:9</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="determineSelectedEntityState"></a>
+                    <span class="name">
+                        <span ><b>determineSelectedEntityState</b></span>
+                        <a href="#determineSelectedEntityState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>determineSelectedEntityState(source, groupByParam)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/services/bulk-select-table-entries.service.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Determines the state of selected entities based on a grouping parameter.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     indicating the state of selected entities, or `false` if entities of different types are selected.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>source</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ng2-smart-table data source.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>groupByParam</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The parameter by which entities are grouped.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>literal type | boolean</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object with &#39;selectedEntitiesForBulkOps&#39; and &#39;statusOfSelectedEntity&#39; properties
+indicating the state of selected entities, or <code>false</code> if entities of different types are selected.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSelectAllCheckboxState"></a>
+                    <span class="name">
+                        <span ><b>getSelectAllCheckboxState</b></span>
+                        <a href="#getSelectAllCheckboxState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSelectAllCheckboxState(source, mapKey, filteredEntities: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/app/services/bulk-select-table-entries.service.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Determines the select all checkbox state (indeterminate or selectAll) based on updated entity selections.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>source</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ng2-smart-table data source.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>mapKey</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique key to efficiently access entities in the source.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>filteredEntities</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The list of currently filtered entities.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{ isIndeterminate: boolean; isSelectAll: boolean; }</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object with &#39;isIndeterminate&#39; and &#39;isSelectAll&#39; properties indicating checkbox state.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateSelectedPropOnCheckboxClick"></a>
+                    <span class="name">
+                        <span ><b>updateSelectedPropOnCheckboxClick</b></span>
+                        <a href="#updateSelectedPropOnCheckboxClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateSelectedPropOnCheckboxClick(data: literal type, source: LocalDataSource, findResource: (entity: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>) => void)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/services/bulk-select-table-entries.service.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Manually updates the &#39;selected&#39; property of a specific entity based on checkbox interaction.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The data object containing the checkbox value and row data.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>source</td>
+                                            <td>
+                                                        <code>LocalDataSource</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ng2-smart-table data source.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>findResource</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The condition function to find the target entity.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A new array of cloned entities with the &#39;selected&#39; property of the target entity updated.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateSelectedPropOnSelectAllClick"></a>
+                    <span class="name">
+                        <span ><b>updateSelectedPropOnSelectAllClick</b></span>
+                        <a href="#updateSelectedPropOnSelectAllClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateSelectedPropOnSelectAllClick(source, filteredEntities, checked, mapKey)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">src/app/services/bulk-select-table-entries.service.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the &#39;selected&#39; property of all currently displayed entities in the table based on the &#39;checked&#39; value and returns the updated source data as an array.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>source</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The source data of the ng2-smart-table (LocalDataSource).</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>filteredEntities</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The currently displayed entities in the table.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>checked</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The value to set for the &#39;selected&#39; property (true or false).</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>mapKey</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique key used to access entities efficiently.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{ updatedSource: any; filteredEntities: any; }</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An array of the updated source data after modifying the &#39;selected&#39; property.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import cloneDeep from &#x27;lodash/cloneDeep&#x27;;
+import groupBy from &#x27;lodash/groupBy&#x27;;
+import { LocalDataSource } from &#x27;ng2-smart-table&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+export class BulkSelectTableEntriesService {
+  constructor() {}
+
+  /**
+   * Updates the &#x27;selected&#x27; property of all currently displayed entities in the table based on the &#x27;checked&#x27; value and returns the updated source data as an array.
+   * @param source - The source data of the ng2-smart-table (LocalDataSource).
+   * @param filteredEntities - The currently displayed entities in the table.
+   * @param checked - The value to set for the &#x27;selected&#x27; property (true or false).
+   * @param mapKey - The unique key used to access entities efficiently.
+   * @returns An array of the updated source data after modifying the &#x27;selected&#x27; property.
+   */
+  updateSelectedPropOnSelectAllClick(
+    source,
+    filteredEntities,
+    checked,
+    mapKey,
+  ) {
+    // Step 1: Map over &#x27;filteredEntities&#x27; and add/update the &#x27;selected&#x27; property
+    let sortedAndFilteredEntities &#x3D; filteredEntities?.map((entity) &#x3D;&gt; ({
+      ...entity,
+      selected: checked,
+    }));
+
+    // Step 2: Create a map (&#x27;entityMapByUniqueKey&#x27;) for efficient access by unique key
+    const entityMapByUniqueKey &#x3D; new Map(
+      source?.[&#x27;data&#x27;].map((item) &#x3D;&gt; [&#x60;${item[mapKey]}&#x60;, item]),
+    );
+
+    // Step 3: Update the &#x27;selected&#x27; property of corresponding entities in &#x27;entityMapByUniqueKey&#x27;
+    sortedAndFilteredEntities?.forEach((entity) &#x3D;&gt; {
+      const item &#x3D; entityMapByUniqueKey.get(&#x60;${entity[mapKey]}&#x60;);
+      if (item) {
+        item[&#x27;selected&#x27;] &#x3D; entity?.selected;
+      }
+    });
+
+    // Return the updated source as an array
+    return {
+      updatedSource: Array.from(entityMapByUniqueKey.values()),
+      filteredEntities,
+    };
+  }
+
+  /**
+   * Manually updates the &#x27;selected&#x27; property of a specific entity based on checkbox interaction.
+   *
+   * @param data - The data object containing the checkbox value and row data.
+   * @param source - The ng2-smart-table data source.
+   * @param findResource - The condition function to find the target entity.
+   * @returns A new array of cloned entities with the &#x27;selected&#x27; property of the target entity updated.
+   */
+  updateSelectedPropOnCheckboxClick(
+    data: { val: boolean; rowData: any },
+    source: LocalDataSource,
+    findResource: (entity: any) &#x3D;&gt; boolean,
+  ) {
+    if (typeof data.val !&#x3D;&#x3D; &#x27;boolean&#x27;) {
+      return;
+    }
+    const clonedResources &#x3D; cloneDeep(source?.[&#x27;data&#x27;]);
+    clonedResources.find(findResource).selected &#x3D; data?.val;
+    return clonedResources;
+  }
+
+  /**
+   * Determines the select all checkbox state (indeterminate or selectAll) based on updated entity selections.
+   *
+   * @param source - The ng2-smart-table data source.
+   * @param mapKey - The unique key to efficiently access entities in the source.
+   * @param filteredEntities - The list of currently filtered entities.
+   * @returns An object with &#x27;isIndeterminate&#x27; and &#x27;isSelectAll&#x27; properties indicating checkbox state.
+   */
+
+  getSelectAllCheckboxState(source, mapKey, filteredEntities: any[]) {
+    // Step 1: Create a map (&#x27;entityMapByUniqueKey&#x27;) for efficient access by unique key
+    const entityMapByUniqueKey &#x3D; new Map(
+      source?.[&#x27;data&#x27;]?.map((item) &#x3D;&gt; [&#x60;${item[mapKey]}&#x60;, item]),
+    );
+    // Step 2: Filter the &#x27;filteredEntities&#x27; to get currently selected entities
+    const currentSelectedEntities &#x3D; filteredEntities?.filter(
+      (entity) &#x3D;&gt; entityMapByUniqueKey.get(&#x60;${entity[mapKey]}&#x60;)[&#x27;selected&#x27;],
+    );
+    // Step 3: Update &#x27;isIndeterminate&#x27; based on the number of selected entities
+    const isIndeterminate &#x3D; currentSelectedEntities?.length
+      ? currentSelectedEntities?.length !&#x3D;&#x3D; filteredEntities.length
+      : false;
+    // Step 4: Update &#x27;isSelectAll&#x27; based on whether there are selected entities
+    const isSelectAll &#x3D; currentSelectedEntities?.length
+      ? currentSelectedEntities?.length &#x3D;&#x3D;&#x3D; filteredEntities?.length
+      : false;
+    return { isIndeterminate, isSelectAll };
+  }
+
+  /**
+   * Determines the state of selected entities based on a grouping parameter.
+   *
+   * @param source - The ng2-smart-table data source.
+   * @param groupByParam - The parameter by which entities are grouped.
+   * @returns An object with &#x27;selectedEntitiesForBulkOps&#x27; and &#x27;statusOfSelectedEntity&#x27; properties
+   *          indicating the state of selected entities, or &#x60;false&#x60; if entities of different types are selected.
+   */
+  determineSelectedEntityState(
+    source,
+    groupByParam,
+  ):
+    | {
+        selectedEntitiesForBulkOps: any[];
+        statusOfSelectedEntities: string;
+      }
+    | boolean {
+    // Step 1: Filter currently selected entities from the source data
+    const currentSelectedEntities &#x3D; source?.[&#x27;data&#x27;]?.filter(
+      (entity) &#x3D;&gt; entity?.selected,
+    );
+
+    // Step 2: Group the selected entities based on the specified parameter
+    const groupedEntities &#x3D; groupBy(
+      currentSelectedEntities,
+      (entity: any) &#x3D;&gt; entity[groupByParam],
+    );
+
+    // Step 3: Return false
+    // if no entities are selected, source data is empty,
+    // or groupBy parameter is not found in any entities
+    // entities of different types are selected, return false if true
+    if (Object.keys(groupedEntities).length &gt; 1) {
+      //User has selected resources of both type, return false from this function
+      return false;
+    }
+    // Step 4: If entities are of the same type, update the selectedEntitiesForBulkOps
+    let selectedEntitiesForBulkOps &#x3D; cloneDeep(currentSelectedEntities);
+    let statusOfSelectedEntities &#x3D; Object.keys(groupedEntities)?.[0];
+
+    // Step 5: Return an object with the state of selected entities
+    return { selectedEntitiesForBulkOps, statusOfSelectedEntities };
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'BulkSelectTableEntriesService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

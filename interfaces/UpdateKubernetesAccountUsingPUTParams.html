@@ -1,0 +1,1915 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  UpdateKubernetesAccountUsingPUTParams</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/ui-accounts-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Parameters for updateKubernetesAccountUsingPUT</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#id" 
+>
+                                            id
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#k8sAccountRequest" 
+>
+                                            k8sAccountRequest
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="id"></a>
+                                        <span class="name "><b>id</b>
+                                            <a href="#id">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>id</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="k8sAccountRequest"></a>
+                                        <span class="name "><b>k8sAccountRequest</b>
+                                            <a href="#k8sAccountRequest">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>k8sAccountRequest:         <code><a href="../interfaces/KubernetesAccount.html" target="_self" >KubernetesAccount</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/KubernetesAccount.html" target="_self" >KubernetesAccount</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>k8sAccountRequest</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpHeaders,
+} from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { Account } from &#x27;../models/account&#x27;;
+import { AwsAccount } from &#x27;../models/aws-account&#x27;;
+import { Response } from &#x27;../models/response&#x27;;
+import { AzureAccount } from &#x27;../models/azure-account&#x27;;
+import { BitBucketAccount } from &#x27;../models/bit-bucket-account&#x27;;
+import { CoderAccount } from &#x27;../models/coder-account&#x27;;
+import { GcpAccount } from &#x27;../models/gcp-account&#x27;;
+import { GitHubAccount } from &#x27;../models/git-hub-account&#x27;;
+import { GitLabAccount } from &#x27;../models/git-lab-account&#x27;;
+import { KubernetesAccount } from &#x27;../models/kubernetes-account&#x27;;
+import { VCSTokenDetailsResponse } from &#x27;../models/vcstoken-details-response&#x27;;
+
+/**
+ * Ui Accounts Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class UiAccountsControllerService extends __BaseService {
+  static readonly getAllAccountsUsingGETPath &#x3D; &#x27;/cc-ui/v1/accounts/&#x27;;
+  static readonly createAwsAccountUsingPOSTPath &#x3D; &#x27;/cc-ui/v1/accounts/aws/&#x27;;
+  static readonly validateAwsAccountUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/aws/validate&#x27;;
+  static readonly updateAwsAccountUsingPUTPath &#x3D; &#x27;/cc-ui/v1/accounts/aws/{id}&#x27;;
+  static readonly createAzureAccountUsingPOSTPath &#x3D; &#x27;/cc-ui/v1/accounts/azure/&#x27;;
+  static readonly validateAzureAccountUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/azure/validate&#x27;;
+  static readonly updateAzureAccountUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/azure/{id}&#x27;;
+  static readonly createBitBucketAccountUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/bitbucket/&#x27;;
+  static readonly validateBitbucketAccountUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/bitbucket/validate&#x27;;
+  static readonly updateBitBucketAccountUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/bitbucket/{id}&#x27;;
+  static readonly createCoderAccountUsingPOSTPath &#x3D; &#x27;/cc-ui/v1/accounts/coder/&#x27;;
+  static readonly updateCoderAccountUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/coder/{id}&#x27;;
+  static readonly createGcpAccountUsingPOSTPath &#x3D; &#x27;/cc-ui/v1/accounts/gcp/&#x27;;
+  static readonly validateGcpAccountUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/gcp/validate&#x27;;
+  static readonly updateGcpAccountUsingPUTPath &#x3D; &#x27;/cc-ui/v1/accounts/gcp/{id}&#x27;;
+  static readonly createGitHubAccountUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/github/&#x27;;
+  static readonly validateGithubAccountUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/github/validate&#x27;;
+  static readonly updateGitHubAccountUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/github/{id}&#x27;;
+  static readonly createGitLabAccountUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/gitlab/&#x27;;
+  static readonly validateGitlabAccountUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/gitlab/validate&#x27;;
+  static readonly updateGitLabAccountUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/gitlab/{id}&#x27;;
+  static readonly createKubernetesAccountUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/kubernetes/&#x27;;
+  static readonly validateKubernetesAccountUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/kubernetes/validate&#x27;;
+  static readonly updateKubernetesAccountUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/kubernetes/{id}&#x27;;
+  static readonly getVCSTokenDetailsByStackNameUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/stack/{stackName}/token-details&#x27;;
+  static readonly getAllVCSTokenDetailsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/token-details&#x27;;
+  static readonly refreshAllVCSTokenDetailsUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/token-details/refresh&#x27;;
+  static readonly getAccountsByTypeUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/accounts/type/{type}&#x27;;
+  static readonly getAccountUsingGETPath &#x3D; &#x27;/cc-ui/v1/accounts/{id}&#x27;;
+  static readonly deleteAccountUsingDELETEPath &#x3D; &#x27;/cc-ui/v1/accounts/{id}&#x27;;
+
+  constructor(config: __Configuration, http: HttpClient) {
+    super(config, http);
+  }
+
+  /**
+   * getAllAccounts
+   * @return OK
+   */
+  getAllAccountsUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;Account&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Account&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllAccounts
+   * @return OK
+   */
+  getAllAccountsUsingGET(): __Observable&lt;Array&lt;Account&gt;&gt; {
+    return this.getAllAccountsUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Account&gt;),
+    );
+  }
+
+  /**
+   * createAwsAccount
+   * @param awsAccountRequest awsAccountRequest
+   * @return OK
+   */
+  createAwsAccountUsingPOSTResponse(
+    awsAccountRequest: AwsAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;AwsAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; awsAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/aws/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;AwsAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * createAwsAccount
+   * @param awsAccountRequest awsAccountRequest
+   * @return OK
+   */
+  createAwsAccountUsingPOST(
+    awsAccountRequest: AwsAccount,
+  ): __Observable&lt;AwsAccount&gt; {
+    return this.createAwsAccountUsingPOSTResponse(awsAccountRequest).pipe(
+      __map((_r) &#x3D;&gt; _r.body as AwsAccount),
+    );
+  }
+
+  /**
+   * validateAwsAccount
+   * @param awsAccount awsAccount
+   * @return OK
+   */
+  validateAwsAccountUsingPOSTResponse(
+    awsAccount: AwsAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;Response&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; awsAccount;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/aws/validate&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Response&gt;;
+      }),
+    );
+  }
+  /**
+   * validateAwsAccount
+   * @param awsAccount awsAccount
+   * @return OK
+   */
+  validateAwsAccountUsingPOST(awsAccount: AwsAccount): __Observable&lt;Response&gt; {
+    return this.validateAwsAccountUsingPOSTResponse(awsAccount).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Response),
+    );
+  }
+
+  /**
+   * updateAwsAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateAwsAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;awsAccountRequest&#x60;: awsAccountRequest
+   *
+   * @return OK
+   */
+  updateAwsAccountUsingPUTResponse(
+    params: UiAccountsControllerService.UpdateAwsAccountUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;AwsAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.awsAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/accounts/aws/${encodeURIComponent(String(params.id))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;AwsAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * updateAwsAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateAwsAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;awsAccountRequest&#x60;: awsAccountRequest
+   *
+   * @return OK
+   */
+  updateAwsAccountUsingPUT(
+    params: UiAccountsControllerService.UpdateAwsAccountUsingPUTParams,
+  ): __Observable&lt;AwsAccount&gt; {
+    return this.updateAwsAccountUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as AwsAccount),
+    );
+  }
+
+  /**
+   * createAzureAccount
+   * @param azureAccountRequest azureAccountRequest
+   * @return OK
+   */
+  createAzureAccountUsingPOSTResponse(
+    azureAccountRequest: AzureAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;AzureAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; azureAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/azure/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;AzureAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * createAzureAccount
+   * @param azureAccountRequest azureAccountRequest
+   * @return OK
+   */
+  createAzureAccountUsingPOST(
+    azureAccountRequest: AzureAccount,
+  ): __Observable&lt;AzureAccount&gt; {
+    return this.createAzureAccountUsingPOSTResponse(azureAccountRequest).pipe(
+      __map((_r) &#x3D;&gt; _r.body as AzureAccount),
+    );
+  }
+
+  /**
+   * validateAzureAccount
+   * @param azureAccount azureAccount
+   * @return OK
+   */
+  validateAzureAccountUsingPOSTResponse(
+    azureAccount: AzureAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;Response&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; azureAccount;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/azure/validate&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Response&gt;;
+      }),
+    );
+  }
+  /**
+   * validateAzureAccount
+   * @param azureAccount azureAccount
+   * @return OK
+   */
+  validateAzureAccountUsingPOST(
+    azureAccount: AzureAccount,
+  ): __Observable&lt;Response&gt; {
+    return this.validateAzureAccountUsingPOSTResponse(azureAccount).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Response),
+    );
+  }
+
+  /**
+   * updateAzureAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateAzureAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;azureAccountRequest&#x60;: azureAccountRequest
+   *
+   * @return OK
+   */
+  updateAzureAccountUsingPUTResponse(
+    params: UiAccountsControllerService.UpdateAzureAccountUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;AzureAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.azureAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/accounts/azure/${encodeURIComponent(String(params.id))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;AzureAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * updateAzureAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateAzureAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;azureAccountRequest&#x60;: azureAccountRequest
+   *
+   * @return OK
+   */
+  updateAzureAccountUsingPUT(
+    params: UiAccountsControllerService.UpdateAzureAccountUsingPUTParams,
+  ): __Observable&lt;AzureAccount&gt; {
+    return this.updateAzureAccountUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as AzureAccount),
+    );
+  }
+
+  /**
+   * createBitBucketAccount
+   * @param bitbucketAccountRequest bitbucketAccountRequest
+   * @return OK
+   */
+  createBitBucketAccountUsingPOSTResponse(
+    bitbucketAccountRequest: BitBucketAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;BitBucketAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; bitbucketAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/bitbucket/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;BitBucketAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * createBitBucketAccount
+   * @param bitbucketAccountRequest bitbucketAccountRequest
+   * @return OK
+   */
+  createBitBucketAccountUsingPOST(
+    bitbucketAccountRequest: BitBucketAccount,
+  ): __Observable&lt;BitBucketAccount&gt; {
+    return this.createBitBucketAccountUsingPOSTResponse(
+      bitbucketAccountRequest,
+    ).pipe(__map((_r) &#x3D;&gt; _r.body as BitBucketAccount));
+  }
+
+  /**
+   * validateBitbucketAccount
+   * @param bitBucketAccount bitBucketAccount
+   * @return OK
+   */
+  validateBitbucketAccountUsingPOSTResponse(
+    bitBucketAccount: BitBucketAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;Response&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; bitBucketAccount;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/bitbucket/validate&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Response&gt;;
+      }),
+    );
+  }
+  /**
+   * validateBitbucketAccount
+   * @param bitBucketAccount bitBucketAccount
+   * @return OK
+   */
+  validateBitbucketAccountUsingPOST(
+    bitBucketAccount: BitBucketAccount,
+  ): __Observable&lt;Response&gt; {
+    return this.validateBitbucketAccountUsingPOSTResponse(
+      bitBucketAccount,
+    ).pipe(__map((_r) &#x3D;&gt; _r.body as Response));
+  }
+
+  /**
+   * updateBitBucketAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateBitBucketAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;bitbucketAccountRequest&#x60;: bitbucketAccountRequest
+   *
+   * @return OK
+   */
+  updateBitBucketAccountUsingPUTResponse(
+    params: UiAccountsControllerService.UpdateBitBucketAccountUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;BitBucketAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.bitbucketAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/accounts/bitbucket/${encodeURIComponent(String(params.id))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;BitBucketAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * updateBitBucketAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateBitBucketAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;bitbucketAccountRequest&#x60;: bitbucketAccountRequest
+   *
+   * @return OK
+   */
+  updateBitBucketAccountUsingPUT(
+    params: UiAccountsControllerService.UpdateBitBucketAccountUsingPUTParams,
+  ): __Observable&lt;BitBucketAccount&gt; {
+    return this.updateBitBucketAccountUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as BitBucketAccount),
+    );
+  }
+
+  /**
+   * createCoderAccount
+   * @param coderAccountRequest coderAccountRequest
+   * @return OK
+   */
+  createCoderAccountUsingPOSTResponse(
+    coderAccountRequest: CoderAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;CoderAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; coderAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/coder/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;CoderAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * createCoderAccount
+   * @param coderAccountRequest coderAccountRequest
+   * @return OK
+   */
+  createCoderAccountUsingPOST(
+    coderAccountRequest: CoderAccount,
+  ): __Observable&lt;CoderAccount&gt; {
+    return this.createCoderAccountUsingPOSTResponse(coderAccountRequest).pipe(
+      __map((_r) &#x3D;&gt; _r.body as CoderAccount),
+    );
+  }
+
+  /**
+   * updateCoderAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateCoderAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;coderAccount&#x60;: coderAccount
+   *
+   * @return OK
+   */
+  updateCoderAccountUsingPUTResponse(
+    params: UiAccountsControllerService.UpdateCoderAccountUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;CoderAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.coderAccount;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/accounts/coder/${encodeURIComponent(String(params.id))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;CoderAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * updateCoderAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateCoderAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;coderAccount&#x60;: coderAccount
+   *
+   * @return OK
+   */
+  updateCoderAccountUsingPUT(
+    params: UiAccountsControllerService.UpdateCoderAccountUsingPUTParams,
+  ): __Observable&lt;CoderAccount&gt; {
+    return this.updateCoderAccountUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as CoderAccount),
+    );
+  }
+
+  /**
+   * createGcpAccount
+   * @param gcpAccountRequest gcpAccountRequest
+   * @return OK
+   */
+  createGcpAccountUsingPOSTResponse(
+    gcpAccountRequest: GcpAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;GcpAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; gcpAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/gcp/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;GcpAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * createGcpAccount
+   * @param gcpAccountRequest gcpAccountRequest
+   * @return OK
+   */
+  createGcpAccountUsingPOST(
+    gcpAccountRequest: GcpAccount,
+  ): __Observable&lt;GcpAccount&gt; {
+    return this.createGcpAccountUsingPOSTResponse(gcpAccountRequest).pipe(
+      __map((_r) &#x3D;&gt; _r.body as GcpAccount),
+    );
+  }
+
+  /**
+   * validateGcpAccount
+   * @param gcpAccount gcpAccount
+   * @return OK
+   */
+  validateGcpAccountUsingPOSTResponse(
+    gcpAccount: GcpAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;Response&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; gcpAccount;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/gcp/validate&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Response&gt;;
+      }),
+    );
+  }
+  /**
+   * validateGcpAccount
+   * @param gcpAccount gcpAccount
+   * @return OK
+   */
+  validateGcpAccountUsingPOST(gcpAccount: GcpAccount): __Observable&lt;Response&gt; {
+    return this.validateGcpAccountUsingPOSTResponse(gcpAccount).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Response),
+    );
+  }
+
+  /**
+   * updateGcpAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateGcpAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;gcpAccountRequest&#x60;: gcpAccountRequest
+   *
+   * @return OK
+   */
+  updateGcpAccountUsingPUTResponse(
+    params: UiAccountsControllerService.UpdateGcpAccountUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;GcpAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.gcpAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/accounts/gcp/${encodeURIComponent(String(params.id))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;GcpAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * updateGcpAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateGcpAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;gcpAccountRequest&#x60;: gcpAccountRequest
+   *
+   * @return OK
+   */
+  updateGcpAccountUsingPUT(
+    params: UiAccountsControllerService.UpdateGcpAccountUsingPUTParams,
+  ): __Observable&lt;GcpAccount&gt; {
+    return this.updateGcpAccountUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as GcpAccount),
+    );
+  }
+
+  /**
+   * createGitHubAccount
+   * @param githubAccountRequest githubAccountRequest
+   * @return OK
+   */
+  createGitHubAccountUsingPOSTResponse(
+    githubAccountRequest: GitHubAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;GitHubAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; githubAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/github/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;GitHubAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * createGitHubAccount
+   * @param githubAccountRequest githubAccountRequest
+   * @return OK
+   */
+  createGitHubAccountUsingPOST(
+    githubAccountRequest: GitHubAccount,
+  ): __Observable&lt;GitHubAccount&gt; {
+    return this.createGitHubAccountUsingPOSTResponse(githubAccountRequest).pipe(
+      __map((_r) &#x3D;&gt; _r.body as GitHubAccount),
+    );
+  }
+
+  /**
+   * validateGithubAccount
+   * @param gitHubAccount gitHubAccount
+   * @return OK
+   */
+  validateGithubAccountUsingPOSTResponse(
+    gitHubAccount: GitHubAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;Response&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; gitHubAccount;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/github/validate&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Response&gt;;
+      }),
+    );
+  }
+  /**
+   * validateGithubAccount
+   * @param gitHubAccount gitHubAccount
+   * @return OK
+   */
+  validateGithubAccountUsingPOST(
+    gitHubAccount: GitHubAccount,
+  ): __Observable&lt;Response&gt; {
+    return this.validateGithubAccountUsingPOSTResponse(gitHubAccount).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Response),
+    );
+  }
+
+  /**
+   * updateGitHubAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateGitHubAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;githubAccountRequest&#x60;: githubAccountRequest
+   *
+   * @return OK
+   */
+  updateGitHubAccountUsingPUTResponse(
+    params: UiAccountsControllerService.UpdateGitHubAccountUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;GitHubAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.githubAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/accounts/github/${encodeURIComponent(String(params.id))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;GitHubAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * updateGitHubAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateGitHubAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;githubAccountRequest&#x60;: githubAccountRequest
+   *
+   * @return OK
+   */
+  updateGitHubAccountUsingPUT(
+    params: UiAccountsControllerService.UpdateGitHubAccountUsingPUTParams,
+  ): __Observable&lt;GitHubAccount&gt; {
+    return this.updateGitHubAccountUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as GitHubAccount),
+    );
+  }
+
+  /**
+   * createGitLabAccount
+   * @param gitlabAccountRequest gitlabAccountRequest
+   * @return OK
+   */
+  createGitLabAccountUsingPOSTResponse(
+    gitlabAccountRequest: GitLabAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;GitLabAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; gitlabAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/gitlab/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;GitLabAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * createGitLabAccount
+   * @param gitlabAccountRequest gitlabAccountRequest
+   * @return OK
+   */
+  createGitLabAccountUsingPOST(
+    gitlabAccountRequest: GitLabAccount,
+  ): __Observable&lt;GitLabAccount&gt; {
+    return this.createGitLabAccountUsingPOSTResponse(gitlabAccountRequest).pipe(
+      __map((_r) &#x3D;&gt; _r.body as GitLabAccount),
+    );
+  }
+
+  /**
+   * validateGitlabAccount
+   * @param gitLabAccount gitLabAccount
+   * @return OK
+   */
+  validateGitlabAccountUsingPOSTResponse(
+    gitLabAccount: GitLabAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;Response&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; gitLabAccount;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/gitlab/validate&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Response&gt;;
+      }),
+    );
+  }
+  /**
+   * validateGitlabAccount
+   * @param gitLabAccount gitLabAccount
+   * @return OK
+   */
+  validateGitlabAccountUsingPOST(
+    gitLabAccount: GitLabAccount,
+  ): __Observable&lt;Response&gt; {
+    return this.validateGitlabAccountUsingPOSTResponse(gitLabAccount).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Response),
+    );
+  }
+
+  /**
+   * updateGitLabAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateGitLabAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;gitlabAccountRequest&#x60;: gitlabAccountRequest
+   *
+   * @return OK
+   */
+  updateGitLabAccountUsingPUTResponse(
+    params: UiAccountsControllerService.UpdateGitLabAccountUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;GitLabAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.gitlabAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/accounts/gitlab/${encodeURIComponent(String(params.id))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;GitLabAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * updateGitLabAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateGitLabAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * - &#x60;gitlabAccountRequest&#x60;: gitlabAccountRequest
+   *
+   * @return OK
+   */
+  updateGitLabAccountUsingPUT(
+    params: UiAccountsControllerService.UpdateGitLabAccountUsingPUTParams,
+  ): __Observable&lt;GitLabAccount&gt; {
+    return this.updateGitLabAccountUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as GitLabAccount),
+    );
+  }
+
+  /**
+   * createKubernetesAccount
+   * @param k8sAccountRequest k8sAccountRequest
+   * @return OK
+   */
+  createKubernetesAccountUsingPOSTResponse(
+    k8sAccountRequest: KubernetesAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;KubernetesAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; k8sAccountRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/kubernetes/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;KubernetesAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * createKubernetesAccount
+   * @param k8sAccountRequest k8sAccountRequest
+   * @return OK
+   */
+  createKubernetesAccountUsingPOST(
+    k8sAccountRequest: KubernetesAccount,
+  ): __Observable&lt;KubernetesAccount&gt; {
+    return this.createKubernetesAccountUsingPOSTResponse(
+      k8sAccountRequest,
+    ).pipe(__map((_r) &#x3D;&gt; _r.body as KubernetesAccount));
+  }
+
+  /**
+   * validateKubernetesAccount
+   * @param kubernetesAccount kubernetesAccount
+   * @return OK
+   */
+  validateKubernetesAccountUsingPOSTResponse(
+    kubernetesAccount: KubernetesAccount,
+  ): __Observable&lt;__StrictHttpResponse&lt;Response&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; kubernetesAccount;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/kubernetes/validate&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Response&gt;;
+      }),
+    );
+  }
+  /**
+   * validateKubernetesAccount
+   * @param kubernetesAccount kubernetesAccount
+   * @return OK
+   */
+  validateKubernetesAccountUsingPOST(
+    kubernetesAccount: KubernetesAccount,
+  ): __Observable&lt;Response&gt; {
+    return this.validateKubernetesAccountUsingPOSTResponse(
+      kubernetesAccount,
+    ).pipe(__map((_r) &#x3D;&gt; _r.body as Response));
+  }
+
+  /**
+   * updateKubernetesAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateKubernetesAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;k8sAccountRequest&#x60;: k8sAccountRequest
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * @return OK
+   */
+  updateKubernetesAccountUsingPUTResponse(
+    params: UiAccountsControllerService.UpdateKubernetesAccountUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;KubernetesAccount&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.k8sAccountRequest;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/accounts/kubernetes/${encodeURIComponent(
+          String(params.id),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;KubernetesAccount&gt;;
+      }),
+    );
+  }
+  /**
+   * updateKubernetesAccount
+   * @param params The &#x60;UiAccountsControllerService.UpdateKubernetesAccountUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;k8sAccountRequest&#x60;: k8sAccountRequest
+   *
+   * - &#x60;id&#x60;: id
+   *
+   * @return OK
+   */
+  updateKubernetesAccountUsingPUT(
+    params: UiAccountsControllerService.UpdateKubernetesAccountUsingPUTParams,
+  ): __Observable&lt;KubernetesAccount&gt; {
+    return this.updateKubernetesAccountUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as KubernetesAccount),
+    );
+  }
+
+  /**
+   * getVCSTokenDetailsByStackName
+   * @param stackName stackName
+   * @return OK
+   */
+  getVCSTokenDetailsByStackNameUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;VCSTokenDetailsResponse&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/accounts/stack/${encodeURIComponent(
+          String(stackName),
+        )}/token-details&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;VCSTokenDetailsResponse&gt;;
+      }),
+    );
+  }
+  /**
+   * getVCSTokenDetailsByStackName
+   * @param stackName stackName
+   * @return OK
+   */
+  getVCSTokenDetailsByStackNameUsingGET(
+    stackName: string,
+  ): __Observable&lt;VCSTokenDetailsResponse&gt; {
+    return this.getVCSTokenDetailsByStackNameUsingGETResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as VCSTokenDetailsResponse),
+    );
+  }
+
+  /**
+   * getAllVCSTokenDetails
+   * @return OK
+   */
+  getAllVCSTokenDetailsUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;VCSTokenDetailsResponse&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/token-details&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;VCSTokenDetailsResponse&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllVCSTokenDetails
+   * @return OK
+   */
+  getAllVCSTokenDetailsUsingGET(): __Observable&lt;
+    Array&lt;VCSTokenDetailsResponse&gt;
+  &gt; {
+    return this.getAllVCSTokenDetailsUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;VCSTokenDetailsResponse&gt;),
+    );
+  }
+
+  /**
+   * refreshAllVCSTokenDetails
+   */
+  refreshAllVCSTokenDetailsUsingPOSTResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;null&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/token-details/refresh&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * refreshAllVCSTokenDetails
+   */
+  refreshAllVCSTokenDetailsUsingPOST(): __Observable&lt;null&gt; {
+    return this.refreshAllVCSTokenDetailsUsingPOSTResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * getAccountsByType
+   * @param type type
+   * @return OK
+   */
+  getAccountsByTypeUsingGETResponse(
+    type: &#x27;VERSION_CONTROL&#x27; | &#x27;CLOUD&#x27; | &#x27;CODER&#x27;,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;Account&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/accounts/type/${encodeURIComponent(String(type))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Account&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAccountsByType
+   * @param type type
+   * @return OK
+   */
+  getAccountsByTypeUsingGET(
+    type: &#x27;VERSION_CONTROL&#x27; | &#x27;CLOUD&#x27; | &#x27;CODER&#x27;,
+  ): __Observable&lt;Array&lt;Account&gt;&gt; {
+    return this.getAccountsByTypeUsingGETResponse(type).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Account&gt;),
+    );
+  }
+
+  /**
+   * getAccount
+   * @param id id
+   * @return OK
+   */
+  getAccountUsingGETResponse(
+    id: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Account&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/${encodeURIComponent(String(id))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Account&gt;;
+      }),
+    );
+  }
+  /**
+   * getAccount
+   * @param id id
+   * @return OK
+   */
+  getAccountUsingGET(id: string): __Observable&lt;Account&gt; {
+    return this.getAccountUsingGETResponse(id).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Account),
+    );
+  }
+
+  /**
+   * deleteAccount
+   * @param id id
+   * @return OK
+   */
+  deleteAccountUsingDELETEResponse(
+    id: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;boolean&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/accounts/${encodeURIComponent(String(id))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteAccount
+   * @param id id
+   * @return OK
+   */
+  deleteAccountUsingDELETE(id: string): __Observable&lt;boolean&gt; {
+    return this.deleteAccountUsingDELETEResponse(id).pipe(
+      __map((_r) &#x3D;&gt; _r.body as boolean),
+    );
+  }
+}
+
+module UiAccountsControllerService {
+  /**
+   * Parameters for updateAwsAccountUsingPUT
+   */
+  export interface UpdateAwsAccountUsingPUTParams {
+    /**
+     * id
+     */
+    id: string;
+
+    /**
+     * awsAccountRequest
+     */
+    awsAccountRequest: AwsAccount;
+  }
+
+  /**
+   * Parameters for updateAzureAccountUsingPUT
+   */
+  export interface UpdateAzureAccountUsingPUTParams {
+    /**
+     * id
+     */
+    id: string;
+
+    /**
+     * azureAccountRequest
+     */
+    azureAccountRequest: AzureAccount;
+  }
+
+  /**
+   * Parameters for updateBitBucketAccountUsingPUT
+   */
+  export interface UpdateBitBucketAccountUsingPUTParams {
+    /**
+     * id
+     */
+    id: string;
+
+    /**
+     * bitbucketAccountRequest
+     */
+    bitbucketAccountRequest: BitBucketAccount;
+  }
+
+  /**
+   * Parameters for updateCoderAccountUsingPUT
+   */
+  export interface UpdateCoderAccountUsingPUTParams {
+    /**
+     * id
+     */
+    id: string;
+
+    /**
+     * coderAccount
+     */
+    coderAccount: CoderAccount;
+  }
+
+  /**
+   * Parameters for updateGcpAccountUsingPUT
+   */
+  export interface UpdateGcpAccountUsingPUTParams {
+    /**
+     * id
+     */
+    id: string;
+
+    /**
+     * gcpAccountRequest
+     */
+    gcpAccountRequest: GcpAccount;
+  }
+
+  /**
+   * Parameters for updateGitHubAccountUsingPUT
+   */
+  export interface UpdateGitHubAccountUsingPUTParams {
+    /**
+     * id
+     */
+    id: string;
+
+    /**
+     * githubAccountRequest
+     */
+    githubAccountRequest: GitHubAccount;
+  }
+
+  /**
+   * Parameters for updateGitLabAccountUsingPUT
+   */
+  export interface UpdateGitLabAccountUsingPUTParams {
+    /**
+     * id
+     */
+    id: string;
+
+    /**
+     * gitlabAccountRequest
+     */
+    gitlabAccountRequest: GitLabAccount;
+  }
+
+  /**
+   * Parameters for updateKubernetesAccountUsingPUT
+   */
+  export interface UpdateKubernetesAccountUsingPUTParams {
+    /**
+     * k8sAccountRequest
+     */
+    k8sAccountRequest: KubernetesAccount;
+
+    /**
+     * id
+     */
+    id: string;
+  }
+}
+
+export { UiAccountsControllerService };
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'UpdateKubernetesAccountUsingPUTParams.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,2441 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ClusterAvailabilitySchedulerComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+    </p>
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-cluster-availability-scheduler</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./cluster-availability-scheduler.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./cluster-availability-scheduler.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#availabilitySchedule" >availabilitySchedule</a>
+                            </li>
+                            <li>
+                                <a href="#availabilityScheduleRequestList" >availabilityScheduleRequestList</a>
+                            </li>
+                            <li>
+                                <a href="#availabilityString" >availabilityString</a>
+                            </li>
+                            <li>
+                                <a href="#availableDaysOptions" >availableDaysOptions</a>
+                            </li>
+                            <li>
+                                <a href="#availableRule" >availableRule</a>
+                            </li>
+                            <li>
+                                <a href="#byDay" >byDay</a>
+                            </li>
+                            <li>
+                                <a href="#byTime" >byTime</a>
+                            </li>
+                            <li>
+                                <a href="#cancelAvailabilityScheduler" >cancelAvailabilityScheduler</a>
+                            </li>
+                            <li>
+                                <a href="#clusterId" >clusterId</a>
+                            </li>
+                            <li>
+                                <a href="#defaultRuleOption" >defaultRuleOption</a>
+                            </li>
+                            <li>
+                                <a href="#destroyTimeZone" >destroyTimeZone</a>
+                            </li>
+                            <li>
+                                <a href="#endDay" >endDay</a>
+                            </li>
+                            <li>
+                                <a href="#endTimeZone" >endTimeZone</a>
+                            </li>
+                            <li>
+                                <a href="#errorIcon" >errorIcon</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingAvailabilityRule" >fetchingAvailabilityRule</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingSchedule" >fetchingSchedule</a>
+                            </li>
+                            <li>
+                                <a href="#fetchScheduleErrorMessage" >fetchScheduleErrorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#frequency" >frequency</a>
+                            </li>
+                            <li>
+                                <a href="#getAvailabilitySchedulePayload" >getAvailabilitySchedulePayload</a>
+                            </li>
+                            <li>
+                                <a href="#getTimezoneText" >getTimezoneText</a>
+                            </li>
+                            <li>
+                                <a href="#interval" >interval</a>
+                            </li>
+                            <li>
+                                <a href="#isDependedEnvironment" >isDependedEnvironment</a>
+                            </li>
+                            <li>
+                                <a href="#launchTimeZone" >launchTimeZone</a>
+                            </li>
+                            <li>
+                                <a href="#rulesRadioOptions" >rulesRadioOptions</a>
+                            </li>
+                            <li>
+                                <a href="#scheduleId" >scheduleId</a>
+                            </li>
+                            <li>
+                                <a href="#scheduleRequest" >scheduleRequest</a>
+                            </li>
+                            <li>
+                                <a href="#selectedRule" >selectedRule</a>
+                            </li>
+                            <li>
+                                <a href="#stackName" >stackName</a>
+                            </li>
+                            <li>
+                                <a href="#startDay" >startDay</a>
+                            </li>
+                            <li>
+                                <a href="#startTime" >startTime</a>
+                            </li>
+                            <li>
+                                <a href="#startTimeZone" >startTimeZone</a>
+                            </li>
+                            <li>
+                                <a href="#stopTime" >stopTime</a>
+                            </li>
+                            <li>
+                                <a href="#timeZones" >timeZones</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#createUpdateAvailabilitySchedule" >createUpdateAvailabilitySchedule</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAvailableRules" >getAvailableRules</a>
+                            </li>
+                            <li>
+                                <a href="#getEnvironmentDetails" >getEnvironmentDetails</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageLoad" >OnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#populateSchedule" >populateSchedule</a>
+                            </li>
+                            <li>
+                                <a href="#setDefaultValue" >setDefaultValue</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageInit" >OnPageInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: ActivatedRoute, router: Router, commonClusterController: <a href="../injectables/UiCommonClusterControllerService.html" target="_self">UiCommonClusterControllerService</a>, scheduleStringService: <a href="../injectables/ScheduleStringService.html" target="_self">ScheduleStringService</a>, uiCommonClusterControllerService: <a href="../injectables/UiCommonClusterControllerService.html" target="_self">UiCommonClusterControllerService</a>, customToastService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:64</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>commonClusterController</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiCommonClusterControllerService.html" target="_self" >UiCommonClusterControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>scheduleStringService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ScheduleStringService.html" target="_self" >ScheduleStringService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiCommonClusterControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiCommonClusterControllerService.html" target="_self" >UiCommonClusterControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToastService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createUpdateAvailabilitySchedule"></a>
+                    <span class="name">
+                        <span ><b>createUpdateAvailabilitySchedule</b></span>
+                        <a href="#createUpdateAvailabilitySchedule"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createUpdateAvailabilitySchedule()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="252"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:252</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAvailableRules"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getAvailableRules</b></span>
+                        <a href="#getAvailableRules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAvailableRules()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="123"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:123</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEnvironmentDetails"></a>
+                    <span class="name">
+                        <span ><b>getEnvironmentDetails</b></span>
+                        <a href="#getEnvironmentDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getEnvironmentDetails()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>OnPageLoad</b></span>
+                        <a href="#OnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:77</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="populateSchedule"></a>
+                    <span class="name">
+                        <span ><b>populateSchedule</b></span>
+                        <a href="#populateSchedule"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>populateSchedule()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="175"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:175</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setDefaultValue"></a>
+                    <span class="name">
+                        <span ><b>setDefaultValue</b></span>
+                        <a href="#setDefaultValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setDefaultValue()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="159"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageInit"></a>
+                    <span class="name">
+                        <span ><b>OnPageInit</b></span>
+                        <a href="#OnPageInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:20</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="availabilitySchedule"></a>
+                    <span class="name">
+                        <span ><b>availabilitySchedule</b></span>
+                        <a href="#availabilitySchedule"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/AvailabilityTaskSchedule.html" target="_self" >AvailabilityTaskSchedule[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="availabilityScheduleRequestList"></a>
+                    <span class="name">
+                        <span ><b>availabilityScheduleRequestList</b></span>
+                        <a href="#availabilityScheduleRequestList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ScheduleRequest.html" target="_self" >ScheduleRequest[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="availabilityString"></a>
+                    <span class="name">
+                        <span ><b>availabilityString</b></span>
+                        <a href="#availabilityString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="availableDaysOptions"></a>
+                    <span class="name">
+                        <span ><b>availableDaysOptions</b></span>
+                        <a href="#availableDaysOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { value: &#x27;MON&#x27;, label: &#x27;Monday&#x27; },
+    { value: &#x27;TUE&#x27;, label: &#x27;Tuesday&#x27; },
+    { value: &#x27;WED&#x27;, label: &#x27;Wednesday&#x27; },
+    { value: &#x27;THU&#x27;, label: &#x27;Thursday&#x27; },
+    { value: &#x27;FRI&#x27;, label: &#x27;Friday&#x27; },
+    { value: &#x27;SAT&#x27;, label: &#x27;Saturday&#x27; },
+    { value: &#x27;SUN&#x27;, label: &#x27;Sunday&#x27; },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="availableRule"></a>
+                    <span class="name">
+                        <span ><b>availableRule</b></span>
+                        <a href="#availableRule"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="byDay"></a>
+                    <span class="name">
+                        <span ><b>byDay</b></span>
+                        <a href="#byDay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>(&quot;MON&quot; | &quot;TUE&quot; | &quot;WED&quot; | &quot;THU&quot; | &quot;FRI&quot; | &quot;SAT&quot; | &quot;SUN&quot;)[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="byTime"></a>
+                    <span class="name">
+                        <span ><b>byTime</b></span>
+                        <a href="#byTime"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelAvailabilityScheduler"></a>
+                    <span class="name">
+                        <span ><b>cancelAvailabilityScheduler</b></span>
+                        <a href="#cancelAvailabilityScheduler"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="305" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:305</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusterId"></a>
+                    <span class="name">
+                        <span ><b>clusterId</b></span>
+                        <a href="#clusterId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defaultRuleOption"></a>
+                    <span class="name">
+                        <span ><b>defaultRuleOption</b></span>
+                        <a href="#defaultRuleOption"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroyTimeZone"></a>
+                    <span class="name">
+                        <span ><b>destroyTimeZone</b></span>
+                        <a href="#destroyTimeZone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TimeZone.html" target="_self" >TimeZone</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="endDay"></a>
+                    <span class="name">
+                        <span ><b>endDay</b></span>
+                        <a href="#endDay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="endTimeZone"></a>
+                    <span class="name">
+                        <span ><b>endTimeZone</b></span>
+                        <a href="#endTimeZone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorIcon"></a>
+                    <span class="name">
+                        <span ><b>errorIcon</b></span>
+                        <a href="#errorIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>errorIcon</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingAvailabilityRule"></a>
+                    <span class="name">
+                        <span ><b>fetchingAvailabilityRule</b></span>
+                        <a href="#fetchingAvailabilityRule"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingSchedule"></a>
+                    <span class="name">
+                        <span ><b>fetchingSchedule</b></span>
+                        <a href="#fetchingSchedule"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchScheduleErrorMessage"></a>
+                    <span class="name">
+                        <span ><b>fetchScheduleErrorMessage</b></span>
+                        <a href="#fetchScheduleErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="frequency"></a>
+                    <span class="name">
+                        <span ><b>frequency</b></span>
+                        <a href="#frequency"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;DAILY&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAvailabilitySchedulePayload"></a>
+                    <span class="name">
+                        <span ><b>getAvailabilitySchedulePayload</b></span>
+                        <a href="#getAvailabilitySchedulePayload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="230" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:230</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTimezoneText"></a>
+                    <span class="name">
+                        <span ><b>getTimezoneText</b></span>
+                        <a href="#getTimezoneText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="interval"></a>
+                    <span class="name">
+                        <span ><b>interval</b></span>
+                        <a href="#interval"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDependedEnvironment"></a>
+                    <span class="name">
+                        <span ><b>isDependedEnvironment</b></span>
+                        <a href="#isDependedEnvironment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="launchTimeZone"></a>
+                    <span class="name">
+                        <span ><b>launchTimeZone</b></span>
+                        <a href="#launchTimeZone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TimeZone.html" target="_self" >TimeZone</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rulesRadioOptions"></a>
+                    <span class="name">
+                        <span ><b>rulesRadioOptions</b></span>
+                        <a href="#rulesRadioOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scheduleId"></a>
+                    <span class="name">
+                        <span ><b>scheduleId</b></span>
+                        <a href="#scheduleId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scheduleRequest"></a>
+                    <span class="name">
+                        <span ><b>scheduleRequest</b></span>
+                        <a href="#scheduleRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedRule"></a>
+                    <span class="name">
+                        <span ><b>selectedRule</b></span>
+                        <a href="#selectedRule"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;LAUNCH_DESTROY&quot; | &quot;SCALE_UP_SCALE_DOWN&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;SCALE_UP_SCALE_DOWN&#x60;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stackName"></a>
+                    <span class="name">
+                        <span ><b>stackName</b></span>
+                        <a href="#stackName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startDay"></a>
+                    <span class="name">
+                        <span ><b>startDay</b></span>
+                        <a href="#startDay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startTime"></a>
+                    <span class="name">
+                        <span ><b>startTime</b></span>
+                        <a href="#startTime"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startTimeZone"></a>
+                    <span class="name">
+                        <span ><b>startTimeZone</b></span>
+                        <a href="#startTimeZone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stopTime"></a>
+                    <span class="name">
+                        <span ><b>stopTime</b></span>
+                        <a href="#stopTime"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="timeZones"></a>
+                    <span class="name">
+                        <span ><b>timeZones</b></span>
+                        <a href="#timeZones"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>timezones</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/pages/cluster-pages/cluster-availability-scheduler/cluster-availability-scheduler.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Params, Router } from &#x27;@angular/router&#x27;;
+import { UiCommonClusterControllerService } from &#x27;src/app/cc-api/services&#x27;;
+import { ScheduleRequest } from &#x27;src/app/cc-api/models/schedule-request&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import { AvailabilityTaskSchedule, TimeZone } from &#x27;src/app/cc-api/models&#x27;;
+import { ScheduleStringService } from &#x27;src/app/services/schedule-string.service&#x27;;
+import timezones from &#x27;src/app/constants/timezones&#x27;;
+import {
+  LAUNCH,
+  DESTROY,
+  SCALE_UP,
+  SCALE_DOWN,
+} from &#x27;src/app/constants/releaseTypes&#x27;;
+import { CustomToastService } from &#x27;../../custom-toast/custom-toast.service&#x27;;
+
+const errorIcon &#x3D; &#x27;./assets/error.svg&#x27;;
+
+@Component({
+  selector: &#x27;app-cluster-availability-scheduler&#x27;,
+  templateUrl: &#x27;./cluster-availability-scheduler.component.html&#x27;,
+  styleUrls: [&#x27;./cluster-availability-scheduler.component.scss&#x27;],
+})
+export class ClusterAvailabilitySchedulerComponent extends FacetsPage {
+  availableDaysOptions &#x3D; [
+    { value: &#x27;MON&#x27;, label: &#x27;Monday&#x27; },
+    { value: &#x27;TUE&#x27;, label: &#x27;Tuesday&#x27; },
+    { value: &#x27;WED&#x27;, label: &#x27;Wednesday&#x27; },
+    { value: &#x27;THU&#x27;, label: &#x27;Thursday&#x27; },
+    { value: &#x27;FRI&#x27;, label: &#x27;Friday&#x27; },
+    { value: &#x27;SAT&#x27;, label: &#x27;Saturday&#x27; },
+    { value: &#x27;SUN&#x27;, label: &#x27;Sunday&#x27; },
+  ];
+
+  timeZones &#x3D; timezones;
+
+  byDay: (&#x27;MON&#x27; | &#x27;TUE&#x27; | &#x27;WED&#x27; | &#x27;THU&#x27; | &#x27;FRI&#x27; | &#x27;SAT&#x27; | &#x27;SUN&#x27;)[] &#x3D; [];
+  interval: number &#x3D; 1;
+  byTime;
+  startTimeZone: any;
+  endTimeZone: any;
+  clusterId: string;
+  stackName: string;
+  scheduleRequest: boolean &#x3D; false;
+  errorIcon &#x3D; errorIcon;
+  fetchScheduleErrorMessage &#x3D; &#x27;&#x27;;
+  fetchingSchedule: boolean &#x3D; false;
+  startTime: any;
+  stopTime: any;
+  frequency: string &#x3D; &#x27;DAILY&#x27;;
+  startDay: any;
+  endDay: any;
+  fetchingAvailabilityRule: boolean &#x3D; false;
+  availabilitySchedule: AvailabilityTaskSchedule[] &#x3D; [];
+  availableRule: string;
+  availabilityScheduleRequestList: ScheduleRequest[];
+  availabilityString: string &#x3D; &#x27;&#x27;;
+  getTimezoneText &#x3D; &#x27;&#x27;;
+  scheduleId: string &#x3D; &#x27;&#x27;;
+  launchTimeZone: TimeZone;
+  destroyTimeZone: TimeZone;
+  selectedRule:
+    | &#x60;LAUNCH_DESTROY&#x60;
+    | &#x60;SCALE_UP_SCALE_DOWN&#x60; &#x3D; &#x60;SCALE_UP_SCALE_DOWN&#x60;;
+
+  constructor(
+    route: ActivatedRoute,
+    private router: Router,
+    private commonClusterController: UiCommonClusterControllerService,
+    private scheduleStringService: ScheduleStringService,
+    private uiCommonClusterControllerService: UiCommonClusterControllerService,
+    private customToastService: CustomToastService,
+  ) {
+    super(route);
+  }
+
+  OnPageLoad(p: Params): void {
+    this.clusterId &#x3D; p.clusterId;
+    this.stackName &#x3D; p.stackName;
+    this.getAvailableRules();
+  }
+
+  isDependedEnvironment: boolean &#x3D; false;
+  rulesRadioOptions &#x3D; [];
+  defaultRuleOption;
+  getEnvironmentDetails() {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.uiCommonClusterControllerService
+        .getClusterCommonUsingGET(this.clusterId)
+        .subscribe(
+          (response) &#x3D;&gt; {
+            this.isDependedEnvironment &#x3D; response?.baseClusterId?.length &gt; 0;
+            this.rulesRadioOptions &#x3D; [
+              {
+                value: &#x27;SCALE_UP_SCALE_DOWN&#x27;,
+                label: &#x27;Scale up / Scale down&#x27;,
+                tooltipText: this.isDependedEnvironment
+                  ? &#x27;Scaling is not supported in dependent environments.&#x27;
+                  : &#x27;Scales down deployments and statefulsets, and disables cronjobs.&#x27;,
+                disabled: this.isDependedEnvironment,
+              },
+              {
+                value: &#x27;LAUNCH_DESTROY&#x27;,
+                label: &#x27;Launch / Destroy&#x27;,
+                tooltipText:
+                  &#x27;Launch and Destroy will delete the cluster and its dependent infra resources.&#x27;,
+                disabled: false,
+              },
+            ];
+            this.selectedRule &#x3D; this.isDependedEnvironment
+              ? &#x27;LAUNCH_DESTROY&#x27;
+              : &#x27;SCALE_UP_SCALE_DOWN&#x27;;
+
+            resolve(true);
+          },
+          (error) &#x3D;&gt; {
+            resolve(true);
+          },
+        );
+    });
+  }
+
+  async getAvailableRules() {
+    this.setDefaultValue();
+    await this.getEnvironmentDetails();
+    this.commonClusterController
+      .getAvailabilitySchedulesUsingGET(this.clusterId)
+      .subscribe(
+        (response) &#x3D;&gt; {
+          if (response?.schedules?.length &gt; 0) {
+            this.availabilitySchedule &#x3D; response.schedules;
+            this.scheduleId &#x3D; response.id;
+            this.populateSchedule();
+            this.availabilityString &#x3D;
+              this.scheduleStringService.constructSchedule(
+                this.availabilitySchedule,
+              );
+            this.getTimezoneText &#x3D; this.scheduleStringService.getTimezoneText(
+              this.availabilitySchedule,
+            );
+            this.fetchingAvailabilityRule &#x3D; false;
+          }
+        },
+        (error) &#x3D;&gt; {
+          this.availabilitySchedule &#x3D; [];
+          this.fetchingAvailabilityRule &#x3D; false;
+          if (error?.error?.message &#x3D;&#x3D;&#x3D; &#x27;No schedules found&#x27;) {
+            this.fetchScheduleErrorMessage &#x3D; &#x27;&#x27;;
+          } else {
+            this.fetchScheduleErrorMessage &#x3D;
+              error?.error?.message || &#x27;There was error fetching schedule&#x27;;
+          }
+          this.availableRule &#x3D;
+            &#x27;Add availability rules see the active time frame here...&#x27;;
+        },
+      );
+  }
+
+  setDefaultValue() {
+    this.fetchingAvailabilityRule &#x3D; true;
+    this.scheduleId &#x3D; &#x27;&#x27;;
+    this.availabilityString &#x3D; &#x27;&#x27;;
+    this.getTimezoneText &#x3D; &#x27;&#x27;;
+    this.frequency &#x3D; &#x27;WEEKLY&#x27;;
+    this.startTime &#x3D; &#x27;&#x27;;
+    this.startTimeZone &#x3D; &#x27;&#x27;;
+    this.endTimeZone &#x3D; &#x27;&#x27;;
+    this.endDay &#x3D; &#x27;&#x27;;
+    this.byDay &#x3D; [];
+    this.startDay &#x3D; &#x27;&#x27;;
+    this.startTime &#x3D; &#x27;&#x27;;
+    this.stopTime &#x3D; &#x27;&#x27;;
+  }
+
+  populateSchedule() {
+    this.byDay &#x3D; this.availabilitySchedule[0].byDay;
+    let isDaily &#x3D; false;
+    let startTime;
+    let stopTime;
+    this.selectedRule &#x3D;
+      this.availabilitySchedule[0]?.releaseType &#x3D;&#x3D;&#x3D; LAUNCH
+        ? &#x60;${LAUNCH}_${DESTROY}&#x60;
+        : &#x60;${SCALE_UP}_${SCALE_DOWN}&#x60;;
+    if (
+      this.availabilitySchedule[0]?.byDay?.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp;
+      this.availabilitySchedule[0]?.byDay[0] &#x3D;&#x3D;&#x3D;
+        this.availabilitySchedule[1]?.byDay[0]
+    ) {
+      this.availabilitySchedule.forEach((schedule) &#x3D;&gt; {
+        if ([LAUNCH, SCALE_UP].includes(schedule.releaseType)) {
+          startTime &#x3D; schedule.byTime;
+          this.launchTimeZone &#x3D; schedule.timeZone;
+        }
+        if ([DESTROY, SCALE_DOWN].includes(schedule.releaseType)) {
+          stopTime &#x3D; schedule.byTime;
+          this.destroyTimeZone &#x3D; schedule.timeZone;
+        }
+      });
+      if (startTime &gt; stopTime) {
+        isDaily &#x3D; false;
+      } else {
+        isDaily &#x3D; true;
+      }
+    }
+    if (this.availabilitySchedule[0]?.byDay?.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp; !isDaily) {
+      this.frequency &#x3D; &#x27;WEEKLY&#x27;;
+    } else {
+      this.frequency &#x3D; &#x27;DAILY&#x27;;
+    }
+    this.availabilitySchedule.forEach((schedule) &#x3D;&gt; {
+      if ([LAUNCH, SCALE_UP].includes(schedule.releaseType)) {
+        this.startTime &#x3D; schedule.byTime;
+        this.startTimeZone &#x3D; schedule.timeZone;
+        this.launchTimeZone &#x3D; schedule.timeZone;
+        if (schedule.byDay.length &#x3D;&#x3D;&#x3D; 1) {
+          this.startDay &#x3D; schedule.byDay[0];
+        }
+      }
+      if ([DESTROY, SCALE_DOWN].includes(schedule.releaseType)) {
+        this.stopTime &#x3D; schedule.byTime;
+        this.endTimeZone &#x3D; schedule.timeZone;
+        this.destroyTimeZone &#x3D; schedule.timeZone;
+        if (schedule.byDay.length &#x3D;&#x3D;&#x3D; 1) {
+          this.endDay &#x3D; schedule.byDay[0];
+        }
+      }
+    });
+  }
+
+  getAvailabilitySchedulePayload &#x3D; (): ScheduleRequest[] &#x3D;&gt; {
+    const availabilityScheduleRequestList: ScheduleRequest[] &#x3D; [
+      {
+        byDay: this.frequency &#x3D;&#x3D;&#x3D; &#x27;DAILY&#x27; ? this.byDay : [this.startDay],
+        byTime: this.startTime,
+        frequency: &#x27;WEEKLY&#x27;,
+        timeZone: this.startTimeZone,
+        releaseType:
+          this.selectedRule &#x3D;&#x3D;&#x3D; &#x60;${LAUNCH}_${DESTROY}&#x60; ? LAUNCH : SCALE_UP,
+      },
+      {
+        byDay: this.frequency &#x3D;&#x3D;&#x3D; &#x27;DAILY&#x27; ? this.byDay : [this.endDay],
+        byTime: this.stopTime,
+        frequency: &#x27;WEEKLY&#x27;,
+        timeZone: this.endTimeZone,
+        releaseType:
+          this.selectedRule &#x3D;&#x3D;&#x3D; &#x60;${LAUNCH}_${DESTROY}&#x60; ? DESTROY : SCALE_DOWN,
+      },
+    ];
+    return availabilityScheduleRequestList;
+  };
+
+  createUpdateAvailabilitySchedule() {
+    this.scheduleRequest &#x3D; true;
+    if (
+      this.frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27; &amp;&amp;
+      this.startDay &#x3D;&#x3D;&#x3D; this.endDay &amp;&amp;
+      this.startTime &lt; this.stopTime
+    ) {
+      this.customToastService.error(
+        &#x27;Please select stop time less than start time for weekly frequency selection of same day&#x27;,
+      );
+      this.scheduleRequest &#x3D; false;
+    } else if (this.frequency &#x3D;&#x3D;&#x3D; &#x27;DAILY&#x27; &amp;&amp; this.startTime &gt;&#x3D; this.stopTime) {
+      this.customToastService.error(
+        &#x27;Please select stop time greater than start time for daily frequency&#x27;,
+      );
+      this.scheduleRequest &#x3D; false;
+    } else {
+      let apiRequest;
+      let toasterText &#x3D; &#x27;updated&#x27;;
+      let errorText &#x3D; &#x27;updation&#x27;;
+      if (this.availabilitySchedule.length) {
+        apiRequest &#x3D;
+          this.commonClusterController.updateAvailabilitySchedulesUsingPUT({
+            schedules: this.getAvailabilitySchedulePayload(),
+            clusterId: this.clusterId,
+            scheduleId: this.scheduleId,
+          });
+      } else {
+        toasterText &#x3D; &#x27;created&#x27;;
+        errorText &#x3D; &#x27;creation&#x27;;
+        apiRequest &#x3D;
+          this.commonClusterController.createAvailabilityScheduleUsingPOST({
+            schedules: this.getAvailabilitySchedulePayload(),
+            clusterId: this.clusterId,
+          });
+      }
+
+      apiRequest.subscribe(
+        (data) &#x3D;&gt; {
+          this.scheduleRequest &#x3D; false;
+          this.customToastService.success(
+            &#x60;Schedule ${toasterText} successfully&#x60;,
+          );
+          this.cancelAvailabilityScheduler();
+        },
+        (error) &#x3D;&gt; {
+          this.scheduleRequest &#x3D; false;
+          this.customToastService.error(&#x60;Schedule ${errorText} failed&#x60;);
+        },
+      );
+    }
+  }
+
+  cancelAvailabilityScheduler &#x3D; () &#x3D;&gt; {
+    const url &#x3D;
+      &#x27;/&#x27; + this.stackName + &#x27;/cluster/&#x27; + this.clusterId + &#x27;/overview&#x27;;
+    this.router.navigate([url]);
+  };
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row&quot;&gt;
+  &lt;div class&#x3D;&quot;col-12&quot;&gt;
+    &lt;app-page-header
+      heading&#x3D;&quot;Availability Rules&quot;
+      [onBack]&#x3D;&quot;cancelAvailabilityScheduler&quot;
+    &gt;&lt;/app-page-header&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;nb-card
+  [nbSpinner]&#x3D;&quot;fetchingAvailabilityRule&quot;
+  nbSpinnerSize&#x3D;&quot;large&quot;
+  class&#x3D;&quot;background-grey&quot;
+&gt;
+  &lt;nb-card-body&gt;
+    &lt;form #availabilityScheduleForm&#x3D;&quot;ngForm&quot; class&#x3D;&quot;row&quot;&gt;
+      &lt;ng-container *ngIf&#x3D;&quot;!fetchingAvailabilityRule&quot;&gt;
+        &lt;div class&#x3D;&quot;col-8&quot;&gt;
+          &lt;nb-card class&#x3D;&quot;mb-0&quot;&gt;
+            &lt;nb-card-body&gt;
+              &lt;app-radio
+                label&#x3D;&quot;Rules&quot;
+                name&#x3D;&quot;Rules&quot;
+                [(ngModel)]&#x3D;&quot;selectedRule&quot;
+                [radioValues]&#x3D;&quot;rulesRadioOptions&quot;
+                offset&#x3D;&quot;0&quot;
+                marginLabel&#x3D;&quot;1&quot;
+                inputSize&#x3D;&quot;8&quot;
+              &gt;&lt;/app-radio&gt;
+              &lt;app-radio
+                label&#x3D;&quot;Frequency&quot;
+                name&#x3D;&quot;Frequency&quot;
+                defaultOption&#x3D;&quot;DAILY&quot;
+                [(ngModel)]&#x3D;&quot;frequency&quot;
+                [radioValues]&#x3D;&quot;[
+                  { value: &#x27;DAILY&#x27;, label: &#x27;Daily&#x27; },
+                  { value: &#x27;WEEKLY&#x27;, label: &#x27;Weekly&#x27; }
+                ]&quot;
+                offset&#x3D;&quot;0&quot;
+                marginLabel&#x3D;&quot;1&quot;
+              &gt;&lt;/app-radio&gt;
+              &lt;app-form-field
+                *ngIf&#x3D;&quot;frequency &#x3D;&#x3D;&#x3D; &#x27;DAILY&#x27;&quot;
+                label&#x3D;&quot;Available on&quot;
+                name&#x3D;&quot;availableOn&quot;
+                fieldId&#x3D;&quot;availableOn&quot;
+                placeholder&#x3D;&quot;Select day(s)&quot;
+                [(ngModel)]&#x3D;&quot;byDay&quot;
+                [required]&#x3D;&quot;true&quot;
+                missingMsg&#x3D;&quot;Days are required for daily frequency&quot;
+                [multiple]&#x3D;&quot;true&quot;
+                select&#x3D;&quot;true&quot;
+                [noSort]&#x3D;&quot;true&quot;
+                [selectValues]&#x3D;&quot;availableDaysOptions&quot;
+                offset&#x3D;&quot;0&quot;
+                inputSize&#x3D;&quot;7&quot;
+                invalidOffset&#x3D;&quot;3&quot;
+              &gt;&lt;/app-form-field&gt;
+              &lt;nb-card style&#x3D;&quot;background-color: #f5f8fb&quot; class&#x3D;&quot;rounded mt-2&quot;&gt;
+                &lt;nb-card-header&gt;
+                  &lt;h6 class&#x3D;&quot;mx-1&quot;&gt;Active Timeframe&lt;/h6&gt;
+                &lt;/nb-card-header&gt;
+                &lt;nb-card-body&gt;
+                  &lt;div class&#x3D;&quot;row mx-1&quot;&gt;
+                    &lt;div
+                      class&#x3D;&quot;col-xl-5 p-0 m-0&quot;
+                      *ngIf&#x3D;&quot;frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27;&quot;
+                    &gt;
+                      &lt;app-form-field
+                        label&#x3D;&quot;Start on&quot;
+                        fieldId&#x3D;&quot;startDay&quot;
+                        name&#x3D;&quot;startDay&quot;
+                        placeholder&#x3D;&quot;Select day&quot;
+                        [(ngModel)]&#x3D;&quot;startDay&quot;
+                        missingMsg&#x3D;&quot;Start day is required&quot;
+                        [required]&#x3D;&quot;true&quot;
+                        select&#x3D;&quot;true&quot;
+                        [noSort]&#x3D;&quot;true&quot;
+                        [selectValues]&#x3D;&quot;availableDaysOptions&quot;
+                        invalidLength&#x3D;&quot;12&quot;
+                        invalidOffset&#x3D;&quot;4&quot;
+                        labelSize&#x3D;&quot;4&quot;
+                        inputSize&#x3D;&quot;6&quot;
+                        offset&#x3D;&quot;0&quot;
+                        formMargin&#x3D;&quot;0&quot;
+                      &gt;&lt;/app-form-field&gt;
+                    &lt;/div&gt;
+                    &lt;div
+                      [ngClass]&#x3D;&quot;{
+                        &#x27;col-xl-4&#x27;: frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27;,
+                        &#x27;col-xl-6&#x27;: frequency &#x3D;&#x3D;&#x3D; &#x27;DAILY&#x27;
+                      }&quot;
+                      class&#x3D;&quot;p-0 m-0&quot;
+                    &gt;
+                      &lt;app-form-field
+                        [label]&#x3D;&quot;frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27; ? &#x27;at&#x27; : &#x27;Start at&#x27;&quot;
+                        name&#x3D;&quot;startTime&quot;
+                        fieldId&#x3D;&quot;startTime&quot;
+                        [(ngModel)]&#x3D;&quot;startTime&quot;
+                        missingMsg&#x3D;&quot;Start time is required&quot;
+                        [required]&#x3D;&quot;true&quot;
+                        type&#x3D;&quot;time&quot;
+                        [labelSize]&#x3D;&quot;frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27; ? 3 : 4&quot;
+                        [inputSize]&#x3D;&quot;frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27; ? 8 : 6&quot;
+                        offset&#x3D;&quot;0&quot;
+                        invalidLength&#x3D;&quot;12&quot;
+                        [invalidOffset]&#x3D;&quot;frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27; ? 3 : 4&quot;
+                        [formMargin]&#x3D;&quot;frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27; ? 0 : 3&quot;
+                      &gt;&lt;/app-form-field&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-xl-3 p-0 m-0&quot;&gt;
+                      &lt;app-form-field
+                        label&#x3D;&quot;&quot;
+                        fieldId&#x3D;&quot;startTimeZone&quot;
+                        name&#x3D;&quot;startTimeZone&quot;
+                        placeholder&#x3D;&quot;timezone?&quot;
+                        [(ngModel)]&#x3D;&quot;startTimeZone&quot;
+                        missingMsg&#x3D;&quot;Start timezone is required&quot;
+                        [required]&#x3D;&quot;true&quot;
+                        select&#x3D;&quot;true&quot;
+                        [selectValues]&#x3D;&quot;timeZones&quot;
+                        [full]&#x3D;&quot;true&quot;
+                        invalidLength&#x3D;&quot;12&quot;
+                        invalidOffset&#x3D;&quot;0&quot;
+                      &gt;&lt;/app-form-field&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;row mx-1&quot;&gt;
+                    &lt;div
+                      class&#x3D;&quot;col-xl-5 p-0 m-0&quot;
+                      *ngIf&#x3D;&quot;frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27;&quot;
+                    &gt;
+                      &lt;app-form-field
+                        label&#x3D;&quot;Stop on&quot;
+                        fieldId&#x3D;&quot;stopDay&quot;
+                        name&#x3D;&quot;stopDay&quot;
+                        placeholder&#x3D;&quot;Select day&quot;
+                        [(ngModel)]&#x3D;&quot;endDay&quot;
+                        missingMsg&#x3D;&quot;Stop day is required&quot;
+                        [required]&#x3D;&quot;true&quot;
+                        select&#x3D;&quot;true&quot;
+                        [noSort]&#x3D;&quot;true&quot;
+                        [selectValues]&#x3D;&quot;availableDaysOptions&quot;
+                        invalidLength&#x3D;&quot;12&quot;
+                        invalidOffset&#x3D;&quot;4&quot;
+                        labelSize&#x3D;&quot;4&quot;
+                        inputSize&#x3D;&quot;6&quot;
+                        offset&#x3D;&quot;0&quot;
+                        formMargin&#x3D;&quot;0&quot;
+                      &gt;&lt;/app-form-field&gt;
+                    &lt;/div&gt;
+                    &lt;div
+                      [ngClass]&#x3D;&quot;{
+                        &#x27;col-xl-4&#x27;: frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27;,
+                        &#x27;col-xl-6&#x27;: frequency &#x3D;&#x3D;&#x3D; &#x27;DAILY&#x27;
+                      }&quot;
+                      class&#x3D;&quot;p-0 m-0&quot;
+                    &gt;
+                      &lt;app-form-field
+                        [label]&#x3D;&quot;frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27; ? &#x27;at&#x27; : &#x27;Stop at&#x27;&quot;
+                        name&#x3D;&quot;stopTime&quot;
+                        fieldId&#x3D;&quot;stopTime&quot;
+                        [(ngModel)]&#x3D;&quot;stopTime&quot;
+                        missingMsg&#x3D;&quot;Stop time is required&quot;
+                        [required]&#x3D;&quot;true&quot;
+                        type&#x3D;&quot;time&quot;
+                        [labelSize]&#x3D;&quot;frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27; ? 3 : 4&quot;
+                        [inputSize]&#x3D;&quot;frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27; ? 8 : 6&quot;
+                        offset&#x3D;&quot;0&quot;
+                        invalidLength&#x3D;&quot;12&quot;
+                        [invalidOffset]&#x3D;&quot;frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27; ? 3 : 4&quot;
+                        [formMargin]&#x3D;&quot;frequency &#x3D;&#x3D;&#x3D; &#x27;WEEKLY&#x27; ? 0 : 3&quot;
+                      &gt;&lt;/app-form-field&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-xl-3 p-0 m-0&quot;&gt;
+                      &lt;app-form-field
+                        label&#x3D;&quot;&quot;
+                        fieldId&#x3D;&quot;stopTimeZone&quot;
+                        name&#x3D;&quot;stopTimeZone&quot;
+                        placeholder&#x3D;&quot;timezone?&quot;
+                        [(ngModel)]&#x3D;&quot;endTimeZone&quot;
+                        [required]&#x3D;&quot;true&quot;
+                        missingMsg&#x3D;&quot;Stop timezone is required&quot;
+                        select&#x3D;&quot;true&quot;
+                        [selectValues]&#x3D;&quot;timeZones&quot;
+                        labelSize&#x3D;&quot;4&quot;
+                        inputSize&#x3D;&quot;6&quot;
+                        offset&#x3D;&quot;0&quot;
+                        invalidLength&#x3D;&quot;12&quot;
+                        invalidOffset&#x3D;&quot;0&quot;
+                        [full]&#x3D;&quot;true&quot;
+                      &gt;&lt;/app-form-field&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/nb-card-body&gt;
+              &lt;/nb-card&gt;
+              &lt;nb-card
+                class&#x3D;&quot;mb-0&quot;
+                style&#x3D;&quot;border-radius: 0&quot;
+                *ngIf&#x3D;&quot;!fetchingAvailabilityRule&quot;
+              &gt;
+                &lt;nb-card-header class&#x3D;&quot;pl-0 pb-0&quot;&gt;
+                  &lt;app-rbac-button
+                    class&#x3D;&quot;mr-3&quot;
+                    label&#x3D;&quot;Save Changes&quot;
+                    [toolTip]&#x3D;&quot;
+                      availabilitySchedule?.length
+                        ? &#x27;Update&#x27;
+                        : &#x27;Create&#x27; + &#x27;Availability Rules&#x27;
+                    &quot;
+                    size&#x3D;&quot;small&quot;
+                    status&#x3D;&quot;primary&quot;
+                    appearance&#x3D;&quot;filled&quot;
+                    action&#x3D;&quot;ENVIRONMENT_CONFIGURE&quot;
+                    (onClick)&#x3D;&quot;createUpdateAvailabilitySchedule()&quot;
+                    class&#x3D;&quot;mr-3&quot;
+                    [disabled]&#x3D;&quot;
+                      availabilityScheduleForm.invalid || scheduleRequest
+                    &quot;
+                    [loading]&#x3D;&quot;scheduleRequest&quot;
+                  &gt;&lt;/app-rbac-button&gt;
+                  &lt;button
+                    nbButton
+                    size&#x3D;&quot;small&quot;
+                    class&#x3D;&quot;ml-3&quot;
+                    (click)&#x3D;&quot;cancelAvailabilityScheduler()&quot;
+                    [disabled]&#x3D;&quot;scheduleRequest&quot;
+                  &gt;
+                    Cancel
+                  &lt;/button&gt;
+                &lt;/nb-card-header&gt;
+              &lt;/nb-card&gt;
+            &lt;/nb-card-body&gt;
+          &lt;/nb-card&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-4&quot;&gt;
+          &lt;nb-card class&#x3D;&quot;h-100&quot;&gt;
+            &lt;!-- &lt;nb-card-header *ngIf&#x3D;&quot;availabilitySchedule?.length &gt; 0&quot; class&#x3D;&quot;pb-0&quot;&gt;
+              &lt;h6 class&#x3D;&quot;landing-page-text&quot;&gt;Availability Rules&lt;/h6&gt;
+            &lt;/nb-card-header&gt; --&gt;
+            &lt;nb-card-body class&#x3D;&quot;text-center mt-5&quot;&gt;
+              &lt;h5 *ngIf&#x3D;&quot;availabilitySchedule?.length &lt;&#x3D; 0&quot;&gt;
+                Add availability rules to see the active timeframe here.
+              &lt;/h5&gt;
+              &lt;h5 *ngIf&#x3D;&quot;availabilitySchedule?.length &gt; 0&quot;&gt;
+                {{ availabilityString }}
+              &lt;/h5&gt;
+              &lt;p class&#x3D;&quot;paragraph-3&quot; *ngIf&#x3D;&quot;availabilitySchedule?.length &gt; 0&quot;&gt;
+                * {{ getTimezoneText }}
+              &lt;/p&gt;
+            &lt;/nb-card-body&gt;
+          &lt;/nb-card&gt;
+        &lt;/div&gt;
+      &lt;/ng-container&gt;
+    &lt;/form&gt;
+  &lt;/nb-card-body&gt;
+&lt;/nb-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./cluster-availability-scheduler.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host ::ng-deep nb-select .select-button {
+    min-width: 10rem !important;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="row">  <div class="col-12">    <app-page-header      heading="Availability Rules"      [onBack]="cancelAvailabilityScheduler"    ></app-page-header>  </div></div><nb-card  [nbSpinner]="fetchingAvailabilityRule"  nbSpinnerSize="large"  class="background-grey">  <nb-card-body>    <form #availabilityScheduleForm="ngForm" class="row">      <ng-container *ngIf="!fetchingAvailabilityRule">        <div class="col-8">          <nb-card class="mb-0">            <nb-card-body>              <app-radio                label="Rules"                name="Rules"                [(ngModel)]="selectedRule"                [radioValues]="rulesRadioOptions"                offset="0"                marginLabel="1"                inputSize="8"              ></app-radio>              <app-radio                label="Frequency"                name="Frequency"                defaultOption="DAILY"                [(ngModel)]="frequency"                [radioValues]="[                  { value: \'DAILY\', label: \'Daily\' },                  { value: \'WEEKLY\', label: \'Weekly\' }                ]"                offset="0"                marginLabel="1"              ></app-radio>              <app-form-field                *ngIf="frequency === \'DAILY\'"                label="Available on"                name="availableOn"                fieldId="availableOn"                placeholder="Select day(s)"                [(ngModel)]="byDay"                [required]="true"                missingMsg="Days are required for daily frequency"                [multiple]="true"                select="true"                [noSort]="true"                [selectValues]="availableDaysOptions"                offset="0"                inputSize="7"                invalidOffset="3"              ></app-form-field>              <nb-card style="background-color: #f5f8fb" class="rounded mt-2">                <nb-card-header>                  <h6 class="mx-1">Active Timeframe</h6>                </nb-card-header>                <nb-card-body>                  <div class="row mx-1">                    <div                      class="col-xl-5 p-0 m-0"                      *ngIf="frequency === \'WEEKLY\'"                    >                      <app-form-field                        label="Start on"                        fieldId="startDay"                        name="startDay"                        placeholder="Select day"                        [(ngModel)]="startDay"                        missingMsg="Start day is required"                        [required]="true"                        select="true"                        [noSort]="true"                        [selectValues]="availableDaysOptions"                        invalidLength="12"                        invalidOffset="4"                        labelSize="4"                        inputSize="6"                        offset="0"                        formMargin="0"                      ></app-form-field>                    </div>                    <div                      [ngClass]="{                        \'col-xl-4\': frequency === \'WEEKLY\',                        \'col-xl-6\': frequency === \'DAILY\'                      }"                      class="p-0 m-0"                    >                      <app-form-field                        [label]="frequency === \'WEEKLY\' ? \'at\' : \'Start at\'"                        name="startTime"                        fieldId="startTime"                        [(ngModel)]="startTime"                        missingMsg="Start time is required"                        [required]="true"                        type="time"                        [labelSize]="frequency === \'WEEKLY\' ? 3 : 4"                        [inputSize]="frequency === \'WEEKLY\' ? 8 : 6"                        offset="0"                        invalidLength="12"                        [invalidOffset]="frequency === \'WEEKLY\' ? 3 : 4"                        [formMargin]="frequency === \'WEEKLY\' ? 0 : 3"                      ></app-form-field>                    </div>                    <div class="col-xl-3 p-0 m-0">                      <app-form-field                        label=""                        fieldId="startTimeZone"                        name="startTimeZone"                        placeholder="timezone?"                        [(ngModel)]="startTimeZone"                        missingMsg="Start timezone is required"                        [required]="true"                        select="true"                        [selectValues]="timeZones"                        [full]="true"                        invalidLength="12"                        invalidOffset="0"                      ></app-form-field>                    </div>                  </div>                  <div class="row mx-1">                    <div                      class="col-xl-5 p-0 m-0"                      *ngIf="frequency === \'WEEKLY\'"                    >                      <app-form-field                        label="Stop on"                        fieldId="stopDay"                        name="stopDay"                        placeholder="Select day"                        [(ngModel)]="endDay"                        missingMsg="Stop day is required"                        [required]="true"                        select="true"                        [noSort]="true"                        [selectValues]="availableDaysOptions"                        invalidLength="12"                        invalidOffset="4"                        labelSize="4"                        inputSize="6"                        offset="0"                        formMargin="0"                      ></app-form-field>                    </div>                    <div                      [ngClass]="{                        \'col-xl-4\': frequency === \'WEEKLY\',                        \'col-xl-6\': frequency === \'DAILY\'                      }"                      class="p-0 m-0"                    >                      <app-form-field                        [label]="frequency === \'WEEKLY\' ? \'at\' : \'Stop at\'"                        name="stopTime"                        fieldId="stopTime"                        [(ngModel)]="stopTime"                        missingMsg="Stop time is required"                        [required]="true"                        type="time"                        [labelSize]="frequency === \'WEEKLY\' ? 3 : 4"                        [inputSize]="frequency === \'WEEKLY\' ? 8 : 6"                        offset="0"                        invalidLength="12"                        [invalidOffset]="frequency === \'WEEKLY\' ? 3 : 4"                        [formMargin]="frequency === \'WEEKLY\' ? 0 : 3"                      ></app-form-field>                    </div>                    <div class="col-xl-3 p-0 m-0">                      <app-form-field                        label=""                        fieldId="stopTimeZone"                        name="stopTimeZone"                        placeholder="timezone?"                        [(ngModel)]="endTimeZone"                        [required]="true"                        missingMsg="Stop timezone is required"                        select="true"                        [selectValues]="timeZones"                        labelSize="4"                        inputSize="6"                        offset="0"                        invalidLength="12"                        invalidOffset="0"                        [full]="true"                      ></app-form-field>                    </div>                  </div>                </nb-card-body>              </nb-card>              <nb-card                class="mb-0"                style="border-radius: 0"                *ngIf="!fetchingAvailabilityRule"              >                <nb-card-header class="pl-0 pb-0">                  <app-rbac-button                    class="mr-3"                    label="Save Changes"                    [toolTip]="                      availabilitySchedule?.length                        ? \'Update\'                        : \'Create\' + \'Availability Rules\'                    "                    size="small"                    status="primary"                    appearance="filled"                    action="ENVIRONMENT_CONFIGURE"                    (onClick)="createUpdateAvailabilitySchedule()"                    class="mr-3"                    [disabled]="                      availabilityScheduleForm.invalid || scheduleRequest                    "                    [loading]="scheduleRequest"                  ></app-rbac-button>                  <button                    nbButton                    size="small"                    class="ml-3"                    (click)="cancelAvailabilityScheduler()"                    [disabled]="scheduleRequest"                  >                    Cancel                  </button>                </nb-card-header>              </nb-card>            </nb-card-body>          </nb-card>        </div>        <div class="col-4">          <nb-card class="h-100">            <!-- <nb-card-header *ngIf="availabilitySchedule?.length > 0" class="pb-0">              <h6 class="landing-page-text">Availability Rules</h6>            </nb-card-header> -->            <nb-card-body class="text-center mt-5">              <h5 *ngIf="availabilitySchedule?.length <= 0">                Add availability rules to see the active timeframe here.              </h5>              <h5 *ngIf="availabilitySchedule?.length > 0">                {{ availabilityString }}              </h5>              <p class="paragraph-3" *ngIf="availabilitySchedule?.length > 0">                * {{ getTimezoneText }}              </p>            </nb-card-body>          </nb-card>        </div>      </ng-container>    </form>  </nb-card-body></nb-card></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'ClusterAvailabilitySchedulerComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ClusterAvailabilitySchedulerComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,3732 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ResourceOverridesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+    </p>
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-resource-overrides</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./resource-overrides.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./resource-overrides.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#blueprintConfig" >blueprintConfig</a>
+                            </li>
+                            <li>
+                                <a href="#branchName" >branchName</a>
+                            </li>
+                            <li>
+                                <a href="#currentConfig" >currentConfig</a>
+                            </li>
+                            <li>
+                                <a href="#dataType" >dataType</a>
+                            </li>
+                            <li>
+                                <a href="#dataTypeBooleanSelectOptions" >dataTypeBooleanSelectOptions</a>
+                            </li>
+                            <li>
+                                <a href="#dataTypeSelectionOptions" >dataTypeSelectionOptions</a>
+                            </li>
+                            <li>
+                                <a href="#deleteOverrideInProgress" >deleteOverrideInProgress</a>
+                            </li>
+                            <li>
+                                <a href="#diffEditorOptions" >diffEditorOptions</a>
+                            </li>
+                            <li>
+                                <a href="#discardChanges" >discardChanges</a>
+                            </li>
+                            <li>
+                                <a href="#editorOptionsReadOnly" >editorOptionsReadOnly</a>
+                            </li>
+                            <li>
+                                <a href="#editorOptionsWrite" >editorOptionsWrite</a>
+                            </li>
+                            <li>
+                                <a href="#emptyStateLogo" >emptyStateLogo</a>
+                            </li>
+                            <li>
+                                <a href="#envConfigCode" >envConfigCode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Private</span>
+                                <a href="#envConfigEditor" >envConfigEditor</a>
+                            </li>
+                            <li>
+                                <a href="#environmentConfigurePermission" >environmentConfigurePermission</a>
+                            </li>
+                            <li>
+                                <a href="#errorInFetchingBlueprintConfig" >errorInFetchingBlueprintConfig</a>
+                            </li>
+                            <li>
+                                <a href="#flattenedBlueprintConfig" >flattenedBlueprintConfig</a>
+                            </li>
+                            <li>
+                                <a href="#isArray" >isArray</a>
+                            </li>
+                            <li>
+                                <a href="#isObject" >isObject</a>
+                            </li>
+                            <li>
+                                <a href="#JSON" >JSON</a>
+                            </li>
+                            <li>
+                                <a href="#loadingEnvConfig" >loadingEnvConfig</a>
+                            </li>
+                            <li>
+                                <a href="#loadingStackConfig" >loadingStackConfig</a>
+                            </li>
+                            <li>
+                                <a href="#loadingTableData" >loadingTableData</a>
+                            </li>
+                            <li>
+                                <a href="#newOverrideChanges" >newOverrideChanges</a>
+                            </li>
+                            <li>
+                                <a href="#newOverridesTable" >newOverridesTable</a>
+                            </li>
+                            <li>
+                                <a href="#objectKeys" >objectKeys</a>
+                            </li>
+                            <li>
+                                <a href="#originalDataBackup" >originalDataBackup</a>
+                            </li>
+                            <li>
+                                <a href="#overridesData" >overridesData</a>
+                            </li>
+                            <li>
+                                <a href="#overridesDataSource" >overridesDataSource</a>
+                            </li>
+                            <li>
+                                <a href="#overridesTableSettings" >overridesTableSettings</a>
+                            </li>
+                            <li>
+                                <a href="#resourceData" >resourceData</a>
+                            </li>
+                            <li>
+                                <a href="#resourceName" >resourceName</a>
+                            </li>
+                            <li>
+                                <a href="#resourceType" >resourceType</a>
+                            </li>
+                            <li>
+                                <a href="#secondaryMsg" >secondaryMsg</a>
+                            </li>
+                            <li>
+                                <a href="#stackName" >stackName</a>
+                            </li>
+                            <li>
+                                <a href="#status" >status</a>
+                            </li>
+                            <li>
+                                <a href="#submitOverrides" >submitOverrides</a>
+                            </li>
+                            <li>
+                                <a href="#submittingOverrides" >submittingOverrides</a>
+                            </li>
+                            <li>
+                                <a href="#tableData" >tableData</a>
+                            </li>
+                            <li>
+                                <a href="#updatedConfig" >updatedConfig</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#confirmOverride" >confirmOverride</a>
+                            </li>
+                            <li>
+                                <a href="#fetchResourceConfigs" >fetchResourceConfigs</a>
+                            </li>
+                            <li>
+                                <a href="#flattenEnvironments" >flattenEnvironments</a>
+                            </li>
+                            <li>
+                                <a href="#getResourceEnvInfo" >getResourceEnvInfo</a>
+                            </li>
+                            <li>
+                                <a href="#getResourceStackInfo" >getResourceStackInfo</a>
+                            </li>
+                            <li>
+                                <a href="#isEditorRequired" >isEditorRequired</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageLoad" >OnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#openConfigPopup" >openConfigPopup</a>
+                            </li>
+                            <li>
+                                <a href="#prepareConfigData" >prepareConfigData</a>
+                            </li>
+                            <li>
+                                <a href="#prepareTableData" >prepareTableData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#processOverrideKeysSequentially" >processOverrideKeysSequentially</a>
+                            </li>
+                            <li>
+                                <a href="#resetConfigInputFields" >resetConfigInputFields</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#saveAllOverrideChanges" >saveAllOverrideChanges</a>
+                            </li>
+                            <li>
+                                <a href="#setEmptyStateValues" >setEmptyStateValues</a>
+                            </li>
+                            <li>
+                                <a href="#setInitialValues" >setInitialValues</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#setResourceOverride" >setResourceOverride</a>
+                            </li>
+                            <li>
+                                <a href="#validateChanges" >validateChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageInit" >OnPageInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(activatedRoute: ActivatedRoute, uiDropdownsControllerService: <a href="../injectables/UiDropdownsControllerService.html" target="_self">UiDropdownsControllerService</a>, dialogService: NbDialogService, appService: <a href="../injectables/UiApplicationControllerService.html" target="_self">UiApplicationControllerService</a>, stackControllerService: <a href="../injectables/UiStackControllerService.html" target="_self">UiStackControllerService</a>, customToasterService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>, onAPIErrorService: <a href="../injectables/OnAPIErrorService.html" target="_self">OnAPIErrorService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="196" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:196</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiDropdownsControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiDropdownsControllerService.html" target="_self" >UiDropdownsControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NbDialogService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>appService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiApplicationControllerService.html" target="_self" >UiApplicationControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>stackControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiStackControllerService.html" target="_self" >UiStackControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToasterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>onAPIErrorService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OnAPIErrorService.html" target="_self" >OnAPIErrorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmOverride"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>confirmOverride</b></span>
+                        <a href="#confirmOverride"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>confirmOverride(configData, overrideKey, ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="485"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:485</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>configData</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>overrideKey</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchResourceConfigs"></a>
+                    <span class="name">
+                        <span ><b>fetchResourceConfigs</b></span>
+                        <a href="#fetchResourceConfigs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>fetchResourceConfigs()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="223"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:223</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flattenEnvironments"></a>
+                    <span class="name">
+                        <span ><b>flattenEnvironments</b></span>
+                        <a href="#flattenEnvironments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>flattenEnvironments(configData)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="287"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:287</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>configData</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getResourceEnvInfo"></a>
+                    <span class="name">
+                        <span ><b>getResourceEnvInfo</b></span>
+                        <a href="#getResourceEnvInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getResourceEnvInfo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="351"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:351</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getResourceStackInfo"></a>
+                    <span class="name">
+                        <span ><b>getResourceStackInfo</b></span>
+                        <a href="#getResourceStackInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getResourceStackInfo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="325"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:325</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditorRequired"></a>
+                    <span class="name">
+                        <span ><b>isEditorRequired</b></span>
+                        <a href="#isEditorRequired"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isEditorRequired(override)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="528"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:528</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>override</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>OnPageLoad</b></span>
+                        <a href="#OnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:210</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openConfigPopup"></a>
+                    <span class="name">
+                        <span ><b>openConfigPopup</b></span>
+                        <a href="#openConfigPopup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openConfigPopup(data)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="383"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:383</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prepareConfigData"></a>
+                    <span class="name">
+                        <span ><b>prepareConfigData</b></span>
+                        <a href="#prepareConfigData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>prepareConfigData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="276"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:276</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prepareTableData"></a>
+                    <span class="name">
+                        <span ><b>prepareTableData</b></span>
+                        <a href="#prepareTableData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>prepareTableData(configData)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="314"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:314</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>configData</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processOverrideKeysSequentially"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>processOverrideKeysSequentially</b></span>
+                        <a href="#processOverrideKeysSequentially"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processOverrideKeysSequentially(overrideKeys, currentIndex, successfulHits, ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="537"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:537</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>overrideKeys</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>currentIndex</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>successfulHits</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetConfigInputFields"></a>
+                    <span class="name">
+                        <span ><b>resetConfigInputFields</b></span>
+                        <a href="#resetConfigInputFields"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetConfigInputFields()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="375"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:375</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveAllOverrideChanges"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>saveAllOverrideChanges</b></span>
+                        <a href="#saveAllOverrideChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveAllOverrideChanges(ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="532"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:532</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setEmptyStateValues"></a>
+                    <span class="name">
+                        <span ><b>setEmptyStateValues</b></span>
+                        <a href="#setEmptyStateValues"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setEmptyStateValues(error: null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="251"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:251</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>error</td>
+                                            <td>
+                                                        <code>null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>null</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setInitialValues"></a>
+                    <span class="name">
+                        <span ><b>setInitialValues</b></span>
+                        <a href="#setInitialValues"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setInitialValues()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="261"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:261</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setResourceOverride"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>setResourceOverride</b></span>
+                        <a href="#setResourceOverride"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setResourceOverride(overriddenEnvConfig, configData, overrideKey, ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="440"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:440</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>overriddenEnvConfig</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>configData</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>overrideKey</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateChanges"></a>
+                    <span class="name">
+                        <span ><b>validateChanges</b></span>
+                        <a href="#validateChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateChanges(event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="507"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:507</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageInit"></a>
+                    <span class="name">
+                        <span ><b>OnPageInit</b></span>
+                        <a href="#OnPageInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:20</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blueprintConfig"></a>
+                    <span class="name">
+                        <span ><b>blueprintConfig</b></span>
+                        <a href="#blueprintConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:157</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="branchName"></a>
+                    <span class="name">
+                        <span ><b>branchName</b></span>
+                        <a href="#branchName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:150</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentConfig"></a>
+                    <span class="name">
+                        <span ><b>currentConfig</b></span>
+                        <a href="#currentConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormControl</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl({ value: &#x27;&#x27;, disabled: true })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:161</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataType"></a>
+                    <span class="name">
+                        <span ><b>dataType</b></span>
+                        <a href="#dataType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormControl</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl({ value: &#x27;STRING&#x27;, disabled: true })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="163" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:163</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataTypeBooleanSelectOptions"></a>
+                    <span class="name">
+                        <span ><b>dataTypeBooleanSelectOptions</b></span>
+                        <a href="#dataTypeBooleanSelectOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { label: &#x27;true&#x27;, value: true },
+    { label: &#x27;false&#x27;, value: false },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="191" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:191</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataTypeSelectionOptions"></a>
+                    <span class="name">
+                        <span ><b>dataTypeSelectionOptions</b></span>
+                        <a href="#dataTypeSelectionOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { label: &#x27;String&#x27;, value: &#x27;STRING&#x27; },
+    { label: &#x27;Number&#x27;, value: &#x27;NUMBER&#x27; },
+    { label: &#x27;Boolean&#x27;, value: &#x27;BOOLEAN&#x27; },
+    { label: &#x27;Array / Object&#x27;, value: &#x27;OBJECT&#x27; },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="184" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:184</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteOverrideInProgress"></a>
+                    <span class="name">
+                        <span ><b>deleteOverrideInProgress</b></span>
+                        <a href="#deleteOverrideInProgress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="diffEditorOptions"></a>
+                    <span class="name">
+                        <span ><b>diffEditorOptions</b></span>
+                        <a href="#diffEditorOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Options.html" target="_self" >MonacoDiffEditorConstructionOptions</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    theme: &#x27;vs-light&#x27;,
+    readOnly: true,
+    minimap: {
+      enabled: false,
+    },
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="174" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:174</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="discardChanges"></a>
+                    <span class="name">
+                        <span ><b>discardChanges</b></span>
+                        <a href="#discardChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="434" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:434</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editorOptionsReadOnly"></a>
+                    <span class="name">
+                        <span ><b>editorOptionsReadOnly</b></span>
+                        <a href="#editorOptionsReadOnly"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Options.html" target="_self" >MonacoEditorConstructionOptions</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    theme: &#x27;vs-light&#x27;,
+    language: &#x27;json&#x27;,
+    readOnly: true,
+    minimap: {
+      enabled: false,
+    },
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editorOptionsWrite"></a>
+                    <span class="name">
+                        <span ><b>editorOptionsWrite</b></span>
+                        <a href="#editorOptionsWrite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Options.html" target="_self" >MonacoEditorConstructionOptions</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    theme: &#x27;vs-light&#x27;,
+    language: &#x27;json&#x27;,
+    minimap: {
+      enabled: false,
+    },
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="emptyStateLogo"></a>
+                    <span class="name">
+                        <span ><b>emptyStateLogo</b></span>
+                        <a href="#emptyStateLogo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>emptyStateLogo</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:146</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="envConfigCode"></a>
+                    <span class="name">
+                        <span ><b>envConfigCode</b></span>
+                        <a href="#envConfigCode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormControl</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:160</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="envConfigEditor"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Private</span>
+                        <span ><b>envConfigEditor</b></span>
+                        <a href="#envConfigEditor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;envConfigEditor&#x27;, {static: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environmentConfigurePermission"></a>
+                    <span class="name">
+                        <span ><b>environmentConfigurePermission</b></span>
+                        <a href="#environmentConfigurePermission"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ENVIRONMENT_CONFIGURE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorInFetchingBlueprintConfig"></a>
+                    <span class="name">
+                        <span ><b>errorInFetchingBlueprintConfig</b></span>
+                        <a href="#errorInFetchingBlueprintConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="155" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:155</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flattenedBlueprintConfig"></a>
+                    <span class="name">
+                        <span ><b>flattenedBlueprintConfig</b></span>
+                        <a href="#flattenedBlueprintConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:158</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isArray"></a>
+                    <span class="name">
+                        <span ><b>isArray</b></span>
+                        <a href="#isArray"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>isArray</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:153</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isObject"></a>
+                    <span class="name">
+                        <span ><b>isObject</b></span>
+                        <a href="#isObject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>isObject</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:154</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="JSON"></a>
+                    <span class="name">
+                        <span ><b>JSON</b></span>
+                        <a href="#JSON"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>JSON</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:182</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadingEnvConfig"></a>
+                    <span class="name">
+                        <span ><b>loadingEnvConfig</b></span>
+                        <a href="#loadingEnvConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadingStackConfig"></a>
+                    <span class="name">
+                        <span ><b>loadingStackConfig</b></span>
+                        <a href="#loadingStackConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:168</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadingTableData"></a>
+                    <span class="name">
+                        <span ><b>loadingTableData</b></span>
+                        <a href="#loadingTableData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:167</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newOverrideChanges"></a>
+                    <span class="name">
+                        <span ><b>newOverrideChanges</b></span>
+                        <a href="#newOverrideChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="172" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:172</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newOverridesTable"></a>
+                    <span class="name">
+                        <span ><b>newOverridesTable</b></span>
+                        <a href="#newOverridesTable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="285" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:285</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="objectKeys"></a>
+                    <span class="name">
+                        <span ><b>objectKeys</b></span>
+                        <a href="#objectKeys"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Object.keys</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="originalDataBackup"></a>
+                    <span class="name">
+                        <span ><b>originalDataBackup</b></span>
+                        <a href="#originalDataBackup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map&lt;string | any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;string, any&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="171" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:171</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="overridesData"></a>
+                    <span class="name">
+                        <span ><b>overridesData</b></span>
+                        <a href="#overridesData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="196" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:196</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="overridesDataSource"></a>
+                    <span class="name">
+                        <span ><b>overridesDataSource</b></span>
+                        <a href="#overridesDataSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>LocalDataSource</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new LocalDataSource()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="286" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:286</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="overridesTableSettings"></a>
+                    <span class="name">
+                        <span ><b>overridesTableSettings</b></span>
+                        <a href="#overridesTableSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    columns: {
+      path: {
+        title: &#x27;Path&#x27;,
+        filter: true,
+        width: &#x27;35%&#x27;,
+        editable: false,
+        type: &#x27;custom&#x27;,
+        valuePrepareFunction: (cell: any) &#x3D;&gt; {
+          return this.JSON.stringify({
+            value: cell,
+            truncateLength: 40,
+          });
+        },
+        renderComponent: SmartTableLongStringEllipsisComponent,
+      },
+      clusterName: {
+        title: &#x27;Environment&#x27;,
+        filter: true,
+        width: &#x27;15%&#x27;,
+        editable: false,
+      },
+      blueprintValue: {
+        title: &#x27;Blueprint Value&#x27;,
+        filter: false,
+        width: &#x27;15%&#x27;,
+        type: &#x27;custom&#x27;,
+        editable: false,
+        valuePrepareFunction: (value, row, cell) &#x3D;&gt; {
+          return getConfigKeyToShow(value);
+        },
+        renderComponent: SmartTableRouterlinkComponent,
+        onComponentInitFunction: (instance) &#x3D;&gt; {
+          instance?.byLinkClick?.subscribe((data) &#x3D;&gt; {
+            data.context &#x3D; &#x27;BLUEPRINT&#x27;;
+            this.openConfigPopup(data);
+          });
+        },
+      },
+      value: {
+        title: &#x27;Environment Value&#x27;,
+        filter: false,
+        width: &#x27;20%&#x27;,
+        editable: true,
+        editor: {
+          type: &#x27;custom&#x27;,
+          component: SmartTableTextareaEditorComponent,
+        },
+        type: &#x27;custom&#x27;,
+        valuePrepareFunction: (cell, row) &#x3D;&gt; {
+          return JSON.stringify({
+            truncateText: true,
+            label: typeof cell !&#x3D;&#x3D; &#x27;string&#x27; ? JSON.stringify(cell) : cell,
+            tooltipText: typeof cell !&#x3D;&#x3D; &#x27;string&#x27; ? JSON.stringify(cell) : cell,
+            allowCopy: true,
+            truncateLength: 40,
+          });
+        },
+        renderComponent: SmartTableTextTooltipComponent,
+      },
+    },
+    noDataMessage: &#x27;&#x27;,
+    actions: {
+      add: false,
+      edit: true,
+      delete: false,
+      position: &#x27;right&#x27;,
+    },
+    pager: {
+      display: false,
+    },
+    edit: {
+      inputClass: &#x27;&#x27;,
+      editButtonContent:
+        &#x27;&lt;img class&#x3D;&quot;custom-table-action-icon&quot; src&#x3D;&quot;assets/edit-2-outline.svg&quot;/&gt;&#x27;,
+      saveButtonContent:
+        &#x27;&lt;img class&#x3D;&quot;custom-table-action-icon&quot; src&#x3D;&quot;assets/checkmark-outline.svg&quot;/&gt;&#x27;,
+      cancelButtonContent:
+        &#x27;&lt;img class&#x3D;&quot;custom-table-action-icon&quot; src&#x3D;&quot;assets/close-outline.svg&quot;/&gt;&#x27;,
+      confirmSave: true,
+    },
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceData"></a>
+                    <span class="name">
+                        <span ><b>resourceData</b></span>
+                        <a href="#resourceData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="156" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:156</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceName"></a>
+                    <span class="name">
+                        <span ><b>resourceName</b></span>
+                        <a href="#resourceName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceType"></a>
+                    <span class="name">
+                        <span ><b>resourceType</b></span>
+                        <a href="#resourceType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:152</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="secondaryMsg"></a>
+                    <span class="name">
+                        <span ><b>secondaryMsg</b></span>
+                        <a href="#secondaryMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;No overrides in resource configuration yet&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:147</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stackName"></a>
+                    <span class="name">
+                        <span ><b>stackName</b></span>
+                        <a href="#stackName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:149</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="status"></a>
+                    <span class="name">
+                        <span ><b>status</b></span>
+                        <a href="#status"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;info&quot; | &quot;error&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;info&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="148" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:148</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitOverrides"></a>
+                    <span class="name">
+                        <span ><b>submitOverrides</b></span>
+                        <a href="#submitOverrides"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="395" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:395</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submittingOverrides"></a>
+                    <span class="name">
+                        <span ><b>submittingOverrides</b></span>
+                        <a href="#submittingOverrides"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="166" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:166</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tableData"></a>
+                    <span class="name">
+                        <span ><b>tableData</b></span>
+                        <a href="#tableData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="159" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatedConfig"></a>
+                    <span class="name">
+                        <span ><b>updatedConfig</b></span>
+                        <a href="#updatedConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormControl</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">src/app/pages/blueprint-designer/resource-overrides/resource-overrides.component.ts:162</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ENVIRONMENT_CONFIGURE } from &#x27;src/app/constants/permissions&#x27;;
+import { Component, ViewChild, TemplateRef } from &#x27;@angular/core&#x27;;
+import {
+  MonacoDiffEditorConstructionOptions,
+  MonacoEditorConstructionOptions,
+} from &#x27;@materia-ui/ngx-monaco-editor&#x27;;
+import { ActivatedRoute, Params } from &#x27;@angular/router&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import {
+  UiDropdownsControllerService,
+  UiApplicationControllerService,
+  UiStackControllerService,
+} from &#x27;src/app/cc-api/services&#x27;;
+import { getConfigKeyToShow } from &#x27;src/app/utils/app-config-utils&#x27;;
+import cloneDeep from &#x27;lodash/cloneDeep&#x27;;
+import omit from &#x27;lodash/omit&#x27;;
+import isArray from &#x27;lodash/isArray&#x27;;
+import isObject from &#x27;lodash/isObject&#x27;;
+import { NbDialogService } from &#x27;@nebular/theme&#x27;;
+import { FormControl } from &#x27;@angular/forms&#x27;;
+import { SmartTableRouterlinkComponent } from &#x27;src/app/components/smart-table-routerlink/smart-table-routerlink.component&#x27;;
+import {
+  flattenObject,
+  unflattenObject,
+  isParsableObject,
+} from &#x27;src/app/utils/object-utils&#x27;;
+import { processConfigData } from &#x27;./config-data-utils&#x27;;
+import { SmartTableTextareaEditorComponent } from &#x27;src/app/components/smart-table-textarea-editor/smart-table-textarea-editor.component&#x27;;
+import { SmartTableTextTooltipComponent } from &#x27;src/app/components/smart-table-text-tooltip/smart-table-text-tooltip.component&#x27;;
+import { LocalDataSource } from &#x27;ng2-smart-table&#x27;;
+import { CustomToastService } from &#x27;src/app/pages/custom-toast/custom-toast.service&#x27;;
+import { SmartTableLongStringEllipsisComponent } from &#x27;src/app/components/smart-table-long-string-ellipsis/smart-table-long-string-ellipsis.component&#x27;;
+import { OnAPIErrorService } from &#x27;src/app/services/on-api-error.service&#x27;;
+const emptyStateLogo &#x3D; &#x27;./assets/empty-override.svg&#x27;;
+const errorIcon &#x3D; &#x27;./assets/error.svg&#x27;;
+
+@Component({
+  selector: &#x27;app-resource-overrides&#x27;,
+  templateUrl: &#x27;./resource-overrides.component.html&#x27;,
+  styleUrls: [&#x27;./resource-overrides.component.scss&#x27;],
+})
+export class ResourceOverridesComponent extends FacetsPage {
+  @ViewChild(&#x27;envConfigEditor&#x27;, { static: true })
+  private envConfigEditor: TemplateRef&lt;any&gt;;
+  editorOptionsReadOnly: MonacoEditorConstructionOptions &#x3D; {
+    theme: &#x27;vs-light&#x27;,
+    language: &#x27;json&#x27;,
+    readOnly: true,
+    minimap: {
+      enabled: false,
+    },
+  };
+  editorOptionsWrite: MonacoEditorConstructionOptions &#x3D; {
+    theme: &#x27;vs-light&#x27;,
+    language: &#x27;json&#x27;,
+    minimap: {
+      enabled: false,
+    },
+  };
+
+  objectKeys &#x3D; Object.keys;
+  environmentConfigurePermission &#x3D; ENVIRONMENT_CONFIGURE;
+  overridesTableSettings &#x3D; {
+    columns: {
+      path: {
+        title: &#x27;Path&#x27;,
+        filter: true,
+        width: &#x27;35%&#x27;,
+        editable: false,
+        type: &#x27;custom&#x27;,
+        valuePrepareFunction: (cell: any) &#x3D;&gt; {
+          return this.JSON.stringify({
+            value: cell,
+            truncateLength: 40,
+          });
+        },
+        renderComponent: SmartTableLongStringEllipsisComponent,
+      },
+      clusterName: {
+        title: &#x27;Environment&#x27;,
+        filter: true,
+        width: &#x27;15%&#x27;,
+        editable: false,
+      },
+      blueprintValue: {
+        title: &#x27;Blueprint Value&#x27;,
+        filter: false,
+        width: &#x27;15%&#x27;,
+        type: &#x27;custom&#x27;,
+        editable: false,
+        valuePrepareFunction: (value, row, cell) &#x3D;&gt; {
+          return getConfigKeyToShow(value);
+        },
+        renderComponent: SmartTableRouterlinkComponent,
+        onComponentInitFunction: (instance) &#x3D;&gt; {
+          instance?.byLinkClick?.subscribe((data) &#x3D;&gt; {
+            data.context &#x3D; &#x27;BLUEPRINT&#x27;;
+            this.openConfigPopup(data);
+          });
+        },
+      },
+      value: {
+        title: &#x27;Environment Value&#x27;,
+        filter: false,
+        width: &#x27;20%&#x27;,
+        editable: true,
+        editor: {
+          type: &#x27;custom&#x27;,
+          component: SmartTableTextareaEditorComponent,
+        },
+        type: &#x27;custom&#x27;,
+        valuePrepareFunction: (cell, row) &#x3D;&gt; {
+          return JSON.stringify({
+            truncateText: true,
+            label: typeof cell !&#x3D;&#x3D; &#x27;string&#x27; ? JSON.stringify(cell) : cell,
+            tooltipText: typeof cell !&#x3D;&#x3D; &#x27;string&#x27; ? JSON.stringify(cell) : cell,
+            allowCopy: true,
+            truncateLength: 40,
+          });
+        },
+        renderComponent: SmartTableTextTooltipComponent,
+      },
+    },
+    noDataMessage: &#x27;&#x27;,
+    actions: {
+      add: false,
+      edit: true,
+      delete: false,
+      position: &#x27;right&#x27;,
+    },
+    pager: {
+      display: false,
+    },
+    edit: {
+      inputClass: &#x27;&#x27;,
+      editButtonContent:
+        &#x27;&lt;img class&#x3D;&quot;custom-table-action-icon&quot; src&#x3D;&quot;assets/edit-2-outline.svg&quot;/&gt;&#x27;,
+      saveButtonContent:
+        &#x27;&lt;img class&#x3D;&quot;custom-table-action-icon&quot; src&#x3D;&quot;assets/checkmark-outline.svg&quot;/&gt;&#x27;,
+      cancelButtonContent:
+        &#x27;&lt;img class&#x3D;&quot;custom-table-action-icon&quot; src&#x3D;&quot;assets/close-outline.svg&quot;/&gt;&#x27;,
+      confirmSave: true,
+    },
+  };
+
+  emptyStateLogo: string &#x3D; emptyStateLogo;
+  secondaryMsg: string &#x3D; &#x27;No overrides in resource configuration yet&#x27;;
+  status: &#x27;info&#x27; | &#x27;error&#x27; &#x3D; &#x27;info&#x27;;
+  stackName: string;
+  branchName: string;
+  resourceName: string;
+  resourceType: string;
+  isArray &#x3D; isArray;
+  isObject &#x3D; isObject;
+  errorInFetchingBlueprintConfig: boolean &#x3D; false;
+  resourceData;
+  blueprintConfig: {};
+  flattenedBlueprintConfig: {};
+  tableData &#x3D; [];
+  envConfigCode: FormControl &#x3D; new FormControl();
+  currentConfig: FormControl &#x3D; new FormControl({ value: &#x27;&#x27;, disabled: true });
+  updatedConfig: FormControl &#x3D; new FormControl();
+  dataType: FormControl &#x3D; new FormControl({ value: &#x27;STRING&#x27;, disabled: true });
+
+  deleteOverrideInProgress: boolean &#x3D; false;
+  submittingOverrides: boolean &#x3D; false;
+  loadingTableData: boolean &#x3D; false;
+  loadingStackConfig: boolean &#x3D; false;
+  loadingEnvConfig: boolean &#x3D; false;
+
+  originalDataBackup: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+  newOverrideChanges &#x3D; {};
+
+  diffEditorOptions: MonacoDiffEditorConstructionOptions &#x3D; {
+    theme: &#x27;vs-light&#x27;,
+    readOnly: true,
+    minimap: {
+      enabled: false,
+    },
+  };
+
+  JSON &#x3D; JSON;
+
+  dataTypeSelectionOptions &#x3D; [
+    { label: &#x27;String&#x27;, value: &#x27;STRING&#x27; },
+    { label: &#x27;Number&#x27;, value: &#x27;NUMBER&#x27; },
+    { label: &#x27;Boolean&#x27;, value: &#x27;BOOLEAN&#x27; },
+    { label: &#x27;Array / Object&#x27;, value: &#x27;OBJECT&#x27; },
+  ];
+
+  dataTypeBooleanSelectOptions &#x3D; [
+    { label: &#x27;true&#x27;, value: true },
+    { label: &#x27;false&#x27;, value: false },
+  ];
+
+  overridesData: any &#x3D; [];
+
+  constructor(
+    activatedRoute: ActivatedRoute,
+    private uiDropdownsControllerService: UiDropdownsControllerService,
+    private dialogService: NbDialogService,
+    private appService: UiApplicationControllerService,
+    private stackControllerService: UiStackControllerService,
+    private customToasterService: CustomToastService,
+    private onAPIErrorService: OnAPIErrorService,
+  ) {
+    super(activatedRoute);
+  }
+
+  OnPageLoad(p: Params): void {
+    this.stackName &#x3D; p?.stackName;
+    this.branchName &#x3D; p?.branchName;
+    this.resourceName &#x3D; p?.resourceName;
+    this.resourceType &#x3D; p?.resourceType;
+    this.fetchResourceConfigs();
+  }
+
+  /*
+    1. Get Stack configuration JSON 
+    2. Get Environment overrides configuration
+    3. Flatten the stack config to match the field to the environment config
+  */
+  fetchResourceConfigs(): void {
+    this.setInitialValues();
+    this.blueprintConfig &#x3D; {};
+    this.flattenedBlueprintConfig &#x3D; {};
+    Promise.all([this.getResourceStackInfo(), this.getResourceEnvInfo()]).then(
+      (promiseRes) &#x3D;&gt; {
+        try {
+          this.blueprintConfig &#x3D; JSON.parse(this.resourceData?.content);
+        } catch (error) {
+          this.blueprintConfig &#x3D; null;
+        }
+
+        if (this.blueprintConfig) {
+          this.flattenedBlueprintConfig &#x3D; flattenObject(this.blueprintConfig);
+          this.prepareConfigData();
+        } else {
+          this.setEmptyStateValues();
+        }
+        this.loadingTableData &#x3D; false;
+      },
+      (error) &#x3D;&gt; {
+        this.loadingTableData &#x3D; false;
+        this.tableData &#x3D; [];
+        this.setEmptyStateValues(error);
+      },
+    );
+  }
+
+  setEmptyStateValues(error &#x3D; null): void {
+    this.emptyStateLogo &#x3D; error ? errorIcon : this.emptyStateLogo;
+    this.secondaryMsg &#x3D; error
+      ? error?.error?.message ||
+        &#x27;There is some error fetching override configuration&#x27;
+      : &#x27;No overrides in resource configuration yet&#x27;;
+    this.status &#x3D; error ? &#x27;error&#x27; : &#x27;info&#x27;;
+  }
+
+  // Reset all the values
+  setInitialValues() {
+    this.overridesData &#x3D; [];
+    this.tableData &#x3D; [];
+    this.loadingTableData &#x3D; true;
+    this.currentConfig.reset();
+    this.envConfigCode.reset();
+    this.updatedConfig.reset();
+  }
+
+  /*
+   * Prepare configuration fields data to show in the form of table
+   * First, it flattens entire config object for each environment
+   * Then it finds unique key for each environment and that key becomes a key in resultant new object
+   * For each key, it updates the count of how many environments it occurs and adds environment information in env_metadata
+   */
+  prepareConfigData() {
+    const configData &#x3D; processConfigData(
+      this.overridesData,
+      this.flattenedBlueprintConfig,
+    );
+    this.flattenEnvironments(configData);
+    this.prepareTableData(configData);
+  }
+
+  newOverridesTable: any[];
+  overridesDataSource: LocalDataSource &#x3D; new LocalDataSource();
+  flattenEnvironments(configData) {
+    const newOverridesTable &#x3D; [];
+    Object.keys(configData)?.forEach((path) &#x3D;&gt; {
+      configData[path]?.env_metaData?.forEach((env) &#x3D;&gt; {
+        let row &#x3D; {
+          path: path,
+          blueprintValue: configData[path]?.blueprintVal,
+          ...env,
+        };
+        delete row?.key;
+        newOverridesTable.push(row);
+      });
+    });
+    this.newOverridesTable &#x3D; newOverridesTable;
+    this.originalDataBackup.clear();
+    newOverridesTable.forEach((row) &#x3D;&gt; {
+      this.originalDataBackup.set(
+        &#x60;${row.path}$-$${row.clusterId}$-$${row.clusterName}&#x60;,
+        cloneDeep(row.value),
+      );
+    });
+    this.overridesDataSource.load(newOverridesTable);
+  }
+
+  /*
+    Prepares final table array from the resultant object.
+  */
+  prepareTableData(configData) {
+    this.tableData &#x3D; Object.keys(configData).map((configKey) &#x3D;&gt; {
+      return {
+        key: configKey,
+        ...configData[configKey],
+      };
+    });
+    this.loadingTableData &#x3D; false;
+  }
+
+  //Get resource stack configuration
+  getResourceStackInfo() {
+    this.loadingStackConfig &#x3D; true;
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.uiDropdownsControllerService
+        .getResourceByStackUsingGET({
+          stackName: this.stackName,
+          resourceName: this.resourceName,
+          resourceType: this.resourceType,
+          branch: this.branchName,
+        })
+        .subscribe(
+          (resource) &#x3D;&gt; {
+            this.resourceData &#x3D; resource;
+            this.loadingStackConfig &#x3D; false;
+            resolve(true);
+          },
+          (error) &#x3D;&gt; {
+            this.errorInFetchingBlueprintConfig &#x3D; true;
+            this.loadingStackConfig &#x3D; false;
+            reject(error);
+          },
+        );
+    });
+  }
+
+  //Get environment override configuration for each resource
+  getResourceEnvInfo() {
+    this.loadingEnvConfig &#x3D; true;
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.stackControllerService
+        .getOverridesUsingGET2({
+          stackName: this.stackName,
+          resourceName: this.resourceName,
+          resourceType: this.resourceType,
+        })
+        .subscribe(
+          (resource) &#x3D;&gt; {
+            this.overridesData &#x3D; resource;
+            this.loadingEnvConfig &#x3D; false;
+            resolve(true);
+          },
+          (error) &#x3D;&gt; {
+            this.errorInFetchingBlueprintConfig &#x3D; true;
+            this.loadingEnvConfig &#x3D; false;
+            reject(error);
+          },
+        );
+    });
+  }
+
+  resetConfigInputFields() {
+    this.envConfigCode.setValue(null);
+    this.currentConfig.setValue(null);
+    this.updatedConfig.setValue(null);
+    this.updatedConfig.reset();
+  }
+
+  //open configuration popup to view
+  openConfigPopup(data) {
+    this.resetConfigInputFields();
+    this.envConfigCode.setValue(
+      JSON.stringify(
+        data?.context &#x3D;&#x3D;&#x3D; &#x27;BLUEPRINT&#x27; ? data?.blueprintValue : data?.value,
+        null,
+        &#x27;\t&#x27;,
+      ),
+    );
+    this.dialogService.open(this.envConfigEditor, { context: data });
+  }
+
+  submitOverrides &#x3D; (updatedObject, configData, overrideKey, ref) &#x3D;&gt; {
+    return new Promise(async (resolve, reject) &#x3D;&gt; {
+      try {
+        this.submittingOverrides &#x3D; true;
+        this.appService
+          .postResourceOverrideObjectUsingPOST({
+            resourceName: this.resourceName,
+            resourceType: this.resourceType,
+            overrideRequest: updatedObject,
+            clusterId: configData?.clusterId,
+          })
+          .subscribe(
+            (data) &#x3D;&gt; {
+              this.submittingOverrides &#x3D; false;
+              resolve(data);
+            },
+            (err) &#x3D;&gt; {
+              this.submittingOverrides &#x3D; false;
+              this.onAPIErrorService.onAPIError(
+                &#x60;Update Failed for ${overrideKey.split(&#x27;$-$&#x27;)[0]} for ${
+                  overrideKey.split(&#x27;$-$&#x27;)[2]
+                }: &#x60; + err?.error?.message,
+                err,
+              );
+              reject(err);
+            },
+          );
+      } catch (err) {
+        this.submittingOverrides &#x3D; false;
+        this.customToasterService.error(
+          &#x60;Update Failed for ${overrideKey.split(&#x27;$-$&#x27;)[0]} for ${
+            overrideKey.split(&#x27;$-$&#x27;)[2]
+          }: &#x60; + err?.error?.message,
+        );
+        reject(err);
+      }
+    });
+  };
+
+  discardChanges &#x3D; (ref?) &#x3D;&gt; {
+    ref?.close(&#x27;discard&#x27;);
+    this.newOverrideChanges &#x3D; {};
+    this.fetchResourceConfigs();
+  };
+
+  async setResourceOverride(overriddenEnvConfig, configData, overrideKey, ref) {
+    return new Promise(async (resolve, reject) &#x3D;&gt; {
+      const dataType &#x3D; this.dataType.value;
+      let value &#x3D; this.newOverrideChanges[overrideKey];
+      let dataTypeValueMismatch &#x3D; false;
+      let errorMessage &#x3D; &#x27;Invalid value provided for selected data type&#x27;;
+      switch (dataType) {
+        case &#x27;BOOLEAN&#x27;:
+          value &#x3D; value &#x3D;&#x3D;&#x3D; &#x27;true&#x27;;
+          break;
+        case &#x27;NUMBER&#x27;:
+          value &#x3D; parseFloat(value);
+          break;
+        case &#x27;OBJECT&#x27;:
+          try {
+            value &#x3D; JSON.parse(value);
+          } catch (error) {
+            errorMessage &#x3D; error;
+            dataTypeValueMismatch &#x3D; true;
+            reject(errorMessage);
+            return;
+          }
+          break;
+        default:
+          break;
+      }
+      overriddenEnvConfig.flattenedConfig[overrideKey?.split(&#x27;$-$&#x27;)[0]] &#x3D; value;
+      overriddenEnvConfig.overrideObject.overrides &#x3D; unflattenObject(
+        overriddenEnvConfig?.flattenedConfig,
+      );
+      const updatedObject &#x3D; omit(overriddenEnvConfig, &#x27;flattenedConfig&#x27;);
+      try {
+        const rsp &#x3D; await this.submitOverrides(
+          updatedObject?.overrideObject,
+          configData,
+          overrideKey,
+          ref,
+        );
+        resolve(rsp);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  async confirmOverride(configData, overrideKey, ref) {
+    return new Promise(async (resolve, reject) &#x3D;&gt; {
+      let overriddenEnvConfig &#x3D; cloneDeep(
+        this.overridesData.find(
+          (data) &#x3D;&gt; configData.clusterId &#x3D;&#x3D;&#x3D; data?.clusterId,
+        ),
+      );
+
+      try {
+        const rsp &#x3D; await this.setResourceOverride(
+          overriddenEnvConfig,
+          configData,
+          overrideKey,
+          ref,
+        );
+        resolve(rsp);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  validateChanges(event) {
+    try {
+      event.newData.value &#x3D; JSON.parse(event?.newData?.value);
+    } catch {}
+
+    const key &#x3D; &#x60;${event?.newData?.path}$-$${event?.newData?.clusterId}$-$${event?.newData?.clusterName}&#x60;;
+    if (
+      JSON.stringify(event?.newData?.value) !&#x3D;&#x3D;
+      JSON.stringify(this.originalDataBackup.get(key))
+    ) {
+      this.newOverrideChanges[key] &#x3D;
+        JSON.stringify(event?.newData?.value) &#x3D;&#x3D;&#x3D; &#x27;[]&#x27;
+          ? &#x27;[]&#x27;
+          : event?.newData?.value;
+    } else {
+      delete this.newOverrideChanges[key];
+    }
+
+    event?.confirm?.resolve(event?.newData);
+  }
+
+  isEditorRequired(override) {
+    return isParsableObject(override.value);
+  }
+
+  async saveAllOverrideChanges(ref) {
+    const overrideKeys &#x3D; Object.keys(this.newOverrideChanges);
+    await this.processOverrideKeysSequentially(overrideKeys, 0, 0, ref);
+  }
+
+  async processOverrideKeysSequentially(
+    overrideKeys,
+    currentIndex,
+    successfulHits,
+    ref,
+  ) {
+    if (currentIndex &lt; overrideKeys.length) {
+      const overrideKey &#x3D; overrideKeys[currentIndex];
+      const clusterId &#x3D; overrideKey.split(&#x27;$-$&#x27;)[1];
+      const configData &#x3D; { clusterId };
+
+      try {
+        const rsp: any &#x3D; await this.confirmOverride(
+          configData,
+          overrideKey,
+          ref,
+        );
+        successfulHits +&#x3D; 1;
+        for (let i &#x3D; 0; i &lt; this.overridesData.length; i++) {
+          if (this.overridesData[i]?.clusterId &#x3D;&#x3D;&#x3D; configData?.clusterId) {
+            this.overridesData[i].overrideObject &#x3D; rsp;
+            this.overridesData[i].flattenedConfig[
+              overrideKey?.split(&#x27;$-$&#x27;)[0]
+            ] &#x3D; this.newOverrideChanges[overrideKey];
+            break;
+          }
+        }
+        delete this.newOverrideChanges[overrideKey];
+      } catch (err) {
+        console.log(&#x27;FAILED, SKIPPING&#x27;);
+      }
+      await this.processOverrideKeysSequentially(
+        overrideKeys,
+        currentIndex + 1,
+        successfulHits,
+        ref,
+      );
+    } else {
+      this.customToasterService.success(
+        &#x60;Updated overrides for ${successfulHits} out of ${overrideKeys.length} changes successfully&#x60;,
+      );
+      ref?.close();
+      this.fetchResourceConfigs();
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;nb-card [nbSpinner]&#x3D;&quot;loadingTableData&quot; style&#x3D;&quot;margin-bottom: 4rem&quot;&gt;
+  &lt;nb-card-header&gt;List of Overrides&lt;/nb-card-header&gt;
+  &lt;nb-card-body&gt;
+    &lt;ng2-smart-table
+      *ngIf&#x3D;&quot;tableData?.length &gt; 0 &amp;&amp; !loadingTableData&quot;
+      (editConfirm)&#x3D;&quot;validateChanges($event)&quot;
+      [settings]&#x3D;&quot;overridesTableSettings&quot;
+      [source]&#x3D;&quot;overridesDataSource&quot;
+    &gt;
+    &lt;/ng2-smart-table&gt;
+    &lt;app-message
+      *ngIf&#x3D;&quot;!tableData?.length &amp;&amp; !loadingTableData&quot;
+      [imgUrl]&#x3D;&quot;emptyStateLogo&quot;
+      primaryMsg&#x3D;&quot;&quot;
+      [secondaryMsg]&#x3D;&quot;secondaryMsg&quot;
+      [showBtn]&#x3D;&quot;false&quot;
+      [status]&#x3D;&quot;status&quot;
+      [changeBackground]&#x3D;&quot;false&quot;
+    &gt;
+    &lt;/app-message&gt;
+  &lt;/nb-card-body&gt;
+&lt;/nb-card&gt;
+&lt;ng-template #envConfigEditor let-data let-ref&#x3D;&quot;dialogRef&quot;&gt;
+  &lt;nb-card style&#x3D;&quot;height: 40vh; width: 40vw&quot;&gt;
+    &lt;nb-card-header class&#x3D;&quot;d-flex justify-content-between&quot;&gt;
+      &lt;h6&gt;
+        {{ data?.context &#x3D;&#x3D;&#x3D; &#x27;BLUEPRINT&#x27; ? &#x27;Blueprint&#x27; : &#x27;Override&#x27; }} Value
+      &lt;/h6&gt;
+      &lt;nb-icon
+        icon&#x3D;&quot;close-outline&quot;
+        class&#x3D;&quot;cursor-pointer&quot;
+        (click)&#x3D;&quot;ref.close()&quot;
+      &gt;&lt;/nb-icon&gt;
+    &lt;/nb-card-header&gt;
+    &lt;nb-card-body&gt;
+      &lt;ngx-monaco-editor
+        class&#x3D;&quot;monacoEditor&quot;
+        [options]&#x3D;&quot;editorOptionsReadOnly&quot;
+        [formControl]&#x3D;&quot;envConfigCode&quot;
+      &gt;&lt;/ngx-monaco-editor&gt;
+    &lt;/nb-card-body&gt;
+  &lt;/nb-card&gt;
+&lt;/ng-template&gt;
+
+&lt;app-save-changes-footer
+  [show]&#x3D;&quot;!loadingTableData &amp;&amp; tableData?.length &gt; 0&quot;
+  saveBtnPermission&#x3D;&quot;{{ environmentConfigurePermission }}&quot;
+  [disableSaveBtn]&#x3D;&quot;
+    (newOverrideChanges | keyvalue)?.length &#x3D;&#x3D;&#x3D; 0 || submittingOverrides
+  &quot;
+  modifiedInfo&#x3D;&quot;{{
+    (this.newOverrideChanges | keyvalue)?.length
+  }} overrides updated&quot;
+  (saveChanges)&#x3D;&quot;saveAllOverrideChanges($event)&quot;
+  (discardChanges)&#x3D;&quot;discardChanges($event)&quot;
+  [showLoader]&#x3D;&quot;submittingOverrides&quot;
+  modalSize&#x3D;&quot;medium&quot;
+  modalWidth&#x3D;&quot;50rem&quot;
+&gt;
+  &lt;ul&gt;
+    &lt;li class&#x3D;&quot;mt-3&quot; *ngFor&#x3D;&quot;let override of newOverrideChanges | keyvalue&quot;&gt;
+      &lt;span class&#x3D;&quot;font-weight-bold&quot;&gt;{{ override?.key.split(&#x27;$-$&#x27;)[0] }} &lt;/span&gt;
+      for
+      &lt;span class&#x3D;&quot;font-weight-bold&quot;&gt;{{ override?.key.split(&#x27;$-$&#x27;)[2] }} &lt;/span&gt;
+      updated to:
+      &lt;ng-container *ngIf&#x3D;&quot;!isEditorRequired(override); else showDiffEditor&quot;&gt;
+        &lt;span class&#x3D;&quot;tooltip-yellow&quot;&gt;
+          {{
+            override?.value?.toString()?.length &gt; 0
+              ? override?.value
+              : JSON.stringify(override?.value) &#x3D;&#x3D;&#x3D; &#x27;[]&#x27;
+              ? &#x27;[]&#x27;
+              : &#x27;&quot; &quot;&#x27;
+          }}
+        &lt;/span&gt;
+      &lt;/ng-container&gt;
+      &lt;ng-template #showDiffEditor&gt;
+        &lt;ngx-monaco-diff-editor
+          class&#x3D;&quot;d-flex monacoDiffEditor&quot;
+          [options]&#x3D;&quot;diffEditorOptions&quot;
+          [original]&#x3D;&quot;
+            JSON.stringify(originalDataBackup.get(override.key), null, 2)
+          &quot;
+          [modified]&#x3D;&quot;JSON.stringify(override.value, null, 2)&quot;
+        &gt;&lt;/ngx-monaco-diff-editor&gt;
+      &lt;/ng-template&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/app-save-changes-footer&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./resource-overrides.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.monacoEditor {
+  border-radius: 5px;
+  height: 20vh;
+  width: 100%;
+  display: block;
+  margin: auto;
+  border: 1px solid var(--color-basic-600);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.monacoDiffEditor {
+  border: 1px solid var(--color-basic-600);
+  border-radius: 5px;
+  overflow: hidden;
+  height: 10rem;
+}
+
+:host ::ng-deep ng2-smart-table {
+  td.ng2-smart-actions {
+    ng2-st-tbody-edit-delete {
+      width: 50%;
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><nb-card [nbSpinner]="loadingTableData" style="margin-bottom: 4rem">  <nb-card-header>List of Overrides</nb-card-header>  <nb-card-body>    <ng2-smart-table      *ngIf="tableData?.length > 0 && !loadingTableData"      (editConfirm)="validateChanges($event)"      [settings]="overridesTableSettings"      [source]="overridesDataSource"    >    </ng2-smart-table>    <app-message      *ngIf="!tableData?.length && !loadingTableData"      [imgUrl]="emptyStateLogo"      primaryMsg=""      [secondaryMsg]="secondaryMsg"      [showBtn]="false"      [status]="status"      [changeBackground]="false"    >    </app-message>  </nb-card-body></nb-card><ng-template #envConfigEditor let-data let-ref="dialogRef">  <nb-card style="height: 40vh; width: 40vw">    <nb-card-header class="d-flex justify-content-between">      <h6>        {{ data?.context === \'BLUEPRINT\' ? \'Blueprint\' : \'Override\' }} Value      </h6>      <nb-icon        icon="close-outline"        class="cursor-pointer"        (click)="ref.close()"      ></nb-icon>    </nb-card-header>    <nb-card-body>      <ngx-monaco-editor        class="monacoEditor"        [options]="editorOptionsReadOnly"        [formControl]="envConfigCode"      ></ngx-monaco-editor>    </nb-card-body>  </nb-card></ng-template><app-save-changes-footer  [show]="!loadingTableData && tableData?.length > 0"  saveBtnPermission="{{ environmentConfigurePermission }}"  [disableSaveBtn]="    (newOverrideChanges | keyvalue)?.length === 0 || submittingOverrides  "  modifiedInfo="{{    (this.newOverrideChanges | keyvalue)?.length  }} overrides updated"  (saveChanges)="saveAllOverrideChanges($event)"  (discardChanges)="discardChanges($event)"  [showLoader]="submittingOverrides"  modalSize="medium"  modalWidth="50rem">  <ul>    <li class="mt-3" *ngFor="let override of newOverrideChanges | keyvalue">      <span class="font-weight-bold">{{ override?.key.split(\'$-$\')[0] }} </span>      for      <span class="font-weight-bold">{{ override?.key.split(\'$-$\')[2] }} </span>      updated to:      <ng-container *ngIf="!isEditorRequired(override); else showDiffEditor">        <span class="tooltip-yellow">          {{            override?.value?.toString()?.length > 0              ? override?.value              : JSON.stringify(override?.value) === \'[]\'              ? \'[]\'              : \'" "\'          }}        </span>      </ng-container>      <ng-template #showDiffEditor>        <ngx-monaco-diff-editor          class="d-flex monacoDiffEditor"          [options]="diffEditorOptions"          [original]="            JSON.stringify(originalDataBackup.get(override.key), null, 2)          "          [modified]="JSON.stringify(override.value, null, 2)"        ></ngx-monaco-diff-editor>      </ng-template>    </li>  </ul></app-save-changes-footer></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'ResourceOverridesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ResourceOverridesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

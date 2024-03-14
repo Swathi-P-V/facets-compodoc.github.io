@@ -1,0 +1,3078 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CreateUserComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/user-management/create-user/create-user.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./create-user.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./create-user.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#accessibleEnvironments" >accessibleEnvironments</a>
+                            </li>
+                            <li>
+                                <a href="#accessPriviligesList" >accessPriviligesList</a>
+                            </li>
+                            <li>
+                                <a href="#additionalRoleHints" >additionalRoleHints</a>
+                            </li>
+                            <li>
+                                <a href="#backToUserManagement" >backToUserManagement</a>
+                            </li>
+                            <li>
+                                <a href="#baseRoleMutationObserver" >baseRoleMutationObserver</a>
+                            </li>
+                            <li>
+                                <a href="#baseRoles" >baseRoles</a>
+                            </li>
+                            <li>
+                                <a href="#cdkOverlayContainerNode" >cdkOverlayContainerNode</a>
+                            </li>
+                            <li>
+                                <a href="#existingUser" >existingUser</a>
+                            </li>
+                            <li>
+                                <a href="#existingUserId" >existingUserId</a>
+                            </li>
+                            <li>
+                                <a href="#getAllEnvironments" >getAllEnvironments</a>
+                            </li>
+                            <li>
+                                <a href="#getAllRoles" >getAllRoles</a>
+                            </li>
+                            <li>
+                                <a href="#isUserAssociatedToGroup" >isUserAssociatedToGroup</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#loadingUserForm" >loadingUserForm</a>
+                            </li>
+                            <li>
+                                <a href="#mode" >mode</a>
+                            </li>
+                            <li>
+                                <a href="#pageHeading" >pageHeading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#popover" >popover</a>
+                            </li>
+                            <li>
+                                <a href="#selectedRole" >selectedRole</a>
+                            </li>
+                            <li>
+                                <a href="#showDefRoles" >showDefRoles</a>
+                            </li>
+                            <li>
+                                <a href="#showPassword" >showPassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#subscriptions" >subscriptions</a>
+                            </li>
+                            <li>
+                                <a href="#userGroupDropdownOptions" >userGroupDropdownOptions</a>
+                            </li>
+                            <li>
+                                <a href="#userModel" >userModel</a>
+                            </li>
+                            <li>
+                                <a href="#userWrite" >userWrite</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#asyncOnPageLoad" >asyncOnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#createUser" >createUser</a>
+                            </li>
+                            <li>
+                                <a href="#dynamicGroupNameAndRoleValidation" >dynamicGroupNameAndRoleValidation</a>
+                            </li>
+                            <li>
+                                <a href="#editUser" >editUser</a>
+                            </li>
+                            <li>
+                                <a href="#getAllUsers" >getAllUsers</a>
+                            </li>
+                            <li>
+                                <a href="#getInputType" >getInputType</a>
+                            </li>
+                            <li>
+                                <a href="#getUserAccessPrivileges" >getUserAccessPrivileges</a>
+                            </li>
+                            <li>
+                                <a href="#getUserGroups" >getUserGroups</a>
+                            </li>
+                            <li>
+                                <a href="#initUserModel" >initUserModel</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageLoad" >OnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#patchUserModel" >patchUserModel</a>
+                            </li>
+                            <li>
+                                <a href="#setMutationObserver" >setMutationObserver</a>
+                            </li>
+                            <li>
+                                <a href="#submitForm" >submitForm</a>
+                            </li>
+                            <li>
+                                <a href="#toggleShowPassword" >toggleShowPassword</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageInit" >OnPageInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#groupName" >groupName</a>
+                                </li>
+                                <li>
+                                    <a href="#baseRole" >baseRole</a>
+                                </li>
+                                <li>
+                                    <a href="#password" >password</a>
+                                </li>
+                                <li>
+                                    <a href="#userName" >userName</a>
+                                </li>
+                                <li>
+                                    <a href="#accessibleClusters" >accessibleClusters</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(applicationController: <a href="../injectables/ApplicationControllerService.html" target="_self">ApplicationControllerService</a>, router: Router, _route: ActivatedRoute, userGroupControllerService: <a href="../injectables/UiUserGroupControllerService.html" target="_self">UiUserGroupControllerService</a>, usersController: <a href="../injectables/UiUserControllerService.html" target="_self">UiUserControllerService</a>, uiStackControllerService: <a href="../injectables/UiStackControllerService.html" target="_self">UiStackControllerService</a>, customRoleControllerService: <a href="../injectables/UiCustomRoleControllerService.html" target="_self">UiCustomRoleControllerService</a>, customToastService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>, onAPIErrorService: <a href="../injectables/OnAPIErrorService.html" target="_self">OnAPIErrorService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:64</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>applicationController</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ApplicationControllerService.html" target="_self" >ApplicationControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userGroupControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiUserGroupControllerService.html" target="_self" >UiUserGroupControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>usersController</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiUserControllerService.html" target="_self" >UiUserControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiStackControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiStackControllerService.html" target="_self" >UiStackControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customRoleControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiCustomRoleControllerService.html" target="_self" >UiCustomRoleControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToastService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>onAPIErrorService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OnAPIErrorService.html" target="_self" >OnAPIErrorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="asyncOnPageLoad"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>asyncOnPageLoad</b></span>
+                        <a href="#asyncOnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>asyncOnPageLoad(params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createUser"></a>
+                    <span class="name">
+                        <span ><b>createUser</b></span>
+                        <a href="#createUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createUser(user)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="338"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:338</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dynamicGroupNameAndRoleValidation"></a>
+                    <span class="name">
+                        <span ><b>dynamicGroupNameAndRoleValidation</b></span>
+                        <a href="#dynamicGroupNameAndRoleValidation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dynamicGroupNameAndRoleValidation()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="395"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:395</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editUser"></a>
+                    <span class="name">
+                        <span ><b>editUser</b></span>
+                        <a href="#editUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editUser(user)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="361"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:361</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllUsers"></a>
+                    <span class="name">
+                        <span ><b>getAllUsers</b></span>
+                        <a href="#getAllUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllUsers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="147"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:147</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInputType"></a>
+                    <span class="name">
+                        <span ><b>getInputType</b></span>
+                        <a href="#getInputType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getInputType()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="294"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:294</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>&quot;text&quot; | &quot;password&quot;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserAccessPrivileges"></a>
+                    <span class="name">
+                        <span ><b>getUserAccessPrivileges</b></span>
+                        <a href="#getUserAccessPrivileges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUserAccessPrivileges(baseRole, event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="279"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:279</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>baseRole</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserGroups"></a>
+                    <span class="name">
+                        <span ><b>getUserGroups</b></span>
+                        <a href="#getUserGroups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUserGroups()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="177"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:177</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initUserModel"></a>
+                    <span class="name">
+                        <span ><b>initUserModel</b></span>
+                        <a href="#initUserModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initUserModel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="428"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:428</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>OnPageLoad</b></span>
+                        <a href="#OnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:82</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="patchUserModel"></a>
+                    <span class="name">
+                        <span ><b>patchUserModel</b></span>
+                        <a href="#patchUserModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>patchUserModel(user?)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMutationObserver"></a>
+                    <span class="name">
+                        <span ><b>setMutationObserver</b></span>
+                        <a href="#setMutationObserver"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setMutationObserver()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="255"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:255</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitForm"></a>
+                    <span class="name">
+                        <span ><b>submitForm</b></span>
+                        <a href="#submitForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="307"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:307</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleShowPassword"></a>
+                    <span class="name">
+                        <span ><b>toggleShowPassword</b></span>
+                        <a href="#toggleShowPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleShowPassword()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="302"
+                                    class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:302</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageInit"></a>
+                    <span class="name">
+                        <span ><b>OnPageInit</b></span>
+                        <a href="#OnPageInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:20</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="accessibleEnvironments"></a>
+                    <span class="name">
+                        <span ><b>accessibleEnvironments</b></span>
+                        <a href="#accessibleEnvironments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="accessPriviligesList"></a>
+                    <span class="name">
+                        <span ><b>accessPriviligesList</b></span>
+                        <a href="#accessPriviligesList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="additionalRoleHints"></a>
+                    <span class="name">
+                        <span ><b>additionalRoleHints</b></span>
+                        <a href="#additionalRoleHints"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    K8S_READER: &#x27;Can download K8s credentials and do read operations on K8s&#x27;,
+    K8S_DEBUGGER: &#x27;Can download K8s credentials and do write operations on K8s&#x27;,
+    CLI_ARTIFACT_PUSH: &#x27;Can push artifacts using CLI&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="backToUserManagement"></a>
+                    <span class="name">
+                        <span ><b>backToUserManagement</b></span>
+                        <a href="#backToUserManagement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="289" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:289</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseRoleMutationObserver"></a>
+                    <span class="name">
+                        <span ><b>baseRoleMutationObserver</b></span>
+                        <a href="#baseRoleMutationObserver"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MutationObserver</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseRoles"></a>
+                    <span class="name">
+                        <span ><b>baseRoles</b></span>
+                        <a href="#baseRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Array&lt;RoleMapping&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cdkOverlayContainerNode"></a>
+                    <span class="name">
+                        <span ><b>cdkOverlayContainerNode</b></span>
+                        <a href="#cdkOverlayContainerNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="existingUser"></a>
+                    <span class="name">
+                        <span ><b>existingUser</b></span>
+                        <a href="#existingUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="existingUserId"></a>
+                    <span class="name">
+                        <span ><b>existingUserId</b></span>
+                        <a href="#existingUserId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllEnvironments"></a>
+                    <span class="name">
+                        <span ><b>getAllEnvironments</b></span>
+                        <a href="#getAllEnvironments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Promise((resolve, reject) &#x3D;&gt; {
+    this.uiStackControllerService
+      .getAllClustersUsingGET({
+        page: 0,
+        perPage: 200,
+        sortBy: &#x27;ID&#x27;,
+      })
+      .subscribe(
+        (envs) &#x3D;&gt; {
+          envs.content.forEach((cluster) &#x3D;&gt; {
+            let stackName &#x3D; cluster.stackName;
+            if (this.accessibleEnvironments.hasOwnProperty(stackName)) {
+              this.accessibleEnvironments[stackName].push(cluster);
+            } else {
+              this.accessibleEnvironments[stackName] &#x3D; [cluster];
+            }
+          });
+          resolve(true);
+        },
+        (error) &#x3D;&gt; {
+          reject(error);
+        },
+      );
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="210" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:210</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllRoles"></a>
+                    <span class="name">
+                        <span ><b>getAllRoles</b></span>
+                        <a href="#getAllRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Promise((resolve, reject) &#x3D;&gt; {
+    this.customRoleControllerService.getAllRolesUsingGET().subscribe(
+      (roles) &#x3D;&gt; {
+        this.baseRoles &#x3D; roles.filter((r) &#x3D;&gt; r.baseRole);
+        resolve(true);
+      },
+      (error) &#x3D;&gt; {
+        console.log(&#x27;Error fetching all roles &#x27;, error);
+        reject(error);
+      },
+    );
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="196" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:196</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isUserAssociatedToGroup"></a>
+                    <span class="name">
+                        <span ><b>isUserAssociatedToGroup</b></span>
+                        <a href="#isUserAssociatedToGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadingUserForm"></a>
+                    <span class="name">
+                        <span ><b>loadingUserForm</b></span>
+                        <a href="#loadingUserForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mode"></a>
+                    <span class="name">
+                        <span ><b>mode</b></span>
+                        <a href="#mode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;create&quot; | &quot;edit&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;create&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pageHeading"></a>
+                    <span class="name">
+                        <span ><b>pageHeading</b></span>
+                        <a href="#pageHeading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    create: &#x27;Create User&#x27;,
+    edit: &#x27;Edit User&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="popover"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>popover</b></span>
+                        <a href="#popover"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>NbPopoverDirective</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(NbPopoverDirective)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedRole"></a>
+                    <span class="name">
+                        <span ><b>selectedRole</b></span>
+                        <a href="#selectedRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showDefRoles"></a>
+                    <span class="name">
+                        <span ><b>showDefRoles</b></span>
+                        <a href="#showDefRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showPassword"></a>
+                    <span class="name">
+                        <span ><b>showPassword</b></span>
+                        <a href="#showPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>subscriptions</b></span>
+                        <a href="#subscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Subscription.html" target="_self" >Subscription[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userGroupDropdownOptions"></a>
+                    <span class="name">
+                        <span ><b>userGroupDropdownOptions</b></span>
+                        <a href="#userGroupDropdownOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userModel"></a>
+                    <span class="name">
+                        <span ><b>userModel</b></span>
+                        <a href="#userModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userWrite"></a>
+                    <span class="name">
+                        <span ><b>userWrite</b></span>
+                        <a href="#userWrite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>USER_WRITE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="groupName"></a>
+                        <span class="name"><b>groupName</b><a href="#groupName"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>groupName()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="235" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:235</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="baseRole"></a>
+                        <span class="name"><b>baseRole</b><a href="#baseRole"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>baseRole()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="239" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:239</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="password"></a>
+                        <span class="name"><b>password</b><a href="#password"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>password()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="243" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:243</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userName"></a>
+                        <span class="name"><b>userName</b><a href="#userName"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>userName()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="247" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:247</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="accessibleClusters"></a>
+                        <span class="name"><b>accessibleClusters</b><a href="#accessibleClusters"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>accessibleClusters()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="251" class="link-to-prism">src/app/pages/user-management/create-user/create-user.component.ts:251</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnDestroy, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { NbPopoverDirective } from &#x27;@nebular/theme&#x27;;
+import mixpanel from &#x27;mixpanel-browser&#x27;;
+import { User } from &#x27;src/app/cc-api/models/user&#x27;;
+import { ApplicationControllerService } from &#x27;src/app/cc-api/services/application-controller.service&#x27;;
+import { ActivatedRoute, Params, Router } from &#x27;@angular/router&#x27;;
+import { FormControl, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import {
+  UiCustomRoleControllerService,
+  UiStackControllerService,
+  UiUserControllerService,
+  UiUserGroupControllerService,
+} from &#x27;src/app/cc-api/services&#x27;;
+import { Subscription, distinctUntilChanged } from &#x27;rxjs&#x27;;
+import { RoleMapping } from &#x27;src/app/cc-api/models&#x27;;
+import { USER_WRITE } from &#x27;src/app/constants/permissions&#x27;;
+import { CustomToastService } from &#x27;../../custom-toast/custom-toast.service&#x27;;
+import { OnAPIErrorService } from &#x27;src/app/services/on-api-error.service&#x27;;
+import {
+  USER_CREATE_FAIL,
+  USER_CREATE_SUCCESS,
+  USER_EDIT_FAIL,
+  USER_EDIT_SUCCESS,
+} from &#x27;src/app/constants/analytics-track-events&#x27;;
+
+@Component({
+  templateUrl: &#x27;./create-user.component.html&#x27;,
+  styleUrls: [&#x27;./create-user.component.scss&#x27;],
+})
+export class CreateUserComponent extends FacetsPage implements OnDestroy {
+  mode: &#x27;create&#x27; | &#x27;edit&#x27; &#x3D; &#x27;create&#x27;; // Decides which mode is the component currently in use in
+  pageHeading &#x3D; {
+    create: &#x27;Create User&#x27;,
+    edit: &#x27;Edit User&#x27;,
+  };
+
+  baseRoles: Array&lt;RoleMapping&gt; &#x3D; []; // All base roles for user form [passed in from parent through state]
+  accessibleEnvironments: any &#x3D; {}; // All [Stack -&gt; Clusters] mapping, [passed in from parent through state]
+  userGroupDropdownOptions;
+
+  existingUser: User; // If the form is opened in &#x27;edit&#x27; or &#x27;changePassword&#x27; mode, this stores the existing user&#x27;s data
+  existingUserId: string;
+  userModel: FormGroup; // Form Group for all the user related form events
+  showPassword: boolean &#x3D; false; // Toggle for showing and hiding password for &#x27;create&#x27; and &#x27;changePassword&#x27; modes
+  loadingUserForm: boolean &#x3D; true;
+  showDefRoles: boolean &#x3D; false;
+  isUserAssociatedToGroup: boolean &#x3D; false;
+  accessPriviligesList;
+  @ViewChild(NbPopoverDirective) popover: NbPopoverDirective;
+  baseRoleMutationObserver: MutationObserver;
+  cdkOverlayContainerNode: any;
+  selectedRole: any;
+  loading: boolean;
+  userWrite &#x3D; USER_WRITE;
+
+  // Hint string for additionalRole desc
+  additionalRoleHints &#x3D; {
+    K8S_READER: &#x27;Can download K8s credentials and do read operations on K8s&#x27;,
+    K8S_DEBUGGER: &#x27;Can download K8s credentials and do write operations on K8s&#x27;,
+    CLI_ARTIFACT_PUSH: &#x27;Can push artifacts using CLI&#x27;,
+  };
+  // private variable to hold all your subscriptions for the component
+  private subscriptions: Subscription[] &#x3D; [];
+
+  // This component subscribes to the window.history.state API to catch the baseRole, additonalRoles, accessibleEnvs and user data from the
+  // parent component to avoid making the same network calls - going back to the parent (user management) component, all of this is fetched again
+  constructor(
+    private applicationController: ApplicationControllerService,
+    private router: Router,
+    private _route: ActivatedRoute,
+    private userGroupControllerService: UiUserGroupControllerService,
+    private usersController: UiUserControllerService,
+    private uiStackControllerService: UiStackControllerService,
+    private customRoleControllerService: UiCustomRoleControllerService,
+    private customToastService: CustomToastService,
+    private onAPIErrorService: OnAPIErrorService,
+  ) {
+    super(_route);
+  }
+
+  OnPageLoad(p: Params): void {
+    this.asyncOnPageLoad(p);
+  }
+
+  async asyncOnPageLoad(params) {
+    this.loadingUserForm &#x3D; true;
+    this.existingUserId &#x3D; params?.userId;
+    await this.getUserGroups();
+    this.initUserModel();
+    //If URL has userId then set mode to edit. Retrieve the user details and fill the form
+    if (this.existingUserId) {
+      this.mode &#x3D; &#x27;edit&#x27;;
+      //Remove all validators for password field in edit mode.
+      //minLength and maxLength validators is no more needed for password based users as set password exceeds maxLength.
+      //required validator is no more needed for oAuth users as their password field is empty.
+      this.userModel.get(&#x27;password&#x27;).clearValidators();
+      Promise.all([this.getAllEnvironments, this.getAllRoles]).then(
+        async (values) &#x3D;&gt; {
+          await this.getAllUsers();
+          this.dynamicGroupNameAndRoleValidation();
+          this.patchUserModel(this.existingUser);
+        },
+      );
+    }
+  }
+
+  // Initializes the userModel form for &#x27;edit&#x27; and &#x27;create&#x27; mode
+  initUserModel() {
+    this.userModel &#x3D; new FormGroup({
+      userName: new FormControl(&#x27;&#x27;, [Validators.required, Validators.email]),
+      password: new FormControl(&#x27;&#x27;, [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(20),
+        Validators.pattern(
+          &#x27;^(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z])(?&#x3D;.*[0-9])(?&#x3D;.*[!@#$%^&amp;*])[a-zA-Z0-9!@#$%^&amp;*s]*&#x27;,
+        ),
+      ]),
+      groupName: new FormControl(
+        &#x27;&#x27;,
+        this.mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? [Validators.required] : [],
+      ),
+      baseRole: new FormControl(&#x27;&#x27;),
+      accessibleClusters: new FormControl([]),
+    });
+    if (!this.existingUser) {
+      this.loadingUserForm &#x3D; false;
+    }
+  }
+
+  // In &#x27;edit&#x27; mode the user details is prepopulated into the form fields
+  patchUserModel(user?) {
+    this.userModel.patchValue({
+      userName: user.userName,
+      password: user.password,
+      groupName: user.groupId,
+      baseRole: user.roles?.filter(
+        (r) &#x3D;&gt; this.baseRoles.map((r2) &#x3D;&gt; r2?.roleName).indexOf(r) !&#x3D; -1,
+      )[0],
+      accessibleClusters: user.clusterIds || [],
+    });
+    this.loadingUserForm &#x3D; false;
+  }
+
+  //This function fetches all users and filters out the user to be edited
+  getAllUsers() {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.usersController.getAllUsersUsingGET().subscribe(
+        (users) &#x3D;&gt; {
+          let allUsers &#x3D; users;
+          this.existingUser &#x3D; allUsers.filter(
+            (user) &#x3D;&gt; user.id &#x3D;&#x3D;&#x3D; this.existingUserId,
+          )[0];
+          this.existingUser.groupId
+            ? (this.isUserAssociatedToGroup &#x3D; true)
+            : (this.isUserAssociatedToGroup &#x3D; false);
+
+          //Check if deployerOldRoles exists - capillary has some old roles set. Preserve these.
+          let deployerOldRoles &#x3D; this.existingUser.roles.filter(
+            (r) &#x3D;&gt; this.baseRoles.map((r2) &#x3D;&gt; r2?.roleName).indexOf(r) &#x3D;&#x3D; -1,
+          );
+          if (deployerOldRoles?.length &gt; 0) {
+            this.existingUser[&#x27;deployerOldRoles&#x27;] &#x3D; deployerOldRoles;
+          }
+          resolve(true);
+        },
+        (error) &#x3D;&gt; {
+          console.log(&#x27;Error &#x27;, error);
+          reject(error);
+        },
+      );
+    });
+  }
+
+  //Used for group name dropdown
+  getUserGroups() {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.userGroupControllerService.getAllGroupUsingGET().subscribe(
+        (data) &#x3D;&gt; {
+          this.userGroupDropdownOptions &#x3D; data.map((group) &#x3D;&gt; {
+            return { label: group.groupName, value: group.id };
+          });
+          //Sort the user group dropdown
+          this.userGroupDropdownOptions.sort((a, b) &#x3D;&gt;
+            a?.label?.localeCompare(b?.label),
+          );
+          resolve(true);
+        },
+        (error) &#x3D;&gt; reject(error),
+      );
+    });
+  }
+
+  //Get the base roles and additional roles dropdown values
+  getAllRoles &#x3D; new Promise((resolve, reject) &#x3D;&gt; {
+    this.customRoleControllerService.getAllRolesUsingGET().subscribe(
+      (roles) &#x3D;&gt; {
+        this.baseRoles &#x3D; roles.filter((r) &#x3D;&gt; r.baseRole);
+        resolve(true);
+      },
+      (error) &#x3D;&gt; {
+        console.log(&#x27;Error fetching all roles &#x27;, error);
+        reject(error);
+      },
+    );
+  });
+
+  //get all environments for selecting accessible envs
+  getAllEnvironments &#x3D; new Promise((resolve, reject) &#x3D;&gt; {
+    this.uiStackControllerService
+      .getAllClustersUsingGET({
+        page: 0,
+        perPage: 200,
+        sortBy: &#x27;ID&#x27;,
+      })
+      .subscribe(
+        (envs) &#x3D;&gt; {
+          envs.content.forEach((cluster) &#x3D;&gt; {
+            let stackName &#x3D; cluster.stackName;
+            if (this.accessibleEnvironments.hasOwnProperty(stackName)) {
+              this.accessibleEnvironments[stackName].push(cluster);
+            } else {
+              this.accessibleEnvironments[stackName] &#x3D; [cluster];
+            }
+          });
+          resolve(true);
+        },
+        (error) &#x3D;&gt; {
+          reject(error);
+        },
+      );
+  });
+
+  get groupName() {
+    return this.userModel.get(&#x27;groupName&#x27;);
+  }
+
+  get baseRole() {
+    return this.userModel.get(&#x27;baseRole&#x27;);
+  }
+
+  get password() {
+    return this.userModel.get(&#x27;password&#x27;);
+  }
+
+  get userName() {
+    return this.userModel.get(&#x27;userName&#x27;);
+  }
+
+  get accessibleClusters() {
+    return this.userModel.get(&#x27;accessibleClusters&#x27;);
+  }
+
+  setMutationObserver() {
+    this.cdkOverlayContainerNode &#x3D; document.querySelector(
+      &#x27;.cdk-overlay-container&#x27;,
+    );
+    this.baseRoleMutationObserver &#x3D; new MutationObserver((mutations) &#x3D;&gt; {
+      mutations.forEach((mutation) &#x3D;&gt; {
+        if (mutation.addedNodes.length &#x3D;&#x3D; 0) {
+          this.baseRoleMutationObserver.disconnect();
+          //Close popover whenever select dropdown closes
+          //Select dropdown closes if any option is selected or user clicks anywhere outside
+          this.popover?.hide();
+        }
+      });
+    });
+    this.baseRoleMutationObserver.observe(this.cdkOverlayContainerNode, {
+      attributes: true,
+      childList: true,
+      characterData: true,
+    });
+  }
+
+  // Makes a call to get the hint for the baseRole whenever the info icon is hovered over
+  // [Should probably be cached in the future]
+  // [baseRoleHints$ takes care of cancelling an API call if the user moves to another base role&#x27;s info icon]
+  getUserAccessPrivileges(baseRole, event) {
+    //Stop the click event from propogating to parent elements
+    event.stopPropagation();
+    this.popover.show();
+    this.accessPriviligesList &#x3D; [];
+    this.selectedRole &#x3D; baseRole?.label;
+    this.accessPriviligesList &#x3D; baseRole?.entities;
+  }
+
+  // Redirects back to the parent component [user management]
+  backToUserManagement &#x3D; () &#x3D;&gt; {
+    this.router.navigate([&#x27;/settings/users&#x27;]);
+  };
+
+  // Maps password input box&#x27;s type
+  getInputType() {
+    if (this.showPassword) {
+      return &#x27;text&#x27;;
+    }
+    return &#x27;password&#x27;;
+  }
+
+  // Toggles show/hide for password input box
+  toggleShowPassword() {
+    this.showPassword &#x3D; !this.showPassword;
+  }
+
+  // Maps the form back to the required user object and calls the needed function [editUser, createUser, updatePassword]
+  submitForm() {
+    this.loading &#x3D; true;
+    let user: any &#x3D; new (class implements User {
+      id: string;
+      password: string;
+      picture: string;
+      roles: Array&lt;string&gt;;
+      teams: Array&lt;string&gt;;
+      userName: string;
+      clusterIds: Array&lt;string&gt;;
+      groupId: string;
+    })();
+    user.id &#x3D; this.existingUser ? this.existingUser.id : null;
+    user.password &#x3D; this.userModel.get(&#x27;password&#x27;).value;
+    user.userName &#x3D; this.userModel.get(&#x27;userName&#x27;).value;
+    user.picture &#x3D; this.existingUser ? this.existingUser.picture : null;
+    user.teams &#x3D; this.existingUser ? this.existingUser.teams : null;
+    //Remove null values that might have been added by clearing base role selection
+    let roles &#x3D; [this.userModel.get(&#x27;baseRole&#x27;).value].filter(
+      (role) &#x3D;&gt; role !&#x3D;&#x3D; null &amp;&amp; role !&#x3D;&#x3D; undefined &amp;&amp; role !&#x3D;&#x3D; &#x27;&#x27;,
+    );
+    user.roles &#x3D; roles;
+    if (this.mode &#x3D;&#x3D;&#x3D; &#x27;edit&#x27; &amp;&amp; this.existingUser[&#x27;deployerOldRoles&#x27;]) {
+      user.roles.push(...this.existingUser[&#x27;deployerOldRoles&#x27;]);
+    }
+    user.clusterIds &#x3D; this.userModel.get(&#x27;accessibleClusters&#x27;).value;
+    user.groupId &#x3D; this.userModel.get(&#x27;groupName&#x27;).value;
+    this.mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? this.createUser(user) : this.editUser(user);
+  }
+
+  // Calls backend to add new user
+  createUser(user) {
+    delete user[&#x27;id&#x27;];
+    this.applicationController.createUserCCUsingPOST(user).subscribe(
+      (rsp) &#x3D;&gt; {
+        this.loading &#x3D; false;
+        mixpanel.track(USER_CREATE_SUCCESS);
+        this.customToastService.success(
+          &#x60;New user &#x27;${user?.userName}&#x27; created successfully&#x60;,
+        );
+        this.backToUserManagement();
+      },
+      (err) &#x3D;&gt; {
+        this.loading &#x3D; false;
+        mixpanel.track(USER_CREATE_FAIL, { error: err });
+        this.onAPIErrorService.onAPIError(
+          err?.error?.message || &#x27;Could not create new user&#x27;,
+          err,
+        );
+      },
+    );
+  }
+
+  // Calls backend to edit exisiting user
+  editUser(user) {
+    delete user[&#x27;password&#x27;];
+    user[&#x27;userId&#x27;] &#x3D; user.id;
+
+    //If you are in edit mode and user chooses groupId, then reset clusterIds
+    if (user[&#x27;groupId&#x27;]) {
+      if (!user[&#x27;roles&#x27;]?.length) {
+        user[&#x27;roles&#x27;] &#x3D; [&#x27;CC-GUEST&#x27;];
+      }
+      user[&#x27;clusterIds&#x27;] &#x3D; [];
+    }
+
+    this.applicationController
+      .updateUserUsingPUT({ user: user, userId: user.id })
+      .subscribe(
+        (rsp) &#x3D;&gt; {
+          this.loading &#x3D; false;
+          mixpanel.track(USER_EDIT_SUCCESS);
+          this.customToastService.success(
+            &#x60;Updated &#x27;${user.userName}&#x27; successfully&#x60;,
+          );
+          this.backToUserManagement();
+        },
+        (err) &#x3D;&gt; {
+          this.loading &#x3D; false;
+          mixpanel.track(USER_EDIT_FAIL);
+          this.onAPIErrorService.onAPIError(
+            err?.error?.message || &#x27;Failed to update user&#x27;,
+            err,
+          );
+        },
+      );
+  }
+
+  dynamicGroupNameAndRoleValidation() {
+    this.subscriptions.push(
+      this.userModel
+        .get(&#x27;groupName&#x27;)
+        .valueChanges.pipe(distinctUntilChanged())
+        .subscribe((value) &#x3D;&gt; {
+          if (value) {
+            this.userModel.get(&#x27;baseRole&#x27;).clearValidators();
+            this.showDefRoles &#x3D; false;
+          } else {
+            this.userModel.get(&#x27;baseRole&#x27;).setValidators([Validators.required]);
+            this.showDefRoles &#x3D; true;
+          }
+          this.userModel.get(&#x27;baseRole&#x27;).updateValueAndValidity();
+        }),
+    );
+    this.subscriptions.push(
+      this.userModel
+        .get(&#x27;baseRole&#x27;)
+        .valueChanges.pipe(distinctUntilChanged())
+        .subscribe((value) &#x3D;&gt; {
+          if (value) {
+            this.userModel.get(&#x27;groupName&#x27;).clearValidators();
+          } else {
+            this.userModel
+              .get(&#x27;groupName&#x27;)
+              .setValidators([Validators.required]);
+          }
+          this.userModel.get(&#x27;groupName&#x27;).updateValueAndValidity();
+        }),
+    );
+  }
+
+  ngOnDestroy() {
+    this.baseRoleMutationObserver?.disconnect();
+    if (this.subscriptions &amp;&amp; this.subscriptions.length &gt; 0) {
+      this.subscriptions.forEach((s) &#x3D;&gt; s.unsubscribe());
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;userFormWrapper&quot;&gt;
+  &lt;app-page-header
+    [onBack]&#x3D;&quot;backToUserManagement&quot;
+    [heading]&#x3D;&quot;pageHeading[mode]&quot;
+    *ngIf&#x3D;&quot;!loadingUserForm&quot;
+  &gt;&lt;/app-page-header&gt;
+
+  &lt;nb-card class&#x3D;&quot;mt-3&quot;&gt;
+    &lt;nb-card-body class&#x3D;&quot;m-2&quot; [nbSpinner]&#x3D;&quot;loadingUserForm&quot;&gt;
+      &lt;form [formGroup]&#x3D;&quot;userModel&quot; *ngIf&#x3D;&quot;!loadingUserForm&quot;&gt;
+        &lt;!-- User email form group --&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;div class&#x3D;&quot;col-xl-6 col-xs-12&quot;&gt;
+            &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+              &lt;app-custom-form-label
+                label&#x3D;&quot;User email&quot;
+                [required]&#x3D;&quot;true&quot;
+                class&#x3D;&quot;col-md-4 mt-2&quot;
+              &gt;&lt;/app-custom-form-label&gt;
+              &lt;div class&#x3D;&quot;col-md-8&quot;&gt;
+                &lt;input
+                  formControlName&#x3D;&quot;userName&quot;
+                  type&#x3D;&quot;text&quot;
+                  nbInput
+                  size&#x3D;&quot;small&quot;
+                  fullWidth
+                  fieldSize&#x3D;&quot;small&quot;
+                  status&#x3D;&quot;basic&quot;
+                  placeholder&#x3D;&quot;User email&quot;
+                  [status]&#x3D;&quot;
+                    userName.dirty &amp;&amp; userName.invalid ? &#x27;danger&#x27; : &#x27;basic&#x27;
+                  &quot;
+                  appearances
+                /&gt;
+                &lt;div
+                  *ngIf&#x3D;&quot;
+                    userName.invalid &amp;&amp; (userName.dirty || userName.touched)
+                  &quot;
+                &gt;
+                  &lt;p
+                    class&#x3D;&quot;caption text-danger mt-1&quot;
+                    *ngIf&#x3D;&quot;userName.errors?.email&quot;
+                  &gt;
+                    Enter a valid email address
+                  &lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- password form group --&gt;
+        &lt;div class&#x3D;&quot;row mt-2&quot; *ngIf&#x3D;&quot;mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27;&quot;&gt;
+          &lt;div class&#x3D;&quot;col-xl-6 col-xs-12&quot;&gt;
+            &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+              &lt;app-custom-form-label
+                label&#x3D;&quot;Password&quot;
+                [required]&#x3D;&quot;true&quot;
+                class&#x3D;&quot;col-md-4 mt-2&quot;
+              &gt;&lt;/app-custom-form-label&gt;
+              &lt;div class&#x3D;&quot;col-md-8&quot;&gt;
+                &lt;nb-form-field&gt;
+                  &lt;input
+                    placeholder&#x3D;&quot;User password&quot;
+                    [type]&#x3D;&quot;getInputType()&quot;
+                    nbInput
+                    fieldSize&#x3D;&quot;small&quot;
+                    formControlName&#x3D;&quot;password&quot;
+                    fullWidth
+                    [status]&#x3D;&quot;
+                      password.dirty &amp;&amp; password.invalid ? &#x27;danger&#x27; : &#x27;basic&#x27;
+                    &quot;
+                  /&gt;
+                  &lt;button
+                    nbSuffix
+                    nbButton
+                    size&#x3D;&quot;small&quot;
+                    ghost
+                    (click)&#x3D;&quot;toggleShowPassword()&quot;
+                  &gt;
+                    &lt;nb-icon
+                      [icon]&#x3D;&quot;showPassword ? &#x27;eye-outline&#x27; : &#x27;eye-off-outline&#x27;&quot;
+                      pack&#x3D;&quot;eva&quot;
+                      [attr.aria-label]&#x3D;&quot;
+                        showPassword ? &#x27;hide password&#x27; : &#x27;show password&#x27;
+                      &quot;
+                    &gt;
+                    &lt;/nb-icon&gt;
+                  &lt;/button&gt;
+                &lt;/nb-form-field&gt;
+                &lt;div
+                  class&#x3D;&quot;caption text-danger mt-1&quot;
+                  *ngIf&#x3D;&quot;
+                    password.invalid &amp;&amp; (password.dirty || password.touched)
+                  &quot;
+                &gt;
+                  &lt;span *ngIf&#x3D;&quot;password.errors?.required&quot;&gt;
+                    New password is required.
+                  &lt;/span&gt;
+                  &lt;span
+                    *ngIf&#x3D;&quot;
+                      password.errors?.minlength &amp;&amp; !password.errors?.pattern
+                    &quot;
+                  &gt;
+                    Password must be atleast 8 characters long.
+                  &lt;/span&gt;
+                  &lt;span
+                    *ngIf&#x3D;&quot;
+                      password.errors?.maxlength &amp;&amp; !password.errors?.pattern
+                    &quot;
+                  &gt;
+                    Password can be atmost 20 characters long.
+                  &lt;/span&gt;
+                  &lt;span *ngIf&#x3D;&quot;password.errors?.pattern&quot;&gt;
+                    Your password must include at least one upper case, one
+                    lower case, one digit &amp; one special character in it
+                  &lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- User group form group --&gt;
+        &lt;div class&#x3D;&quot;row mt-2&quot;&gt;
+          &lt;div class&#x3D;&quot;col-xl-6 col-xs-12&quot;&gt;
+            &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+              &lt;app-custom-form-label
+                label&#x3D;&quot;User group&quot;
+                [required]&#x3D;&quot;true&quot;
+                toolTip&#x3D;&quot;You can create a user group and assign default roles and env-specific roles. And just, add users to the groups&quot;
+                class&#x3D;&quot;col-md-4 mt-2&quot;
+              &gt;&lt;/app-custom-form-label&gt;
+              &lt;nb-select
+                size&#x3D;&quot;small&quot;
+                placeholder&#x3D;&quot;Select user group&quot;
+                fullWidth
+                formControlName&#x3D;&quot;groupName&quot;
+                class&#x3D;&quot;col-md-8&quot;
+              &gt;
+                &lt;nb-option [value]&#x3D;&quot;null&quot;&gt;Clean Selection&lt;/nb-option&gt;
+                &lt;nb-option
+                  *ngFor&#x3D;&quot;let groups of userGroupDropdownOptions&quot;
+                  [value]&#x3D;&quot;groups.value&quot;
+                  class&#x3D;&quot;d-flex justify-content-between align-items-stretch&quot;
+                &gt;
+                  {{ groups.label }}
+                &lt;/nb-option&gt;
+              &lt;/nb-select&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;ng-container *ngIf&#x3D;&quot;mode &#x3D;&#x3D;&#x3D; &#x27;edit&#x27; &amp;&amp; showDefRoles&quot;&gt;
+          &lt;!-- Default role form group --&gt;
+          &lt;div class&#x3D;&quot;row mt-2&quot;&gt;
+            &lt;div class&#x3D;&quot;col-xl-6 col-xs-12&quot;&gt;
+              &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                &lt;app-custom-form-label
+                  label&#x3D;&quot;Default role&quot;
+                  toolTip&#x3D;&quot;This role defines the default permissions of the users&quot;
+                  class&#x3D;&quot;col-md-4 mt-2&quot;
+                &gt;&lt;/app-custom-form-label&gt;
+
+                &lt;div class&#x3D;&quot;col-md-8&quot;&gt;
+                  &lt;nb-select
+                    size&#x3D;&quot;small&quot;
+                    placeholder&#x3D;&quot;Select default role&quot;
+                    fullWidth
+                    formControlName&#x3D;&quot;baseRole&quot;
+                    (click)&#x3D;&quot;setMutationObserver()&quot;
+                  &gt;
+                    &lt;nb-option [value]&#x3D;&quot;null&quot;&gt;Clean Selection&lt;/nb-option&gt;
+                    &lt;nb-option
+                      *ngFor&#x3D;&quot;let baseRole of baseRoles&quot;
+                      [value]&#x3D;&quot;baseRole?.roleName&quot;
+                      class&#x3D;&quot;d-flex justify-content-between align-items-stretch&quot;
+                    &gt;
+                      {{ baseRole?.label }}
+                      &lt;button
+                        nbButton
+                        [nbPopover]&#x3D;&quot;userRolesPopover&quot;
+                        nbPopoverPlacement&#x3D;&quot;right&quot;
+                        nbPopoverTrigger&#x3D;&quot;noop&quot;
+                        nbPopoverClass&#x3D;&quot;permissions-popover&quot;
+                        (click)&#x3D;&quot;getUserAccessPrivileges(baseRole, $event)&quot;
+                        class&#x3D;&quot;px-2 py-0&quot;
+                        style&#x3D;&quot;background-color: initial; border: none&quot;
+                      &gt;
+                        &lt;nb-icon
+                          class&#x3D;&quot;align-middle&quot;
+                          style&#x3D;&quot;color: #00c2bb; width: 1rem; height: 1rem&quot;
+                          icon&#x3D;&quot;info-outline&quot;
+                          size&#x3D;&quot;tiny&quot;
+                        &gt;
+                        &lt;/nb-icon&gt;
+                      &lt;/button&gt;
+                    &lt;/nb-option&gt;
+                  &lt;/nb-select&gt;
+                  &lt;p class&#x3D;&quot;paragraph-3 mt-1&quot; style&#x3D;&quot;font-size: 0.8125rem&quot;&gt;
+                    * Mandatory if user group is not added
+                  &lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Accessible environments --&gt;
+          &lt;div class&#x3D;&quot;row mt-2&quot;&gt;
+            &lt;div class&#x3D;&quot;col-xl-6 col-xs-12&quot;&gt;
+              &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                &lt;app-custom-form-label
+                  label&#x3D;&quot;Accessible Environments&quot;
+                  class&#x3D;&quot;col-md-4 mt-2&quot;
+                &gt;&lt;/app-custom-form-label&gt;
+                &lt;div class&#x3D;&quot;col-md-8&quot;&gt;
+                  &lt;nb-select
+                    multiple
+                    size&#x3D;&quot;small&quot;
+                    placeholder&#x3D;&quot;Choose accessible environments&quot;
+                    fullWidth
+                    formControlName&#x3D;&quot;accessibleClusters&quot;
+                  &gt;
+                    &lt;nb-select-label
+                      *ngIf&#x3D;&quot;accessibleClusters?.value?.length &gt; 0&quot;
+                    &gt;
+                      {{ accessibleClusters?.value?.length }}
+                      {{
+                        accessibleClusters?.value?.length
+                          | pluralize: &#x27;environment&#x27;
+                      }}
+                      selected
+                    &lt;/nb-select-label&gt;
+                    &lt;nb-option-group
+                      *ngFor&#x3D;&quot;let stack of accessibleEnvironments | keyvalue&quot;
+                      title&#x3D;&quot;{{ stack.key }}&quot;
+                    &gt;
+                      &lt;nb-option
+                        #cluster
+                        *ngFor&#x3D;&quot;let cluster of stack.value&quot;
+                        value&#x3D;&quot;{{ cluster.id }}&quot;
+                      &gt;
+                        {{ cluster.name }}
+                      &lt;/nb-option&gt;
+                    &lt;/nb-option-group&gt;
+                  &lt;/nb-select&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/ng-container&gt;
+      &lt;/form&gt;
+    &lt;/nb-card-body&gt;
+    &lt;nb-card-footer id&#x3D;&quot;submitButton&quot; class&#x3D;&quot;mx-2&quot; *ngIf&#x3D;&quot;!loadingUserForm&quot;&gt;
+      &lt;app-rbac-button
+        [label]&#x3D;&quot;mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? &#x27;Create&#x27; : &#x27;Save changes&#x27;&quot;
+        [toolTip]&#x3D;&quot;mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? &#x27;Create User&#x27; : &#x27;Edit User&#x27;&quot;
+        size&#x3D;&quot;small&quot;
+        status&#x3D;&quot;primary&quot;
+        [action]&#x3D;&quot;userWrite&quot;
+        (onClick)&#x3D;&quot;submitForm()&quot;
+        [disabled]&#x3D;&quot;userModel &amp;&amp; (userModel.pristine || !userModel.valid)&quot;
+        class&#x3D;&quot;mr-3&quot;
+        [loading]&#x3D;&quot;loading&quot;
+        [dataAttrActionId]&#x3D;&quot;
+          mode &#x3D;&#x3D;&#x3D; &#x27;create&#x27; ? &#x27;users-create&#x27; : &#x27;users-edit-save&#x27;
+        &quot;
+      &gt;&lt;/app-rbac-button&gt;
+
+      &lt;button nbButton size&#x3D;&quot;small&quot; (click)&#x3D;&quot;backToUserManagement()&quot;&gt;
+        Cancel
+      &lt;/button&gt;
+    &lt;/nb-card-footer&gt;
+  &lt;/nb-card&gt;
+
+  &lt;ng-template #userRolesPopover let-data&gt;
+    &lt;nb-card
+      class&#x3D;&quot;text-light m-0&quot;
+      style&#x3D;&quot;background-color: #1d215b; width: 45vw; height: 65vh&quot;
+    &gt;
+      &lt;nb-card-body class&#x3D;&quot;p-3&quot;&gt;
+        &lt;p
+          *ngIf&#x3D;&quot;accessPriviligesList?.length &#x3D;&#x3D;&#x3D; 0&quot;
+          class&#x3D;&quot;weight-600 text-light p-2&quot;
+        &gt;
+          No permissions are assigned to role: {{ selectedRole }}
+        &lt;/p&gt;
+        &lt;div *ngIf&#x3D;&quot;accessPriviligesList?.length &gt; 0&quot;&gt;
+          &lt;p class&#x3D;&quot;weight-600 text-light p-2 pl-0&quot;&gt;
+            All Access privileges of &lt;strong&gt;{{ selectedRole }}&lt;/strong&gt; role
+          &lt;/p&gt;
+
+          &lt;div class&#x3D;&quot;d-flex flex-column align-items-start&quot;&gt;
+            &lt;ng-container *ngFor&#x3D;&quot;let privilige of accessPriviligesList&quot;&gt;
+              &lt;p class&#x3D;&quot;paragraph-2 text-light m-2 d-flex&quot;&gt;
+                &lt;!-- &lt;i
+                  class&#x3D;&quot;eva-checkmark-outline eva&quot;
+                  style&#x3D;&quot;margin: auto; margin-right: 0.5rem&quot;
+                &gt;&lt;/i&gt; --&gt;
+                &lt;span&gt;
+                  &lt;b&gt;{{ privilige.permission }} : &lt;/b&gt;
+                  {{ privilige.description }}
+                &lt;/span&gt;
+              &lt;/p&gt;
+            &lt;/ng-container&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/nb-card-body&gt;
+    &lt;/nb-card&gt;
+  &lt;/ng-template&gt;
+
+  &lt;ng-template #additonalRolesPopover let-data&gt;
+    &lt;nb-card
+      class&#x3D;&quot;text-light&quot;
+      style&#x3D;&quot;
+        background-color: #1d215b;
+        display: flex;
+        margin: auto;
+        padding: 0.5rem;
+      &quot;
+    &gt;
+      &lt;p style&#x3D;&quot;color: white; display: flex; margin: auto&quot;&gt;
+        &lt;i
+          class&#x3D;&quot;eva-checkmark-outline eva&quot;
+          style&#x3D;&quot;margin: auto; margin-right: 0.5rem&quot;
+        &gt;&lt;/i&gt;
+        {{ data.hint }}
+      &lt;/p&gt;
+    &lt;/nb-card&gt;
+  &lt;/ng-template&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./create-user.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host ::ng-deep nb-popover .nb-overlay-left {
+  width: 40vw !important;
+  height: 60vh !important;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div id="userFormWrapper">  <app-page-header    [onBack]="backToUserManagement"    [heading]="pageHeading[mode]"    *ngIf="!loadingUserForm"  ></app-page-header>  <nb-card class="mt-3">    <nb-card-body class="m-2" [nbSpinner]="loadingUserForm">      <form [formGroup]="userModel" *ngIf="!loadingUserForm">        <!-- User email form group -->        <div class="row">          <div class="col-xl-6 col-xs-12">            <div class="form-group row">              <app-custom-form-label                label="User email"                [required]="true"                class="col-md-4 mt-2"              ></app-custom-form-label>              <div class="col-md-8">                <input                  formControlName="userName"                  type="text"                  nbInput                  size="small"                  fullWidth                  fieldSize="small"                  status="basic"                  placeholder="User email"                  [status]="                    userName.dirty && userName.invalid ? \'danger\' : \'basic\'                  "                  appearances                />                <div                  *ngIf="                    userName.invalid && (userName.dirty || userName.touched)                  "                >                  <p                    class="caption text-danger mt-1"                    *ngIf="userName.errors?.email"                  >                    Enter a valid email address                  </p>                </div>              </div>            </div>          </div>        </div>        <!-- password form group -->        <div class="row mt-2" *ngIf="mode === \'create\'">          <div class="col-xl-6 col-xs-12">            <div class="form-group row">              <app-custom-form-label                label="Password"                [required]="true"                class="col-md-4 mt-2"              ></app-custom-form-label>              <div class="col-md-8">                <nb-form-field>                  <input                    placeholder="User password"                    [type]="getInputType()"                    nbInput                    fieldSize="small"                    formControlName="password"                    fullWidth                    [status]="                      password.dirty && password.invalid ? \'danger\' : \'basic\'                    "                  />                  <button                    nbSuffix                    nbButton                    size="small"                    ghost                    (click)="toggleShowPassword()"                  >                    <nb-icon                      [icon]="showPassword ? \'eye-outline\' : \'eye-off-outline\'"                      pack="eva"                      [attr.aria-label]="                        showPassword ? \'hide password\' : \'show password\'                      "                    >                    </nb-icon>                  </button>                </nb-form-field>                <div                  class="caption text-danger mt-1"                  *ngIf="                    password.invalid && (password.dirty || password.touched)                  "                >                  <span *ngIf="password.errors?.required">                    New password is required.                  </span>                  <span                    *ngIf="                      password.errors?.minlength && !password.errors?.pattern                    "                  >                    Password must be atleast 8 characters long.                  </span>                  <span                    *ngIf="                      password.errors?.maxlength && !password.errors?.pattern                    "                  >                    Password can be atmost 20 characters long.                  </span>                  <span *ngIf="password.errors?.pattern">                    Your password must include at least one upper case, one                    lower case, one digit & one special character in it                  </span>                </div>              </div>            </div>          </div>        </div>        <!-- User group form group -->        <div class="row mt-2">          <div class="col-xl-6 col-xs-12">            <div class="form-group row">              <app-custom-form-label                label="User group"                [required]="true"                toolTip="You can create a user group and assign default roles and env-specific roles. And just, add users to the groups"                class="col-md-4 mt-2"              ></app-custom-form-label>              <nb-select                size="small"                placeholder="Select user group"                fullWidth                formControlName="groupName"                class="col-md-8"              >                <nb-option [value]="null">Clean Selection</nb-option>                <nb-option                  *ngFor="let groups of userGroupDropdownOptions"                  [value]="groups.value"                  class="d-flex justify-content-between align-items-stretch"                >                  {{ groups.label }}                </nb-option>              </nb-select>            </div>          </div>        </div>        <ng-container *ngIf="mode === \'edit\' && showDefRoles">          <!-- Default role form group -->          <div class="row mt-2">            <div class="col-xl-6 col-xs-12">              <div class="form-group row">                <app-custom-form-label                  label="Default role"                  toolTip="This role defines the default permissions of the users"                  class="col-md-4 mt-2"                ></app-custom-form-label>                <div class="col-md-8">                  <nb-select                    size="small"                    placeholder="Select default role"                    fullWidth                    formControlName="baseRole"                    (click)="setMutationObserver()"                  >                    <nb-option [value]="null">Clean Selection</nb-option>                    <nb-option                      *ngFor="let baseRole of baseRoles"                      [value]="baseRole?.roleName"                      class="d-flex justify-content-between align-items-stretch"                    >                      {{ baseRole?.label }}                      <button                        nbButton                        [nbPopover]="userRolesPopover"                        nbPopoverPlacement="right"                        nbPopoverTrigger="noop"                        nbPopoverClass="permissions-popover"                        (click)="getUserAccessPrivileges(baseRole, $event)"                        class="px-2 py-0"                        style="background-color: initial; border: none"                      >                        <nb-icon                          class="align-middle"                          style="color: #00c2bb; width: 1rem; height: 1rem"                          icon="info-outline"                          size="tiny"                        >                        </nb-icon>                      </button>                    </nb-option>                  </nb-select>                  <p class="paragraph-3 mt-1" style="font-size: 0.8125rem">                    * Mandatory if user group is not added                  </p>                </div>              </div>            </div>          </div>          <!-- Accessible environments -->          <div class="row mt-2">            <div class="col-xl-6 col-xs-12">              <div class="form-group row">                <app-custom-form-label                  label="Accessible Environments"                  class="col-md-4 mt-2"                ></app-custom-form-label>                <div class="col-md-8">                  <nb-select                    multiple                    size="small"                    placeholder="Choose accessible environments"                    fullWidth                    formControlName="accessibleClusters"                  >                    <nb-select-label                      *ngIf="accessibleClusters?.value?.length > 0"                    >                      {{ accessibleClusters?.value?.length }}                      {{                        accessibleClusters?.value?.length                          | pluralize: \'environment\'                      }}                      selected                    </nb-select-label>                    <nb-option-group                      *ngFor="let stack of accessibleEnvironments | keyvalue"                      title="{{ stack.key }}"                    >                      <nb-option                        #cluster                        *ngFor="let cluster of stack.value"                        value="{{ cluster.id }}"                      >                        {{ cluster.name }}                      </nb-option>                    </nb-option-group>                  </nb-select>                </div>              </div>            </div>          </div>        </ng-container>      </form>    </nb-card-body>    <nb-card-footer id="submitButton" class="mx-2" *ngIf="!loadingUserForm">      <app-rbac-button        [label]="mode === \'create\' ? \'Create\' : \'Save changes\'"        [toolTip]="mode === \'create\' ? \'Create User\' : \'Edit User\'"        size="small"        status="primary"        [action]="userWrite"        (onClick)="submitForm()"        [disabled]="userModel && (userModel.pristine || !userModel.valid)"        class="mr-3"        [loading]="loading"        [dataAttrActionId]="          mode === \'create\' ? \'users-create\' : \'users-edit-save\'        "      ></app-rbac-button>      <button nbButton size="small" (click)="backToUserManagement()">        Cancel      </button>    </nb-card-footer>  </nb-card>  <ng-template #userRolesPopover let-data>    <nb-card      class="text-light m-0"      style="background-color: #1d215b; width: 45vw; height: 65vh"    >      <nb-card-body class="p-3">        <p          *ngIf="accessPriviligesList?.length === 0"          class="weight-600 text-light p-2"        >          No permissions are assigned to role: {{ selectedRole }}        </p>        <div *ngIf="accessPriviligesList?.length > 0">          <p class="weight-600 text-light p-2 pl-0">            All Access privileges of <strong>{{ selectedRole }}</strong> role          </p>          <div class="d-flex flex-column align-items-start">            <ng-container *ngFor="let privilige of accessPriviligesList">              <p class="paragraph-2 text-light m-2 d-flex">                <!-- <i                  class="eva-checkmark-outline eva"                  style="margin: auto; margin-right: 0.5rem"                ></i> -->                <span>                  <b>{{ privilige.permission }} : </b>                  {{ privilige.description }}                </span>              </p>            </ng-container>          </div>        </div>      </nb-card-body>    </nb-card>  </ng-template>  <ng-template #additonalRolesPopover let-data>    <nb-card      class="text-light"      style="        background-color: #1d215b;        display: flex;        margin: auto;        padding: 0.5rem;      "    >      <p style="color: white; display: flex; margin: auto">        <i          class="eva-checkmark-outline eva"          style="margin: auto; margin-right: 0.5rem"        ></i>        {{ data.hint }}      </p>    </nb-card>  </ng-template></div></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'CreateUserComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CreateUserComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

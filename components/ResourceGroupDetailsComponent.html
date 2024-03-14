@@ -1,0 +1,2699 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ResourceGroupDetailsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+    </p>
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-resource-group-details</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./resource-group-details.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./resource-group-details.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addingResource" >addingResource</a>
+                            </li>
+                            <li>
+                                <a href="#allBlueprints" >allBlueprints</a>
+                            </li>
+                            <li>
+                                <a href="#allResources" >allResources</a>
+                            </li>
+                            <li>
+                                <a href="#allResourcesForBlueprint" >allResourcesForBlueprint</a>
+                            </li>
+                            <li>
+                                <a href="#backToUserManagement" >backToUserManagement</a>
+                            </li>
+                            <li>
+                                <a href="#changeRegistered" >changeRegistered</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Private</span>
+                                <a href="#createResourceDialog" >createResourceDialog</a>
+                            </li>
+                            <li>
+                                <a href="#errorIcon" >errorIcon</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingBlueprints" >fetchingBlueprints</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingError" >fetchingError</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingResource" >fetchingResource</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingResources" >fetchingResources</a>
+                            </li>
+                            <li>
+                                <a href="#noAccessIcon" >noAccessIcon</a>
+                            </li>
+                            <li>
+                                <a href="#noDataIcon" >noDataIcon</a>
+                            </li>
+                            <li>
+                                <a href="#RESOURCE_GROUP_WRITE" >RESOURCE_GROUP_WRITE</a>
+                            </li>
+                            <li>
+                                <a href="#resourceForm" >resourceForm</a>
+                            </li>
+                            <li>
+                                <a href="#resourceGroupID" >resourceGroupID</a>
+                            </li>
+                            <li>
+                                <a href="#resourceGroupName" >resourceGroupName</a>
+                            </li>
+                            <li>
+                                <a href="#resourceMapForBlueprint" >resourceMapForBlueprint</a>
+                            </li>
+                            <li>
+                                <a href="#resourceTableConfig" >resourceTableConfig</a>
+                            </li>
+                            <li>
+                                <a href="#selectedBlueprint" >selectedBlueprint</a>
+                            </li>
+                            <li>
+                                <a href="#stackName" >stackName</a>
+                            </li>
+                            <li>
+                                <a href="#tempResourceList" >tempResourceList</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#buildResourceFilter" >buildResourceFilter</a>
+                            </li>
+                            <li>
+                                <a href="#createResource" >createResource</a>
+                            </li>
+                            <li>
+                                <a href="#fetchAllResourcesForBlueprint" >fetchAllResourcesForBlueprint</a>
+                            </li>
+                            <li>
+                                <a href="#getAllBlueprints" >getAllBlueprints</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAllResourcesForBlueprint" >getAllResourcesForBlueprint</a>
+                            </li>
+                            <li>
+                                <a href="#getEntriesOfMap" >getEntriesOfMap</a>
+                            </li>
+                            <li>
+                                <a href="#getResources" >getResources</a>
+                            </li>
+                            <li>
+                                <a href="#initResourceForm" >initResourceForm</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageLoad" >OnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#preFillResources" >preFillResources</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#promptCreateResourceDialog" >promptCreateResourceDialog</a>
+                            </li>
+                            <li>
+                                <a href="#removedItem" >removedItem</a>
+                            </li>
+                            <li>
+                                <a href="#removeResource" >removeResource</a>
+                            </li>
+                            <li>
+                                <a href="#removeTag" >removeTag</a>
+                            </li>
+                            <li>
+                                <a href="#selectedOption" >selectedOption</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageInit" >OnPageInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_route: ActivatedRoute, router: Router, dialogService: NbDialogService, uiResourceGroupController: <a href="../injectables/UiResourceGroupControllerService.html" target="_self">UiResourceGroupControllerService</a>, contextUpdateService: <a href="../injectables/ContextUpdatesService.html" target="_self">ContextUpdatesService</a>, uiStackControllerService: <a href="../injectables/UiStackControllerService.html" target="_self">UiStackControllerService</a>, uiDropdownsControllerService: <a href="../injectables/UiDropdownsControllerService.html" target="_self">UiDropdownsControllerService</a>, customToastService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>, onAPIErrorService: <a href="../injectables/OnAPIErrorService.html" target="_self">OnAPIErrorService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:107</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NbDialogService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiResourceGroupController</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiResourceGroupControllerService.html" target="_self" >UiResourceGroupControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>contextUpdateService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContextUpdatesService.html" target="_self" >ContextUpdatesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiStackControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiStackControllerService.html" target="_self" >UiStackControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiDropdownsControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiDropdownsControllerService.html" target="_self" >UiDropdownsControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToastService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>onAPIErrorService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OnAPIErrorService.html" target="_self" >OnAPIErrorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildResourceFilter"></a>
+                    <span class="name">
+                        <span ><b>buildResourceFilter</b></span>
+                        <a href="#buildResourceFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>buildResourceFilter(resourceData, filterType)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="347"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:347</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>resourceData</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>filterType</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createResource"></a>
+                    <span class="name">
+                        <span ><b>createResource</b></span>
+                        <a href="#createResource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createResource(ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="288"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:288</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchAllResourcesForBlueprint"></a>
+                    <span class="name">
+                        <span ><b>fetchAllResourcesForBlueprint</b></span>
+                        <a href="#fetchAllResourcesForBlueprint"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>fetchAllResourcesForBlueprint()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="241"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:241</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllBlueprints"></a>
+                    <span class="name">
+                        <span ><b>getAllBlueprints</b></span>
+                        <a href="#getAllBlueprints"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllBlueprints()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="206"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:206</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllResourcesForBlueprint"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getAllResourcesForBlueprint</b></span>
+                        <a href="#getAllResourcesForBlueprint"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAllResourcesForBlueprint()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:217</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEntriesOfMap"></a>
+                    <span class="name">
+                        <span ><b>getEntriesOfMap</b></span>
+                        <a href="#getEntriesOfMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getEntriesOfMap()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="282"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:282</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getResources"></a>
+                    <span class="name">
+                        <span ><b>getResources</b></span>
+                        <a href="#getResources"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getResources()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="141"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:141</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initResourceForm"></a>
+                    <span class="name">
+                        <span ><b>initResourceForm</b></span>
+                        <a href="#initResourceForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initResourceForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="130"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:130</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>OnPageLoad</b></span>
+                        <a href="#OnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:123</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="preFillResources"></a>
+                    <span class="name">
+                        <span ><b>preFillResources</b></span>
+                        <a href="#preFillResources"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>preFillResources()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="226"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:226</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="promptCreateResourceDialog"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>promptCreateResourceDialog</b></span>
+                        <a href="#promptCreateResourceDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>promptCreateResourceDialog()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="182"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:182</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removedItem"></a>
+                    <span class="name">
+                        <span ><b>removedItem</b></span>
+                        <a href="#removedItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removedItem(event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="342"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:342</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeResource"></a>
+                    <span class="name">
+                        <span ><b>removeResource</b></span>
+                        <a href="#removeResource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeResource(item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="200"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:200</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeTag"></a>
+                    <span class="name">
+                        <span ><b>removeTag</b></span>
+                        <a href="#removeTag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeTag(tag: <a href="../components/TagComponent.html" target="_self">NbTagComponent</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="271"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:271</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tag</td>
+                                            <td>
+                                                            <code><a href="../components/TagComponent.html" target="_self" >NbTagComponent</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedOption"></a>
+                    <span class="name">
+                        <span ><b>selectedOption</b></span>
+                        <a href="#selectedOption"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectedOption(event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="337"
+                                    class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:337</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageInit"></a>
+                    <span class="name">
+                        <span ><b>OnPageInit</b></span>
+                        <a href="#OnPageInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:20</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addingResource"></a>
+                    <span class="name">
+                        <span ><b>addingResource</b></span>
+                        <a href="#addingResource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allBlueprints"></a>
+                    <span class="name">
+                        <span ><b>allBlueprints</b></span>
+                        <a href="#allBlueprints"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allResources"></a>
+                    <span class="name">
+                        <span ><b>allResources</b></span>
+                        <a href="#allResources"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allResourcesForBlueprint"></a>
+                    <span class="name">
+                        <span ><b>allResourcesForBlueprint</b></span>
+                        <a href="#allResourcesForBlueprint"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="backToUserManagement"></a>
+                    <span class="name">
+                        <span ><b>backToUserManagement</b></span>
+                        <a href="#backToUserManagement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:137</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeRegistered"></a>
+                    <span class="name">
+                        <span ><b>changeRegistered</b></span>
+                        <a href="#changeRegistered"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createResourceDialog"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Private</span>
+                        <span ><b>createResourceDialog</b></span>
+                        <a href="#createResourceDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;createResourceDialog&#x27;, {static: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorIcon"></a>
+                    <span class="name">
+                        <span ><b>errorIcon</b></span>
+                        <a href="#errorIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>errorStateIcon</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingBlueprints"></a>
+                    <span class="name">
+                        <span ><b>fetchingBlueprints</b></span>
+                        <a href="#fetchingBlueprints"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingError"></a>
+                    <span class="name">
+                        <span ><b>fetchingError</b></span>
+                        <a href="#fetchingError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingResource"></a>
+                    <span class="name">
+                        <span ><b>fetchingResource</b></span>
+                        <a href="#fetchingResource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingResources"></a>
+                    <span class="name">
+                        <span ><b>fetchingResources</b></span>
+                        <a href="#fetchingResources"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="noAccessIcon"></a>
+                    <span class="name">
+                        <span ><b>noAccessIcon</b></span>
+                        <a href="#noAccessIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>noAccessIcon</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="noDataIcon"></a>
+                    <span class="name">
+                        <span ><b>noDataIcon</b></span>
+                        <a href="#noDataIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>emptyStateIcon</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RESOURCE_GROUP_WRITE"></a>
+                    <span class="name">
+                        <span ><b>RESOURCE_GROUP_WRITE</b></span>
+                        <a href="#RESOURCE_GROUP_WRITE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>RESOURCE_GROUP_WRITE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceForm"></a>
+                    <span class="name">
+                        <span ><b>resourceForm</b></span>
+                        <a href="#resourceForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceGroupID"></a>
+                    <span class="name">
+                        <span ><b>resourceGroupID</b></span>
+                        <a href="#resourceGroupID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceGroupName"></a>
+                    <span class="name">
+                        <span ><b>resourceGroupName</b></span>
+                        <a href="#resourceGroupName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceMapForBlueprint"></a>
+                    <span class="name">
+                        <span ><b>resourceMapForBlueprint</b></span>
+                        <a href="#resourceMapForBlueprint"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map&lt;string | string[]&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceTableConfig"></a>
+                    <span class="name">
+                        <span ><b>resourceTableConfig</b></span>
+                        <a href="#resourceTableConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    columns: {
+      stackName: {
+        title: &#x27;Blueprint&#x27;,
+        filter: {
+          type: &#x27;list&#x27;,
+          config: {
+            selectText: &#x27;All&#x27;,
+            list: [],
+          },
+        },
+        valuePrepareFunction: (value) &#x3D;&gt; {
+          const displayVal &#x3D; {
+            url: [&#x27;/&#x27;, &#x27;stack&#x27;, value],
+            display: value,
+          };
+          return JSON.stringify(displayVal);
+        },
+        renderComponent: SmartTableRouterlinkComponent,
+        type: &#x27;custom&#x27;,
+      },
+      resourceType: {
+        title: &#x27;Resource Type&#x27;,
+        filter: {
+          type: &#x27;list&#x27;,
+          config: {
+            selectText: &#x27;All&#x27;,
+            list: [],
+          },
+        },
+        type: &#x27;text&#x27;,
+        valuePrepareFunction(type, row) {
+          return type?.length &gt; 0 ? type : &#x27;N/A&#x27;;
+        },
+      },
+      resourceName: {
+        title: &#x27;Resource name&#x27;,
+        filter: true,
+      },
+    },
+    pager: {
+      display: false,
+      perPage: 10,
+    },
+    mode: &#x27;external&#x27;,
+    actions: false,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedBlueprint"></a>
+                    <span class="name">
+                        <span ><b>selectedBlueprint</b></span>
+                        <a href="#selectedBlueprint"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stackName"></a>
+                    <span class="name">
+                        <span ><b>stackName</b></span>
+                        <a href="#stackName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tempResourceList"></a>
+                    <span class="name">
+                        <span ><b>tempResourceList</b></span>
+                        <a href="#tempResourceList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/pages/user-management/resource-groups/resource-group-details/resource-group-details.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, TemplateRef, ViewChild } from &#x27;@angular/core&#x27;;
+import { FormControl, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { ActivatedRoute, Params, Router } from &#x27;@angular/router&#x27;;
+import { NbDialogService, NbTagComponent } from &#x27;@nebular/theme&#x27;;
+import mixpanel from &#x27;mixpanel-browser&#x27;;
+import {
+  UiDropdownsControllerService,
+  UiResourceGroupControllerService,
+  UiStackControllerService,
+} from &#x27;src/app/cc-api/services&#x27;;
+import { SmartTableRouterlinkComponent } from &#x27;src/app/components/smart-table-routerlink/smart-table-routerlink.component&#x27;;
+import {
+  USER_RESOURCE_GROUP_EDIT_FAIL,
+  USER_RESOURCE_GROUP_EDIT_SUCCESS,
+} from &#x27;src/app/constants/analytics-track-events&#x27;;
+import { RESOURCE_GROUP_WRITE } from &#x27;src/app/constants/permissions&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import { CustomToastService } from &#x27;src/app/pages/custom-toast/custom-toast.service&#x27;;
+import { ContextUpdatesService } from &#x27;src/app/services/context-updates.service&#x27;;
+import { OnAPIErrorService } from &#x27;src/app/services/on-api-error.service&#x27;;
+const noAccessIcon &#x3D; &#x27;./assets/alert-empty.svg&#x27;;
+const errorStateIcon &#x3D; &#x27;./assets/error.svg&#x27;;
+const emptyStateIcon &#x3D; &#x27;./assets/empty_resources.svg&#x27;;
+
+@Component({
+  selector: &#x27;app-resource-group-details&#x27;,
+  templateUrl: &#x27;./resource-group-details.component.html&#x27;,
+  styleUrls: [&#x27;./resource-group-details.component.scss&#x27;],
+})
+export class ResourceGroupDetailsComponent extends FacetsPage {
+  noAccessIcon &#x3D; noAccessIcon;
+  noDataIcon &#x3D; emptyStateIcon;
+  errorIcon &#x3D; errorStateIcon;
+  RESOURCE_GROUP_WRITE &#x3D; RESOURCE_GROUP_WRITE;
+
+  resourceGroupName: string;
+  resourceGroupID: string;
+  stackName: string;
+
+  selectedBlueprint: any;
+  allBlueprints: any[];
+  allResourcesForBlueprint: any[];
+  resourceMapForBlueprint: Map&lt;string, string[]&gt;;
+
+  allResources: any[];
+  fetchingResources: boolean &#x3D; false;
+  fetchingError: boolean &#x3D; false;
+
+  resourceForm: FormGroup;
+
+  fetchingResource: boolean &#x3D; false;
+  fetchingBlueprints: boolean &#x3D; false;
+  tempResourceList: any &#x3D; [];
+  addingResource: boolean &#x3D; false;
+
+  changeRegistered: boolean &#x3D; false;
+
+  @ViewChild(&#x27;createResourceDialog&#x27;, { static: true })
+  private createResourceDialog: TemplateRef&lt;any&gt;;
+
+  resourceTableConfig: any &#x3D; {
+    columns: {
+      stackName: {
+        title: &#x27;Blueprint&#x27;,
+        filter: {
+          type: &#x27;list&#x27;,
+          config: {
+            selectText: &#x27;All&#x27;,
+            list: [],
+          },
+        },
+        valuePrepareFunction: (value) &#x3D;&gt; {
+          const displayVal &#x3D; {
+            url: [&#x27;/&#x27;, &#x27;stack&#x27;, value],
+            display: value,
+          };
+          return JSON.stringify(displayVal);
+        },
+        renderComponent: SmartTableRouterlinkComponent,
+        type: &#x27;custom&#x27;,
+      },
+      resourceType: {
+        title: &#x27;Resource Type&#x27;,
+        filter: {
+          type: &#x27;list&#x27;,
+          config: {
+            selectText: &#x27;All&#x27;,
+            list: [],
+          },
+        },
+        type: &#x27;text&#x27;,
+        valuePrepareFunction(type, row) {
+          return type?.length &gt; 0 ? type : &#x27;N/A&#x27;;
+        },
+      },
+      resourceName: {
+        title: &#x27;Resource name&#x27;,
+        filter: true,
+      },
+    },
+    pager: {
+      display: false,
+      perPage: 10,
+    },
+    mode: &#x27;external&#x27;,
+    actions: false,
+  };
+
+  constructor(
+    private _route: ActivatedRoute,
+    private router: Router,
+    private dialogService: NbDialogService,
+    private uiResourceGroupController: UiResourceGroupControllerService,
+    private contextUpdateService: ContextUpdatesService,
+    private uiStackControllerService: UiStackControllerService,
+    private uiDropdownsControllerService: UiDropdownsControllerService,
+    private customToastService: CustomToastService,
+    private onAPIErrorService: OnAPIErrorService,
+  ) {
+    super(_route);
+  }
+
+  OnPageLoad(p: Params): void {
+    this.resourceGroupName &#x3D; this.route.snapshot.paramMap.get(&#x27;resourceGroup&#x27;);
+    this.initResourceForm();
+    this.stackName &#x3D; p.stackName;
+    this.getResources();
+  }
+
+  initResourceForm() {
+    this.resourceForm &#x3D; new FormGroup({
+      blueprint: new FormControl(&#x27;&#x27;, [Validators.required]),
+      resources: new FormControl([]),
+    });
+  }
+
+  backToUserManagement &#x3D; () &#x3D;&gt; {
+    this.router.navigate([&#x27;/settings/users/resource-groups&#x27;]);
+  };
+
+  getResources() {
+    this.fetchingResources &#x3D; true;
+    this.allResources &#x3D; [];
+
+    this.uiResourceGroupController
+      .findAllUsingGET()
+      .subscribe(
+        (resources) &#x3D;&gt; {
+          // THIS IS ASSUMING that 2 resource groups cannot have the same name
+          let resourceGroup: any &#x3D; resources.find(
+            (resourceGrp) &#x3D;&gt; resourceGrp.name &#x3D;&#x3D;&#x3D; this.resourceGroupName,
+          );
+          this.resourceGroupID &#x3D; resourceGroup.id;
+          resourceGroup?.resourceInfo?.forEach((stack: any) &#x3D;&gt; {
+            let resources &#x3D; [];
+            stack.resources?.forEach((resourceType: any) &#x3D;&gt; {
+              resourceType?.resourceNames?.forEach((resource) &#x3D;&gt; {
+                resources.push({
+                  resourceName: resource,
+                  resourceType: resourceType.resourceType,
+                  stackName: stack.stackName,
+                });
+              });
+            });
+            this.allResources.push(...resources);
+            this.buildResourceFilter(this.allResources, &#x27;resourceType&#x27;);
+            this.buildResourceFilter(this.allResources, &#x27;stackName&#x27;);
+          });
+        },
+        (error) &#x3D;&gt; {
+          this.onAPIErrorService.onAPIError(
+            error?.error?.message || &#x27;Could not fetch the resources&#x27;,
+            error,
+          );
+        },
+      )
+      .add(() &#x3D;&gt; {
+        this.fetchingResources &#x3D; false;
+      });
+  }
+
+  async promptCreateResourceDialog() {
+    this.allBlueprints &#x3D; this.contextUpdateService.getAllBlueprints();
+    this.addingResource &#x3D; false;
+    this.tempResourceList &#x3D; [];
+    this.fetchingResource &#x3D; false;
+    this.resourceMapForBlueprint?.clear();
+
+    this.initResourceForm();
+
+    if (!this.allBlueprints?.length) {
+      await this.getAllBlueprints();
+    }
+
+    this.dialogService.open(this.createResourceDialog, {
+      closeOnBackdropClick: false,
+    });
+  }
+
+  removeResource(item: any) {
+    const currentResources &#x3D; this.resourceForm.get(&#x27;resources&#x27;).value;
+    const newItems &#x3D; currentResources.filter((i: any) &#x3D;&gt; i !&#x3D;&#x3D; item);
+    this.resourceForm.get(&#x27;resources&#x27;).setValue(newItems);
+  }
+
+  getAllBlueprints() {
+    return new Promise((resolve) &#x3D;&gt; {
+      this.fetchingBlueprints &#x3D; true;
+      this.uiStackControllerService.getStacksUsingGET1().subscribe((stacks) &#x3D;&gt; {
+        this.allBlueprints &#x3D; stacks.map((stack: any) &#x3D;&gt; stack.name);
+        this.fetchingBlueprints &#x3D; false;
+        resolve(true);
+      });
+    });
+  }
+
+  async getAllResourcesForBlueprint() {
+    this.resourceForm.patchValue({
+      resources: [],
+    });
+    this.changeRegistered &#x3D; false;
+    await this.fetchAllResourcesForBlueprint();
+    this.preFillResources();
+  }
+
+  preFillResources() {
+    this.tempResourceList &#x3D; [];
+    this.allResources?.forEach((resource) &#x3D;&gt; {
+      if (resource.stackName &#x3D;&#x3D;&#x3D; this.resourceForm.get(&#x27;blueprint&#x27;)?.value) {
+        this.tempResourceList.push({
+          title: resource.resourceType,
+          value: resource.resourceName,
+        });
+      }
+    });
+    if (this.tempResourceList?.length) {
+      this.tempResourceList &#x3D; [...this.tempResourceList];
+    }
+  }
+
+  fetchAllResourcesForBlueprint() {
+    this.tempResourceList &#x3D; [];
+    return new Promise((resolve) &#x3D;&gt; {
+      this.fetchingResource &#x3D; true;
+      this.uiDropdownsControllerService
+        .getAllResourcesByStackUsingGET({
+          stackName: this.resourceForm.get(&#x27;blueprint&#x27;)?.value,
+          includeContent: false,
+        })
+        .subscribe((data) &#x3D;&gt; {
+          this.resourceMapForBlueprint &#x3D; new Map&lt;string, string[]&gt;();
+          data.forEach((resource: any) &#x3D;&gt; {
+            if (resource.resourceType.toLowerCase() !&#x3D; &#x27;unknown&#x27;) {
+              if (!this.resourceMapForBlueprint.has(resource.resourceType)) {
+                this.resourceMapForBlueprint.set(resource.resourceType, []);
+              }
+              this.resourceMapForBlueprint
+                .get(resource.resourceType)
+                .push(resource.resourceName);
+            }
+          });
+        })
+        .add(() &#x3D;&gt; {
+          this.fetchingResource &#x3D; false;
+          resolve(true);
+        });
+    });
+  }
+
+  // get selectedTags from reactive form
+  removeTag(tag: NbTagComponent) {
+    const tags &#x3D; this.resourceForm.get(&#x27;resources&#x27;)?.value;
+    const index &#x3D; tags.indexOf(tag.text);
+    if (index !&#x3D;&#x3D; -1) {
+      tags.splice(index, 1);
+    }
+    this.resourceForm.patchValue({
+      resources: tags,
+    });
+  }
+
+  getEntriesOfMap() {
+    if (this.resourceMapForBlueprint) {
+      return Array.from(this.resourceMapForBlueprint?.keys())?.sort();
+    }
+  }
+
+  createResource(ref) {
+    let stack &#x3D; this.resourceForm.get(&#x27;blueprint&#x27;).value;
+    const payLoad: any &#x3D; {
+      resources: new Map&lt;string, string[]&gt;(),
+      stackName: stack,
+    };
+    this.tempResourceList.forEach((resource: any) &#x3D;&gt; {
+      if (!payLoad.resources.has(resource.title)) {
+        payLoad.resources.set(resource.title, []);
+      }
+      payLoad.resources.get(resource.title).push(resource.value);
+    });
+    const resourcesList &#x3D; [];
+    Array.from(payLoad.resources.keys()).forEach((resourceType) &#x3D;&gt; {
+      resourcesList.push({
+        resourceType: resourceType,
+        resourceNames: payLoad.resources.get(resourceType),
+      });
+    });
+    payLoad.resources &#x3D; resourcesList;
+    this.addingResource &#x3D; true;
+    this.uiResourceGroupController
+      .updateResourceUsingPATCH({
+        resourceGroupId: this.resourceGroupID,
+        resourceUpdateRequest: payLoad,
+      })
+      .subscribe(
+        (data) &#x3D;&gt; {
+          mixpanel.track(USER_RESOURCE_GROUP_EDIT_SUCCESS);
+          this.customToastService.success(
+            &#x60;Updated resources for ${this.resourceGroupName}&#x60;,
+          );
+          ref.close();
+          this.getResources();
+        },
+        (error) &#x3D;&gt; {
+          mixpanel.track(USER_RESOURCE_GROUP_EDIT_FAIL, { error });
+          this.onAPIErrorService.onAPIError(
+            error?.error?.message || &#x27;Failed to update the resources&#x27;,
+            error,
+          );
+        },
+      )
+      .add(() &#x3D;&gt; {
+        this.addingResource &#x3D; true;
+        this.tempResourceList &#x3D; [];
+      });
+  }
+
+  selectedOption(event) {
+    this.changeRegistered &#x3D; true;
+    this.tempResourceList &#x3D; [...event?.visibleList];
+  }
+
+  removedItem(event) {
+    this.changeRegistered &#x3D; true;
+    this.tempResourceList &#x3D; [...event?.visibleList];
+  }
+
+  buildResourceFilter(resourceData, filterType) {
+    let resourceFilterData: {
+      title;
+      value;
+    }[] &#x3D; Array.from(
+      new Set(resourceData?.map((resource) &#x3D;&gt; resource[filterType])),
+    )
+      .sort()
+      .map((name) &#x3D;&gt; {
+        return {
+          title: name,
+          value: name,
+        };
+      });
+    this.resourceTableConfig.columns[filterType].filter.config.list &#x3D; [
+      ...resourceFilterData,
+    ];
+    this.resourceTableConfig &#x3D; { ...this.resourceTableConfig };
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-page-header
+  [heading]&#x3D;&quot;resourceGroupName&quot;
+  subheading&#x3D;&quot;View and edit resource group and its resources&quot;
+  [onBack]&#x3D;&quot;backToUserManagement&quot;
+&gt;&lt;/app-page-header&gt;
+
+&lt;nb-card
+  class&#x3D;&quot;background-grey py-5&quot;
+  *ngIf&#x3D;&quot;!allResources || !allResources.length || fetchingResources&quot;
+&gt;
+  &lt;nb-card-body [nbSpinner]&#x3D;&quot;fetchingResources&quot;&gt;
+    &lt;app-message
+      *ngIf&#x3D;&quot;!fetchingResources &amp;&amp; (!allResources || !allResources?.length)&quot;
+      [toolTip]&#x3D;&quot;&#x27;Add Resources&#x27;&quot;
+      [imgUrl]&#x3D;&quot;noDataIcon&quot;
+      [primaryMsg]&#x3D;&quot;&#x27;There are no resources here.&#x27;&quot;
+      [secondaryMsg]&#x3D;&quot;&#x27;You will see resources after you add some.&#x27;&quot;
+      (buttonClick)&#x3D;&quot;promptCreateResourceDialog()&quot;
+      [buttonText]&#x3D;&quot;&#x27;Add Resources&#x27;&quot;
+      action&#x3D;&quot;{{ RESOURCE_GROUP_WRITE }}&quot;
+      [showBtn]&#x3D;&quot;true&quot;
+      [status]&#x3D;&quot;&#x27;info&#x27;&quot;
+      [nbSpinner]&#x3D;&quot;fetchingResources || fetchingBlueprints&quot;
+    &gt;&lt;/app-message&gt;
+  &lt;/nb-card-body&gt;
+&lt;/nb-card&gt;
+
+&lt;div
+  class&#x3D;&quot;mt-3 d-flex justify-content-end&quot;
+  *ngIf&#x3D;&quot;!fetchingResources &amp;&amp; allResources?.length&quot;
+&gt;
+  &lt;app-rbac-button
+    label&#x3D;&quot;Update Resources&quot;
+    toolTip&#x3D;&quot;Update Resources&quot;
+    status&#x3D;&quot;primary&quot;
+    action&#x3D;&quot;{{ RESOURCE_GROUP_WRITE }}&quot;
+    (onClick)&#x3D;&quot;promptCreateResourceDialog()&quot;
+    class&#x3D;&quot;float-right&quot;
+    [disabled]&#x3D;&quot;fetchingResources || fetchingBlueprints&quot;
+    [nbSpinner]&#x3D;&quot;fetchingResources || fetchingBlueprints&quot;
+  &gt;&lt;/app-rbac-button&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;mt-3&quot; *ngIf&#x3D;&quot;!fetchingResources &amp;&amp; allResources?.length&quot;&gt;
+  &lt;nb-card&gt;
+    &lt;nb-card-body [nbSpinner]&#x3D;&quot;fetchingResources&quot;&gt;
+      &lt;ng2-smart-table
+        class&#x3D;&quot;cc-no-standard&quot;
+        [settings]&#x3D;&quot;resourceTableConfig&quot;
+        [source]&#x3D;&quot;allResources&quot;
+      &gt;&lt;/ng2-smart-table&gt;
+    &lt;/nb-card-body&gt;
+  &lt;/nb-card&gt;
+&lt;/div&gt;
+
+&lt;ng-template #createResourceDialog let-data let-ref&#x3D;&quot;dialogRef&quot;&gt;
+  &lt;nb-card style&#x3D;&quot;width: 35rem&quot;&gt;
+    &lt;nb-card-header&gt;
+      &lt;ng-container
+        *ngIf&#x3D;&quot;!allResources || !allResources.length; else updateRes&quot;
+      &gt;
+        Add Resources
+      &lt;/ng-container&gt;
+      &lt;ng-template #updateRes&gt; Update Resources &lt;/ng-template&gt;
+      &lt;nb-icon
+        icon&#x3D;&quot;close-outline&quot;
+        class&#x3D;&quot;float-right cursor-pointer&quot;
+        (click)&#x3D;&quot;ref.close()&quot;
+      &gt;&lt;/nb-icon&gt;
+    &lt;/nb-card-header&gt;
+
+    &lt;nb-card-body&gt;
+      &lt;form [formGroup]&#x3D;&quot;resourceForm&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+          &lt;div class&#x3D;&quot;col-5 d-flex&quot;&gt;
+            &lt;label class&#x3D;&quot;formLabel weight-600 mr-2&quot;&gt;
+              Blueprint*
+              &lt;nb-icon pack&#x3D;&quot;fci&quot; icon&#x3D;&quot;alert-circle-outline&quot;&gt;&lt;/nb-icon&gt;
+            &lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;col-7&quot;&gt;
+            &lt;nb-select
+              placeholder&#x3D;&quot;Blueprints&quot;
+              formControlName&#x3D;&quot;blueprint&quot;
+              size&#x3D;&quot;small&quot;
+              class&#x3D;&quot;w-100&quot;
+            &gt;
+              &lt;nb-option
+                (click)&#x3D;&quot;getAllResourcesForBlueprint()&quot;
+                *ngFor&#x3D;&quot;let blueprint of allBlueprints&quot;
+                [value]&#x3D;&quot;blueprint&quot;
+              &gt;
+                {{ blueprint }}
+              &lt;/nb-option&gt;
+            &lt;/nb-select&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+          &lt;div class&#x3D;&quot;col-5 d-flex&quot;&gt;
+            &lt;label class&#x3D;&quot;formLabel weight-600 mr-2&quot;&gt;
+              Resources*
+              &lt;nb-icon pack&#x3D;&quot;fci&quot; icon&#x3D;&quot;alert-circle-outline&quot;&gt;&lt;/nb-icon&gt;
+            &lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;col-7&quot;&gt;
+            &lt;app-multi-select-search
+              [showSpinner]&#x3D;&quot;fetchingResource&quot;
+              class&#x3D;&quot;w-100&quot;
+              name&#x3D;&quot;resourceSelect&quot;
+              [multi]&#x3D;&quot;true&quot;
+              [dropdownContent]&#x3D;&quot;resourceMapForBlueprint&quot;
+              [placeholder]&#x3D;&quot;fetchingResource ? &#x27;&#x27; : &#x27;Search resources&#x27;&quot;
+              (selectedOption)&#x3D;&quot;selectedOption($event)&quot;
+              (removedItem)&#x3D;&quot;removedItem($event)&quot;
+              size&#x3D;&quot;small&quot;
+              [preselectList]&#x3D;&quot;tempResourceList&quot;
+              [itemName]&#x3D;&quot;&#x27;Resource&#x27;&quot;
+            &gt;&lt;/app-multi-select-search&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/nb-card-body&gt;
+    &lt;nb-card-footer&gt;
+      &lt;app-rbac-button
+        label&#x3D;&quot;Save&quot;
+        class&#x3D;&quot;cc-margin-right&quot;
+        status&#x3D;&quot;primary&quot;
+        action&#x3D;&quot;{{ RESOURCE_GROUP_WRITE }}&quot;
+        (onClick)&#x3D;&quot;createResource(ref)&quot;
+        [loading]&#x3D;&quot;addingResource&quot;
+        [disabled]&#x3D;&quot;resourceForm.pristine || !changeRegistered&quot;
+        dataAttrActionId&#x3D;&quot;resource-group-edit-save&quot;
+      &gt;
+      &lt;/app-rbac-button&gt;
+      &lt;button
+        nbButton
+        ghost
+        size&#x3D;&quot;small&quot;
+        (click)&#x3D;&quot;ref.close()&quot;
+        class&#x3D;&quot;cc-margin-right&quot;
+      &gt;
+        Cancel
+      &lt;/button&gt;
+    &lt;/nb-card-footer&gt;
+  &lt;/nb-card&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./resource-group-details.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.tagList {
+  max-height: 10rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 0.5rem;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-page-header  [heading]="resourceGroupName"  subheading="View and edit resource group and its resources"  [onBack]="backToUserManagement"></app-page-header><nb-card  class="background-grey py-5"  *ngIf="!allResources || !allResources.length || fetchingResources">  <nb-card-body [nbSpinner]="fetchingResources">    <app-message      *ngIf="!fetchingResources && (!allResources || !allResources?.length)"      [toolTip]="\'Add Resources\'"      [imgUrl]="noDataIcon"      [primaryMsg]="\'There are no resources here.\'"      [secondaryMsg]="\'You will see resources after you add some.\'"      (buttonClick)="promptCreateResourceDialog()"      [buttonText]="\'Add Resources\'"      action="{{ RESOURCE_GROUP_WRITE }}"      [showBtn]="true"      [status]="\'info\'"      [nbSpinner]="fetchingResources || fetchingBlueprints"    ></app-message>  </nb-card-body></nb-card><div  class="mt-3 d-flex justify-content-end"  *ngIf="!fetchingResources && allResources?.length">  <app-rbac-button    label="Update Resources"    toolTip="Update Resources"    status="primary"    action="{{ RESOURCE_GROUP_WRITE }}"    (onClick)="promptCreateResourceDialog()"    class="float-right"    [disabled]="fetchingResources || fetchingBlueprints"    [nbSpinner]="fetchingResources || fetchingBlueprints"  ></app-rbac-button></div><div class="mt-3" *ngIf="!fetchingResources && allResources?.length">  <nb-card>    <nb-card-body [nbSpinner]="fetchingResources">      <ng2-smart-table        class="cc-no-standard"        [settings]="resourceTableConfig"        [source]="allResources"      ></ng2-smart-table>    </nb-card-body>  </nb-card></div><ng-template #createResourceDialog let-data let-ref="dialogRef">  <nb-card style="width: 35rem">    <nb-card-header>      <ng-container        *ngIf="!allResources || !allResources.length; else updateRes"      >        Add Resources      </ng-container>      <ng-template #updateRes> Update Resources </ng-template>      <nb-icon        icon="close-outline"        class="float-right cursor-pointer"        (click)="ref.close()"      ></nb-icon>    </nb-card-header>    <nb-card-body>      <form [formGroup]="resourceForm">        <div class="form-group row">          <div class="col-5 d-flex">            <label class="formLabel weight-600 mr-2">              Blueprint*              <nb-icon pack="fci" icon="alert-circle-outline"></nb-icon>            </label>          </div>          <div class="col-7">            <nb-select              placeholder="Blueprints"              formControlName="blueprint"              size="small"              class="w-100"            >              <nb-option                (click)="getAllResourcesForBlueprint()"                *ngFor="let blueprint of allBlueprints"                [value]="blueprint"              >                {{ blueprint }}              </nb-option>            </nb-select>          </div>        </div>        <div class="form-group row">          <div class="col-5 d-flex">            <label class="formLabel weight-600 mr-2">              Resources*              <nb-icon pack="fci" icon="alert-circle-outline"></nb-icon>            </label>          </div>          <div class="col-7">            <app-multi-select-search              [showSpinner]="fetchingResource"              class="w-100"              name="resourceSelect"              [multi]="true"              [dropdownContent]="resourceMapForBlueprint"              [placeholder]="fetchingResource ? \'\' : \'Search resources\'"              (selectedOption)="selectedOption($event)"              (removedItem)="removedItem($event)"              size="small"              [preselectList]="tempResourceList"              [itemName]="\'Resource\'"            ></app-multi-select-search>          </div>        </div>      </form>    </nb-card-body>    <nb-card-footer>      <app-rbac-button        label="Save"        class="cc-margin-right"        status="primary"        action="{{ RESOURCE_GROUP_WRITE }}"        (onClick)="createResource(ref)"        [loading]="addingResource"        [disabled]="resourceForm.pristine || !changeRegistered"        dataAttrActionId="resource-group-edit-save"      >      </app-rbac-button>      <button        nbButton        ghost        size="small"        (click)="ref.close()"        class="cc-margin-right"      >        Cancel      </button>    </nb-card-footer>  </nb-card></ng-template></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'ResourceGroupDetailsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ResourceGroupDetailsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

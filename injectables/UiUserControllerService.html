@@ -1,0 +1,2514 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >UiUserControllerService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/ui-user-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Ui User Controller</p>
+
+            </p>
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../classes/BaseService.html" target="_self" >__BaseService</a></code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#createTokenUsingPOSTPath" >createTokenUsingPOSTPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#deleteALlLoggedInUsersUsingDELETEPath" >deleteALlLoggedInUsersUsingDELETEPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#deleteTokenUsingDELETEPath" >deleteTokenUsingDELETEPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#deleteUserUsingDELETEPath" >deleteUserUsingDELETEPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getALlLoggedInUsersUsingGETPath" >getALlLoggedInUsersUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getAllRolesUsingGET1Path" >getAllRolesUsingGET1Path</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getAllUsersUsingGETPath" >getAllUsersUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getTokenUsingGETPath" >getTokenUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getUserUsingGETPath" >getUserUsingGETPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#updatePasswordUsingPOSTPath" >updatePasswordUsingPOSTPath</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#createTokenUsingPOST" >createTokenUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#createTokenUsingPOSTResponse" >createTokenUsingPOSTResponse</a>
+                            </li>
+                            <li>
+                                <a href="#deleteALlLoggedInUsersUsingDELETE" >deleteALlLoggedInUsersUsingDELETE</a>
+                            </li>
+                            <li>
+                                <a href="#deleteALlLoggedInUsersUsingDELETEResponse" >deleteALlLoggedInUsersUsingDELETEResponse</a>
+                            </li>
+                            <li>
+                                <a href="#deleteTokenUsingDELETE" >deleteTokenUsingDELETE</a>
+                            </li>
+                            <li>
+                                <a href="#deleteTokenUsingDELETEResponse" >deleteTokenUsingDELETEResponse</a>
+                            </li>
+                            <li>
+                                <a href="#deleteUserUsingDELETE" >deleteUserUsingDELETE</a>
+                            </li>
+                            <li>
+                                <a href="#deleteUserUsingDELETEResponse" >deleteUserUsingDELETEResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getALlLoggedInUsersUsingGET" >getALlLoggedInUsersUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getALlLoggedInUsersUsingGETResponse" >getALlLoggedInUsersUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getAllRolesUsingGET1" >getAllRolesUsingGET1</a>
+                            </li>
+                            <li>
+                                <a href="#getAllRolesUsingGET1Response" >getAllRolesUsingGET1Response</a>
+                            </li>
+                            <li>
+                                <a href="#getAllUsersUsingGET" >getAllUsersUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getAllUsersUsingGETResponse" >getAllUsersUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getTokenUsingGET" >getTokenUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getTokenUsingGETResponse" >getTokenUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#getUserUsingGET" >getUserUsingGET</a>
+                            </li>
+                            <li>
+                                <a href="#getUserUsingGETResponse" >getUserUsingGETResponse</a>
+                            </li>
+                            <li>
+                                <a href="#updatePasswordUsingPOST" >updatePasswordUsingPOST</a>
+                            </li>
+                            <li>
+                                <a href="#updatePasswordUsingPOSTResponse" >updatePasswordUsingPOSTResponse</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(config: <a href="../interfaces/Config.html" target="_self">___Configuration</a>, http: HttpClient)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:41</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>config</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Config.html" target="_self" >___Configuration</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createTokenUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>createTokenUsingPOST</b></span>
+                        <a href="#createTokenUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createTokenUsingPOST(params: <a href="../injectables/UiUserControllerService.html" target="_self">UiUserControllerService.CreateTokenUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="157"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:157</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>createToken</p>
+<ul>
+<li><p><code>userName</code>:</p>
+</li>
+<li><p><code>tokenId</code>:</p>
+</li>
+<li><p><code>token</code>:</p>
+</li>
+<li><p><code>name</code>:</p>
+</li>
+<li><p><code>description</code>:</p>
+</li>
+<li><p><code>createdOn</code>:</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiUserControllerService.html" target="_self" >UiUserControllerService.CreateTokenUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiUserControllerService.CreateTokenUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>userName</code>:</p>
+</li>
+<li><p><code>tokenId</code>:</p>
+</li>
+<li><p><code>token</code>:</p>
+</li>
+<li><p><code>name</code>:</p>
+</li>
+<li><p><code>description</code>:</p>
+</li>
+<li><p><code>createdOn</code>:</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;Array&lt;UserAccessToken&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createTokenUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>createTokenUsingPOSTResponse</b></span>
+                        <a href="#createTokenUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createTokenUsingPOSTResponse(params: <a href="../injectables/UiUserControllerService.html" target="_self">UiUserControllerService.CreateTokenUsingPOSTParams</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>createToken</p>
+<ul>
+<li><p><code>userName</code>:</p>
+</li>
+<li><p><code>tokenId</code>:</p>
+</li>
+<li><p><code>token</code>:</p>
+</li>
+<li><p><code>name</code>:</p>
+</li>
+<li><p><code>description</code>:</p>
+</li>
+<li><p><code>createdOn</code>:</p>
+</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../injectables/UiUserControllerService.html" target="_self" >UiUserControllerService.CreateTokenUsingPOSTParams</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>UiUserControllerService.CreateTokenUsingPOSTParams</code> containing the following parameters:</p>
+<ul>
+<li><p><code>userName</code>:</p>
+</li>
+<li><p><code>tokenId</code>:</p>
+</li>
+<li><p><code>token</code>:</p>
+</li>
+<li><p><code>name</code>:</p>
+</li>
+<li><p><code>description</code>:</p>
+</li>
+<li><p><code>createdOn</code>:</p>
+</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;UserAccessToken&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteALlLoggedInUsersUsingDELETE"></a>
+                    <span class="name">
+                        <span ><b>deleteALlLoggedInUsersUsingDELETE</b></span>
+                        <a href="#deleteALlLoggedInUsersUsingDELETE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteALlLoggedInUsersUsingDELETE()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="237"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:237</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteALlLoggedInUsers</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteALlLoggedInUsersUsingDELETEResponse"></a>
+                    <span class="name">
+                        <span ><b>deleteALlLoggedInUsersUsingDELETEResponse</b></span>
+                        <a href="#deleteALlLoggedInUsersUsingDELETEResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteALlLoggedInUsersUsingDELETEResponse()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="207"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteALlLoggedInUsers</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;boolean&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTokenUsingDELETE"></a>
+                    <span class="name">
+                        <span ><b>deleteTokenUsingDELETE</b></span>
+                        <a href="#deleteTokenUsingDELETE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteTokenUsingDELETE(tokenId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="355"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:355</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteToken</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tokenId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>tokenId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;Array&lt;UserAccessToken&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTokenUsingDELETEResponse"></a>
+                    <span class="name">
+                        <span ><b>deleteTokenUsingDELETEResponse</b></span>
+                        <a href="#deleteTokenUsingDELETEResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteTokenUsingDELETEResponse(tokenId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="324"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:324</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteToken</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tokenId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>tokenId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;UserAccessToken&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteUserUsingDELETE"></a>
+                    <span class="name">
+                        <span ><b>deleteUserUsingDELETE</b></span>
+                        <a href="#deleteUserUsingDELETE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteUserUsingDELETE(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="484"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:484</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteUser</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>userId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>userId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteUserUsingDELETEResponse"></a>
+                    <span class="name">
+                        <span ><b>deleteUserUsingDELETEResponse</b></span>
+                        <a href="#deleteUserUsingDELETEResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteUserUsingDELETEResponse(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="452"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:452</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>deleteUser</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>userId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>userId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;boolean&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getALlLoggedInUsersUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getALlLoggedInUsersUsingGET</b></span>
+                        <a href="#getALlLoggedInUsersUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getALlLoggedInUsersUsingGET()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="197"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:197</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getALlLoggedInUsers</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;Array&lt;literal type&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getALlLoggedInUsersUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getALlLoggedInUsersUsingGETResponse</b></span>
+                        <a href="#getALlLoggedInUsersUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getALlLoggedInUsersUsingGETResponse()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="169"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getALlLoggedInUsers</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;literal type&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllRolesUsingGET1"></a>
+                    <span class="name">
+                        <span ><b>getAllRolesUsingGET1</b></span>
+                        <a href="#getAllRolesUsingGET1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllRolesUsingGET1()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="275"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:275</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllRoles</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Role.html" target="_self" >___Observable&lt;Array&lt;Role&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllRolesUsingGET1Response"></a>
+                    <span class="name">
+                        <span ><b>getAllRolesUsingGET1Response</b></span>
+                        <a href="#getAllRolesUsingGET1Response"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllRolesUsingGET1Response()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="247"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:247</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllRoles</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;Role&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllUsersUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getAllUsersUsingGET</b></span>
+                        <a href="#getAllUsersUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllUsersUsingGET()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllUsers</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >___Observable&lt;Array&lt;User&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllUsersUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getAllUsersUsingGETResponse</b></span>
+                        <a href="#getAllUsersUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllUsersUsingGETResponse()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getAllUsers</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;User&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTokenUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getTokenUsingGET</b></span>
+                        <a href="#getTokenUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTokenUsingGET()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="313"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:313</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getToken</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>___Observable&lt;Array&lt;UserAccessToken&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTokenUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getTokenUsingGETResponse</b></span>
+                        <a href="#getTokenUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTokenUsingGETResponse()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="285"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:285</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getToken</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Array&lt;UserAccessToken&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserUsingGET"></a>
+                    <span class="name">
+                        <span ><b>getUserUsingGET</b></span>
+                        <a href="#getUserUsingGET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUserUsingGET(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="441"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:441</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getUser</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>userId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>userId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >___Observable&lt;User&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserUsingGETResponse"></a>
+                    <span class="name">
+                        <span ><b>getUserUsingGETResponse</b></span>
+                        <a href="#getUserUsingGETResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUserUsingGETResponse(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="411"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:411</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getUser</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>userId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>userId</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#StrictHttpResponse" target="_self" >___Observable&lt;___StrictHttpResponse&lt;User&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatePasswordUsingPOST"></a>
+                    <span class="name">
+                        <span ><b>updatePasswordUsingPOST</b></span>
+                        <a href="#updatePasswordUsingPOST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updatePasswordUsingPOST(updatePasswordRequest: <a href="../interfaces/PasswordChange.html" target="_self">PasswordChange</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="398"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:398</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>updatePassword</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>updatePasswordRequest</td>
+                                            <td>
+                                                            <code><a href="../interfaces/PasswordChange.html" target="_self" >PasswordChange</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>updatePasswordRequest</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;Response&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatePasswordUsingPOSTResponse"></a>
+                    <span class="name">
+                        <span ><b>updatePasswordUsingPOSTResponse</b></span>
+                        <a href="#updatePasswordUsingPOSTResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updatePasswordUsingPOSTResponse(updatePasswordRequest: <a href="../interfaces/PasswordChange.html" target="_self">PasswordChange</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="368"
+                                    class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:368</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>updatePassword</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>updatePasswordRequest</td>
+                                            <td>
+                                                            <code><a href="../interfaces/PasswordChange.html" target="_self" >PasswordChange</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>updatePasswordRequest</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Response.html" target="_self" >___Observable&lt;___StrictHttpResponse&lt;Response&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>OK</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createTokenUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>createTokenUsingPOSTPath</b></span>
+                        <a href="#createTokenUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/users/createAccessToken&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteALlLoggedInUsersUsingDELETEPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>deleteALlLoggedInUsersUsingDELETEPath</b></span>
+                        <a href="#deleteALlLoggedInUsersUsingDELETEPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/users/loggedIn/session&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTokenUsingDELETEPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>deleteTokenUsingDELETEPath</b></span>
+                        <a href="#deleteTokenUsingDELETEPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/users/tokens/{tokenId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteUserUsingDELETEPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>deleteUserUsingDELETEPath</b></span>
+                        <a href="#deleteUserUsingDELETEPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/users/{userId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getALlLoggedInUsersUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getALlLoggedInUsersUsingGETPath</b></span>
+                        <a href="#getALlLoggedInUsersUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/users/loggedIn&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllRolesUsingGET1Path"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getAllRolesUsingGET1Path</b></span>
+                        <a href="#getAllRolesUsingGET1Path"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/users/roles&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllUsersUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getAllUsersUsingGETPath</b></span>
+                        <a href="#getAllUsersUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/users/&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTokenUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getTokenUsingGETPath</b></span>
+                        <a href="#getTokenUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/users/tokens&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserUsingGETPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getUserUsingGETPath</b></span>
+                        <a href="#getUserUsingGETPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/users/{userId}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatePasswordUsingPOSTPath"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>updatePasswordUsingPOSTPath</b></span>
+                        <a href="#updatePasswordUsingPOSTPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/cc-ui/v1/users/updatePassword&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/cc-api/services/ui-user-controller.service.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpHeaders,
+} from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { User } from &#x27;../models/user&#x27;;
+import { UserAccessToken } from &#x27;../models/user-access-token&#x27;;
+import { Role } from &#x27;../models/role&#x27;;
+import { Response } from &#x27;../models/response&#x27;;
+import { PasswordChange } from &#x27;../models/password-change&#x27;;
+
+/**
+ * Ui User Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class UiUserControllerService extends __BaseService {
+  static readonly getAllUsersUsingGETPath &#x3D; &#x27;/cc-ui/v1/users/&#x27;;
+  static readonly createTokenUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/users/createAccessToken&#x27;;
+  static readonly getALlLoggedInUsersUsingGETPath &#x3D; &#x27;/cc-ui/v1/users/loggedIn&#x27;;
+  static readonly deleteALlLoggedInUsersUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/users/loggedIn/session&#x27;;
+  static readonly getAllRolesUsingGET1Path &#x3D; &#x27;/cc-ui/v1/users/roles&#x27;;
+  static readonly getTokenUsingGETPath &#x3D; &#x27;/cc-ui/v1/users/tokens&#x27;;
+  static readonly deleteTokenUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/users/tokens/{tokenId}&#x27;;
+  static readonly updatePasswordUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/users/updatePassword&#x27;;
+  static readonly getUserUsingGETPath &#x3D; &#x27;/cc-ui/v1/users/{userId}&#x27;;
+  static readonly deleteUserUsingDELETEPath &#x3D; &#x27;/cc-ui/v1/users/{userId}&#x27;;
+
+  constructor(config: __Configuration, http: HttpClient) {
+    super(config, http);
+  }
+
+  /**
+   * getAllUsers
+   * @return OK
+   */
+  getAllUsersUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;User&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/users/&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;User&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllUsers
+   * @return OK
+   */
+  getAllUsersUsingGET(): __Observable&lt;Array&lt;User&gt;&gt; {
+    return this.getAllUsersUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;User&gt;),
+    );
+  }
+
+  /**
+   * createToken
+   * @param params The &#x60;UiUserControllerService.CreateTokenUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;userName&#x60;:
+   *
+   * - &#x60;tokenId&#x60;:
+   *
+   * - &#x60;token&#x60;:
+   *
+   * - &#x60;name&#x60;:
+   *
+   * - &#x60;description&#x60;:
+   *
+   * - &#x60;createdOn&#x60;:
+   *
+   * @return OK
+   */
+  createTokenUsingPOSTResponse(
+    params: UiUserControllerService.CreateTokenUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;UserAccessToken&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.userName !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;userName&#x27;, params.userName.toString());
+    if (params.tokenId !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;tokenId&#x27;, params.tokenId.toString());
+    if (params.token !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;token&#x27;, params.token.toString());
+    if (params.name !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;name&#x27;, params.name.toString());
+    if (params.description !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;description&#x27;, params.description.toString());
+    if (params.createdOn !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;createdOn&#x27;, params.createdOn.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/users/createAccessToken&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;UserAccessToken&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * createToken
+   * @param params The &#x60;UiUserControllerService.CreateTokenUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;userName&#x60;:
+   *
+   * - &#x60;tokenId&#x60;:
+   *
+   * - &#x60;token&#x60;:
+   *
+   * - &#x60;name&#x60;:
+   *
+   * - &#x60;description&#x60;:
+   *
+   * - &#x60;createdOn&#x60;:
+   *
+   * @return OK
+   */
+  createTokenUsingPOST(
+    params: UiUserControllerService.CreateTokenUsingPOSTParams,
+  ): __Observable&lt;Array&lt;UserAccessToken&gt;&gt; {
+    return this.createTokenUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;UserAccessToken&gt;),
+    );
+  }
+
+  /**
+   * getALlLoggedInUsers
+   * @return OK
+   */
+  getALlLoggedInUsersUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;{}&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/users/loggedIn&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;{}&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getALlLoggedInUsers
+   * @return OK
+   */
+  getALlLoggedInUsersUsingGET(): __Observable&lt;Array&lt;{}&gt;&gt; {
+    return this.getALlLoggedInUsersUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;{}&gt;),
+    );
+  }
+
+  /**
+   * deleteALlLoggedInUsers
+   * @return OK
+   */
+  deleteALlLoggedInUsersUsingDELETEResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;boolean&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/users/loggedIn/session&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteALlLoggedInUsers
+   * @return OK
+   */
+  deleteALlLoggedInUsersUsingDELETE(): __Observable&lt;boolean&gt; {
+    return this.deleteALlLoggedInUsersUsingDELETEResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as boolean),
+    );
+  }
+
+  /**
+   * getAllRoles
+   * @return OK
+   */
+  getAllRolesUsingGET1Response(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;Role&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/users/roles&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Role&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getAllRoles
+   * @return OK
+   */
+  getAllRolesUsingGET1(): __Observable&lt;Array&lt;Role&gt;&gt; {
+    return this.getAllRolesUsingGET1Response().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Role&gt;),
+    );
+  }
+
+  /**
+   * getToken
+   * @return OK
+   */
+  getTokenUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;Array&lt;UserAccessToken&gt;&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/users/tokens&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;UserAccessToken&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getToken
+   * @return OK
+   */
+  getTokenUsingGET(): __Observable&lt;Array&lt;UserAccessToken&gt;&gt; {
+    return this.getTokenUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;UserAccessToken&gt;),
+    );
+  }
+
+  /**
+   * deleteToken
+   * @param tokenId tokenId
+   * @return OK
+   */
+  deleteTokenUsingDELETEResponse(
+    tokenId?: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;UserAccessToken&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (tokenId !&#x3D; null) __params &#x3D; __params.set(&#x27;tokenId&#x27;, tokenId.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/users/tokens/${encodeURIComponent(String(tokenId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;UserAccessToken&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteToken
+   * @param tokenId tokenId
+   * @return OK
+   */
+  deleteTokenUsingDELETE(
+    tokenId?: string,
+  ): __Observable&lt;Array&lt;UserAccessToken&gt;&gt; {
+    return this.deleteTokenUsingDELETEResponse(tokenId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;UserAccessToken&gt;),
+    );
+  }
+
+  /**
+   * updatePassword
+   * @param updatePasswordRequest updatePasswordRequest
+   * @return OK
+   */
+  updatePasswordUsingPOSTResponse(
+    updatePasswordRequest: PasswordChange,
+  ): __Observable&lt;__StrictHttpResponse&lt;Response&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; updatePasswordRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/users/updatePassword&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Response&gt;;
+      }),
+    );
+  }
+  /**
+   * updatePassword
+   * @param updatePasswordRequest updatePasswordRequest
+   * @return OK
+   */
+  updatePasswordUsingPOST(
+    updatePasswordRequest: PasswordChange,
+  ): __Observable&lt;Response&gt; {
+    return this.updatePasswordUsingPOSTResponse(updatePasswordRequest).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Response),
+    );
+  }
+
+  /**
+   * getUser
+   * @param userId userId
+   * @return OK
+   */
+  getUserUsingGETResponse(
+    userId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;User&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/users/${encodeURIComponent(String(userId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;User&gt;;
+      }),
+    );
+  }
+  /**
+   * getUser
+   * @param userId userId
+   * @return OK
+   */
+  getUserUsingGET(userId: string): __Observable&lt;User&gt; {
+    return this.getUserUsingGETResponse(userId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as User),
+    );
+  }
+
+  /**
+   * deleteUser
+   * @param userId userId
+   * @return OK
+   */
+  deleteUserUsingDELETEResponse(
+    userId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;boolean&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/users/${encodeURIComponent(String(userId))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return (_r as HttpResponse&lt;any&gt;).clone({
+          body: (_r as HttpResponse&lt;any&gt;).body &#x3D;&#x3D;&#x3D; &#x27;true&#x27;,
+        }) as __StrictHttpResponse&lt;boolean&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteUser
+   * @param userId userId
+   * @return OK
+   */
+  deleteUserUsingDELETE(userId: string): __Observable&lt;boolean&gt; {
+    return this.deleteUserUsingDELETEResponse(userId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as boolean),
+    );
+  }
+}
+
+module UiUserControllerService {
+  /**
+   * Parameters for createTokenUsingPOST
+   */
+  export interface CreateTokenUsingPOSTParams {
+    userName?: string;
+    tokenId?: string;
+    token?: string;
+    name?: string;
+    description?: string;
+    createdOn?: string;
+  }
+}
+
+export { UiUserControllerService };
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'UiUserControllerService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

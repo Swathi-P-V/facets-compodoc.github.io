@@ -1,0 +1,3549 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  BlueprintDesignerGraphComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-blueprint-designer-graph</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./blueprint-designer-graph.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./blueprint-designer-graph.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#blockOverlayOn" >blockOverlayOn</a>
+                            </li>
+                            <li>
+                                <a href="#blueprint" >blueprint</a>
+                            </li>
+                            <li>
+                                <a href="#branchName" >branchName</a>
+                            </li>
+                            <li>
+                                <a href="#componentLoaded" >componentLoaded</a>
+                            </li>
+                            <li>
+                                <a href="#configTypeResources" >configTypeResources</a>
+                            </li>
+                            <li>
+                                <a href="#emptyIcon" >emptyIcon</a>
+                            </li>
+                            <li>
+                                <a href="#errorStateIcon" >errorStateIcon</a>
+                            </li>
+                            <li>
+                                <a href="#errorWhileFetchingResources" >errorWhileFetchingResources</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingData" >fetchingData</a>
+                            </li>
+                            <li>
+                                <a href="#fireFoxPaddingBackup" >fireFoxPaddingBackup</a>
+                            </li>
+                            <li>
+                                <a href="#generateGraphNodesAndEdges" >generateGraphNodesAndEdges</a>
+                            </li>
+                            <li>
+                                <a href="#getResourcesInfo" >getResourcesInfo</a>
+                            </li>
+                            <li>
+                                <a href="#getUnitEdges" >getUnitEdges</a>
+                            </li>
+                            <li>
+                                <a href="#graph" >graph</a>
+                            </li>
+                            <li>
+                                <a href="#graphData" >graphData</a>
+                            </li>
+                            <li>
+                                <a href="#graphLayout" >graphLayout</a>
+                            </li>
+                            <li>
+                                <a href="#headerEventSubscription" >headerEventSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#initializeGraph" >initializeGraph</a>
+                            </li>
+                            <li>
+                                <a href="#initializeLayout" >initializeLayout</a>
+                            </li>
+                            <li>
+                                <a href="#isFirefox" >isFirefox</a>
+                            </li>
+                            <li>
+                                <a href="#loadingResources" >loadingResources</a>
+                            </li>
+                            <li>
+                                <a href="#otherNodeIntents" >otherNodeIntents</a>
+                            </li>
+                            <li>
+                                <a href="#previousParams" >previousParams</a>
+                            </li>
+                            <li>
+                                <a href="#registerGraphNodes" >registerGraphNodes</a>
+                            </li>
+                            <li>
+                                <a href="#resourcesWithConnection" >resourcesWithConnection</a>
+                            </li>
+                            <li>
+                                <a href="#resourcesWithoutConnection" >resourcesWithoutConnection</a>
+                            </li>
+                            <li>
+                                <a href="#resourceToFocus" >resourceToFocus</a>
+                            </li>
+                            <li>
+                                <a href="#routeParamSubscription" >routeParamSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#showEmptyState" >showEmptyState</a>
+                            </li>
+                            <li>
+                                <a href="#singleResourceNode" >singleResourceNode</a>
+                            </li>
+                            <li>
+                                <a href="#uniqueEdges" >uniqueEdges</a>
+                            </li>
+                            <li>
+                                <a href="#uniqueNodes" >uniqueNodes</a>
+                            </li>
+                            <li>
+                                <a href="#zoom" >zoom</a>
+                            </li>
+                            <li>
+                                <a href="#zoomEventSubscription" >zoomEventSubscription</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#bringNodeToFocus" >bringNodeToFocus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#checkForBlockOverlay" >checkForBlockOverlay</a>
+                            </li>
+                            <li>
+                                <a href="#cleanOtherNodeIntents" >cleanOtherNodeIntents</a>
+                            </li>
+                            <li>
+                                <a href="#CustomOnPageLoad" >CustomOnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#getConnectedNodes" >getConnectedNodes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getDefaultBranch" >getDefaultBranch</a>
+                            </li>
+                            <li>
+                                <a href="#getZoom" >getZoom</a>
+                            </li>
+                            <li>
+                                <a href="#graphNodesForUnConnectedResources" >graphNodesForUnConnectedResources</a>
+                            </li>
+                            <li>
+                                <a href="#hideUnusedGraphContainer" >hideUnusedGraphContainer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#initGraphComponent" >initGraphComponent</a>
+                            </li>
+                            <li>
+                                <a href="#initializeVariables" >initializeVariables</a>
+                            </li>
+                            <li>
+                                <a href="#listenToHeaderEvents" >listenToHeaderEvents</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#nodeAndEdgesAfterGrouping" >nodeAndEdgesAfterGrouping</a>
+                            </li>
+                            <li>
+                                <a href="#nodeAndEdgesWithoutGrouping" >nodeAndEdgesWithoutGrouping</a>
+                            </li>
+                            <li>
+                                <a href="#onZoom" >onZoom</a>
+                            </li>
+                            <li>
+                                <a href="#parseAndSetResourcesData" >parseAndSetResourcesData</a>
+                            </li>
+                            <li>
+                                <a href="#renderGraph" >renderGraph</a>
+                            </li>
+                            <li>
+                                <a href="#resetGraph" >resetGraph</a>
+                            </li>
+                            <li>
+                                <a href="#unregisterGraphModules" >unregisterGraphModules</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#hideMiniMap" >hideMiniMap</a>
+                            </li>
+                            <li>
+                                <a href="#hideOtherNodes" >hideOtherNodes</a>
+                            </li>
+                            <li>
+                                <a href="#hideResourceConfigViewer" >hideResourceConfigViewer</a>
+                            </li>
+                            <li>
+                                <a href="#showSingleResourceConnections" >showSingleResourceConnections</a>
+                            </li>
+                            <li>
+                                <a href="#singleResourceID" >singleResourceID</a>
+                            </li>
+                            <li>
+                                <a href="#useSimpleNodes" >useSimpleNodes</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#graphLoaded" >graphLoaded</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, uiDropdownControllerService: <a href="../injectables/UiDropdownsControllerService.html" target="_self">UiDropdownsControllerService</a>, blueprintDesignerUtilService: <a href="../injectables/BlueprintDesignerUtilService.html" target="_self">BlueprintDesignerUtilService</a>, blueprintDesignerGraphService: <a href="../injectables/BlueprintDesignerGraphService.html" target="_self">BlueprintDesignerGraphService</a>, customToasterService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>, browserDetectionService: <a href="../injectables/BrowserDetectionService.html" target="_self">BrowserDetectionService</a>, blueprintDesignerService: <a href="../injectables/UiBlueprintDesignerControllerService.html" target="_self">UiBlueprintDesignerControllerService</a>, activatedRoute: ActivatedRoute)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:82</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiDropdownControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiDropdownsControllerService.html" target="_self" >UiDropdownsControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>blueprintDesignerUtilService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BlueprintDesignerUtilService.html" target="_self" >BlueprintDesignerUtilService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>blueprintDesignerGraphService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BlueprintDesignerGraphService.html" target="_self" >BlueprintDesignerGraphService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToasterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>browserDetectionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BrowserDetectionService.html" target="_self" >BrowserDetectionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>blueprintDesignerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiBlueprintDesignerControllerService.html" target="_self" >UiBlueprintDesignerControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hideMiniMap"></a>
+                        <b>hideMiniMap</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:42</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hideOtherNodes"></a>
+                        <b>hideOtherNodes</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:43</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hideResourceConfigViewer"></a>
+                        <b>hideResourceConfigViewer</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:44</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showSingleResourceConnections"></a>
+                        <b>showSingleResourceConnections</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:39</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="singleResourceID"></a>
+                        <b>singleResourceID</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:40</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="useSimpleNodes"></a>
+                        <b>useSimpleNodes</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:41</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="graphLoaded"></a>
+                        <b>graphLoaded</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Event.html" target="_self" >EventEmitter&lt;any&gt;</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:45</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bringNodeToFocus"></a>
+                    <span class="name">
+                        <span ><b>bringNodeToFocus</b></span>
+                        <a href="#bringNodeToFocus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>bringNodeToFocus()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="645"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:645</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkForBlockOverlay"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>checkForBlockOverlay</b></span>
+                        <a href="#checkForBlockOverlay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkForBlockOverlay()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="680"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:680</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cleanOtherNodeIntents"></a>
+                    <span class="name">
+                        <span ><b>cleanOtherNodeIntents</b></span>
+                        <a href="#cleanOtherNodeIntents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cleanOtherNodeIntents()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="371"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:371</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CustomOnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>CustomOnPageLoad</b></span>
+                        <a href="#CustomOnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>CustomOnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="102"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getConnectedNodes"></a>
+                    <span class="name">
+                        <span ><b>getConnectedNodes</b></span>
+                        <a href="#getConnectedNodes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getConnectedNodes(resources: any[], requiredResourceID: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="420"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:420</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>resources</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>requiredResourceID</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDefaultBranch"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getDefaultBranch</b></span>
+                        <a href="#getDefaultBranch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDefaultBranch(blueprint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="692"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:692</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>blueprint</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getZoom"></a>
+                    <span class="name">
+                        <span ><b>getZoom</b></span>
+                        <a href="#getZoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getZoom()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="674"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:674</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphNodesForUnConnectedResources"></a>
+                    <span class="name">
+                        <span ><b>graphNodesForUnConnectedResources</b></span>
+                        <a href="#graphNodesForUnConnectedResources"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>graphNodesForUnConnectedResources()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="464"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:464</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hideUnusedGraphContainer"></a>
+                    <span class="name">
+                        <span ><b>hideUnusedGraphContainer</b></span>
+                        <a href="#hideUnusedGraphContainer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>hideUnusedGraphContainer()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="339"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:339</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initGraphComponent"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>initGraphComponent</b></span>
+                        <a href="#initGraphComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initGraphComponent()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeVariables"></a>
+                    <span class="name">
+                        <span ><b>initializeVariables</b></span>
+                        <a href="#initializeVariables"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeVariables()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="182"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:182</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listenToHeaderEvents"></a>
+                    <span class="name">
+                        <span ><b>listenToHeaderEvents</b></span>
+                        <a href="#listenToHeaderEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listenToHeaderEvents()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="620"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:620</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nodeAndEdgesAfterGrouping"></a>
+                    <span class="name">
+                        <span ><b>nodeAndEdgesAfterGrouping</b></span>
+                        <a href="#nodeAndEdgesAfterGrouping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>nodeAndEdgesAfterGrouping()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="551"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:551</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nodeAndEdgesWithoutGrouping"></a>
+                    <span class="name">
+                        <span ><b>nodeAndEdgesWithoutGrouping</b></span>
+                        <a href="#nodeAndEdgesWithoutGrouping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>nodeAndEdgesWithoutGrouping()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="496"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:496</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onZoom"></a>
+                    <span class="name">
+                        <span ><b>onZoom</b></span>
+                        <a href="#onZoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onZoom(zoomType)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="658"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:658</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>zoomType</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parseAndSetResourcesData"></a>
+                    <span class="name">
+                        <span ><b>parseAndSetResourcesData</b></span>
+                        <a href="#parseAndSetResourcesData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>parseAndSetResourcesData(resourcesInfo)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="383"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:383</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>resourcesInfo</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="renderGraph"></a>
+                    <span class="name">
+                        <span ><b>renderGraph</b></span>
+                        <a href="#renderGraph"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>renderGraph()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="449"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:449</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetGraph"></a>
+                    <span class="name">
+                        <span ><b>resetGraph</b></span>
+                        <a href="#resetGraph"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetGraph()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:194</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unregisterGraphModules"></a>
+                    <span class="name">
+                        <span ><b>unregisterGraphModules</b></span>
+                        <a href="#unregisterGraphModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>unregisterGraphModules()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="177"
+                                    class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:177</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blockOverlayOn"></a>
+                    <span class="name">
+                        <span ><b>blockOverlayOn</b></span>
+                        <a href="#blockOverlayOn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="678" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:678</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blueprint"></a>
+                    <span class="name">
+                        <span ><b>blueprint</b></span>
+                        <a href="#blueprint"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="branchName"></a>
+                    <span class="name">
+                        <span ><b>branchName</b></span>
+                        <a href="#branchName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="componentLoaded"></a>
+                    <span class="name">
+                        <span ><b>componentLoaded</b></span>
+                        <a href="#componentLoaded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configTypeResources"></a>
+                    <span class="name">
+                        <span ><b>configTypeResources</b></span>
+                        <a href="#configTypeResources"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="emptyIcon"></a>
+                    <span class="name">
+                        <span ><b>emptyIcon</b></span>
+                        <a href="#emptyIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>emptyIcon</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorStateIcon"></a>
+                    <span class="name">
+                        <span ><b>errorStateIcon</b></span>
+                        <a href="#errorStateIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>errorStateIcon</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorWhileFetchingResources"></a>
+                    <span class="name">
+                        <span ><b>errorWhileFetchingResources</b></span>
+                        <a href="#errorWhileFetchingResources"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingData"></a>
+                    <span class="name">
+                        <span ><b>fetchingData</b></span>
+                        <a href="#fetchingData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fireFoxPaddingBackup"></a>
+                    <span class="name">
+                        <span ><b>fireFoxPaddingBackup</b></span>
+                        <a href="#fireFoxPaddingBackup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="248" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:248</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateGraphNodesAndEdges"></a>
+                    <span class="name">
+                        <span ><b>generateGraphNodesAndEdges</b></span>
+                        <a href="#generateGraphNodesAndEdges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="490" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:490</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getResourcesInfo"></a>
+                    <span class="name">
+                        <span ><b>getResourcesInfo</b></span>
+                        <a href="#getResourcesInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="281" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:281</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUnitEdges"></a>
+                    <span class="name">
+                        <span ><b>getUnitEdges</b></span>
+                        <a href="#getUnitEdges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="352" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:352</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graph"></a>
+                    <span class="name">
+                        <span ><b>graph</b></span>
+                        <a href="#graph"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Graph</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphData"></a>
+                    <span class="name">
+                        <span ><b>graphData</b></span>
+                        <a href="#graphData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    nodes: [],
+    edges: [],
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphLayout"></a>
+                    <span class="name">
+                        <span ><b>graphLayout</b></span>
+                        <a href="#graphLayout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="headerEventSubscription"></a>
+                    <span class="name">
+                        <span ><b>headerEventSubscription</b></span>
+                        <a href="#headerEventSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Subscription.html" target="_self" >Subscription</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="619" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:619</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeGraph"></a>
+                    <span class="name">
+                        <span ><b>initializeGraph</b></span>
+                        <a href="#initializeGraph"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="205" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:205</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeLayout"></a>
+                    <span class="name">
+                        <span ><b>initializeLayout</b></span>
+                        <a href="#initializeLayout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="249" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:249</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isFirefox"></a>
+                    <span class="name">
+                        <span ><b>isFirefox</b></span>
+                        <a href="#isFirefox"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadingResources"></a>
+                    <span class="name">
+                        <span ><b>loadingResources</b></span>
+                        <a href="#loadingResources"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="otherNodeIntents"></a>
+                    <span class="name">
+                        <span ><b>otherNodeIntents</b></span>
+                        <a href="#otherNodeIntents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Set([
+    &#x27;alert_group&#x27;,
+    &#x27;log_collector&#x27;,
+    &#x27;kubernetes_node_pool&#x27;,
+    &#x27;iam_policy&#x27;,
+    &#x27;grafana_dashboard&#x27;,
+    &#x27;vpc_peering&#x27;,
+    &#x27;config_map&#x27;,
+    &#x27;unknown&#x27;,
+  ])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="previousParams"></a>
+                    <span class="name">
+                        <span ><b>previousParams</b></span>
+                        <a href="#previousParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Params</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerGraphNodes"></a>
+                    <span class="name">
+                        <span ><b>registerGraphNodes</b></span>
+                        <a href="#registerGraphNodes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="166" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:166</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourcesWithConnection"></a>
+                    <span class="name">
+                        <span ><b>resourcesWithConnection</b></span>
+                        <a href="#resourcesWithConnection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourcesWithoutConnection"></a>
+                    <span class="name">
+                        <span ><b>resourcesWithoutConnection</b></span>
+                        <a href="#resourcesWithoutConnection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resourceToFocus"></a>
+                    <span class="name">
+                        <span ><b>resourceToFocus</b></span>
+                        <a href="#resourceToFocus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="644" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:644</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="routeParamSubscription"></a>
+                    <span class="name">
+                        <span ><b>routeParamSubscription</b></span>
+                        <a href="#routeParamSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Subscription.html" target="_self" >Subscription</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showEmptyState"></a>
+                    <span class="name">
+                        <span ><b>showEmptyState</b></span>
+                        <a href="#showEmptyState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="singleResourceNode"></a>
+                    <span class="name">
+                        <span ><b>singleResourceNode</b></span>
+                        <a href="#singleResourceNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uniqueEdges"></a>
+                    <span class="name">
+                        <span ><b>uniqueEdges</b></span>
+                        <a href="#uniqueEdges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uniqueNodes"></a>
+                    <span class="name">
+                        <span ><b>uniqueNodes</b></span>
+                        <a href="#uniqueNodes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="zoom"></a>
+                    <span class="name">
+                        <span ><b>zoom</b></span>
+                        <a href="#zoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>100</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="zoomEventSubscription"></a>
+                    <span class="name">
+                        <span ><b>zoomEventSubscription</b></span>
+                        <a href="#zoomEventSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Subscription.html" target="_self" >Subscription</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="618" class="link-to-prism">src/app/pages/blueprint-designer/blueprint-designer-graph/blueprint-designer-graph.component.ts:618</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  EventEmitter,
+  Injector,
+  Input,
+  OnDestroy,
+  Output,
+} from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Params } from &#x27;@angular/router&#x27;;
+import { DagreLayout, Layout } from &#x27;@antv/layout&#x27;;
+import { Graph } from &#x27;@antv/x6&#x27;;
+import { uniqBy } from &#x27;lodash&#x27;;
+import {
+  UiBlueprintDesignerControllerService,
+  UiDropdownsControllerService,
+} from &#x27;src/app/cc-api/services&#x27;;
+import {
+  BlueprintDesignerUtilService,
+  highlightStates,
+} from &#x27;../blueprint-designer.service&#x27;;
+import { groupByEdges } from &#x27;../blueprint-designer.utils&#x27;;
+import { ResourceNodeComponent } from &#x27;../nodes/resource-node/resource-node.component&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import { BlueprintDesignerGraphService } from &#x27;./blueprint-designer-graph.service&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+import { SimpleResourceNodeComponent } from &#x27;../nodes/simple-resource-node/simple-resource-node.component&#x27;;
+import { BrowserDetectionService } from &#x27;src/app/services/browser-detection.service&#x27;;
+import { cloneDeep } from &#x27;lodash&#x27;;
+import { CustomToastService } from &#x27;../../custom-toast/custom-toast.service&#x27;;
+const errorStateIcon &#x3D; &#x27;./assets/error.svg&#x27;;
+const emptyIcon &#x3D; &#x27;./assets/empty.svg&#x27;;
+
+@Component({
+  selector: &#x27;app-blueprint-designer-graph&#x27;,
+  templateUrl: &#x27;./blueprint-designer-graph.component.html&#x27;,
+  styleUrls: [&#x27;./blueprint-designer-graph.component.scss&#x27;],
+})
+export class BlueprintDesignerGraphComponent implements OnDestroy {
+  @Input() showSingleResourceConnections: boolean &#x3D; false;
+  @Input() singleResourceID: string &#x3D; &#x27;&#x27;;
+  @Input() useSimpleNodes: boolean &#x3D; false;
+  @Input() hideMiniMap: boolean &#x3D; false;
+  @Input() hideOtherNodes: boolean &#x3D; false;
+  @Input() hideResourceConfigViewer: boolean &#x3D; false;
+  @Output() graphLoaded: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+  singleResourceNode: any;
+
+  blueprint: string; // Name of the current blueprint
+  branchName: string; // Name of the current branch
+  componentLoaded: boolean; // Makes sure that the graph modules are only registered once while the component is alive
+  fetchingData: boolean; // Status for fetching the data from the API for the blueprint&#x27;s configuration
+  isFirefox: boolean &#x3D; false;
+
+  graph: Graph;
+  configTypeResources &#x3D; [];
+  resourcesWithConnection &#x3D; [];
+  graphLayout: any;
+  graphData: any &#x3D; {
+    nodes: [],
+    edges: [],
+  };
+  resourcesWithoutConnection &#x3D; [];
+  zoom &#x3D; 100;
+  loadingResources &#x3D; false;
+  uniqueEdges;
+  uniqueNodes;
+  errorStateIcon &#x3D; errorStateIcon;
+  emptyIcon &#x3D; emptyIcon;
+  showEmptyState: boolean &#x3D; false;
+  errorWhileFetchingResources: boolean &#x3D; false;
+
+  otherNodeIntents &#x3D; new Set([
+    &#x27;alert_group&#x27;,
+    &#x27;log_collector&#x27;,
+    &#x27;kubernetes_node_pool&#x27;,
+    &#x27;iam_policy&#x27;,
+    &#x27;grafana_dashboard&#x27;,
+    &#x27;vpc_peering&#x27;,
+    &#x27;config_map&#x27;,
+    &#x27;unknown&#x27;,
+  ]);
+  routeParamSubscription: Subscription;
+
+  constructor(
+    private injector: Injector,
+    private uiDropdownControllerService: UiDropdownsControllerService,
+    private blueprintDesignerUtilService: BlueprintDesignerUtilService,
+    private blueprintDesignerGraphService: BlueprintDesignerGraphService,
+    private customToasterService: CustomToastService,
+    private browserDetectionService: BrowserDetectionService,
+    private blueprintDesignerService: UiBlueprintDesignerControllerService,
+    private activatedRoute: ActivatedRoute,
+  ) {
+    this.isFirefox &#x3D; browserDetectionService.isFirefox();
+    this.routeParamSubscription &#x3D; this.activatedRoute.params.subscribe((p) &#x3D;&gt;
+      this.CustomOnPageLoad(p),
+    );
+  }
+
+  previousParams: Params;
+
+  CustomOnPageLoad(p: Params): void {
+    if (JSON.stringify(p) &#x3D;&#x3D;&#x3D; JSON.stringify(this.previousParams)) {
+      return;
+    } else {
+      this.previousParams &#x3D; p;
+    }
+
+    this.showEmptyState &#x3D; false;
+    this.errorWhileFetchingResources &#x3D; false;
+    this.blueprint &#x3D; p?.stackName;
+    this.branchName &#x3D; p?.branchName;
+    if (this.showSingleResourceConnections) {
+      this.singleResourceID &#x3D; &#x60;${p?.resourceType}:${p?.resourceName}&#x60;;
+    }
+
+    this.checkForBlockOverlay();
+
+    /*
+      Currently, when we come back from blueprint designer resource details page to resources list graph page,
+      the page shows blank as x6 library takes some time to load the new graph after component instantiation
+      The below settimeout gives that time to load the component and html elements and then fire the loading of the graph in those elements
+    */
+    setTimeout(() &#x3D;&gt; {
+      this.initGraphComponent();
+    }, 0);
+  }
+
+  async initGraphComponent() {
+    // Remove all the data and unregister everything which we might have
+    // previously added
+    this.graph?.dispose();
+    this.unregisterGraphModules();
+    this.registerGraphNodes();
+    this.resetGraph();
+    this.initializeVariables();
+
+    // Unsubscribe from the subscriptions and resubscribe to them again
+    // to only have one single channel of signals
+    this.zoomEventSubscription?.unsubscribe();
+    this.headerEventSubscription?.unsubscribe();
+    this.listenToHeaderEvents();
+
+    // Initialize the graph object with the required settings and the layout
+    // and then finally call re
+    this.initializeGraph();
+    this.initializeLayout();
+    await this.getResourcesInfo();
+  }
+
+  ngOnDestroy(): void {
+    let columns: any &#x3D; document.querySelector(&#x27;.columns&#x27;);
+    columns.style.overflow &#x3D; &#x27;auto&#x27;;
+    if (this.isFirefox) {
+      let nbLayoutElement: any &#x3D; document.querySelector(
+        &#x27;.columns &gt; nb-layout-column:nth-child(1)&#x27;,
+      );
+      // nbLayoutElement.css(&#x27;padding&#x27;,this.fireFoxPaddingBackup);
+      nbLayoutElement.classList.remove(&#x27;column-container-firefox&#x27;);
+    }
+    this.zoomEventSubscription?.unsubscribe();
+    this.headerEventSubscription?.unsubscribe();
+    this.routeParamSubscription?.unsubscribe();
+  }
+
+  registerGraphNodes &#x3D; () &#x3D;&gt; {
+    Graph.registerAngularContent(&#x27;resource-node&#x27;, {
+      injector: this.injector,
+      content: ResourceNodeComponent,
+    });
+    Graph.registerAngularContent(&#x27;simple-resource-node&#x27;, {
+      injector: this.injector,
+      content: SimpleResourceNodeComponent,
+    });
+  };
+
+  unregisterGraphModules() {
+    Graph.unregisterAngularContent(&#x27;resource-node&#x27;);
+    Graph.unregisterAngularContent(&#x27;simple-resource-node&#x27;);
+  }
+
+  initializeVariables() {
+    this.graph &#x3D; undefined;
+    this.configTypeResources &#x3D; [];
+    this.resourcesWithConnection &#x3D; [];
+    this.graphLayout &#x3D; undefined;
+    this.graphData &#x3D; {
+      nodes: [],
+      edges: [],
+    };
+    this.resourcesWithoutConnection &#x3D; [];
+  }
+
+  resetGraph() {
+    this.graph?.clearCells();
+    this.graph?.clearBackground();
+    this.graph?.clearGrid();
+    const minimapContainer &#x3D; document.querySelector(&#x27;#minimap-container&#x27;);
+    while (minimapContainer?.firstChild) {
+      minimapContainer.removeChild(minimapContainer?.firstChild);
+    }
+    this.blueprintDesignerUtilService.closeConfigurationTool();
+  }
+
+  initializeGraph &#x3D; () &#x3D;&gt; {
+    // Check whether the graph element exists in the template or not
+    // If it&#x27;s not there, just return from here
+    if (
+      !document.getElementById(
+        !this.showSingleResourceConnections
+          ? &#x27;graph-container&#x27;
+          : &#x27;graph-container-small&#x27;,
+      )
+    ) {
+      return;
+    }
+
+    // If the graph container exists in the container,
+    // initialize the graph object with the following configuration
+    this.graph &#x3D; new Graph({
+      container: document.getElementById(
+        !this.showSingleResourceConnections
+          ? &#x27;graph-container&#x27;
+          : &#x27;graph-container-small&#x27;,
+      ),
+      connecting: {
+        connector: &#x27;smooth&#x27;,
+      },
+      autoResize: true,
+      grid: {
+        visible: !this.showSingleResourceConnections,
+      },
+      minimap: {
+        enabled: !this.hideMiniMap,
+        container: document.getElementById(&#x27;minimap-container&#x27;),
+      },
+      panning: true,
+      mousewheel: {
+        enabled: true,
+        modifiers: [&#x27;ctrl&#x27;, &#x27;meta&#x27;],
+        zoomAtMousePosition: true,
+        minScale: 0.5,
+        maxScale: 2,
+      },
+    });
+  };
+
+  fireFoxPaddingBackup: any;
+  initializeLayout &#x3D; () &#x3D;&gt; {
+    // Initialize the DAGRE layout for the nodes&#x27; arrangement
+    // in the graph
+    this.graphLayout &#x3D; new DagreLayout({
+      type: &#x27;dagre&#x27;,
+      rankdir: &#x27;LR&#x27;,
+      align: &#x27;DR&#x27;,
+      ranksep: 85,
+      nodesep: 15,
+      begin: [50, 50],
+    });
+
+    // If we are loading this component for all the nodes then we need
+    // to set the overflow property to hidden because the canvas would be
+    // loading in the full height of the page
+    if (!this.showSingleResourceConnections) {
+      let columns: any &#x3D; document.querySelector(&#x27;.columns&#x27;);
+      columns.style.overflow &#x3D; &#x27;hidden&#x27;;
+    }
+
+    if (this.isFirefox) {
+      let nbLayoutElement: any &#x3D; document.querySelector(
+        &#x27;.columns &gt; nb-layout-column:nth-child(1)&#x27;,
+      );
+      this.fireFoxPaddingBackup &#x3D; nbLayoutElement?.style?.padding;
+      // nbLayoutElement.css(&#x27;padding&#x27;, &#x27;0px !important&#x27;);
+      nbLayoutElement.classList.add(&#x27;column-container-firefox&#x27;);
+    }
+  };
+
+  // Make a call to get all the resource nodes
+  // and add them to the graph
+  getResourcesInfo &#x3D; async () &#x3D;&gt; {
+    return new Promise((resolve) &#x3D;&gt; {
+      this.loadingResources &#x3D; true;
+      this.showEmptyState &#x3D; false;
+      this.uiDropdownControllerService
+        .getAllResourcesByStackUsingGET({
+          stackName: this.blueprint,
+          includeContent: true,
+          branch: this.branchName,
+        })
+        .subscribe(
+          (data) &#x3D;&gt; {
+            if (
+              !cloneDeep(data).filter(
+                (resource) &#x3D;&gt; resource?.resourceType !&#x3D;&#x3D; &#x27;UNKNOWN&#x27;,
+              )?.length
+            ) {
+              this.showEmptyState &#x3D; true;
+            }
+            // If we are opening the component in focus mode for a particular resource,
+            // then we can override the data with the singleResourceID&#x27;s connections only
+            if (this.showSingleResourceConnections) {
+              data &#x3D; this.getConnectedNodes(data, this.singleResourceID);
+            }
+            this.parseAndSetResourcesData(data);
+            this.generateGraphNodesAndEdges();
+            this.renderGraph();
+            this.hideUnusedGraphContainer();
+            this.blueprintDesignerUtilService.setGraph(this.graph);
+            this.blueprintDesignerGraphService.setGraph(this.graph);
+            this.blueprintDesignerUtilService.setAllNodesMap(data);
+
+            // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; If we are opening the graph in the resource specific mode
+            // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; we set that node as active
+            if (this.showSingleResourceConnections) {
+              this.blueprintDesignerUtilService.setActiveNode(
+                this.singleResourceNode,
+              );
+            }
+            resolve(1);
+          },
+          (err) &#x3D;&gt; {
+            this.errorWhileFetchingResources &#x3D; true;
+            this.errorStateIcon &#x3D; this.emptyIcon;
+            this.showEmptyState &#x3D; true;
+            resolve(1);
+          },
+        )
+        .add(() &#x3D;&gt; {
+          this.loadingResources &#x3D; false;
+          if (this.resourceToFocus &amp;&amp; !this.blockOverlayOn) {
+            this.bringNodeToFocus();
+          }
+          this.graphLoaded.emit(true);
+        });
+    });
+  };
+
+  hideUnusedGraphContainer() {
+    const containerName &#x3D; !this.showSingleResourceConnections
+      ? &#x27;graph-container-small&#x27;
+      : &#x27;graph-container&#x27;;
+    setTimeout(() &#x3D;&gt; {
+      if (document.querySelector(&#x60;#${containerName}&#x60;)) {
+        document.querySelector(&#x60;#${containerName}&#x60;)[&#x27;style&#x27;].display &#x3D; &#x27;none&#x27;;
+      }
+    }, 0);
+  }
+
+  // Processes an array of resourcesInfo objects to extract and collect
+  // unique edge IDs and resource node IDs into two separate sets.
+  getUnitEdges &#x3D; (resourcesInfo) &#x3D;&gt; {
+    let edgesSet &#x3D; new Set();
+    let nodeSet &#x3D; new Set();
+    resourcesInfo.forEach((element) &#x3D;&gt; {
+      nodeSet &#x3D; new Set([
+        ...nodeSet,
+        this.blueprintDesignerUtilService.getResourceID(element),
+      ]);
+      if (element?.edges?.length) {
+        edgesSet &#x3D; new Set([
+          ...edgesSet,
+          ...element?.edges.map((edge) &#x3D;&gt; edge.id),
+        ]);
+      }
+    });
+    this.uniqueEdges &#x3D; edgesSet;
+    this.uniqueNodes &#x3D; nodeSet;
+  };
+
+  cleanOtherNodeIntents() {
+    // uniqueEdges has all the nodes to or from which a connection goes through
+    // We should remove any intent from the otherNodesList which is originally supposed to be
+    // a config node but has some connection present
+    Array.from(this.uniqueEdges).forEach((resourceEdge: any) &#x3D;&gt; {
+      const intent &#x3D; resourceEdge.split(&#x27;:&#x27;)[0];
+      if (this.otherNodeIntents.has(intent)) {
+        this.otherNodeIntents.delete(intent);
+      }
+    });
+  }
+
+  parseAndSetResourcesData(resourcesInfo) {
+    // Set the unique edges and nodes
+    this.getUnitEdges(resourcesInfo);
+
+    // Create an array of resources with IDs from the resourceNodes
+    let resourcesWithId &#x3D; resourcesInfo.map((resource) &#x3D;&gt; ({
+      ...resource,
+      id: this.blueprintDesignerUtilService.getResourceID(resource),
+    }));
+
+    // Get all the unique resources based on the IDs
+    resourcesWithId &#x3D; uniqBy(resourcesWithId, &#x27;id&#x27;);
+
+    this.cleanOtherNodeIntents();
+
+    resourcesWithId.forEach((resource) &#x3D;&gt; {
+      if (resource.resourceType &#x3D;&#x3D;&#x3D; &#x27;UNKNOWN&#x27;) return;
+
+      if (
+        !resource?.edges?.length &amp;&amp;
+        !this.uniqueEdges.has(
+          this.blueprintDesignerUtilService.getResourceID(resource),
+        )
+      ) {
+        this.resourcesWithoutConnection.push(resource);
+      }
+      if (
+        resource?.edges?.length ||
+        this.uniqueEdges.has(
+          this.blueprintDesignerUtilService.getResourceID(resource),
+        )
+      ) {
+        this.resourcesWithConnection.push(resource);
+      }
+    });
+  }
+
+  getConnectedNodes(resources: any[], requiredResourceID: string) {
+    let allOutgoingConnections &#x3D; new Set&lt;any&gt;();
+    allOutgoingConnections &#x3D; new Set(
+      resources
+        .find(
+          (resource) &#x3D;&gt;
+            this.blueprintDesignerUtilService.getResourceID(resource) &#x3D;&#x3D;&#x3D;
+            requiredResourceID,
+        )
+        ?.edges?.map((resource) &#x3D;&gt; resource.id),
+    );
+    return resources?.filter((resource) &#x3D;&gt; {
+      const resourceID &#x3D;
+        this.blueprintDesignerUtilService.getResourceID(resource);
+      if (resourceID &#x3D;&#x3D;&#x3D; requiredResourceID) {
+        this.singleResourceNode &#x3D; resource;
+      }
+      return (
+        resourceID &#x3D;&#x3D;&#x3D; requiredResourceID ||
+        // Resources which point to our requiredResource
+        resource?.edges?.find(
+          (dependencyID) &#x3D;&gt; dependencyID.id &#x3D;&#x3D;&#x3D; requiredResourceID,
+        ) ||
+        // Resources which our requiredResource points to&#x60;
+        allOutgoingConnections.has(resourceID)
+      );
+    });
+  }
+
+  renderGraph() {
+    const model &#x3D; this.graphLayout.layout(this.graphData);
+    this.graph?.fromJSON(model);
+    this.graph?.scaleContentToFit({
+      padding: 10,
+      maxScale: 1,
+      minScale: 0.3,
+    });
+    this.graph?.centerContent();
+    // Since we have added 100vw to the graph container, the centre function
+    // is not able to exactly horizontally centre the graph and thus we
+    // need to translate it a little to the left
+    this.graph?.translateBy(-150, 30);
+  }
+
+  graphNodesForUnConnectedResources() {
+    this.resourcesWithoutConnection.forEach((node: any) &#x3D;&gt; {
+      this.graphData.nodes.push({
+        id: this.blueprintDesignerUtilService.getResourceID(node),
+        shape: &#x27;angular-shape&#x27;,
+
+        // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; We might need to change the resource node component based on
+        // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; the mode we are opening the graph component in
+
+        // componentName: this.showSingleResourceConnections
+        //   ? &#x27;simple-resource-node&#x27;
+        //   : &#x27;resource-node&#x27;,
+
+        componentName: &#x27;resource-node&#x27;,
+        height: 80,
+        width: 200,
+        data: {
+          ngArguments: {
+            nodeInfo: node,
+            resourceSpecificGraph: !!this.singleResourceNode,
+          },
+        },
+      });
+    });
+  }
+
+  generateGraphNodesAndEdges &#x3D; () &#x3D;&gt; {
+    this.nodeAndEdgesWithoutGrouping();
+    this.graphNodesForUnConnectedResources();
+    // this.nodeAndEdgesAfterGrouping();
+  };
+
+  nodeAndEdgesWithoutGrouping() {
+    this.resourcesWithConnection.forEach((node: any) &#x3D;&gt; {
+      this.graphData.nodes.push({
+        id: this.blueprintDesignerUtilService.getResourceID(node),
+        shape: &#x27;angular-shape&#x27;,
+
+        // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; We might need to change the resource node component based on
+        // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; the mode we are opening the graph component in
+
+        // componentName: this.showSingleResourceConnections
+        //   ? &#x27;simple-resource-node&#x27;
+        //   : &#x27;resource-node&#x27;,
+
+        componentName: &#x27;resource-node&#x27;,
+        height: 69,
+
+        // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; We might need to change the resource node width based on
+        // the mode we are opening the graph component in
+        // width: !this.showSingleResourceConnections ? 195 : 140,
+
+        width: 195,
+        data: {
+          ngArguments: {
+            nodeInfo: node,
+            resourceSpecificGraph: !!this.singleResourceNode,
+          },
+        },
+      });
+      node.edges.forEach((edge: any) &#x3D;&gt; {
+        if (
+          !this.showSingleResourceConnections &amp;&amp;
+          node.resourceType &#x3D;&#x3D;&#x3D; &#x27;service&#x27; &amp;&amp;
+          edge.resourceType &#x3D;&#x3D;&#x3D; &#x27;service&#x27;
+        ) {
+          return;
+        }
+
+        if (!edge?.resourceName) return;
+
+        if (this.uniqueNodes?.has(edge.id)) {
+          this.graphData.edges.push({
+            source: node.id,
+            target: edge.id,
+            attrs: {
+              line: {
+                stroke: &#x27;#A2B1C3&#x27;,
+                strokeWidth: 1,
+              },
+            },
+          });
+        }
+      });
+    });
+  }
+
+  nodeAndEdgesAfterGrouping() {
+    const nodeMap &#x3D; {};
+    this.resourcesWithConnection.forEach((node: any) &#x3D;&gt; {
+      nodeMap[node.id] &#x3D; node;
+    });
+
+    const edges &#x3D; [];
+    this.resourcesWithConnection.forEach((node: any) &#x3D;&gt; {
+      node.edges.forEach((edge: any) &#x3D;&gt; {
+        if (!edge?.resourceName) return;
+        edges.push({
+          source: edge.id,
+          target: node.id,
+        });
+      });
+    });
+    const groupedEdges &#x3D; groupByEdges(edges);
+    Object.entries(groupedEdges).forEach(([key, value]: [string, string[]]) &#x3D;&gt; {
+      value.forEach((nodeId) &#x3D;&gt; {
+        const node &#x3D; nodeMap[nodeId];
+        if (!node) return;
+
+        this.graphData.nodes.push({
+          id: this.blueprintDesignerUtilService.getResourceID(node),
+          shape: &#x27;angular-shape&#x27;,
+          componentName: this.showSingleResourceConnections
+            ? &#x27;simple-resource-node&#x27;
+            : &#x27;resource-node&#x27;,
+          height: 69,
+
+          // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; We might need to change the resource node width based on
+          // the mode we are opening the graph component in
+          // width: !this.showSingleResourceConnections ? 195 : 140,
+
+          width: 195,
+          data: {
+            ngArguments: {
+              nodeInfo: node,
+              resourceSpecificGraph: !!this.singleResourceNode,
+            },
+          },
+        });
+        node.edges.forEach((edge: any) &#x3D;&gt; {
+          if (
+            node.resourceType &#x3D;&#x3D;&#x3D; &#x27;service&#x27; &amp;&amp;
+            edge.resourceType &#x3D;&#x3D;&#x3D; &#x27;service&#x27;
+          ) {
+            return;
+          }
+          if (edge?.resourceName) return;
+
+          this.graphData.edges.push({
+            source: node.id,
+            target: edge.id,
+            attrs: {
+              line: {
+                stroke: &#x27;#A2B1C3&#x27;,
+                strokeWidth: 1,
+              },
+              padding: 102,
+            },
+          });
+        });
+      });
+    });
+  }
+
+  zoomEventSubscription: Subscription;
+  headerEventSubscription: Subscription;
+  listenToHeaderEvents() {
+    this.zoomEventSubscription &#x3D;
+      this.blueprintDesignerGraphService.zoomEvent.subscribe((zoomType) &#x3D;&gt; {
+        this.onZoom(zoomType);
+      });
+    this.headerEventSubscription &#x3D;
+      this.blueprintDesignerGraphService.eventFromHeader.subscribe(
+        (eventType) &#x3D;&gt; {
+          let action &#x3D; eventType?.action;
+          let resource &#x3D; eventType?.extras;
+          switch (action) {
+            case &#x27;addedResource&#x27;:
+              this.resourceToFocus &#x3D; resource;
+              this.initGraphComponent();
+              break;
+          }
+        },
+      );
+  }
+
+  // If we are creating a new resource node, we should be bringing that into focus
+  // once the node gets added to the graph. This resource node will only be
+  // coming into focus once and then we will be setting this back to null so that
+  // we don&#x27;t end up centering the same node again when it&#x27;s not really needed
+  resourceToFocus: any;
+  bringNodeToFocus() {
+    let resourceMap &#x3D; this.blueprintDesignerUtilService.getAllNodesMap();
+    let resourceNode &#x3D; resourceMap
+      .get(this.resourceToFocus?.resourceType)
+      .find(
+        (resource) &#x3D;&gt;
+          resource.resourceName &#x3D;&#x3D;&#x3D; this.resourceToFocus?.resourceName,
+      );
+    this.blueprintDesignerUtilService.setActiveNode(resourceNode);
+    this.blueprintDesignerUtilService.bringNodeInFocus(resourceNode);
+    this.resourceToFocus &#x3D; null;
+  }
+
+  onZoom(zoomType) {
+    const zoom &#x3D; this.graph.zoom();
+    if (
+      (zoom &lt;&#x3D; 0.5 &amp;&amp; zoomType &#x3D;&#x3D;&#x3D; &#x27;out&#x27;) ||
+      (zoom &gt;&#x3D; 2 &amp;&amp; zoomType &#x3D;&#x3D;&#x3D; &#x27;in&#x27;)
+    ) {
+      return;
+    }
+    if (zoomType &#x3D;&#x3D;&#x3D; &#x27;in&#x27;) {
+      this.graph.zoom(0.05);
+    } else {
+      this.graph.zoom(-0.05);
+    }
+    this.zoom &#x3D; Math.round(100 * this.graph.zoom());
+  }
+
+  getZoom() {
+    return Math.round(100 * this.graph.zoom());
+  }
+
+  blockOverlayOn: boolean &#x3D; false; // Blocks the graph component by adding an overlay on top
+  // whenever the branch is anything other than the default one
+  async checkForBlockOverlay() {
+    const defaultBranchName &#x3D; await this.getDefaultBranch(this.blueprint);
+    this.blockOverlayOn &#x3D; defaultBranchName !&#x3D;&#x3D; this.branchName;
+    if (this.blockOverlayOn &amp;&amp; !this.singleResourceID) {
+      this.customToasterService.info({
+        content:
+          &#x27;The graph view is only available in the default branch. Please select the default branch from the top to view the architecture graph.&#x27;,
+        duration: 5000,
+      });
+    }
+  }
+
+  async getDefaultBranch(blueprint: string) {
+    return new Promise((resolve) &#x3D;&gt; {
+      this.blueprintDesignerService.listBranchesUsingGET(blueprint).subscribe(
+        (data) &#x3D;&gt; {
+          resolve(data.defaultBranch);
+        },
+        (error) &#x3D;&gt; {
+          console.log(error);
+        },
+      );
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div
+  [ngClass]&#x3D;&quot;{
+    &#x27;graph-container&#x27;: 1,
+    &#x27;resource-specific-graph&#x27;: showSingleResourceConnections,
+    &#x27;d-none&#x27;: showEmptyState,
+    &#x27;disable-graph&#x27;: blockOverlayOn
+  }&quot;
+  [nbSpinner]&#x3D;&quot;loadingResources&quot;
+&gt;
+  &lt;div id&#x3D;&quot;graph-container&quot;&gt;&lt;/div&gt;
+  &lt;div id&#x3D;&quot;graph-container-small&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;app-message
+  *ngIf&#x3D;&quot;!loadingResources &amp;&amp; showEmptyState&quot;
+  style&#x3D;&quot;width: 100%&quot;
+  class&#x3D;&quot;mt-4&quot;
+  [imgUrl]&#x3D;&quot;errorStateIcon&quot;
+  [primaryMsg]&#x3D;&quot;
+    errorWhileFetchingResources
+      ? &#x27;Failed to fetch resources&#x27;
+      : &#x27;No resources present&#x27;
+  &quot;
+  [secondaryMsg]&#x3D;&quot;errorWhileFetchingResources ? &#x27;Table is empty&#x27; : &#x27;&#x27;&quot;
+  [showBtn]&#x3D;&quot;false&quot;
+&gt;&lt;/app-message&gt;
+
+&lt;div
+  [ngClass]&#x3D;&quot;{
+    &#x27;d-none&#x27;: showEmptyState,
+    &#x27;disable-graph&#x27;: blockOverlayOn
+  }&quot;
+  id&#x3D;&quot;minimap-container&quot;
+&gt;&lt;/div&gt;
+
+&lt;!-- KNOWN BUG: on zooming out, other nodes bar start to move up, needs to be fixed --&gt;
+
+&lt;!-- &lt;ng-container *ngIf&#x3D;&quot;!hideOtherNodes&quot;&gt;
+  &lt;app-other-nodes [otherNodes]&#x3D;&quot;configTypeResources&quot;&gt;&lt;/app-other-nodes&gt;
+&lt;/ng-container&gt; --&gt;
+
+&lt;ng-container *ngIf&#x3D;&quot;!hideResourceConfigViewer&quot;&gt;
+  &lt;app-resource-config-viewer&gt;&lt;/app-resource-config-viewer&gt;
+&lt;/ng-container&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./blueprint-designer-graph.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.graph-container {
+  flex-grow: 1;
+  border: solid 1px #e6eff7;
+  display: flex;
+  flex-direction: column;
+}
+
+.disable-graph {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.graph-container-firefox {
+  height: 100vh;
+}
+
+.resource-specific-graph {
+  height: 15rem;
+  border: none;
+}
+
+#graph-container-small {
+  flex-grow: 1;
+  width: 100vw !important;
+  height: 15rem !important;
+}
+
+#graph-container {
+  flex-grow: 1;
+  width: 100vw !important;
+  height: 100% !important;
+}
+
+#minimap-container {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border-radius: 5px;
+  overflow: auto;
+  box-shadow: 0px 0px 5px 1px #c7d1e1;
+}
+
+.minimap-container-firefox {
+  top: 10rem !important;
+  right: 1rem !important;
+}
+
+::ng-deep app-blueprint-designer-graph .x6-widget-minimap-viewport {
+  position: absolute;
+  box-sizing: content-box !important;
+  margin: -2px 0 0 -2px;
+  border: 1.5px solid #8fa6c1;
+  cursor: move;
+  border-radius: 3px;
+  background: #edf1f747;
+  box-shadow: inset 0px 0px 8px 1px #d9dde7ad;
+}
+
+::ng-deep app-blueprint-designer-graph .x6-widget-minimap-viewport-zoom {
+  border: 1.5px solid #8fa6c1;
+  background: #e9e8f4;
+}
+
+::ng-deep nb-layout-column:has(app-blueprint-designer-graph) {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep nb-layout-column:has(app-blueprint-designer-table) {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+// When this component is loaded inside the resource-connections component
+// for loading the graph for only one single resource, we render it inside a
+// container and not the entire layout area.
+// Thus, we need to add the padding we removed in the line above back to the nb-layout-column,
+// this would override the above.
+::ng-deep nb-layout-column:has(app-resource-connections-graph) {
+  padding: 1rem !important;
+}
+
+::ng-deep app-stack-component:has(app-blueprint-designer-graph),
+::ng-deep app-blueprint-designer-graph,
+::ng-deep nb-layout-column:has(app-blueprint-designer-graph) &gt; div {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+  height: 85.2vh;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div  [ngClass]="{    \'graph-container\': 1,    \'resource-specific-graph\': showSingleResourceConnections,    \'d-none\': showEmptyState,    \'disable-graph\': blockOverlayOn  }"  [nbSpinner]="loadingResources">  <div id="graph-container"></div>  <div id="graph-container-small"></div></div><app-message  *ngIf="!loadingResources && showEmptyState"  style="width: 100%"  class="mt-4"  [imgUrl]="errorStateIcon"  [primaryMsg]="    errorWhileFetchingResources      ? \'Failed to fetch resources\'      : \'No resources present\'  "  [secondaryMsg]="errorWhileFetchingResources ? \'Table is empty\' : \'\'"  [showBtn]="false"></app-message><div  [ngClass]="{    \'d-none\': showEmptyState,    \'disable-graph\': blockOverlayOn  }"  id="minimap-container"></div><!-- KNOWN BUG: on zooming out, other nodes bar start to move up, needs to be fixed --><!-- <ng-container *ngIf="!hideOtherNodes">  <app-other-nodes [otherNodes]="configTypeResources"></app-other-nodes></ng-container> --><ng-container *ngIf="!hideResourceConfigViewer">  <app-resource-config-viewer></app-resource-config-viewer></ng-container></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'BlueprintDesignerGraphComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BlueprintDesignerGraphComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

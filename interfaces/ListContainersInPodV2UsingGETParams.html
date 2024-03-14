@@ -1,0 +1,2229 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  ListContainersInPodV2UsingGETParams</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/ui-kubernetes-explorer-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Parameters for listContainersInPodV2UsingGET</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#clusterId" 
+>
+                                            clusterId
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#labels" 
+>
+                                            labels
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#podName" 
+>
+                                            podName
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="clusterId"></a>
+                                        <span class="name "><b>clusterId</b>
+                                            <a href="#clusterId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>clusterId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>clusterId</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="labels"></a>
+                                        <span class="name "><b>labels</b>
+                                            <a href="#labels">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>labels:         <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>labels</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="podName"></a>
+                                        <span class="name "><b>podName</b>
+                                            <a href="#podName">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>podName:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>podName</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpHeaders,
+} from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { ConfigMapDTO } from &#x27;../models/config-map-dto&#x27;;
+import { CronJobDTO } from &#x27;../models/cron-job-dto&#x27;;
+import { DaemonSetDTO } from &#x27;../models/daemon-set-dto&#x27;;
+import { DeploymentDTO } from &#x27;../models/deployment-dto&#x27;;
+import { HorizontalPodAutoscalerDTO } from &#x27;../models/horizontal-pod-autoscaler-dto&#x27;;
+import { IngressDTO } from &#x27;../models/ingress-dto&#x27;;
+import { JobDTO } from &#x27;../models/job-dto&#x27;;
+import { PodDTO } from &#x27;../models/pod-dto&#x27;;
+import { StreamingResponseBody } from &#x27;../models/streaming-response-body&#x27;;
+import { PersistentVolumeDTO } from &#x27;../models/persistent-volume-dto&#x27;;
+import { PersistentVolumeClaimDTO } from &#x27;../models/persistent-volume-claim-dto&#x27;;
+import { ReplicasetDTO } from &#x27;../models/replicaset-dto&#x27;;
+import { SecretDTO } from &#x27;../models/secret-dto&#x27;;
+import { ServiceDTO } from &#x27;../models/service-dto&#x27;;
+import { StatefulSetDTO } from &#x27;../models/stateful-set-dto&#x27;;
+import { EventDTO } from &#x27;../models/event-dto&#x27;;
+import { Container } from &#x27;../models/container&#x27;;
+import { ContainerDTO } from &#x27;../models/container-dto&#x27;;
+
+/**
+ * Ui Kubernetes Explorer Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class UiKubernetesExplorerControllerService extends __BaseService {
+  static readonly listConfigMapByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/configMaps&#x27;;
+  static readonly getConfigMapDataUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/configMaps/{configMapName}&#x27;;
+  static readonly listCronJobByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/cronJobs&#x27;;
+  static readonly listDaemonSetsByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/daemonSets&#x27;;
+  static readonly listDeploymentsByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/deployments&#x27;;
+  static readonly getPodsForDeploymentUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/deployments/{deploymentName}&#x27;;
+  static readonly listHpaByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/hpa&#x27;;
+  static readonly listIngressesByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/ingresses&#x27;;
+  static readonly listJobsByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/jobs&#x27;;
+  static readonly listPodsByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/pods&#x27;;
+  static readonly containerLogsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/pods/{podName}/{containerName}/logs&#x27;;
+  static readonly listPVByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/pv&#x27;;
+  static readonly listPVCByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/pvc&#x27;;
+  static readonly listReplicasetsByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/replicasets&#x27;;
+  static readonly listSecretsByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/secrets&#x27;;
+  static readonly getSecretsDataUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/secrets/{secretName}&#x27;;
+  static readonly listServicesByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/services&#x27;;
+  static readonly listStatefulsetsLabelsByLabelsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/statefulsets&#x27;;
+  static readonly listEventsByK8sResourceUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/{k8sResourceType}/{k8sResourceName}/events&#x27;;
+  static readonly getManifestUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/{k8sResourceType}/{k8sResourceName}/manifest&#x27;;
+  static readonly listContainersInPodUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/{podName}/containers&#x27;;
+  static readonly listContainersInPodV2UsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/k8s-explorer/{podName}/v2/containers&#x27;;
+
+  constructor(config: __Configuration, http: HttpClient) {
+    super(config, http);
+  }
+
+  /**
+   * listConfigMapByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListConfigMapByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listConfigMapByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListConfigMapByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ConfigMapDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/configMaps&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ConfigMapDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listConfigMapByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListConfigMapByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listConfigMapByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListConfigMapByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;ConfigMapDTO&gt;&gt; {
+    return this.listConfigMapByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ConfigMapDTO&gt;),
+    );
+  }
+
+  /**
+   * getConfigMapData
+   * @param params The &#x60;UiKubernetesExplorerControllerService.GetConfigMapDataUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;configMapName&#x60;: configMapName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getConfigMapDataUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.GetConfigMapDataUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;{}&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/configMaps/${encodeURIComponent(
+          String(params.configMapName),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{}&gt;;
+      }),
+    );
+  }
+  /**
+   * getConfigMapData
+   * @param params The &#x60;UiKubernetesExplorerControllerService.GetConfigMapDataUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;configMapName&#x60;: configMapName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getConfigMapDataUsingGET(
+    params: UiKubernetesExplorerControllerService.GetConfigMapDataUsingGETParams,
+  ): __Observable&lt;{}&gt; {
+    return this.getConfigMapDataUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as {}),
+    );
+  }
+
+  /**
+   * listCronJobByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListCronJobByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listCronJobByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListCronJobByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;CronJobDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/cronJobs&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;CronJobDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listCronJobByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListCronJobByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listCronJobByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListCronJobByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;CronJobDTO&gt;&gt; {
+    return this.listCronJobByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;CronJobDTO&gt;),
+    );
+  }
+
+  /**
+   * listDaemonSetsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListDaemonSetsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listDaemonSetsByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListDaemonSetsByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;DaemonSetDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/daemonSets&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;DaemonSetDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listDaemonSetsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListDaemonSetsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listDaemonSetsByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListDaemonSetsByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;DaemonSetDTO&gt;&gt; {
+    return this.listDaemonSetsByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;DaemonSetDTO&gt;),
+    );
+  }
+
+  /**
+   * listDeploymentsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListDeploymentsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listDeploymentsByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListDeploymentsByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;DeploymentDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/deployments&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;DeploymentDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listDeploymentsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListDeploymentsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listDeploymentsByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListDeploymentsByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;DeploymentDTO&gt;&gt; {
+    return this.listDeploymentsByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;DeploymentDTO&gt;),
+    );
+  }
+
+  /**
+   * getPodsForDeployment
+   * @param params The &#x60;UiKubernetesExplorerControllerService.GetPodsForDeploymentUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;deploymentName&#x60;: deploymentName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getPodsForDeploymentUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.GetPodsForDeploymentUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;string&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/deployments/${encodeURIComponent(
+          String(params.deploymentName),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;string&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getPodsForDeployment
+   * @param params The &#x60;UiKubernetesExplorerControllerService.GetPodsForDeploymentUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;deploymentName&#x60;: deploymentName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getPodsForDeploymentUsingGET(
+    params: UiKubernetesExplorerControllerService.GetPodsForDeploymentUsingGETParams,
+  ): __Observable&lt;Array&lt;string&gt;&gt; {
+    return this.getPodsForDeploymentUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;string&gt;),
+    );
+  }
+
+  /**
+   * listHpaByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListHpaByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listHpaByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListHpaByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;HorizontalPodAutoscalerDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/hpa&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;HorizontalPodAutoscalerDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listHpaByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListHpaByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listHpaByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListHpaByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;HorizontalPodAutoscalerDTO&gt;&gt; {
+    return this.listHpaByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;HorizontalPodAutoscalerDTO&gt;),
+    );
+  }
+
+  /**
+   * listIngressesByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListIngressesByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listIngressesByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListIngressesByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;IngressDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/ingresses&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;IngressDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listIngressesByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListIngressesByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listIngressesByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListIngressesByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;IngressDTO&gt;&gt; {
+    return this.listIngressesByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;IngressDTO&gt;),
+    );
+  }
+
+  /**
+   * listJobsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListJobsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listJobsByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListJobsByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;JobDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/jobs&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;JobDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listJobsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListJobsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listJobsByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListJobsByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;JobDTO&gt;&gt; {
+    return this.listJobsByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;JobDTO&gt;),
+    );
+  }
+
+  /**
+   * listPodsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListPodsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listPodsByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListPodsByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;PodDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/pods&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;PodDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listPodsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListPodsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listPodsByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListPodsByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;PodDTO&gt;&gt; {
+    return this.listPodsByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;PodDTO&gt;),
+    );
+  }
+
+  /**
+   * containerLogs
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ContainerLogsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;tail&#x60;: tail
+   *
+   * - &#x60;podName&#x60;: podName
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;containerName&#x60;: containerName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  containerLogsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ContainerLogsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;StreamingResponseBody&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.tail !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;tail&#x27;, params.tail.toString());
+
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/pods/${encodeURIComponent(
+          String(params.podName),
+        )}/${encodeURIComponent(String(params.containerName))}/logs&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;StreamingResponseBody&gt;;
+      }),
+    );
+  }
+  /**
+   * containerLogs
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ContainerLogsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;tail&#x60;: tail
+   *
+   * - &#x60;podName&#x60;: podName
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;containerName&#x60;: containerName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  containerLogsUsingGET(
+    params: UiKubernetesExplorerControllerService.ContainerLogsUsingGETParams,
+  ): __Observable&lt;StreamingResponseBody&gt; {
+    return this.containerLogsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as StreamingResponseBody),
+    );
+  }
+
+  /**
+   * listPVByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListPVByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listPVByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListPVByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;PersistentVolumeDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/pv&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;PersistentVolumeDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listPVByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListPVByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listPVByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListPVByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;PersistentVolumeDTO&gt;&gt; {
+    return this.listPVByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;PersistentVolumeDTO&gt;),
+    );
+  }
+
+  /**
+   * listPVCByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListPVCByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listPVCByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListPVCByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;PersistentVolumeClaimDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/pvc&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;PersistentVolumeClaimDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listPVCByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListPVCByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listPVCByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListPVCByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;PersistentVolumeClaimDTO&gt;&gt; {
+    return this.listPVCByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;PersistentVolumeClaimDTO&gt;),
+    );
+  }
+
+  /**
+   * listReplicasetsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListReplicasetsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listReplicasetsByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListReplicasetsByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ReplicasetDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/replicasets&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ReplicasetDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listReplicasetsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListReplicasetsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listReplicasetsByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListReplicasetsByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;ReplicasetDTO&gt;&gt; {
+    return this.listReplicasetsByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ReplicasetDTO&gt;),
+    );
+  }
+
+  /**
+   * listSecretsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListSecretsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listSecretsByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListSecretsByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;SecretDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/secrets&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;SecretDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listSecretsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListSecretsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listSecretsByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListSecretsByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;SecretDTO&gt;&gt; {
+    return this.listSecretsByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;SecretDTO&gt;),
+    );
+  }
+
+  /**
+   * getSecretsData
+   * @param params The &#x60;UiKubernetesExplorerControllerService.GetSecretsDataUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;secretName&#x60;: secretName
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getSecretsDataUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.GetSecretsDataUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;{}&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/secrets/${encodeURIComponent(
+          String(params.secretName),
+        )}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{}&gt;;
+      }),
+    );
+  }
+  /**
+   * getSecretsData
+   * @param params The &#x60;UiKubernetesExplorerControllerService.GetSecretsDataUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;secretName&#x60;: secretName
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getSecretsDataUsingGET(
+    params: UiKubernetesExplorerControllerService.GetSecretsDataUsingGETParams,
+  ): __Observable&lt;{}&gt; {
+    return this.getSecretsDataUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as {}),
+    );
+  }
+
+  /**
+   * listServicesByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListServicesByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * @return OK
+   */
+  listServicesByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListServicesByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ServiceDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/services&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ServiceDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listServicesByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListServicesByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * @return OK
+   */
+  listServicesByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListServicesByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;ServiceDTO&gt;&gt; {
+    return this.listServicesByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ServiceDTO&gt;),
+    );
+  }
+
+  /**
+   * listStatefulsetsLabelsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListStatefulsetsLabelsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listStatefulsetsLabelsByLabelsUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListStatefulsetsLabelsByLabelsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;StatefulSetDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/statefulsets&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;StatefulSetDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listStatefulsetsLabelsByLabels
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListStatefulsetsLabelsByLabelsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listStatefulsetsLabelsByLabelsUsingGET(
+    params: UiKubernetesExplorerControllerService.ListStatefulsetsLabelsByLabelsUsingGETParams,
+  ): __Observable&lt;Array&lt;StatefulSetDTO&gt;&gt; {
+    return this.listStatefulsetsLabelsByLabelsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;StatefulSetDTO&gt;),
+    );
+  }
+
+  /**
+   * listEventsByK8sResource
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListEventsByK8sResourceUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;k8sResourceType&#x60;: k8sResourceType
+   *
+   * - &#x60;k8sResourceName&#x60;: k8sResourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listEventsByK8sResourceUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListEventsByK8sResourceUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;EventDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/${encodeURIComponent(
+          String(params.k8sResourceType),
+        )}/${encodeURIComponent(String(params.k8sResourceName))}/events&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;EventDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listEventsByK8sResource
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListEventsByK8sResourceUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;k8sResourceType&#x60;: k8sResourceType
+   *
+   * - &#x60;k8sResourceName&#x60;: k8sResourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listEventsByK8sResourceUsingGET(
+    params: UiKubernetesExplorerControllerService.ListEventsByK8sResourceUsingGETParams,
+  ): __Observable&lt;Array&lt;EventDTO&gt;&gt; {
+    return this.listEventsByK8sResourceUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;EventDTO&gt;),
+    );
+  }
+
+  /**
+   * getManifest
+   * @param params The &#x60;UiKubernetesExplorerControllerService.GetManifestUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;k8sResourceType&#x60;: k8sResourceType
+   *
+   * - &#x60;k8sResourceName&#x60;: k8sResourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getManifestUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.GetManifestUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;string&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/${encodeURIComponent(
+          String(params.k8sResourceType),
+        )}/${encodeURIComponent(String(params.k8sResourceName))}/manifest&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;string&gt;;
+      }),
+    );
+  }
+  /**
+   * getManifest
+   * @param params The &#x60;UiKubernetesExplorerControllerService.GetManifestUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;k8sResourceType&#x60;: k8sResourceType
+   *
+   * - &#x60;k8sResourceName&#x60;: k8sResourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getManifestUsingGET(
+    params: UiKubernetesExplorerControllerService.GetManifestUsingGETParams,
+  ): __Observable&lt;string&gt; {
+    return this.getManifestUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as string),
+    );
+  }
+
+  /**
+   * listContainersInPod
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListContainersInPodUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;podName&#x60;: podName
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listContainersInPodUsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListContainersInPodUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;Container&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/${encodeURIComponent(
+          String(params.podName),
+        )}/containers&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Container&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listContainersInPod
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListContainersInPodUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;podName&#x60;: podName
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listContainersInPodUsingGET(
+    params: UiKubernetesExplorerControllerService.ListContainersInPodUsingGETParams,
+  ): __Observable&lt;Array&lt;Container&gt;&gt; {
+    return this.listContainersInPodUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Container&gt;),
+    );
+  }
+
+  /**
+   * listContainersInPodV2
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListContainersInPodV2UsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;podName&#x60;: podName
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listContainersInPodV2UsingGETResponse(
+    params: UiKubernetesExplorerControllerService.ListContainersInPodV2UsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ContainerDTO&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/k8s-explorer/${encodeURIComponent(
+          String(params.podName),
+        )}/v2/containers&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ContainerDTO&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listContainersInPodV2
+   * @param params The &#x60;UiKubernetesExplorerControllerService.ListContainersInPodV2UsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;podName&#x60;: podName
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  listContainersInPodV2UsingGET(
+    params: UiKubernetesExplorerControllerService.ListContainersInPodV2UsingGETParams,
+  ): __Observable&lt;Array&lt;ContainerDTO&gt;&gt; {
+    return this.listContainersInPodV2UsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ContainerDTO&gt;),
+    );
+  }
+}
+
+module UiKubernetesExplorerControllerService {
+  /**
+   * Parameters for listConfigMapByLabelsUsingGET
+   */
+  export interface ListConfigMapByLabelsUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getConfigMapDataUsingGET
+   */
+  export interface GetConfigMapDataUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * configMapName
+     */
+    configMapName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listCronJobByLabelsUsingGET
+   */
+  export interface ListCronJobByLabelsUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listDaemonSetsByLabelsUsingGET
+   */
+  export interface ListDaemonSetsByLabelsUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listDeploymentsByLabelsUsingGET
+   */
+  export interface ListDeploymentsByLabelsUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getPodsForDeploymentUsingGET
+   */
+  export interface GetPodsForDeploymentUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * deploymentName
+     */
+    deploymentName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listHpaByLabelsUsingGET
+   */
+  export interface ListHpaByLabelsUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listIngressesByLabelsUsingGET
+   */
+  export interface ListIngressesByLabelsUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listJobsByLabelsUsingGET
+   */
+  export interface ListJobsByLabelsUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listPodsByLabelsUsingGET
+   */
+  export interface ListPodsByLabelsUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for containerLogsUsingGET
+   */
+  export interface ContainerLogsUsingGETParams {
+    /**
+     * tail
+     */
+    tail: number;
+
+    /**
+     * podName
+     */
+    podName: string;
+
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * containerName
+     */
+    containerName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listPVByLabelsUsingGET
+   */
+  export interface ListPVByLabelsUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listPVCByLabelsUsingGET
+   */
+  export interface ListPVCByLabelsUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listReplicasetsByLabelsUsingGET
+   */
+  export interface ListReplicasetsByLabelsUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listSecretsByLabelsUsingGET
+   */
+  export interface ListSecretsByLabelsUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getSecretsDataUsingGET
+   */
+  export interface GetSecretsDataUsingGETParams {
+    /**
+     * secretName
+     */
+    secretName: string;
+
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listServicesByLabelsUsingGET
+   */
+  export interface ListServicesByLabelsUsingGETParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * labels
+     */
+    labels?: any;
+  }
+
+  /**
+   * Parameters for listStatefulsetsLabelsByLabelsUsingGET
+   */
+  export interface ListStatefulsetsLabelsByLabelsUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listEventsByK8sResourceUsingGET
+   */
+  export interface ListEventsByK8sResourceUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * k8sResourceType
+     */
+    k8sResourceType:
+      | &#x27;Deployment&#x27;
+      | &#x27;Pod&#x27;
+      | &#x27;DaemonSet&#x27;
+      | &#x27;StatefulSet&#x27;
+      | &#x27;HorizontalPodAutoscaler&#x27;
+      | &#x27;ReplicaSet&#x27;
+      | &#x27;Job&#x27;
+      | &#x27;CronJob&#x27;
+      | &#x27;Ingress&#x27;
+      | &#x27;PersistentVolumeClaim&#x27;
+      | &#x27;PersistentVolume&#x27;
+      | &#x27;ConfigMaps&#x27;;
+
+    /**
+     * k8sResourceName
+     */
+    k8sResourceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getManifestUsingGET
+   */
+  export interface GetManifestUsingGETParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * k8sResourceType
+     */
+    k8sResourceType:
+      | &#x27;Deployment&#x27;
+      | &#x27;Pod&#x27;
+      | &#x27;DaemonSet&#x27;
+      | &#x27;StatefulSet&#x27;
+      | &#x27;HorizontalPodAutoscaler&#x27;
+      | &#x27;ReplicaSet&#x27;
+      | &#x27;Job&#x27;
+      | &#x27;CronJob&#x27;
+      | &#x27;Ingress&#x27;
+      | &#x27;PersistentVolumeClaim&#x27;
+      | &#x27;PersistentVolume&#x27;
+      | &#x27;ConfigMaps&#x27;;
+
+    /**
+     * k8sResourceName
+     */
+    k8sResourceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listContainersInPodUsingGET
+   */
+  export interface ListContainersInPodUsingGETParams {
+    /**
+     * podName
+     */
+    podName: string;
+
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for listContainersInPodV2UsingGET
+   */
+  export interface ListContainersInPodV2UsingGETParams {
+    /**
+     * podName
+     */
+    podName: string;
+
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+}
+
+export { UiKubernetesExplorerControllerService };
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ListContainersInPodV2UsingGETParams.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

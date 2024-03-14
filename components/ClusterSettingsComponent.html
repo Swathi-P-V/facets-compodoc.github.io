@@ -1,0 +1,3036 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ClusterSettingsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../interfaces/CanDeactivateComponent.html" target="_self" >CanDeactivateComponent</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-cluster-settings</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./cluster-settings.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./cluster-settings.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#buttonText" >buttonText</a>
+                            </li>
+                            <li>
+                                <a href="#changeSettings" >changeSettings</a>
+                            </li>
+                            <li>
+                                <a href="#cluster" >cluster</a>
+                            </li>
+                            <li>
+                                <a href="#clusterDefaultSettings" >clusterDefaultSettings</a>
+                            </li>
+                            <li>
+                                <a href="#clusterError" >clusterError</a>
+                            </li>
+                            <li>
+                                <a href="#clusterId" >clusterId</a>
+                            </li>
+                            <li>
+                                <a href="#clusterSettingChanged" >clusterSettingChanged</a>
+                            </li>
+                            <li>
+                                <a href="#clusterSettingOriginal" >clusterSettingOriginal</a>
+                            </li>
+                            <li>
+                                <a href="#clusterSettings" >clusterSettings</a>
+                            </li>
+                            <li>
+                                <a href="#clusterSettingsForm" >clusterSettingsForm</a>
+                            </li>
+                            <li>
+                                <a href="#entityType" >entityType</a>
+                            </li>
+                            <li>
+                                <a href="#environmentConfigPermission" >environmentConfigPermission</a>
+                            </li>
+                            <li>
+                                <a href="#errIcon" >errIcon</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingCluster" >fetchingCluster</a>
+                            </li>
+                            <li>
+                                <a href="#fetchingSetting" >fetchingSetting</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Private</span>
+                                <a href="#footerComponent" >footerComponent</a>
+                            </li>
+                            <li>
+                                <a href="#handleBack" >handleBack</a>
+                            </li>
+                            <li>
+                                <a href="#objectKeys" >objectKeys</a>
+                            </li>
+                            <li>
+                                <a href="#onDiscard" >onDiscard</a>
+                            </li>
+                            <li>
+                                <a href="#primaryMsg" >primaryMsg</a>
+                            </li>
+                            <li>
+                                <a href="#releaseNowButton" >releaseNowButton</a>
+                            </li>
+                            <li>
+                                <a href="#reviewComments" >reviewComments</a>
+                            </li>
+                            <li>
+                                <a href="#secondaryMsg" >secondaryMsg</a>
+                            </li>
+                            <li>
+                                <a href="#selectOptions" >selectOptions</a>
+                            </li>
+                            <li>
+                                <a href="#setClusterSettingForm" >setClusterSettingForm</a>
+                            </li>
+                            <li>
+                                <a href="#settingsError" >settingsError</a>
+                            </li>
+                            <li>
+                                <a href="#showBtn" >showBtn</a>
+                            </li>
+                            <li>
+                                <a href="#showTooltip" >showTooltip</a>
+                            </li>
+                            <li>
+                                <a href="#stackName" >stackName</a>
+                            </li>
+                            <li>
+                                <a href="#status" >status</a>
+                            </li>
+                            <li>
+                                <a href="#submitClusterSettings" >submitClusterSettings</a>
+                            </li>
+                            <li>
+                                <a href="#toastSubscription" >toastSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#tooltip" >tooltip</a>
+                            </li>
+                            <li>
+                                <a href="#VPN_ENABLE_DISABLE" >VPN_ENABLE_DISABLE</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Private</span>
+                                <a href="#vpnInstructionsModal" >vpnInstructionsModal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#canDeactivate" >canDeactivate</a>
+                            </li>
+                            <li>
+                                <a href="#determineNewValue" >determineNewValue</a>
+                            </li>
+                            <li>
+                                <a href="#getClusterSettings" >getClusterSettings</a>
+                            </li>
+                            <li>
+                                <a href="#navigateToEnvOverview" >navigateToEnvOverview</a>
+                            </li>
+                            <li>
+                                <a href="#navigateToReleasesPage" >navigateToReleasesPage</a>
+                            </li>
+                            <li>
+                                <a href="#onChange" >onChange</a>
+                            </li>
+                            <li>
+                                <a href="#onChangeSelect" >onChangeSelect</a>
+                            </li>
+                            <li>
+                                <a href="#onChangeToggle" >onChangeToggle</a>
+                            </li>
+                            <li>
+                                <a href="#OnDestroy" >OnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageInit" >OnPageInit</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageLoad" >OnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#prepareOptions" >prepareOptions</a>
+                            </li>
+                            <li>
+                                <a href="#showVPNInstructions" >showVPNInstructions</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(activatedRoute: ActivatedRoute, router: Router, uiSettingService: <a href="../injectables/UiSettingsControllerService.html" target="_self">UiSettingsControllerService</a>, uiCommonClusterControllerService: <a href="../injectables/UiCommonClusterControllerService.html" target="_self">UiCommonClusterControllerService</a>, toastService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>, dialogService: NbDialogService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:80</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiSettingService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiSettingsControllerService.html" target="_self" >UiSettingsControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiCommonClusterControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiCommonClusterControllerService.html" target="_self" >UiCommonClusterControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>toastService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NbDialogService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canDeactivate"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>canDeactivate</b></span>
+                        <a href="#canDeactivate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>canDeactivate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="327"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:327</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="determineNewValue"></a>
+                    <span class="name">
+                        <span ><b>determineNewValue</b></span>
+                        <a href="#determineNewValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>determineNewValue(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:217</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClusterSettings"></a>
+                    <span class="name">
+                        <span ><b>getClusterSettings</b></span>
+                        <a href="#getClusterSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getClusterSettings()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="135"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:135</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateToEnvOverview"></a>
+                    <span class="name">
+                        <span ><b>navigateToEnvOverview</b></span>
+                        <a href="#navigateToEnvOverview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateToEnvOverview(event, ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="347"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:347</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateToReleasesPage"></a>
+                    <span class="name">
+                        <span ><b>navigateToReleasesPage</b></span>
+                        <a href="#navigateToReleasesPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateToReleasesPage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="341"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:341</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChange"></a>
+                    <span class="name">
+                        <span ><b>onChange</b></span>
+                        <a href="#onChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onChange(event, setting, type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="228"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:228</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>setting</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChangeSelect"></a>
+                    <span class="name">
+                        <span ><b>onChangeSelect</b></span>
+                        <a href="#onChangeSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onChangeSelect(value, setting)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="241"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:241</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>setting</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChangeToggle"></a>
+                    <span class="name">
+                        <span ><b>onChangeToggle</b></span>
+                        <a href="#onChangeToggle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onChangeToggle(value, setting)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="251"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:251</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>setting</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnDestroy"></a>
+                    <span class="name">
+                        <span ><b>OnDestroy</b></span>
+                        <a href="#OnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="355"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:355</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageInit"></a>
+                    <span class="name">
+                        <span ><b>OnPageInit</b></span>
+                        <a href="#OnPageInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:93</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>OnPageLoad</b></span>
+                        <a href="#OnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:103</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prepareOptions"></a>
+                    <span class="name">
+                        <span ><b>prepareOptions</b></span>
+                        <a href="#prepareOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>prepareOptions(setting)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:194</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>setting</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showVPNInstructions"></a>
+                    <span class="name">
+                        <span ><b>showVPNInstructions</b></span>
+                        <a href="#showVPNInstructions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showVPNInstructions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="335"
+                                    class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:335</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buttonText"></a>
+                    <span class="name">
+                        <span ><b>buttonText</b></span>
+                        <a href="#buttonText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Reload&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeSettings"></a>
+                    <span class="name">
+                        <span ><b>changeSettings</b></span>
+                        <a href="#changeSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cluster"></a>
+                    <span class="name">
+                        <span ><b>cluster</b></span>
+                        <a href="#cluster"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/AwsCluster.html" target="_self" >AwsCluster</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusterDefaultSettings"></a>
+                    <span class="name">
+                        <span ><b>clusterDefaultSettings</b></span>
+                        <a href="#clusterDefaultSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusterError"></a>
+                    <span class="name">
+                        <span ><b>clusterError</b></span>
+                        <a href="#clusterError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusterId"></a>
+                    <span class="name">
+                        <span ><b>clusterId</b></span>
+                        <a href="#clusterId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusterSettingChanged"></a>
+                    <span class="name">
+                        <span ><b>clusterSettingChanged</b></span>
+                        <a href="#clusterSettingChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusterSettingOriginal"></a>
+                    <span class="name">
+                        <span ><b>clusterSettingOriginal</b></span>
+                        <a href="#clusterSettingOriginal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusterSettings"></a>
+                    <span class="name">
+                        <span ><b>clusterSettings</b></span>
+                        <a href="#clusterSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusterSettingsForm"></a>
+                    <span class="name">
+                        <span ><b>clusterSettingsForm</b></span>
+                        <a href="#clusterSettingsForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="entityType"></a>
+                    <span class="name">
+                        <span ><b>entityType</b></span>
+                        <a href="#entityType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;CLUSTER&quot; | &quot;BLUE_PRINT&quot; | &quot;TEMPLATE_INPUT&quot; | &quot;CONTROL_PLANE&quot; | &quot;IAC&quot; | &quot;ARTIFACT_CI&quot; | &quot;USER_GROUP&quot; | &quot;ACCOUNT&quot; | &quot;ARTIFACTORY&quot;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environmentConfigPermission"></a>
+                    <span class="name">
+                        <span ><b>environmentConfigPermission</b></span>
+                        <a href="#environmentConfigPermission"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ENVIRONMENT_CONFIGURE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errIcon"></a>
+                    <span class="name">
+                        <span ><b>errIcon</b></span>
+                        <a href="#errIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>errLogo</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingCluster"></a>
+                    <span class="name">
+                        <span ><b>fetchingCluster</b></span>
+                        <a href="#fetchingCluster"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchingSetting"></a>
+                    <span class="name">
+                        <span ><b>fetchingSetting</b></span>
+                        <a href="#fetchingSetting"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="footerComponent"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Private</span>
+                        <span ><b>footerComponent</b></span>
+                        <a href="#footerComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/SaveChangesFooterComponent.html" target="_self" >SaveChangesFooterComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(SaveChangesFooterComponent)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleBack"></a>
+                    <span class="name">
+                        <span ><b>handleBack</b></span>
+                        <a href="#handleBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="objectKeys"></a>
+                    <span class="name">
+                        <span ><b>objectKeys</b></span>
+                        <a href="#objectKeys"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Object.keys</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDiscard"></a>
+                    <span class="name">
+                        <span ><b>onDiscard</b></span>
+                        <a href="#onDiscard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="319" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:319</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="primaryMsg"></a>
+                    <span class="name">
+                        <span ><b>primaryMsg</b></span>
+                        <a href="#primaryMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;No settings available&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="releaseNowButton"></a>
+                    <span class="name">
+                        <span ><b>releaseNowButton</b></span>
+                        <a href="#releaseNowButton"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    id: &#x27;release-now&#x27;,
+    label: &#x27;Release Now&#x27;,
+    icon: &#x27;arrow-ios-forward-outline&#x27;,
+    action: ENVIRONMENT_CONFIGURE,
+    click: () &#x3D;&gt; {
+      this.navigateToReleasesPage();
+    },
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reviewComments"></a>
+                    <span class="name">
+                        <span ><b>reviewComments</b></span>
+                        <a href="#reviewComments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="secondaryMsg"></a>
+                    <span class="name">
+                        <span ><b>secondaryMsg</b></span>
+                        <a href="#secondaryMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectOptions"></a>
+                    <span class="name">
+                        <span ><b>selectOptions</b></span>
+                        <a href="#selectOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setClusterSettingForm"></a>
+                    <span class="name">
+                        <span ><b>setClusterSettingForm</b></span>
+                        <a href="#setClusterSettingForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="186" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:186</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="settingsError"></a>
+                    <span class="name">
+                        <span ><b>settingsError</b></span>
+                        <a href="#settingsError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showBtn"></a>
+                    <span class="name">
+                        <span ><b>showBtn</b></span>
+                        <a href="#showBtn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showTooltip"></a>
+                    <span class="name">
+                        <span ><b>showTooltip</b></span>
+                        <a href="#showTooltip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stackName"></a>
+                    <span class="name">
+                        <span ><b>stackName</b></span>
+                        <a href="#stackName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="status"></a>
+                    <span class="name">
+                        <span ><b>status</b></span>
+                        <a href="#status"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;info&quot; | &quot;error&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;info&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitClusterSettings"></a>
+                    <span class="name">
+                        <span ><b>submitClusterSettings</b></span>
+                        <a href="#submitClusterSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="253" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:253</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toastSubscription"></a>
+                    <span class="name">
+                        <span ><b>toastSubscription</b></span>
+                        <a href="#toastSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tooltip"></a>
+                    <span class="name">
+                        <span ><b>tooltip</b></span>
+                        <a href="#tooltip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Load Settings&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="VPN_ENABLE_DISABLE"></a>
+                    <span class="name">
+                        <span ><b>VPN_ENABLE_DISABLE</b></span>
+                        <a href="#VPN_ENABLE_DISABLE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>VPN_ENABLE_DISABLE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vpnInstructionsModal"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Private</span>
+                        <span ><b>vpnInstructionsModal</b></span>
+                        <a href="#vpnInstructionsModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;vpnInstructionsModal&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/pages/cluster-pages/cluster-settings/cluster-settings.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, TemplateRef, ViewChild, OnDestroy } from &#x27;@angular/core&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import { ActivatedRoute, Params, Router } from &#x27;@angular/router&#x27;;
+import { UiSettingsControllerService } from &#x27;src/app/cc-api/services&#x27;;
+import { UiCommonClusterControllerService } from &#x27;src/app/cc-api/services&#x27;;
+import { AwsCluster } from &#x27;src/app/cc-api/models&#x27;;
+import { NbDialogService } from &#x27;@nebular/theme&#x27;;
+import { FormControl, FormGroup } from &#x27;@angular/forms&#x27;;
+import { SaveChangesFooterComponent } from &#x27;src/app/components/save-changes-footer/save-changes-footer.component&#x27;;
+import { CanDeactivateComponent } from &#x27;src/app/can-deactivate.guard&#x27;;
+import { ENVIRONMENT_CONFIGURE } from &#x27;src/app/constants/permissions&#x27;;
+import { cloneDeep } from &#x27;lodash&#x27;;
+import { CustomToastService } from &#x27;src/app/pages/custom-toast/custom-toast.service&#x27;;
+import { VPN_ENABLE_DISABLE } from &#x27;src/app/constants/cluster&#x27;;
+
+const errLogo &#x3D; &#x27;./assets/error.svg&#x27;;
+
+@Component({
+  selector: &#x27;app-cluster-settings&#x27;,
+  templateUrl: &#x27;./cluster-settings.component.html&#x27;,
+  styleUrls: [&#x27;./cluster-settings.component.scss&#x27;],
+})
+export class ClusterSettingsComponent
+  extends FacetsPage
+  implements CanDeactivateComponent
+{
+  clusterSettingsForm: FormGroup;
+  cluster: AwsCluster;
+  clusterId: string;
+  stackName: any;
+  fetchingSetting: Boolean &#x3D; false;
+  fetchingCluster: Boolean &#x3D; false;
+  entityType:
+    | &#x27;CLUSTER&#x27;
+    | &#x27;BLUE_PRINT&#x27;
+    | &#x27;TEMPLATE_INPUT&#x27;
+    | &#x27;CONTROL_PLANE&#x27;
+    | &#x27;IAC&#x27;
+    | &#x27;ARTIFACT_CI&#x27;
+    | &#x27;USER_GROUP&#x27;
+    | &#x27;ACCOUNT&#x27;
+    | &#x27;ARTIFACTORY&#x27;;
+  clusterDefaultSettings: any;
+  clusterSettings: {};
+  clusterSettingOriginal: {} &#x3D; {};
+  clusterSettingChanged: {} &#x3D; {};
+  selectOptions: {} &#x3D; {};
+  reviewComments: string &#x3D; &#x27;&#x27;;
+  changeSettings: boolean &#x3D; false;
+  settingsError: boolean &#x3D; false;
+  clusterError: boolean &#x3D; false;
+  errIcon: any &#x3D; errLogo;
+  status: &#x27;info&#x27; | &#x27;error&#x27; &#x3D; &#x27;info&#x27;;
+  primaryMsg: string &#x3D; &#x27;No settings available&#x27;;
+  secondaryMsg: string &#x3D; &#x27;&#x27;;
+  showBtn: boolean &#x3D; true;
+  buttonText: string &#x3D; &#x27;Reload&#x27;;
+  tooltip: string &#x3D; &#x27;Load Settings&#x27;;
+  showTooltip: boolean &#x3D; true;
+  environmentConfigPermission &#x3D; ENVIRONMENT_CONFIGURE;
+  VPN_ENABLE_DISABLE &#x3D; VPN_ENABLE_DISABLE;
+
+  objectKeys &#x3D; Object.keys;
+
+  @ViewChild(SaveChangesFooterComponent)
+  private footerComponent: SaveChangesFooterComponent;
+
+  @ViewChild(&#x27;vpnInstructionsModal&#x27;)
+  private vpnInstructionsModal: TemplateRef&lt;any&gt;;
+
+  releaseNowButton &#x3D; {
+    id: &#x27;release-now&#x27;,
+    label: &#x27;Release Now&#x27;,
+    icon: &#x27;arrow-ios-forward-outline&#x27;,
+    action: ENVIRONMENT_CONFIGURE,
+    click: () &#x3D;&gt; {
+      this.navigateToReleasesPage();
+    },
+  };
+  toastSubscription: any;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private uiSettingService: UiSettingsControllerService,
+    private uiCommonClusterControllerService: UiCommonClusterControllerService,
+    private toastService: CustomToastService,
+    private dialogService: NbDialogService,
+  ) {
+    super(activatedRoute);
+  }
+
+  OnPageInit(): void {
+    this.toastSubscription &#x3D; this.toastService.buttonClick$.subscribe(
+      (data) &#x3D;&gt; {
+        if (this.releaseNowButton?.id &#x3D;&#x3D;&#x3D; data?.link?.id) {
+          this.releaseNowButton?.click();
+        }
+      },
+    );
+  }
+
+  OnPageLoad(p: Params): void {
+    this.fetchingCluster &#x3D; true;
+    this.stackName &#x3D; p.stackName;
+    this.clusterId &#x3D; p.clusterId;
+    this.uiCommonClusterControllerService
+      .getClusterCommonUsingGET(p.clusterId)
+      .subscribe(
+        (r) &#x3D;&gt; {
+          this.cluster &#x3D; r;
+          this.entityType &#x3D; this.cluster.entityType;
+          this.fetchingCluster &#x3D; false;
+          this.getClusterSettings();
+        },
+        (error) &#x3D;&gt; {
+          this.fetchingCluster &#x3D; false;
+          this.clusterError &#x3D; true;
+          this.primaryMsg &#x3D;
+            error?.error?.message ||
+            &#x27; There is some error fetching environment information&#x27;;
+          this.secondaryMsg &#x3D; &#x27;&#x27;;
+          this.showBtn &#x3D; false;
+          this.status &#x3D; &#x27;error&#x27;;
+        },
+      );
+  }
+
+  handleBack &#x3D; () &#x3D;&gt; {
+    const url &#x3D;
+      &#x27;/&#x27; + this.stackName + &#x27;/cluster/&#x27; + this.clusterId + &#x27;/overview&#x27;;
+    this.router.navigate([url]);
+  };
+
+  getClusterSettings() {
+    this.clusterDefaultSettings &#x3D; [];
+    this.selectOptions &#x3D; {};
+    this.clusterSettingChanged &#x3D; {};
+    this.clusterSettingOriginal &#x3D; {};
+    this.clusterSettings &#x3D; {};
+    this.fetchingSetting &#x3D; true;
+    let settingParams &#x3D; {
+      entityType: this.entityType,
+      entityId: this.clusterId,
+    };
+    this.settingsError &#x3D; false;
+    this.uiSettingService.getSettingValueUsingGET(settingParams).subscribe(
+      (r) &#x3D;&gt; {
+        this.clusterSettings &#x3D; r;
+        this.uiSettingService
+          .getAllSettingsForEntityUsingGET(this.entityType)
+          .subscribe(
+            (settingsResponse) &#x3D;&gt; {
+              const updatedResponse &#x3D; cloneDeep(settingsResponse);
+              this.clusterDefaultSettings &#x3D; cloneDeep(updatedResponse);
+              this.clusterDefaultSettings.forEach((setting) &#x3D;&gt; {
+                this.prepareOptions(setting);
+                if (
+                  this.clusterSettings &amp;&amp;
+                  Object.keys(this.clusterSettings).indexOf(setting.id) &gt; -1
+                ) {
+                  this.clusterSettingOriginal[setting.id] &#x3D;
+                    this.clusterSettings[setting.id];
+                } else {
+                  this.clusterSettings[setting.id] &#x3D; setting.defaultValue;
+                  this.clusterSettingOriginal[setting.id] &#x3D;
+                    setting.defaultValue;
+                }
+              });
+              this.setClusterSettingForm();
+              this.fetchingSetting &#x3D; false;
+            },
+            (error) &#x3D;&gt; {
+              this.fetchingSetting &#x3D; false;
+              this.settingsError &#x3D; true;
+            },
+          );
+      },
+      (error) &#x3D;&gt; {
+        this.fetchingSetting &#x3D; false;
+        this.settingsError &#x3D; true;
+      },
+    );
+  }
+
+  setClusterSettingForm &#x3D; () &#x3D;&gt; {
+    const group: any &#x3D; {};
+    Object.keys(this.clusterSettings).forEach((setting) &#x3D;&gt; {
+      group[setting] &#x3D; new FormControl(this.clusterSettings[setting]);
+    });
+    this.clusterSettingsForm &#x3D; new FormGroup(group);
+  };
+
+  prepareOptions(setting) {
+    let selectOption &#x3D; [];
+    if (setting.settingType &#x3D;&#x3D;&#x3D; &#x27;ENUM&#x27;) {
+      setting.allowedValues.forEach((value) &#x3D;&gt; {
+        selectOption.push({
+          label: value,
+          value: value,
+        });
+      });
+      this.selectOptions[setting.id] &#x3D; selectOption;
+    } else if (setting.settingType &#x3D;&#x3D;&#x3D; &#x27;BOOLEAN&#x27;) {
+      selectOption.push({
+        label: true,
+        value: true,
+      });
+      selectOption.push({
+        label: false,
+        value: false,
+      });
+      this.selectOptions[setting.id] &#x3D; selectOption;
+    }
+  }
+
+  determineNewValue(value: any, type: string) {
+    switch (type) {
+      case &#x27;num&#x27;:
+        return parseInt(value);
+      case &#x27;float&#x27;:
+        return parseFloat(value);
+      default:
+        return value;
+    }
+  }
+
+  onChange(event, setting, type) {
+    if (event?.target?.value) {
+      if (event.target.value !&#x3D; this.clusterSettingOriginal[setting.id]) {
+        this.clusterSettingChanged[setting.id] &#x3D; {
+          value: this.determineNewValue(event.target.value, type),
+          name: setting.name,
+        };
+      } else {
+        delete this.clusterSettingChanged[setting.id];
+      }
+    }
+  }
+
+  onChangeSelect(value, setting) {
+    if (value !&#x3D; this.clusterSettingOriginal[setting.id]) {
+      this.clusterSettingChanged[setting.id] &#x3D; {
+        value: value,
+        name: setting.name,
+      };
+    } else {
+      delete this.clusterSettingChanged[setting.id];
+    }
+  }
+  onChangeToggle(value, setting) {}
+
+  submitClusterSettings &#x3D; (ref) &#x3D;&gt; {
+    this.changeSettings &#x3D; true;
+    let insertSettingParams: {
+      settingValueRequest: {};
+      entityType:
+        | &#x27;CLUSTER&#x27;
+        | &#x27;BLUE_PRINT&#x27;
+        | &#x27;TEMPLATE_INPUT&#x27;
+        | &#x27;CONTROL_PLANE&#x27;
+        | &#x27;IAC&#x27;
+        | &#x27;ARTIFACT_CI&#x27;
+        | &#x27;USER_GROUP&#x27;
+        | &#x27;ACCOUNT&#x27;
+        | &#x27;ARTIFACTORY&#x27;;
+      entityId: string;
+    } &#x3D; {
+      entityId: this.clusterId,
+      entityType: this.entityType,
+      settingValueRequest: {},
+    };
+    const settingValues &#x3D; {};
+    for (const setting in this.clusterSettingChanged) {
+      settingValues[setting] &#x3D; this.clusterSettingChanged[setting].value;
+    }
+    insertSettingParams[&#x27;settingValueRequest&#x27;] &#x3D; settingValues;
+    this.uiSettingService
+      .addSettingValueUsingPUT(insertSettingParams)
+      .subscribe(
+        (response) &#x3D;&gt; {
+          const isVPNEnabled &#x3D; response[VPN_ENABLE_DISABLE];
+          let toasterTitle &#x3D; isVPNEnabled
+            ? &#x27;VPN enabled, Release pending!&#x27;
+            : &#x27;Settings saved!&#x27;;
+          let toasterDescription &#x3D; isVPNEnabled
+            ? &#x27;Perform a release for VPN settings to take effect.&#x27;
+            : &#x27;Release updated settings to enact changes.&#x27;;
+
+          this.toastService.show({
+            title: toasterTitle,
+            content: toasterDescription,
+            type: &#x27;success&#x27;,
+            link: this.releaseNowButton,
+          });
+          ref.close();
+          this.getClusterSettings();
+          this.changeSettings &#x3D; false;
+        },
+        (error) &#x3D;&gt; {
+          ref.close();
+          this.changeSettings &#x3D; false;
+          if (
+            (error.status &#x3D;&#x3D;&#x3D; 500 || error.status &#x3D;&#x3D;&#x3D; 403) &amp;&amp;
+            error?.error.message &#x3D;&#x3D;&#x3D; &#x27;Access is denied&#x27;
+          ) {
+            this.toastService.error(
+              &#x27;Please contact your administrator for more details&#x27;,
+            );
+          } else {
+            this.toastService.error(
+              &#x27;Settings change failed. &#x27; + error?.error?.message,
+            );
+          }
+        },
+      );
+  };
+
+  onDiscard &#x3D; (ref: any) &#x3D;&gt; {
+    this.clusterSettingChanged &#x3D; {};
+    this.clusterSettings &#x3D; this.clusterSettingOriginal;
+
+    this.setClusterSettingForm();
+    ref.close(&#x27;discard&#x27;);
+  };
+
+  async canDeactivate(): Promise&lt;boolean&gt; {
+    if (this.objectKeys(this.clusterSettingChanged)?.length &#x3D;&#x3D; 0) {
+      return true;
+    }
+
+    return this.footerComponent.onDeactivate();
+  }
+
+  showVPNInstructions() {
+    this.dialogService.open(this.vpnInstructionsModal, {
+      context: {},
+    });
+  }
+
+  navigateToReleasesPage() {
+    this.router.navigate([
+      &#x60;/${this.stackName}/cluster/${this.clusterId}/releases&#x60;,
+    ]);
+  }
+
+  navigateToEnvOverview(event, ref) {
+    ref?.close();
+    event?.preventDefault();
+    this.router.navigate([
+      &#x60;/${this.stackName}/cluster/${this.clusterId}/overview&#x60;,
+    ]);
+  }
+
+  OnDestroy() {
+    this.toastSubscription?.unsubscribe();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;h-100&quot;&gt;
+  &lt;div class&#x3D;&quot;mb-2&quot;&gt;
+    &lt;app-page-header
+      [onBack]&#x3D;&quot;handleBack&quot;
+      heading&#x3D;&quot;Update Environment Settings&quot;
+      [subheading]&#x3D;&quot;&quot;
+    &gt;&lt;/app-page-header&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;mt-4&quot; style&#x3D;&quot;height: 80%&quot;&gt;
+    &lt;div
+      *ngIf&#x3D;&quot;!settingsError &amp;&amp; !fetchingSetting &amp;&amp; !fetchingCluster&quot;
+      class&#x3D;&quot;col-sm-12 px-0&quot;
+    &gt;
+      &lt;nb-card class&#x3D;&quot;mt-3&quot; [nbSpinner]&#x3D;&quot;fetchingSetting&quot;&gt;
+        &lt;nb-card-body&gt;
+          &lt;form [formGroup]&#x3D;&quot;clusterSettingsForm&quot;&gt;
+            &lt;div *ngFor&#x3D;&quot;let setting of clusterDefaultSettings&quot; class&#x3D;&quot;row&quot;&gt;
+              &lt;div class&#x3D;&quot;col&quot;&gt;
+                &lt;div
+                  class&#x3D;&quot;row col-xl-12 mt-4&quot;
+                  *ngIf&#x3D;&quot;
+                    setting?.supportedForClouds?.indexOf(cluster?.cloud) &gt; -1
+                  &quot;
+                &gt;
+                  &lt;label
+                    [for]&#x3D;&quot;setting?.id&quot;
+                    class&#x3D;&quot;weight-600 col-xl-4 col-xs-12 mt-2&quot;
+                  &gt;
+                    {{ setting?.name }}
+                    &lt;nb-icon
+                      class&#x3D;&quot;align-middle ml-1&quot;
+                      style&#x3D;&quot;color: #00c2bb; width: 1rem; height: 1rem&quot;
+                      icon&#x3D;&quot;info-outline&quot;
+                      size&#x3D;&quot;tiny&quot;
+                      [nbTooltip]&#x3D;&quot;setting?.description&quot;
+                    &gt;&lt;/nb-icon&gt;
+                  &lt;/label&gt;
+                  &lt;div class&#x3D;&quot;col-xl-6 col-xs-12 p-0 d-flex&quot;&gt;
+                    &lt;input
+                      nbInput
+                      fullWidth
+                      [name]&#x3D;&quot;setting?.id&quot;
+                      fieldSize&#x3D;&quot;small&quot;
+                      type&#x3D;&quot;text&quot;
+                      [id]&#x3D;&quot;setting?.id&quot;
+                      (change)&#x3D;&quot;onChange($event, setting, &#x27;str&#x27;)&quot;
+                      [formControlName]&#x3D;&quot;setting?.id&quot;
+                      *ngIf&#x3D;&quot;setting?.settingType &#x3D;&#x3D;&#x3D; &#x27;STRING&#x27;&quot;
+                    /&gt;
+                    &lt;input
+                      nbInput
+                      fullWidth
+                      [name]&#x3D;&quot;setting?.id&quot;
+                      fieldSize&#x3D;&quot;small&quot;
+                      type&#x3D;&quot;number&quot;
+                      [id]&#x3D;&quot;setting?.id&quot;
+                      [formControlName]&#x3D;&quot;setting?.id&quot;
+                      (change)&#x3D;&quot;onChange($event, setting, &#x27;num&#x27;)&quot;
+                      *ngIf&#x3D;&quot;setting?.settingType &#x3D;&#x3D;&#x3D; &#x27;NUMBER&#x27;&quot;
+                    /&gt;
+                    &lt;input
+                      nbInput
+                      step&#x3D;&quot;any&quot;
+                      fullWidth
+                      fieldSize&#x3D;&quot;small&quot;
+                      [name]&#x3D;&quot;setting?.id&quot;
+                      type&#x3D;&quot;number&quot;
+                      [id]&#x3D;&quot;setting?.id&quot;
+                      [formControlName]&#x3D;&quot;setting?.id&quot;
+                      (change)&#x3D;&quot;onChange($event, setting, &#x27;float&#x27;)&quot;
+                      *ngIf&#x3D;&quot;setting?.settingType &#x3D;&#x3D;&#x3D; &#x27;FLOAT&#x27;&quot;
+                    /&gt;
+                    &lt;nb-select
+                      fullWidth
+                      size&#x3D;&quot;small&quot;
+                      [formControlName]&#x3D;&quot;setting?.id&quot;
+                      [id]&#x3D;&quot;setting?.id&quot;
+                      (selectedChange)&#x3D;&quot;onChangeSelect($event, setting)&quot;
+                      *ngIf&#x3D;&quot;setting?.settingType &#x3D;&#x3D;&#x3D; &#x27;ENUM&#x27;&quot;
+                    &gt;
+                      &lt;nb-option
+                        *ngFor&#x3D;&quot;let option of selectOptions[setting?.id]&quot;
+                        [value]&#x3D;&quot;option.value&quot;
+                        class&#x3D;&quot;d-flex justify-content-between align-items-stretch&quot;
+                      &gt;
+                        {{ option?.label }}
+                      &lt;/nb-option&gt;
+                    &lt;/nb-select&gt;
+                    &lt;nb-radio-group
+                      class&#x3D;&quot;form-control col-xl-6 col-xs-12 pl-0 d-flex&quot;
+                      style&#x3D;&quot;border: 0&quot;
+                      [formControlName]&#x3D;&quot;setting?.id&quot;
+                      [id]&#x3D;&quot;setting?.id&quot;
+                      [name]&#x3D;&quot;setting?.id&quot;
+                      (valueChange)&#x3D;&quot;onChangeSelect($event, setting)&quot;
+                      *ngIf&#x3D;&quot;
+                        setting?.settingType &#x3D;&#x3D;&#x3D; &#x27;BOOLEAN&#x27; &amp;&amp;
+                        setting?.id !&#x3D;&#x3D; VPN_ENABLE_DISABLE
+                      &quot;
+                    &gt;
+                      &lt;nb-radio
+                        class&#x3D;&quot;mr-3&quot;
+                        *ngFor&#x3D;&quot;let option of selectOptions[setting.id]&quot;
+                        [value]&#x3D;&quot;option.value&quot;
+                        [checked]&#x3D;&quot;
+                          clusterSettings[setting?.id] &#x3D;&#x3D;&#x3D; option.value
+                        &quot;
+                      &gt;
+                        {{ option?.label }}
+                        &lt;span
+                          *ngIf&#x3D;&quot;
+                            setting?.defaultValue !&#x3D;&#x3D;
+                            clusterSettingOriginal[setting?.id]
+                          &quot;
+                          style&#x3D;&quot;opacity: 0.5&quot;
+                          class&#x3D;&quot;font-italic&quot;
+                          &gt;{{
+                            setting?.defaultValue &#x3D;&#x3D;&#x3D; option?.value
+                              ? &#x27;(default)&#x27;
+                              : &#x27;&#x27;
+                          }}
+                        &lt;/span&gt;
+                      &lt;/nb-radio&gt;
+                    &lt;/nb-radio-group&gt;
+                    &lt;nb-toggle
+                      *ngIf&#x3D;&quot;
+                        setting?.settingType &#x3D;&#x3D;&#x3D; &#x27;BOOLEAN&#x27; &amp;&amp;
+                        setting?.id &#x3D;&#x3D;&#x3D; VPN_ENABLE_DISABLE
+                      &quot;
+                      [id]&#x3D;&quot;setting?.id&quot;
+                      [formControlName]&#x3D;&quot;setting?.id&quot;
+                      (checkedChange)&#x3D;&quot;onChangeSelect($event, setting)&quot;
+                    &gt;&lt;/nb-toggle&gt;
+                    &lt;app-rbac-button
+                      label&#x3D;&quot;Check steps to use Facet’s VPN&quot;
+                      icon&#x3D;&quot;question-circle-outlined&quot;
+                      toolTip&#x3D;&quot;Run Validation check for environment&quot;
+                      (onClick)&#x3D;&quot;showVPNInstructions()&quot;
+                      size&#x3D;&quot;small&quot;
+                      status&#x3D;&quot;primary&quot;
+                      [isFciPack]&#x3D;&quot;true&quot;
+                      appearance&#x3D;&quot;outline&quot;
+                      *ngIf&#x3D;&quot;setting?.id &#x3D;&#x3D;&#x3D; VPN_ENABLE_DISABLE&quot;
+                      class&#x3D;&quot;ml-2&quot;
+                    &gt;&lt;/app-rbac-button&gt;
+                  &lt;/div&gt;
+                  &lt;div
+                    *ngIf&#x3D;&quot;
+                      setting?.defaultValue !&#x3D;&#x3D;
+                        clusterSettingOriginal[setting?.id] &amp;&amp;
+                      setting?.defaultValue
+                    &quot;
+                    [nbTooltip]&#x3D;&quot;
+                      setting?.defaultValue
+                        ? &#x27;Default &#x3D;&#x27; + setting?.defaultValue
+                        : &#x27;No default value&#x27;
+                    &quot;
+                    nbTooltipStatus&#x3D;&quot;primary&quot;
+                    status&#x3D;&quot;primary&quot;
+                    class&#x3D;&quot;primary-dot ml-2&quot;
+                  &gt;&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/form&gt;
+        &lt;/nb-card-body&gt;
+      &lt;/nb-card&gt;
+
+      &lt;div style&#x3D;&quot;margin-bottom: 7rem&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;nb-card
+      [nbSpinner]&#x3D;&quot;fetchingSetting || fetchingCluster&quot;
+      class&#x3D;&quot;py-5 background-grey&quot;
+      *ngIf&#x3D;&quot;settingsError || fetchingSetting || fetchingCluster&quot;
+    &gt;
+      &lt;app-message
+        *ngIf&#x3D;&quot;settingsError &amp;&amp; !fetchingSetting &amp;&amp; !fetchingCluster&quot;
+        [imgUrl]&#x3D;&quot;errIcon&quot;
+        [primaryMsg]&#x3D;&quot;primaryMsg&quot;
+        [secondaryMsg]&#x3D;&quot;secondaryMsg&quot;
+        [status]&#x3D;&quot;status&quot;
+        [showBtn]&#x3D;&quot;showBtn&quot;
+        [buttonText]&#x3D;&quot;buttonText&quot;
+        [toolTip]&#x3D;&quot;tooltip&quot;
+        (buttonClick)&#x3D;&quot;getClusterSettings()&quot;
+      &gt;&lt;/app-message&gt;
+    &lt;/nb-card&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;app-save-changes-footer
+  [show]&#x3D;&quot;!settingsError &amp;&amp; !fetchingSetting &amp;&amp; !fetchingCluster&quot;
+  saveBtnPermission&#x3D;&quot;{{ environmentConfigPermission }}&quot;
+  [disableSaveBtn]&#x3D;&quot;objectKeys(clusterSettingChanged)?.length &#x3D;&#x3D;&#x3D; 0&quot;
+  modifiedInfo&#x3D;&quot;{{
+    objectKeys(clusterSettingChanged)?.length
+  }} Variables Changed &quot;
+  (saveChanges)&#x3D;&quot;submitClusterSettings($event)&quot;
+  [showLoader]&#x3D;&quot;changeSettings&quot;
+  (discardChanges)&#x3D;&quot;onDiscard($event)&quot;
+  modalWidth&#x3D;&quot;50rem&quot;
+&gt;
+  &lt;h6 *ngIf&#x3D;&quot;objectKeys(clusterSettingChanged)?.length &gt; 0&quot;&gt;Configurations&lt;/h6&gt;
+  &lt;ul&gt;
+    &lt;li *ngFor&#x3D;&quot;let setting of clusterSettingChanged | keyvalue&quot;&gt;
+      &lt;span class&#x3D;&quot;font-weight-bold&quot;&gt;{{ setting?.value?.name }} &lt;/span&gt;&amp;nbsp; is
+      changed from &amp;nbsp;&lt;span class&#x3D;&quot;text-danger&quot;&gt;{{
+        clusterSettingOriginal[setting?.key] !&#x3D;&#x3D; undefined
+          ? clusterSettingOriginal[setting?.key]
+          : &quot;&#x27;&#x27;&quot;
+      }}&lt;/span
+      &gt;&amp;nbsp; to &amp;nbsp;&lt;span class&#x3D;&quot;text-success&quot;&gt;{{
+        setting?.value?.value
+      }}&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;!-- &lt;div class&#x3D;&quot;mt-5&quot;&gt;
+    &lt;h6 for&#x3D;&quot;comments&quot; class&#x3D;&quot;caption-2&quot; style&#x3D;&quot;color: #405793&quot;&gt;COMMENTS&lt;/h6&gt;
+    &lt;textarea
+      nbInput
+      fullWidth
+      name&#x3D;&quot;comments&quot;
+      id&#x3D;&quot;comments&quot;
+      placeholder&#x3D;&quot;Add comments here...&quot;
+      [(ngModel)]&#x3D;&quot;reviewComments&quot;
+    &gt;&lt;/textarea&gt;
+  &lt;/div&gt; --&gt;
+&lt;/app-save-changes-footer&gt;
+
+&lt;ng-template #vpnInstructionsModal let-data let-ref&#x3D;&quot;dialogRef&quot;&gt;
+  &lt;app-vpn-instructions
+    [modalRef]&#x3D;&quot;ref&quot;
+    [showAzureInfo]&#x3D;&quot;cluster?.cloud &#x3D;&#x3D;&#x3D; &#x27;AZURE&#x27;&quot;
+  &gt;
+  &lt;/app-vpn-instructions&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./cluster-settings.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="h-100">  <div class="mb-2">    <app-page-header      [onBack]="handleBack"      heading="Update Environment Settings"      [subheading]=""    ></app-page-header>  </div>  <div class="mt-4" style="height: 80%">    <div      *ngIf="!settingsError && !fetchingSetting && !fetchingCluster"      class="col-sm-12 px-0"    >      <nb-card class="mt-3" [nbSpinner]="fetchingSetting">        <nb-card-body>          <form [formGroup]="clusterSettingsForm">            <div *ngFor="let setting of clusterDefaultSettings" class="row">              <div class="col">                <div                  class="row col-xl-12 mt-4"                  *ngIf="                    setting?.supportedForClouds?.indexOf(cluster?.cloud) > -1                  "                >                  <label                    [for]="setting?.id"                    class="weight-600 col-xl-4 col-xs-12 mt-2"                  >                    {{ setting?.name }}                    <nb-icon                      class="align-middle ml-1"                      style="color: #00c2bb; width: 1rem; height: 1rem"                      icon="info-outline"                      size="tiny"                      [nbTooltip]="setting?.description"                    ></nb-icon>                  </label>                  <div class="col-xl-6 col-xs-12 p-0 d-flex">                    <input                      nbInput                      fullWidth                      [name]="setting?.id"                      fieldSize="small"                      type="text"                      [id]="setting?.id"                      (change)="onChange($event, setting, \'str\')"                      [formControlName]="setting?.id"                      *ngIf="setting?.settingType === \'STRING\'"                    />                    <input                      nbInput                      fullWidth                      [name]="setting?.id"                      fieldSize="small"                      type="number"                      [id]="setting?.id"                      [formControlName]="setting?.id"                      (change)="onChange($event, setting, \'num\')"                      *ngIf="setting?.settingType === \'NUMBER\'"                    />                    <input                      nbInput                      step="any"                      fullWidth                      fieldSize="small"                      [name]="setting?.id"                      type="number"                      [id]="setting?.id"                      [formControlName]="setting?.id"                      (change)="onChange($event, setting, \'float\')"                      *ngIf="setting?.settingType === \'FLOAT\'"                    />                    <nb-select                      fullWidth                      size="small"                      [formControlName]="setting?.id"                      [id]="setting?.id"                      (selectedChange)="onChangeSelect($event, setting)"                      *ngIf="setting?.settingType === \'ENUM\'"                    >                      <nb-option                        *ngFor="let option of selectOptions[setting?.id]"                        [value]="option.value"                        class="d-flex justify-content-between align-items-stretch"                      >                        {{ option?.label }}                      </nb-option>                    </nb-select>                    <nb-radio-group                      class="form-control col-xl-6 col-xs-12 pl-0 d-flex"                      style="border: 0"                      [formControlName]="setting?.id"                      [id]="setting?.id"                      [name]="setting?.id"                      (valueChange)="onChangeSelect($event, setting)"                      *ngIf="                        setting?.settingType === \'BOOLEAN\' &&                        setting?.id !== VPN_ENABLE_DISABLE                      "                    >                      <nb-radio                        class="mr-3"                        *ngFor="let option of selectOptions[setting.id]"                        [value]="option.value"                        [checked]="                          clusterSettings[setting?.id] === option.value                        "                      >                        {{ option?.label }}                        <span                          *ngIf="                            setting?.defaultValue !==                            clusterSettingOriginal[setting?.id]                          "                          style="opacity: 0.5"                          class="font-italic"                          >{{                            setting?.defaultValue === option?.value                              ? \'(default)\'                              : \'\'                          }}                        </span>                      </nb-radio>                    </nb-radio-group>                    <nb-toggle                      *ngIf="                        setting?.settingType === \'BOOLEAN\' &&                        setting?.id === VPN_ENABLE_DISABLE                      "                      [id]="setting?.id"                      [formControlName]="setting?.id"                      (checkedChange)="onChangeSelect($event, setting)"                    ></nb-toggle>                    <app-rbac-button                      label="Check steps to use Facet’s VPN"                      icon="question-circle-outlined"                      toolTip="Run Validation check for environment"                      (onClick)="showVPNInstructions()"                      size="small"                      status="primary"                      [isFciPack]="true"                      appearance="outline"                      *ngIf="setting?.id === VPN_ENABLE_DISABLE"                      class="ml-2"                    ></app-rbac-button>                  </div>                  <div                    *ngIf="                      setting?.defaultValue !==                        clusterSettingOriginal[setting?.id] &&                      setting?.defaultValue                    "                    [nbTooltip]="                      setting?.defaultValue                        ? \'Default =\' + setting?.defaultValue                        : \'No default value\'                    "                    nbTooltipStatus="primary"                    status="primary"                    class="primary-dot ml-2"                  ></div>                </div>              </div>            </div>          </form>        </nb-card-body>      </nb-card>      <div style="margin-bottom: 7rem"></div>    </div>    <nb-card      [nbSpinner]="fetchingSetting || fetchingCluster"      class="py-5 background-grey"      *ngIf="settingsError || fetchingSetting || fetchingCluster"    >      <app-message        *ngIf="settingsError && !fetchingSetting && !fetchingCluster"        [imgUrl]="errIcon"        [primaryMsg]="primaryMsg"        [secondaryMsg]="secondaryMsg"        [status]="status"        [showBtn]="showBtn"        [buttonText]="buttonText"        [toolTip]="tooltip"        (buttonClick)="getClusterSettings()"      ></app-message>    </nb-card>  </div></div><app-save-changes-footer  [show]="!settingsError && !fetchingSetting && !fetchingCluster"  saveBtnPermission="{{ environmentConfigPermission }}"  [disableSaveBtn]="objectKeys(clusterSettingChanged)?.length === 0"  modifiedInfo="{{    objectKeys(clusterSettingChanged)?.length  }} Variables Changed "  (saveChanges)="submitClusterSettings($event)"  [showLoader]="changeSettings"  (discardChanges)="onDiscard($event)"  modalWidth="50rem">  <h6 *ngIf="objectKeys(clusterSettingChanged)?.length > 0">Configurations</h6>  <ul>    <li *ngFor="let setting of clusterSettingChanged | keyvalue">      <span class="font-weight-bold">{{ setting?.value?.name }} </span>&nbsp; is      changed from &nbsp;<span class="text-danger">{{        clusterSettingOriginal[setting?.key] !== undefined          ? clusterSettingOriginal[setting?.key]          : "\'\'"      }}</span      >&nbsp; to &nbsp;<span class="text-success">{{        setting?.value?.value      }}</span>    </li>  </ul>  <!-- <div class="mt-5">    <h6 for="comments" class="caption-2" style="color: #405793">COMMENTS</h6>    <textarea      nbInput      fullWidth      name="comments"      id="comments"      placeholder="Add comments here..."      [(ngModel)]="reviewComments"    ></textarea>  </div> --></app-save-changes-footer><ng-template #vpnInstructionsModal let-data let-ref="dialogRef">  <app-vpn-instructions    [modalRef]="ref"    [showAzureInfo]="cluster?.cloud === \'AZURE\'"  >  </app-vpn-instructions></ng-template></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'ClusterSettingsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ClusterSettingsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

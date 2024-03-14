@@ -1,0 +1,2433 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  DeleteResourcesUsingDELETEParams</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/ui-blueprint-designer-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Parameters for deleteResourcesUsingDELETE</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#branch" 
+>
+                                            branch
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#resourceFileRequests" 
+>
+                                            resourceFileRequests
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#stackName" 
+>
+                                            stackName
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="branch"></a>
+                                        <span class="name "><b>branch</b>
+                                            <a href="#branch">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>branch:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>branch</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="resourceFileRequests"></a>
+                                        <span class="name "><b>resourceFileRequests</b>
+                                            <a href="#resourceFileRequests">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>resourceFileRequests:     <code>Array&lt;ResourceFileRequest&gt;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Array&lt;ResourceFileRequest&gt;</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>resourceFileRequests</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="stackName"></a>
+                                        <span class="name "><b>stackName</b>
+                                            <a href="#stackName">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>stackName:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>stackName</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpHeaders,
+} from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { JsonNode } from &#x27;../models/json-node&#x27;;
+import { ResourceFileRequest } from &#x27;../models/resource-file-request&#x27;;
+import { BranchDTO } from &#x27;../models/branch-dto&#x27;;
+import { ResourceRenameRequest } from &#x27;../models/resource-rename-request&#x27;;
+import { ResourceEnableDisableRequest } from &#x27;../models/resource-enable-disable-request&#x27;;
+import { ListPullRequestResponse } from &#x27;../models/list-pull-request-response&#x27;;
+import { AutocompleteResponse } from &#x27;../models/autocomplete-response&#x27;;
+import { ListWorkflowRunsResponse } from &#x27;../models/list-workflow-runs-response&#x27;;
+import { Workflow } from &#x27;../models/workflow&#x27;;
+import { VariableDetails } from &#x27;../models/variable-details&#x27;;
+import { BlueprintFile } from &#x27;../models/blueprint-file&#x27;;
+
+/**
+ * Ui Blueprint Designer Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class UiBlueprintDesignerControllerService extends __BaseService {
+  static readonly getSchemaMetadataUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/designer/facets-components&#x27;;
+  static readonly createResourcesUsingPOST1Path &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}&#x27;;
+  static readonly updateResourcesUsingPUT1Path &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}&#x27;;
+  static readonly deleteResourcesUsingDELETE1Path &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}&#x27;;
+  static readonly listBranchesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/branch-list&#x27;;
+  static readonly createResourcesUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/branch/{branch}&#x27;;
+  static readonly updateResourcesUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/branch/{branch}&#x27;;
+  static readonly deleteResourcesUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/branch/{branch}&#x27;;
+  static readonly renameResourceUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/branch/{branch}/rename&#x27;;
+  static readonly bulkEditDisabledForResourcesUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/branch/{branch}/resource-enable-disable&#x27;;
+  static readonly getPullRequestsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/pulls&#x27;;
+  static readonly getAutocompleteDataUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/ref-autocomplete-data&#x27;;
+  static readonly renameResourceUsingPUT1Path &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/rename&#x27;;
+  static readonly bulkEditDisabledForResourcesUsingPUT1Path &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/resource-enable-disable&#x27;;
+  static readonly listBranchesUsingGET1Path &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/resourceType/{resourceType}/resourceName/{resourceName}/branch-list&#x27;;
+  static readonly getPullRequestsUsingGET1Path &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/resourceType/{resourceType}/resourceName/{resourceName}/pulls&#x27;;
+  static readonly getWorkflowRunsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/resourceType/{resourceType}/resourceName/{resourceName}/workflow-runs&#x27;;
+  static readonly getWorkflowsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/resourceType/{resourceType}/resourceName/{resourceName}/workflows&#x27;;
+  static readonly addVariablesUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/variables&#x27;;
+  static readonly updateVariablesUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/variables&#x27;;
+  static readonly deleteVariablesUsingDELETEPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/variables&#x27;;
+  static readonly getWorkflowRunsUsingGET1Path &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/workflow-runs&#x27;;
+  static readonly getWorkflowsUsingGET1Path &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/workflows&#x27;;
+  static readonly getDesignerResourcesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/{branchName}/files&#x27;;
+  static readonly createBranchUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/designer/{stackName}/{branch}/create-branch&#x27;;
+
+  constructor(config: __Configuration, http: HttpClient) {
+    super(config, http);
+  }
+
+  /**
+   * getSchemaMetadata
+   * @return OK
+   */
+  getSchemaMetadataUsingGETResponse(): __Observable&lt;
+    __StrictHttpResponse&lt;JsonNode&gt;
+  &gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl + &#x60;/cc-ui/v1/designer/facets-components&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;JsonNode&gt;;
+      }),
+    );
+  }
+  /**
+   * getSchemaMetadata
+   * @return OK
+   */
+  getSchemaMetadataUsingGET(): __Observable&lt;JsonNode&gt; {
+    return this.getSchemaMetadataUsingGETResponse().pipe(
+      __map((_r) &#x3D;&gt; _r.body as JsonNode),
+    );
+  }
+
+  /**
+   * createResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.CreateResourcesUsingPOST1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceFileRequests&#x60;: resourceFileRequests
+   */
+  createResourcesUsingPOST1Response(
+    params: UiBlueprintDesignerControllerService.CreateResourcesUsingPOST1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.resourceFileRequests;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(String(params.stackName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * createResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.CreateResourcesUsingPOST1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceFileRequests&#x60;: resourceFileRequests
+   */
+  createResourcesUsingPOST1(
+    params: UiBlueprintDesignerControllerService.CreateResourcesUsingPOST1Params,
+  ): __Observable&lt;null&gt; {
+    return this.createResourcesUsingPOST1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * updateResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.UpdateResourcesUsingPUT1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceFileRequests&#x60;: resourceFileRequests
+   */
+  updateResourcesUsingPUT1Response(
+    params: UiBlueprintDesignerControllerService.UpdateResourcesUsingPUT1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.resourceFileRequests;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(String(params.stackName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * updateResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.UpdateResourcesUsingPUT1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceFileRequests&#x60;: resourceFileRequests
+   */
+  updateResourcesUsingPUT1(
+    params: UiBlueprintDesignerControllerService.UpdateResourcesUsingPUT1Params,
+  ): __Observable&lt;null&gt; {
+    return this.updateResourcesUsingPUT1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * deleteResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.DeleteResourcesUsingDELETE1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceFileRequests&#x60;: resourceFileRequests
+   */
+  deleteResourcesUsingDELETE1Response(
+    params: UiBlueprintDesignerControllerService.DeleteResourcesUsingDELETE1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.resourceFileRequests;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(String(params.stackName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.DeleteResourcesUsingDELETE1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceFileRequests&#x60;: resourceFileRequests
+   */
+  deleteResourcesUsingDELETE1(
+    params: UiBlueprintDesignerControllerService.DeleteResourcesUsingDELETE1Params,
+  ): __Observable&lt;null&gt; {
+    return this.deleteResourcesUsingDELETE1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * listBranches
+   * @param stackName stackName
+   * @return OK
+   */
+  listBranchesUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;BranchDTO&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(stackName),
+        )}/branch-list&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;BranchDTO&gt;;
+      }),
+    );
+  }
+  /**
+   * listBranches
+   * @param stackName stackName
+   * @return OK
+   */
+  listBranchesUsingGET(stackName: string): __Observable&lt;BranchDTO&gt; {
+    return this.listBranchesUsingGETResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as BranchDTO),
+    );
+  }
+
+  /**
+   * createResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.CreateResourcesUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceFileRequests&#x60;: resourceFileRequests
+   *
+   * - &#x60;branch&#x60;: branch
+   */
+  createResourcesUsingPOSTResponse(
+    params: UiBlueprintDesignerControllerService.CreateResourcesUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.resourceFileRequests;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/branch/${encodeURIComponent(String(params.branch))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * createResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.CreateResourcesUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceFileRequests&#x60;: resourceFileRequests
+   *
+   * - &#x60;branch&#x60;: branch
+   */
+  createResourcesUsingPOST(
+    params: UiBlueprintDesignerControllerService.CreateResourcesUsingPOSTParams,
+  ): __Observable&lt;null&gt; {
+    return this.createResourcesUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * updateResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.UpdateResourcesUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceFileRequests&#x60;: resourceFileRequests
+   *
+   * - &#x60;branch&#x60;: branch
+   */
+  updateResourcesUsingPUTResponse(
+    params: UiBlueprintDesignerControllerService.UpdateResourcesUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.resourceFileRequests;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/branch/${encodeURIComponent(String(params.branch))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * updateResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.UpdateResourcesUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceFileRequests&#x60;: resourceFileRequests
+   *
+   * - &#x60;branch&#x60;: branch
+   */
+  updateResourcesUsingPUT(
+    params: UiBlueprintDesignerControllerService.UpdateResourcesUsingPUTParams,
+  ): __Observable&lt;null&gt; {
+    return this.updateResourcesUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * deleteResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.DeleteResourcesUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceFileRequests&#x60;: resourceFileRequests
+   *
+   * - &#x60;branch&#x60;: branch
+   */
+  deleteResourcesUsingDELETEResponse(
+    params: UiBlueprintDesignerControllerService.DeleteResourcesUsingDELETEParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.resourceFileRequests;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/branch/${encodeURIComponent(String(params.branch))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.DeleteResourcesUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceFileRequests&#x60;: resourceFileRequests
+   *
+   * - &#x60;branch&#x60;: branch
+   */
+  deleteResourcesUsingDELETE(
+    params: UiBlueprintDesignerControllerService.DeleteResourcesUsingDELETEParams,
+  ): __Observable&lt;null&gt; {
+    return this.deleteResourcesUsingDELETEResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * renameResource
+   * @param params The &#x60;UiBlueprintDesignerControllerService.RenameResourceUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceRenameRequest&#x60;: resourceRenameRequest
+   *
+   * - &#x60;branch&#x60;: branch
+   */
+  renameResourceUsingPUTResponse(
+    params: UiBlueprintDesignerControllerService.RenameResourceUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.resourceRenameRequest;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/branch/${encodeURIComponent(String(params.branch))}/rename&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * renameResource
+   * @param params The &#x60;UiBlueprintDesignerControllerService.RenameResourceUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceRenameRequest&#x60;: resourceRenameRequest
+   *
+   * - &#x60;branch&#x60;: branch
+   */
+  renameResourceUsingPUT(
+    params: UiBlueprintDesignerControllerService.RenameResourceUsingPUTParams,
+  ): __Observable&lt;null&gt; {
+    return this.renameResourceUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * bulkEditDisabledForResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.BulkEditDisabledForResourcesUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceEnableDisableRequestList&#x60;: resourceEnableDisableRequestList
+   *
+   * - &#x60;branch&#x60;: branch
+   */
+  bulkEditDisabledForResourcesUsingPUTResponse(
+    params: UiBlueprintDesignerControllerService.BulkEditDisabledForResourcesUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.resourceEnableDisableRequestList;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/branch/${encodeURIComponent(
+          String(params.branch),
+        )}/resource-enable-disable&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * bulkEditDisabledForResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.BulkEditDisabledForResourcesUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceEnableDisableRequestList&#x60;: resourceEnableDisableRequestList
+   *
+   * - &#x60;branch&#x60;: branch
+   */
+  bulkEditDisabledForResourcesUsingPUT(
+    params: UiBlueprintDesignerControllerService.BulkEditDisabledForResourcesUsingPUTParams,
+  ): __Observable&lt;null&gt; {
+    return this.bulkEditDisabledForResourcesUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * getPullRequests
+   * @param params The &#x60;UiBlueprintDesignerControllerService.GetPullRequestsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;state&#x60;: state
+   *
+   * - &#x60;query&#x60;: query
+   *
+   * - &#x60;pageSize&#x60;: pageSize
+   *
+   * - &#x60;pageNumber&#x60;: pageNumber
+   *
+   * - &#x60;createdDate&#x60;: createdDate
+   *
+   * @return OK
+   */
+  getPullRequestsUsingGETResponse(
+    params: UiBlueprintDesignerControllerService.GetPullRequestsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;ListPullRequestResponse&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.state !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;state&#x27;, params.state.toString());
+    if (params.query !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;query&#x27;, params.query.toString());
+    if (params.pageSize !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;pageSize&#x27;, params.pageSize.toString());
+    if (params.pageNumber !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;pageNumber&#x27;, params.pageNumber.toString());
+    if (params.createdDate !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;createdDate&#x27;, params.createdDate.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/pulls&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ListPullRequestResponse&gt;;
+      }),
+    );
+  }
+  /**
+   * getPullRequests
+   * @param params The &#x60;UiBlueprintDesignerControllerService.GetPullRequestsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;state&#x60;: state
+   *
+   * - &#x60;query&#x60;: query
+   *
+   * - &#x60;pageSize&#x60;: pageSize
+   *
+   * - &#x60;pageNumber&#x60;: pageNumber
+   *
+   * - &#x60;createdDate&#x60;: createdDate
+   *
+   * @return OK
+   */
+  getPullRequestsUsingGET(
+    params: UiBlueprintDesignerControllerService.GetPullRequestsUsingGETParams,
+  ): __Observable&lt;ListPullRequestResponse&gt; {
+    return this.getPullRequestsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ListPullRequestResponse),
+    );
+  }
+
+  /**
+   * getAutocompleteData
+   * @param stackName stackName
+   * @return OK
+   */
+  getAutocompleteDataUsingGETResponse(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;AutocompleteResponse&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(stackName),
+        )}/ref-autocomplete-data&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;AutocompleteResponse&gt;;
+      }),
+    );
+  }
+  /**
+   * getAutocompleteData
+   * @param stackName stackName
+   * @return OK
+   */
+  getAutocompleteDataUsingGET(
+    stackName: string,
+  ): __Observable&lt;AutocompleteResponse&gt; {
+    return this.getAutocompleteDataUsingGETResponse(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as AutocompleteResponse),
+    );
+  }
+
+  /**
+   * renameResource
+   * @param params The &#x60;UiBlueprintDesignerControllerService.RenameResourceUsingPUT1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceRenameRequest&#x60;: resourceRenameRequest
+   */
+  renameResourceUsingPUT1Response(
+    params: UiBlueprintDesignerControllerService.RenameResourceUsingPUT1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.resourceRenameRequest;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/rename&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * renameResource
+   * @param params The &#x60;UiBlueprintDesignerControllerService.RenameResourceUsingPUT1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceRenameRequest&#x60;: resourceRenameRequest
+   */
+  renameResourceUsingPUT1(
+    params: UiBlueprintDesignerControllerService.RenameResourceUsingPUT1Params,
+  ): __Observable&lt;null&gt; {
+    return this.renameResourceUsingPUT1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * bulkEditDisabledForResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.BulkEditDisabledForResourcesUsingPUT1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceEnableDisableRequestList&#x60;: resourceEnableDisableRequestList
+   */
+  bulkEditDisabledForResourcesUsingPUT1Response(
+    params: UiBlueprintDesignerControllerService.BulkEditDisabledForResourcesUsingPUT1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.resourceEnableDisableRequestList;
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/resource-enable-disable&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * bulkEditDisabledForResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.BulkEditDisabledForResourcesUsingPUT1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceEnableDisableRequestList&#x60;: resourceEnableDisableRequestList
+   */
+  bulkEditDisabledForResourcesUsingPUT1(
+    params: UiBlueprintDesignerControllerService.BulkEditDisabledForResourcesUsingPUT1Params,
+  ): __Observable&lt;null&gt; {
+    return this.bulkEditDisabledForResourcesUsingPUT1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * listBranches
+   * @param params The &#x60;UiBlueprintDesignerControllerService.ListBranchesUsingGET1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * @return OK
+   */
+  listBranchesUsingGET1Response(
+    params: UiBlueprintDesignerControllerService.ListBranchesUsingGET1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;string&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/resourceType/${encodeURIComponent(
+          String(params.resourceType),
+        )}/resourceName/${encodeURIComponent(
+          String(params.resourceName),
+        )}/branch-list&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;string&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listBranches
+   * @param params The &#x60;UiBlueprintDesignerControllerService.ListBranchesUsingGET1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * @return OK
+   */
+  listBranchesUsingGET1(
+    params: UiBlueprintDesignerControllerService.ListBranchesUsingGET1Params,
+  ): __Observable&lt;Array&lt;string&gt;&gt; {
+    return this.listBranchesUsingGET1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;string&gt;),
+    );
+  }
+
+  /**
+   * getPullRequests
+   * @param params The &#x60;UiBlueprintDesignerControllerService.GetPullRequestsUsingGET1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;state&#x60;: state
+   *
+   * - &#x60;query&#x60;: query
+   *
+   * - &#x60;pageSize&#x60;: pageSize
+   *
+   * - &#x60;pageNumber&#x60;: pageNumber
+   *
+   * - &#x60;createdDate&#x60;: createdDate
+   *
+   * @return OK
+   */
+  getPullRequestsUsingGET1Response(
+    params: UiBlueprintDesignerControllerService.GetPullRequestsUsingGET1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;ListPullRequestResponse&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.state !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;state&#x27;, params.state.toString());
+    if (params.query !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;query&#x27;, params.query.toString());
+    if (params.pageSize !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;pageSize&#x27;, params.pageSize.toString());
+    if (params.pageNumber !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;pageNumber&#x27;, params.pageNumber.toString());
+    if (params.createdDate !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;createdDate&#x27;, params.createdDate.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/resourceType/${encodeURIComponent(
+          String(params.resourceType),
+        )}/resourceName/${encodeURIComponent(
+          String(params.resourceName),
+        )}/pulls&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ListPullRequestResponse&gt;;
+      }),
+    );
+  }
+  /**
+   * getPullRequests
+   * @param params The &#x60;UiBlueprintDesignerControllerService.GetPullRequestsUsingGET1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;state&#x60;: state
+   *
+   * - &#x60;query&#x60;: query
+   *
+   * - &#x60;pageSize&#x60;: pageSize
+   *
+   * - &#x60;pageNumber&#x60;: pageNumber
+   *
+   * - &#x60;createdDate&#x60;: createdDate
+   *
+   * @return OK
+   */
+  getPullRequestsUsingGET1(
+    params: UiBlueprintDesignerControllerService.GetPullRequestsUsingGET1Params,
+  ): __Observable&lt;ListPullRequestResponse&gt; {
+    return this.getPullRequestsUsingGET1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ListPullRequestResponse),
+    );
+  }
+
+  /**
+   * getWorkflowRuns
+   * @param params The &#x60;UiBlueprintDesignerControllerService.GetWorkflowRunsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;workflowId&#x60;: workflowId
+   *
+   * - &#x60;status&#x60;: status
+   *
+   * - &#x60;pageSize&#x60;: pageSize
+   *
+   * - &#x60;pageNumber&#x60;: pageNumber
+   *
+   * - &#x60;event&#x60;: event
+   *
+   * - &#x60;branch&#x60;: branch
+   *
+   * - &#x60;actor&#x60;: actor
+   *
+   * @return OK
+   */
+  getWorkflowRunsUsingGETResponse(
+    params: UiBlueprintDesignerControllerService.GetWorkflowRunsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;ListWorkflowRunsResponse&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.workflowId !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;workflowId&#x27;, params.workflowId.toString());
+    if (params.status !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;status&#x27;, params.status.toString());
+    if (params.pageSize !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;pageSize&#x27;, params.pageSize.toString());
+    if (params.pageNumber !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;pageNumber&#x27;, params.pageNumber.toString());
+    if (params.event !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;event&#x27;, params.event.toString());
+    if (params.branch !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;branch&#x27;, params.branch.toString());
+    if (params.actor !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;actor&#x27;, params.actor.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/resourceType/${encodeURIComponent(
+          String(params.resourceType),
+        )}/resourceName/${encodeURIComponent(
+          String(params.resourceName),
+        )}/workflow-runs&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ListWorkflowRunsResponse&gt;;
+      }),
+    );
+  }
+  /**
+   * getWorkflowRuns
+   * @param params The &#x60;UiBlueprintDesignerControllerService.GetWorkflowRunsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;workflowId&#x60;: workflowId
+   *
+   * - &#x60;status&#x60;: status
+   *
+   * - &#x60;pageSize&#x60;: pageSize
+   *
+   * - &#x60;pageNumber&#x60;: pageNumber
+   *
+   * - &#x60;event&#x60;: event
+   *
+   * - &#x60;branch&#x60;: branch
+   *
+   * - &#x60;actor&#x60;: actor
+   *
+   * @return OK
+   */
+  getWorkflowRunsUsingGET(
+    params: UiBlueprintDesignerControllerService.GetWorkflowRunsUsingGETParams,
+  ): __Observable&lt;ListWorkflowRunsResponse&gt; {
+    return this.getWorkflowRunsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ListWorkflowRunsResponse),
+    );
+  }
+
+  /**
+   * getWorkflows
+   * @param params The &#x60;UiBlueprintDesignerControllerService.GetWorkflowsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * @return OK
+   */
+  getWorkflowsUsingGETResponse(
+    params: UiBlueprintDesignerControllerService.GetWorkflowsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;Workflow&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/resourceType/${encodeURIComponent(
+          String(params.resourceType),
+        )}/resourceName/${encodeURIComponent(
+          String(params.resourceName),
+        )}/workflows&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Workflow&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getWorkflows
+   * @param params The &#x60;UiBlueprintDesignerControllerService.GetWorkflowsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * @return OK
+   */
+  getWorkflowsUsingGET(
+    params: UiBlueprintDesignerControllerService.GetWorkflowsUsingGETParams,
+  ): __Observable&lt;Array&lt;Workflow&gt;&gt; {
+    return this.getWorkflowsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Workflow&gt;),
+    );
+  }
+
+  /**
+   * addVariables
+   * @param params The &#x60;UiBlueprintDesignerControllerService.AddVariablesUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;variables&#x60;: variables
+   *
+   * - &#x60;stackName&#x60;: stackName
+   */
+  addVariablesUsingPOSTResponse(
+    params: UiBlueprintDesignerControllerService.AddVariablesUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.variables;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/variables&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * addVariables
+   * @param params The &#x60;UiBlueprintDesignerControllerService.AddVariablesUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;variables&#x60;: variables
+   *
+   * - &#x60;stackName&#x60;: stackName
+   */
+  addVariablesUsingPOST(
+    params: UiBlueprintDesignerControllerService.AddVariablesUsingPOSTParams,
+  ): __Observable&lt;null&gt; {
+    return this.addVariablesUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * updateVariables
+   * @param params The &#x60;UiBlueprintDesignerControllerService.UpdateVariablesUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;variables&#x60;: variables
+   *
+   * - &#x60;stackName&#x60;: stackName
+   */
+  updateVariablesUsingPUTResponse(
+    params: UiBlueprintDesignerControllerService.UpdateVariablesUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.variables;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/variables&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * updateVariables
+   * @param params The &#x60;UiBlueprintDesignerControllerService.UpdateVariablesUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;variables&#x60;: variables
+   *
+   * - &#x60;stackName&#x60;: stackName
+   */
+  updateVariablesUsingPUT(
+    params: UiBlueprintDesignerControllerService.UpdateVariablesUsingPUTParams,
+  ): __Observable&lt;null&gt; {
+    return this.updateVariablesUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * deleteVariables
+   * @param params The &#x60;UiBlueprintDesignerControllerService.DeleteVariablesUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;variables&#x60;: variables
+   *
+   * - &#x60;stackName&#x60;: stackName
+   */
+  deleteVariablesUsingDELETEResponse(
+    params: UiBlueprintDesignerControllerService.DeleteVariablesUsingDELETEParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    __body &#x3D; params.variables;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;DELETE&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/variables&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * deleteVariables
+   * @param params The &#x60;UiBlueprintDesignerControllerService.DeleteVariablesUsingDELETEParams&#x60; containing the following parameters:
+   *
+   * - &#x60;variables&#x60;: variables
+   *
+   * - &#x60;stackName&#x60;: stackName
+   */
+  deleteVariablesUsingDELETE(
+    params: UiBlueprintDesignerControllerService.DeleteVariablesUsingDELETEParams,
+  ): __Observable&lt;null&gt; {
+    return this.deleteVariablesUsingDELETEResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * getWorkflowRuns
+   * @param params The &#x60;UiBlueprintDesignerControllerService.GetWorkflowRunsUsingGET1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;workflowId&#x60;: workflowId
+   *
+   * - &#x60;status&#x60;: status
+   *
+   * - &#x60;pageSize&#x60;: pageSize
+   *
+   * - &#x60;pageNumber&#x60;: pageNumber
+   *
+   * - &#x60;event&#x60;: event
+   *
+   * - &#x60;branch&#x60;: branch
+   *
+   * - &#x60;actor&#x60;: actor
+   *
+   * @return OK
+   */
+  getWorkflowRunsUsingGET1Response(
+    params: UiBlueprintDesignerControllerService.GetWorkflowRunsUsingGET1Params,
+  ): __Observable&lt;__StrictHttpResponse&lt;ListWorkflowRunsResponse&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.workflowId !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;workflowId&#x27;, params.workflowId.toString());
+    if (params.status !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;status&#x27;, params.status.toString());
+    if (params.pageSize !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;pageSize&#x27;, params.pageSize.toString());
+    if (params.pageNumber !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;pageNumber&#x27;, params.pageNumber.toString());
+    if (params.event !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;event&#x27;, params.event.toString());
+    if (params.branch !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;branch&#x27;, params.branch.toString());
+    if (params.actor !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;actor&#x27;, params.actor.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/workflow-runs&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ListWorkflowRunsResponse&gt;;
+      }),
+    );
+  }
+  /**
+   * getWorkflowRuns
+   * @param params The &#x60;UiBlueprintDesignerControllerService.GetWorkflowRunsUsingGET1Params&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;workflowId&#x60;: workflowId
+   *
+   * - &#x60;status&#x60;: status
+   *
+   * - &#x60;pageSize&#x60;: pageSize
+   *
+   * - &#x60;pageNumber&#x60;: pageNumber
+   *
+   * - &#x60;event&#x60;: event
+   *
+   * - &#x60;branch&#x60;: branch
+   *
+   * - &#x60;actor&#x60;: actor
+   *
+   * @return OK
+   */
+  getWorkflowRunsUsingGET1(
+    params: UiBlueprintDesignerControllerService.GetWorkflowRunsUsingGET1Params,
+  ): __Observable&lt;ListWorkflowRunsResponse&gt; {
+    return this.getWorkflowRunsUsingGET1Response(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ListWorkflowRunsResponse),
+    );
+  }
+
+  /**
+   * getWorkflows
+   * @param stackName stackName
+   * @return OK
+   */
+  getWorkflowsUsingGET1Response(
+    stackName: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;Workflow&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(String(stackName))}/workflows&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Workflow&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getWorkflows
+   * @param stackName stackName
+   * @return OK
+   */
+  getWorkflowsUsingGET1(stackName: string): __Observable&lt;Array&lt;Workflow&gt;&gt; {
+    return this.getWorkflowsUsingGET1Response(stackName).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Workflow&gt;),
+    );
+  }
+
+  /**
+   * getDesignerResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.GetDesignerResourcesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;branchName&#x60;: branchName
+   *
+   * @return OK
+   */
+  getDesignerResourcesUsingGETResponse(
+    params: UiBlueprintDesignerControllerService.GetDesignerResourcesUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;BlueprintFile&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/${encodeURIComponent(String(params.branchName))}/files&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;BlueprintFile&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getDesignerResources
+   * @param params The &#x60;UiBlueprintDesignerControllerService.GetDesignerResourcesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;branchName&#x60;: branchName
+   *
+   * @return OK
+   */
+  getDesignerResourcesUsingGET(
+    params: UiBlueprintDesignerControllerService.GetDesignerResourcesUsingGETParams,
+  ): __Observable&lt;Array&lt;BlueprintFile&gt;&gt; {
+    return this.getDesignerResourcesUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;BlueprintFile&gt;),
+    );
+  }
+
+  /**
+   * createBranch
+   * @param params The &#x60;UiBlueprintDesignerControllerService.CreateBranchUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;branch&#x60;: branch
+   */
+  createBranchUsingPOSTResponse(
+    params: UiBlueprintDesignerControllerService.CreateBranchUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.stackName !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;stackName&#x27;, params.stackName.toString());
+    if (params.branch !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;branch&#x27;, params.branch.toString());
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/designer/${encodeURIComponent(
+          String(params.stackName),
+        )}/${encodeURIComponent(String(params.branch))}/create-branch&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * createBranch
+   * @param params The &#x60;UiBlueprintDesignerControllerService.CreateBranchUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;stackName&#x60;: stackName
+   *
+   * - &#x60;branch&#x60;: branch
+   */
+  createBranchUsingPOST(
+    params: UiBlueprintDesignerControllerService.CreateBranchUsingPOSTParams,
+  ): __Observable&lt;null&gt; {
+    return this.createBranchUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+}
+
+module UiBlueprintDesignerControllerService {
+  /**
+   * Parameters for createResourcesUsingPOST1
+   */
+  export interface CreateResourcesUsingPOST1Params {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceFileRequests
+     */
+    resourceFileRequests: Array&lt;ResourceFileRequest&gt;;
+  }
+
+  /**
+   * Parameters for updateResourcesUsingPUT1
+   */
+  export interface UpdateResourcesUsingPUT1Params {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceFileRequests
+     */
+    resourceFileRequests: Array&lt;ResourceFileRequest&gt;;
+  }
+
+  /**
+   * Parameters for deleteResourcesUsingDELETE1
+   */
+  export interface DeleteResourcesUsingDELETE1Params {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceFileRequests
+     */
+    resourceFileRequests: Array&lt;ResourceFileRequest&gt;;
+  }
+
+  /**
+   * Parameters for createResourcesUsingPOST
+   */
+  export interface CreateResourcesUsingPOSTParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceFileRequests
+     */
+    resourceFileRequests: Array&lt;ResourceFileRequest&gt;;
+
+    /**
+     * branch
+     */
+    branch: string;
+  }
+
+  /**
+   * Parameters for updateResourcesUsingPUT
+   */
+  export interface UpdateResourcesUsingPUTParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceFileRequests
+     */
+    resourceFileRequests: Array&lt;ResourceFileRequest&gt;;
+
+    /**
+     * branch
+     */
+    branch: string;
+  }
+
+  /**
+   * Parameters for deleteResourcesUsingDELETE
+   */
+  export interface DeleteResourcesUsingDELETEParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceFileRequests
+     */
+    resourceFileRequests: Array&lt;ResourceFileRequest&gt;;
+
+    /**
+     * branch
+     */
+    branch: string;
+  }
+
+  /**
+   * Parameters for renameResourceUsingPUT
+   */
+  export interface RenameResourceUsingPUTParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceRenameRequest
+     */
+    resourceRenameRequest: ResourceRenameRequest;
+
+    /**
+     * branch
+     */
+    branch: string;
+  }
+
+  /**
+   * Parameters for bulkEditDisabledForResourcesUsingPUT
+   */
+  export interface BulkEditDisabledForResourcesUsingPUTParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceEnableDisableRequestList
+     */
+    resourceEnableDisableRequestList: Array&lt;ResourceEnableDisableRequest&gt;;
+
+    /**
+     * branch
+     */
+    branch: string;
+  }
+
+  /**
+   * Parameters for getPullRequestsUsingGET
+   */
+  export interface GetPullRequestsUsingGETParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * state
+     */
+    state?: &#x27;OPEN&#x27; | &#x27;CLOSED&#x27; | &#x27;ALL&#x27;;
+
+    /**
+     * query
+     */
+    query?: string;
+
+    /**
+     * pageSize
+     */
+    pageSize?: number;
+
+    /**
+     * pageNumber
+     */
+    pageNumber?: number;
+
+    /**
+     * createdDate
+     */
+    createdDate?: string;
+  }
+
+  /**
+   * Parameters for renameResourceUsingPUT1
+   */
+  export interface RenameResourceUsingPUT1Params {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceRenameRequest
+     */
+    resourceRenameRequest: ResourceRenameRequest;
+  }
+
+  /**
+   * Parameters for bulkEditDisabledForResourcesUsingPUT1
+   */
+  export interface BulkEditDisabledForResourcesUsingPUT1Params {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceEnableDisableRequestList
+     */
+    resourceEnableDisableRequestList: Array&lt;ResourceEnableDisableRequest&gt;;
+  }
+
+  /**
+   * Parameters for listBranchesUsingGET1
+   */
+  export interface ListBranchesUsingGET1Params {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+  }
+
+  /**
+   * Parameters for getPullRequestsUsingGET1
+   */
+  export interface GetPullRequestsUsingGET1Params {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+
+    /**
+     * state
+     */
+    state?: &#x27;OPEN&#x27; | &#x27;CLOSED&#x27; | &#x27;ALL&#x27;;
+
+    /**
+     * query
+     */
+    query?: string;
+
+    /**
+     * pageSize
+     */
+    pageSize?: number;
+
+    /**
+     * pageNumber
+     */
+    pageNumber?: number;
+
+    /**
+     * createdDate
+     */
+    createdDate?: string;
+  }
+
+  /**
+   * Parameters for getWorkflowRunsUsingGET
+   */
+  export interface GetWorkflowRunsUsingGETParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+
+    /**
+     * workflowId
+     */
+    workflowId?: string;
+
+    /**
+     * status
+     */
+    status?: string;
+
+    /**
+     * pageSize
+     */
+    pageSize?: number;
+
+    /**
+     * pageNumber
+     */
+    pageNumber?: number;
+
+    /**
+     * event
+     */
+    event?: string;
+
+    /**
+     * branch
+     */
+    branch?: string;
+
+    /**
+     * actor
+     */
+    actor?: string;
+  }
+
+  /**
+   * Parameters for getWorkflowsUsingGET
+   */
+  export interface GetWorkflowsUsingGETParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+  }
+
+  /**
+   * Parameters for addVariablesUsingPOST
+   */
+  export interface AddVariablesUsingPOSTParams {
+    /**
+     * variables
+     */
+    variables: { [key: string]: VariableDetails };
+
+    /**
+     * stackName
+     */
+    stackName: string;
+  }
+
+  /**
+   * Parameters for updateVariablesUsingPUT
+   */
+  export interface UpdateVariablesUsingPUTParams {
+    /**
+     * variables
+     */
+    variables: { [key: string]: VariableDetails };
+
+    /**
+     * stackName
+     */
+    stackName: string;
+  }
+
+  /**
+   * Parameters for deleteVariablesUsingDELETE
+   */
+  export interface DeleteVariablesUsingDELETEParams {
+    /**
+     * variables
+     */
+    variables: Array&lt;string&gt;;
+
+    /**
+     * stackName
+     */
+    stackName: string;
+  }
+
+  /**
+   * Parameters for getWorkflowRunsUsingGET1
+   */
+  export interface GetWorkflowRunsUsingGET1Params {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * workflowId
+     */
+    workflowId?: string;
+
+    /**
+     * status
+     */
+    status?: string;
+
+    /**
+     * pageSize
+     */
+    pageSize?: number;
+
+    /**
+     * pageNumber
+     */
+    pageNumber?: number;
+
+    /**
+     * event
+     */
+    event?: string;
+
+    /**
+     * branch
+     */
+    branch?: string;
+
+    /**
+     * actor
+     */
+    actor?: string;
+  }
+
+  /**
+   * Parameters for getDesignerResourcesUsingGET
+   */
+  export interface GetDesignerResourcesUsingGETParams {
+    /**
+     * stackName
+     */
+    stackName: string;
+
+    /**
+     * branchName
+     */
+    branchName: string;
+  }
+
+  /**
+   * Parameters for createBranchUsingPOST
+   */
+  export interface CreateBranchUsingPOSTParams {
+    /**
+     * stackName
+     */
+    stackName?: string;
+
+    /**
+     * branch
+     */
+    branch?: string;
+  }
+}
+
+export { UiBlueprintDesignerControllerService };
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'DeleteResourcesUsingDELETEParams.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

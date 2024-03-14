@@ -1,0 +1,2257 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SidebarV2Component</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/sidebar-v2/sidebar.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-sidebar-v2</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./sidebar.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./sidebar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allBlueprints" >allBlueprints</a>
+                            </li>
+                            <li>
+                                <a href="#allowedBlueprints" >allowedBlueprints</a>
+                            </li>
+                            <li>
+                                <a href="#allowedEnvironmentIDs" >allowedEnvironmentIDs</a>
+                            </li>
+                            <li>
+                                <a href="#allowedStackNames" >allowedStackNames</a>
+                            </li>
+                            <li>
+                                <a href="#blueprintEnvironmentMap" >blueprintEnvironmentMap</a>
+                            </li>
+                            <li>
+                                <a href="#currentClusterURL" >currentClusterURL</a>
+                            </li>
+                            <li>
+                                <a href="#currentContext" >currentContext</a>
+                            </li>
+                            <li>
+                                <a href="#currentSidebarConfig" >currentSidebarConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#destroy$" >destroy$</a>
+                            </li>
+                            <li>
+                                <a href="#initiatedFirstContext" >initiatedFirstContext</a>
+                            </li>
+                            <li>
+                                <a href="#nameComparator" >nameComparator</a>
+                            </li>
+                            <li>
+                                <a href="#sidebarInitialized" >sidebarInitialized</a>
+                            </li>
+                            <li>
+                                <a href="#sidebarReloading" >sidebarReloading</a>
+                            </li>
+                            <li>
+                                <a href="#skipFirstReloadSignal" >skipFirstReloadSignal</a>
+                            </li>
+                            <li>
+                                <a href="#skipFirstUpdateFromBreadcrumbs" >skipFirstUpdateFromBreadcrumbs</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#checkForLastUserSession" >checkForLastUserSession</a>
+                            </li>
+                            <li>
+                                <a href="#checkForMissingContext" >checkForMissingContext</a>
+                            </li>
+                            <li>
+                                <a href="#checkForPreviousContextInCookies" >checkForPreviousContextInCookies</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAllBlueprints" >getAllBlueprints</a>
+                            </li>
+                            <li>
+                                <a href="#getClusterURL" >getClusterURL</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getRemainingBlueprints" >getRemainingBlueprints</a>
+                            </li>
+                            <li>
+                                <a href="#invalidBlueprint" >invalidBlueprint</a>
+                            </li>
+                            <li>
+                                <a href="#invalidEnvironment" >invalidEnvironment</a>
+                            </li>
+                            <li>
+                                <a href="#markSettingsActive" >markSettingsActive</a>
+                            </li>
+                            <li>
+                                <a href="#removeAllOtherActiveTabs" >removeAllOtherActiveTabs</a>
+                            </li>
+                            <li>
+                                <a href="#setActiveState" >setActiveState</a>
+                            </li>
+                            <li>
+                                <a href="#setFirstBlueprintAndEnvironment" >setFirstBlueprintAndEnvironment</a>
+                            </li>
+                            <li>
+                                <a href="#startListeningToContextUpdates" >startListeningToContextUpdates</a>
+                            </li>
+                            <li>
+                                <a href="#subscribeToChangesInData" >subscribeToChangesInData</a>
+                            </li>
+                            <li>
+                                <a href="#updateCurrentBasedOnLatest" >updateCurrentBasedOnLatest</a>
+                            </li>
+                            <li>
+                                <a href="#updateFooterMenuWithState" >updateFooterMenuWithState</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(sidebarUtilService: <a href="../injectables/SidebarService.html" target="_self">SidebarService</a>, uiStackControllerService: <a href="../injectables/UiStackControllerService.html" target="_self">UiStackControllerService</a>, blueprintDesignerService: <a href="../injectables/UiBlueprintDesignerControllerService.html" target="_self">UiBlueprintDesignerControllerService</a>, contextUpdatesService: <a href="../injectables/ContextUpdatesService.html" target="_self">ContextUpdatesService</a>, sessionContextStoreService: <a href="../injectables/SessionContextStoreService.html" target="_self">SessionContextStoreService</a>, userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, menuService: NbMenuService, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>sidebarUtilService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SidebarService.html" target="_self" >SidebarService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiStackControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiStackControllerService.html" target="_self" >UiStackControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>blueprintDesignerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiBlueprintDesignerControllerService.html" target="_self" >UiBlueprintDesignerControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>contextUpdatesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContextUpdatesService.html" target="_self" >ContextUpdatesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sessionContextStoreService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SessionContextStoreService.html" target="_self" >SessionContextStoreService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>menuService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NbMenuService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkForLastUserSession"></a>
+                    <span class="name">
+                        <span ><b>checkForLastUserSession</b></span>
+                        <a href="#checkForLastUserSession"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkForLastUserSession(options?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="160"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:160</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkForMissingContext"></a>
+                    <span class="name">
+                        <span ><b>checkForMissingContext</b></span>
+                        <a href="#checkForMissingContext"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkForMissingContext()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="209"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:209</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkForPreviousContextInCookies"></a>
+                    <span class="name">
+                        <span ><b>checkForPreviousContextInCookies</b></span>
+                        <a href="#checkForPreviousContextInCookies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkForPreviousContextInCookies()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:194</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllBlueprints"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getAllBlueprints</b></span>
+                        <a href="#getAllBlueprints"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAllBlueprints()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClusterURL"></a>
+                    <span class="name">
+                        <span ><b>getClusterURL</b></span>
+                        <a href="#getClusterURL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getClusterURL(currentContext: <a href="../classes/BreadCrumbConfig.html" target="_self">BreadCrumbConfig</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="228"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:228</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>currentContext</td>
+                                            <td>
+                                                            <code><a href="../classes/BreadCrumbConfig.html" target="_self" >BreadCrumbConfig</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRemainingBlueprints"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getRemainingBlueprints</b></span>
+                        <a href="#getRemainingBlueprints"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getRemainingBlueprints()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="135"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:135</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="invalidBlueprint"></a>
+                    <span class="name">
+                        <span ><b>invalidBlueprint</b></span>
+                        <a href="#invalidBlueprint"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>invalidBlueprint(context: <a href="../classes/BreadCrumbConfig.html" target="_self">BreadCrumbConfig</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="373"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:373</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>context</td>
+                                            <td>
+                                                            <code><a href="../classes/BreadCrumbConfig.html" target="_self" >BreadCrumbConfig</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="invalidEnvironment"></a>
+                    <span class="name">
+                        <span ><b>invalidEnvironment</b></span>
+                        <a href="#invalidEnvironment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>invalidEnvironment(context: <a href="../classes/BreadCrumbConfig.html" target="_self">BreadCrumbConfig</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="380"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:380</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>context</td>
+                                            <td>
+                                                            <code><a href="../classes/BreadCrumbConfig.html" target="_self" >BreadCrumbConfig</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="markSettingsActive"></a>
+                    <span class="name">
+                        <span ><b>markSettingsActive</b></span>
+                        <a href="#markSettingsActive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>markSettingsActive()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="399"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:399</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAllOtherActiveTabs"></a>
+                    <span class="name">
+                        <span ><b>removeAllOtherActiveTabs</b></span>
+                        <a href="#removeAllOtherActiveTabs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeAllOtherActiveTabs(currentlyActive: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="390"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:390</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>currentlyActive</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setActiveState"></a>
+                    <span class="name">
+                        <span ><b>setActiveState</b></span>
+                        <a href="#setActiveState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setActiveState()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="407"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:407</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFirstBlueprintAndEnvironment"></a>
+                    <span class="name">
+                        <span ><b>setFirstBlueprintAndEnvironment</b></span>
+                        <a href="#setFirstBlueprintAndEnvironment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setFirstBlueprintAndEnvironment()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="319"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:319</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startListeningToContextUpdates"></a>
+                    <span class="name">
+                        <span ><b>startListeningToContextUpdates</b></span>
+                        <a href="#startListeningToContextUpdates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>startListeningToContextUpdates()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="219"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:219</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscribeToChangesInData"></a>
+                    <span class="name">
+                        <span ><b>subscribeToChangesInData</b></span>
+                        <a href="#subscribeToChangesInData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>subscribeToChangesInData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateCurrentBasedOnLatest"></a>
+                    <span class="name">
+                        <span ><b>updateCurrentBasedOnLatest</b></span>
+                        <a href="#updateCurrentBasedOnLatest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateCurrentBasedOnLatest(newContext: <a href="../classes/BreadCrumbConfig.html" target="_self">BreadCrumbConfig</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="237"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:237</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>newContext</td>
+                                            <td>
+                                                            <code><a href="../classes/BreadCrumbConfig.html" target="_self" >BreadCrumbConfig</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateFooterMenuWithState"></a>
+                    <span class="name">
+                        <span ><b>updateFooterMenuWithState</b></span>
+                        <a href="#updateFooterMenuWithState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateFooterMenuWithState()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="349"
+                                    class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:349</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allBlueprints"></a>
+                    <span class="name">
+                        <span ><b>allBlueprints</b></span>
+                        <a href="#allBlueprints"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allowedBlueprints"></a>
+                    <span class="name">
+                        <span ><b>allowedBlueprints</b></span>
+                        <a href="#allowedBlueprints"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Set&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allowedEnvironmentIDs"></a>
+                    <span class="name">
+                        <span ><b>allowedEnvironmentIDs</b></span>
+                        <a href="#allowedEnvironmentIDs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Set&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allowedStackNames"></a>
+                    <span class="name">
+                        <span ><b>allowedStackNames</b></span>
+                        <a href="#allowedStackNames"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Set&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Set&lt;string&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blueprintEnvironmentMap"></a>
+                    <span class="name">
+                        <span ><b>blueprintEnvironmentMap</b></span>
+                        <a href="#blueprintEnvironmentMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;string, any[]&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentClusterURL"></a>
+                    <span class="name">
+                        <span ><b>currentClusterURL</b></span>
+                        <a href="#currentClusterURL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentContext"></a>
+                    <span class="name">
+                        <span ><b>currentContext</b></span>
+                        <a href="#currentContext"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/BreadCrumbConfig.html" target="_self" >BreadCrumbConfig</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{} as BreadCrumbConfig</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentSidebarConfig"></a>
+                    <span class="name">
+                        <span ><b>currentSidebarConfig</b></span>
+                        <a href="#currentSidebarConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>destroy$</b></span>
+                        <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initiatedFirstContext"></a>
+                    <span class="name">
+                        <span ><b>initiatedFirstContext</b></span>
+                        <a href="#initiatedFirstContext"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nameComparator"></a>
+                    <span class="name">
+                        <span ><b>nameComparator</b></span>
+                        <a href="#nameComparator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="334" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:334</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sidebarInitialized"></a>
+                    <span class="name">
+                        <span ><b>sidebarInitialized</b></span>
+                        <a href="#sidebarInitialized"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sidebarReloading"></a>
+                    <span class="name">
+                        <span ><b>sidebarReloading</b></span>
+                        <a href="#sidebarReloading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="skipFirstReloadSignal"></a>
+                    <span class="name">
+                        <span ><b>skipFirstReloadSignal</b></span>
+                        <a href="#skipFirstReloadSignal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="skipFirstUpdateFromBreadcrumbs"></a>
+                    <span class="name">
+                        <span ><b>skipFirstUpdateFromBreadcrumbs</b></span>
+                        <a href="#skipFirstUpdateFromBreadcrumbs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/sidebar-v2/sidebar.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { ContextUpdatesService } from &#x27;src/app/services/context-updates.service&#x27;;
+import { BreadCrumbConfig } from &#x27;src/app/models/breadcrumb.model&#x27;;
+import { UserService } from &#x27;src/app/services/user.service&#x27;;
+import { SidebarService } from &#x27;./sidebar.util.service&#x27;;
+import {
+  UiBlueprintDesignerControllerService,
+  UiStackControllerService,
+} from &#x27;src/app/cc-api/services&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { NbMenuService } from &#x27;@nebular/theme&#x27;;
+import { Subject, takeUntil } from &#x27;rxjs&#x27;;
+import { SessionContextStoreService } from &#x27;src/app/services/session-context-store.service&#x27;;
+
+@Component({
+  selector: &#x27;app-sidebar-v2&#x27;,
+  templateUrl: &#x27;./sidebar.component.html&#x27;,
+  styleUrls: [&#x27;./sidebar.component.scss&#x27;],
+})
+// implements OnChanges
+export class SidebarV2Component {
+  private destroy$ &#x3D; new Subject&lt;void&gt;(); // Used for fetching the active menu item from the nb-menu component (tag: &#x27;mainMenu&#x27; here)
+
+  sidebarInitialized: boolean &#x3D; false; // Used to hold the rendering of the sidebar till the context is ready
+  initiatedFirstContext: boolean &#x3D; false; // Used to check if the sidebar has been initialized with the first context
+  skipFirstUpdateFromBreadcrumbs: boolean &#x3D; true; // First context is set from cookies/session storage, optimistic update should not be processed
+
+  allowedBlueprints: Set&lt;string&gt;; // Set of all the allowed blueprints for the user
+  allowedEnvironmentIDs: Set&lt;string&gt;; // Set of all the allowed environments IDs
+  allowedStackNames: Set&lt;string&gt; &#x3D; new Set&lt;string&gt;(); //Stores stackNames of all the stacks a user has access to.
+  allBlueprints: any[]; // List of all the blueprints
+  blueprintEnvironmentMap &#x3D; new Map&lt;string, any[]&gt;(); // Map of all the blueprints and their environments
+
+  currentContext: BreadCrumbConfig &#x3D; {} as BreadCrumbConfig; // Current context set inside the sidebar
+  currentClusterURL: string; // Current cluster URL from the URL (stack/stackName/cluster/clusterID)
+
+  currentSidebarConfig: any; // Entire sidebar object which gets rendered
+
+  constructor(
+    private sidebarUtilService: SidebarService,
+    private uiStackControllerService: UiStackControllerService,
+    private blueprintDesignerService: UiBlueprintDesignerControllerService,
+    private contextUpdatesService: ContextUpdatesService,
+    private sessionContextStoreService: SessionContextStoreService,
+    private userService: UserService,
+    private menuService: NbMenuService,
+    private router: Router,
+  ) {
+    if (!this.userService.userLoaded) {
+      this.userService.userObserver.subscribe(async (userLoaded) &#x3D;&gt; {
+        if (userLoaded) {
+          this.allowedEnvironmentIDs &#x3D; new Set(
+            this.userService.user.allowedClusterIds,
+          );
+          await this.getAllBlueprints();
+          this.subscribeToChangesInData();
+          this.checkForLastUserSession();
+          this.checkForPreviousContextInCookies();
+          this.checkForMissingContext();
+          this.startListeningToContextUpdates();
+          this.sidebarInitialized &#x3D; true;
+        }
+      });
+    }
+  }
+
+  sidebarReloading: boolean &#x3D; false;
+  skipFirstReloadSignal: boolean &#x3D; true;
+  subscribeToChangesInData() {
+    this.contextUpdatesService.contextSwitcherUpdated.subscribe(
+      async (signal: any) &#x3D;&gt; {
+        if (signal.updated &amp;&amp; !this.skipFirstReloadSignal) {
+          this.sidebarReloading &#x3D; true;
+          await this.getAllBlueprints();
+          this.checkForLastUserSession(signal.extras);
+          this.sidebarReloading &#x3D; false;
+        }
+        this.skipFirstReloadSignal &#x3D; false;
+      },
+    );
+  }
+
+  async getAllBlueprints() {
+    this.blueprintEnvironmentMap?.clear();
+    return new Promise((resolve) &#x3D;&gt; {
+      this.allBlueprints &#x3D; [];
+      this.uiStackControllerService
+        .getAllClustersUsingGET({
+          page: 0,
+          perPage: 20000,
+          sortBy: &#x27;ID&#x27;,
+        })
+        .subscribe((envs) &#x3D;&gt; {
+          this.allowedStackNames &#x3D; new Set(
+            this.userService?.user?.allowedStackNames,
+          );
+          let envsList &#x3D; envs?.content;
+          if (this.allowedStackNames.size !&#x3D;&#x3D; 0) {
+            envsList &#x3D; envsList?.filter((env) &#x3D;&gt;
+              this.allowedStackNames?.has(env?.stackName),
+            );
+          }
+          if (this.allowedEnvironmentIDs.size !&#x3D;&#x3D; 0) {
+            envsList?.forEach((cluster) &#x3D;&gt; {
+              const stackName &#x3D; cluster?.stackName;
+              if (this.allowedEnvironmentIDs.has(cluster?.id)) {
+                // Two blueprints can have same environment name. So concatenating blueprint with environment name to get uniqueID
+                if (!this.blueprintEnvironmentMap.has(stackName)) {
+                  this.blueprintEnvironmentMap.set(stackName, []);
+                }
+                this.blueprintEnvironmentMap.get(stackName).push(cluster);
+              }
+            });
+          } else {
+            envsList?.forEach((cluster) &#x3D;&gt; {
+              const stackName &#x3D; cluster?.stackName;
+              if (!this.blueprintEnvironmentMap.has(stackName)) {
+                this.blueprintEnvironmentMap.set(stackName, []);
+              }
+              this.blueprintEnvironmentMap.get(stackName).push(cluster);
+            });
+          }
+        })
+        .add(async () &#x3D;&gt; {
+          // Need to fill in the remaining blueprints which were not returned in the
+          // above API call because they didn&#x27;t have any environments
+          await this.getRemainingBlueprints();
+          this.allowedBlueprints &#x3D; new Set(this.blueprintEnvironmentMap.keys());
+          this.allBlueprints &#x3D; Array.from(this.allowedBlueprints.keys()).sort();
+          resolve(true);
+        });
+    });
+  }
+
+  async getRemainingBlueprints() {
+    return new Promise((resolve) &#x3D;&gt; {
+      this.uiStackControllerService
+        .getStacksUsingGET1()
+        .subscribe((stacks) &#x3D;&gt; {
+          stacks.forEach((stack) &#x3D;&gt; {
+            if (!this.blueprintEnvironmentMap.has(stack.name)) {
+              this.blueprintEnvironmentMap.set(stack.name, []);
+            }
+            if(!this.contextUpdatesService.getLastBranchForBlueprint(stack.name)) {
+              this.contextUpdatesService.setLastOpenedBranchInCookies(
+                stack?.name,
+                stack?.branch,
+              );
+            }
+          });
+        })
+        .add(() &#x3D;&gt; {
+          resolve(true);
+        });
+    });
+  }
+
+  // Fetch the context from the localStorage
+  // if it is there, initialize the sidebar with it
+  checkForLastUserSession(options?: any) {
+    let hostName &#x3D; window.location.hostname.split(&#x27;.&#x27;)[0];
+    const ITEM_NAME &#x3D; &#x60;${this.userService?.user?.name}_${hostName}_context&#x60;;
+    const ITEM_STATUS_NAME &#x3D; &#x60;${this.userService?.user?.name}_${hostName}_context_used&#x60;;
+    if (localStorage.getItem(ITEM_NAME)) {
+      const newContext &#x3D; JSON.parse(
+        localStorage.getItem(ITEM_NAME),
+      ) as BreadCrumbConfig;
+      if (options?.extras) {
+        if (options?.extras?.entityType &#x3D;&#x3D;&#x3D; &#x27;CLUSTER&#x27;) {
+          newContext.environment &#x3D; options.extras?.id;
+          newContext.resource &#x3D; &#x27;&#x27;;
+          newContext.resourceType &#x3D; &#x27;&#x27;;
+        } else if (options?.extras?.entityType &#x3D;&#x3D;&#x3D; &#x27;BLUE_PRINT&#x27;) {
+          newContext.blueprint &#x3D; options?.extras?.stackName;
+          newContext.environment &#x3D; &#x27;&#x27;;
+          newContext.resource &#x3D; &#x27;&#x27;;
+          newContext.resourceType &#x3D; &#x27;&#x27;;
+        }
+      }
+      this.updateCurrentBasedOnLatest(newContext);
+      this.initiatedFirstContext &#x3D; true;
+      localStorage.setItem(ITEM_STATUS_NAME, &#x27;true&#x27;);
+      this.sessionContextStoreService.setUsedStatus(
+        this.userService?.user?.name,
+        &#x27;true&#x27;,
+      );
+    }
+  }
+
+  // Check if the cookieService has got context
+  // if it is there, initialize the sidebar with it
+  // ONLY IF, the context already has not been initialized with
+  // the last user session context
+  checkForPreviousContextInCookies() {
+    let currentFromCookies &#x3D;
+      this.contextUpdatesService.getContextFromCookies(&#x27;currentContext&#x27;);
+    let previousFromCookies &#x3D;
+      this.contextUpdatesService.getContextFromCookies(&#x27;previousContext&#x27;);
+    if (!this.initiatedFirstContext &amp;&amp; currentFromCookies?.blueprint?.length) {
+      if (!currentFromCookies.blueprint &amp;&amp; previousFromCookies.blueprint) {
+        currentFromCookies &#x3D; previousFromCookies;
+      }
+      const newContext &#x3D; currentFromCookies;
+      this.updateCurrentBasedOnLatest(newContext);
+      this.initiatedFirstContext &#x3D; true;
+    }
+  }
+
+  checkForMissingContext() {
+    if (!this.currentContext?.blueprint) {
+      this.setFirstBlueprintAndEnvironment();
+      this.updateCurrentBasedOnLatest(this.currentContext);
+    }
+  }
+
+  // Subscribe to the breadcrumb&#x27;s updates
+  // and update the currentContext based on it
+  // (Exception: the initial load)
+  startListeningToContextUpdates() {
+    this.contextUpdatesService.optimisticContextUpdates.subscribe((context) &#x3D;&gt; {
+      if (!this.sidebarReloading) {
+        const nextContext &#x3D; context.currentContext as BreadCrumbConfig;
+        this.updateCurrentBasedOnLatest(nextContext);
+      }
+    });
+  }
+
+  getClusterURL(currentContext: BreadCrumbConfig) {
+    if (!currentContext?.environment) {
+      currentContext.environment &#x3D; this.blueprintEnvironmentMap
+        .get(this.currentContext.blueprint)
+        ?.sort(this.nameComparator)[0]?.id;
+    }
+    return &#x60;/${this.currentContext.blueprint}/cluster/${this.currentContext.environment}&#x60;;
+  }
+
+  updateCurrentBasedOnLatest(newContext: BreadCrumbConfig) {
+    let keys &#x3D; Array.from(Object.keys(newContext));
+    keys.forEach((key) &#x3D;&gt; {
+      if (newContext[key]) {
+        this.currentContext[key] &#x3D; newContext[key];
+      }
+    });
+
+    if (this.invalidBlueprint(this.currentContext)) {
+      if (this.allBlueprints.length) {
+        this.setFirstBlueprintAndEnvironment();
+      } else {
+        this.currentContext &#x3D; {
+          blueprint: &#x27;&#x27;,
+          environment: &#x27;&#x27;,
+        } as any as BreadCrumbConfig;
+      }
+    } else if (this.invalidEnvironment(this.currentContext)) {
+      const allEnvironments &#x3D; this.blueprintEnvironmentMap
+        .get(this.currentContext.blueprint)
+        ?.sort(this.nameComparator);
+      if (allEnvironments?.length) {
+        this.currentContext.environment &#x3D; allEnvironments[0].id;
+      } else if (this.currentContext.blueprint?.length) {
+        this.currentContext.environment &#x3D; &#x27;&#x27;;
+      } else {
+        this.setFirstBlueprintAndEnvironment();
+      }
+    }
+    // Handle conditions for when the currently set context
+    // is either not available in the API response or
+    // is not available for the user to access because of user&#x27;s restricted access
+    if (
+      this.allowedEnvironmentIDs?.size !&#x3D; 0 ||
+      !this.currentContext?.blueprint
+    ) {
+      if (!this.allowedBlueprints.has(this.currentContext.blueprint)) {
+        // Make the first available blueprint from the
+        // list of all blueprints the current blueprint
+        this.setFirstBlueprintAndEnvironment();
+      } else if (
+        this.currentContext?.environment?.length &amp;&amp;
+        !this.allowedEnvironmentIDs.has(this.currentContext.environment)
+      ) {
+        // Make the first available environment from the
+        // currently chosen blueprint the current environment
+        this.setFirstBlueprintAndEnvironment();
+      }
+    }
+
+    this.currentClusterURL &#x3D; this.getClusterURL(this.currentContext);
+    this.sessionContextStoreService.setSessionContext(
+      JSON.stringify(this.currentContext),
+      this.userService?.user?.name,
+      &#x27;true&#x27;,
+    );
+
+    // By this point, the currentContext has
+    // 1. Checked for previous user session&#x27;s context
+    // 2. Checked for the last session from cookies
+    // 3. Has subscribed to the breadcrumbs&#x27; optimistic updates
+    // 4. Has made sure that the currentContext is:
+    // ----&gt; Available in the list fetched from the API
+    // ----&gt; Available to the user if they have restricted access
+
+    this.currentSidebarConfig &#x3D; this.sidebarUtilService.getSidebarConfig(
+      this.currentContext.blueprint,
+      this.currentContext.environment,
+      this.currentClusterURL,
+      this.contextUpdatesService.getLastBranchForBlueprint(
+        this.currentContext.blueprint,
+      ),
+      this.allBlueprints,
+      !this.blueprintEnvironmentMap.has(this.currentContext.blueprint) ||
+        this.blueprintEnvironmentMap.get(this.currentContext.blueprint)
+          ?.length &#x3D;&#x3D;&#x3D; 0,
+      this.router.url,
+    );
+    this.contextUpdatesService.setCurrentContext(this.currentContext);
+    this.setActiveState();
+  }
+
+  setFirstBlueprintAndEnvironment() {
+    if (this.allBlueprints.length &#x3D;&#x3D;&#x3D; 0) {
+      this.currentContext &#x3D; {
+        blueprint: &#x27;&#x27;,
+        environment: &#x27;&#x27;,
+      } as BreadCrumbConfig;
+      return;
+    }
+    this.currentContext.blueprint &#x3D; this.allBlueprints[0];
+    const allEnvironments &#x3D; this.blueprintEnvironmentMap
+      .get(this.currentContext.blueprint)
+      ?.sort(this.nameComparator);
+    this.currentContext.environment &#x3D; allEnvironments[0]?.id;
+  }
+
+  nameComparator &#x3D; (a, b) &#x3D;&gt; {
+    const nameA &#x3D; a.name.toLowerCase();
+    const nameB &#x3D; b.name.toLowerCase();
+    if (nameA &lt; nameB) {
+      return -1;
+    } else if (nameA &gt; nameB) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
+
+  // Helper functions
+  // On click event from the mainMenu nb-menu
+  // Used in disabling the active menu item from the other nb-menu (tag: &#x27;footerMenu&#x27;) in app-layout
+  updateFooterMenuWithState() {
+    // Removing all the active menu items by passing some random string to removeAllOtherActiveTabs
+    this.removeAllOtherActiveTabs(&#x27;_____remove-all-menu-items____&#x27;);
+    setTimeout(() &#x3D;&gt; {
+      this.menuService
+        .getSelectedItem(&#x27;mainMenu&#x27;)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((menuItem) &#x3D;&gt; {
+          if (
+            menuItem?.item ||
+            this.router.url.includes(this.currentClusterURL)
+          ) {
+            this.removeAllOtherActiveTabs(menuItem?.item?.title);
+          } else if (this.router.url.includes(&#x27;settings&#x27;)) {
+            // patch: re-mark settings as active if environment was clicked on
+            this.markSettingsActive();
+          }
+        });
+    }, 3000);
+  }
+
+  // If the current blueprint set in the context
+  // does not belong to the application (maybe after being deleted or something like that)
+  // this function will return true and false otherwise
+  invalidBlueprint(context: BreadCrumbConfig) {
+    return !this.blueprintEnvironmentMap.has(context.blueprint);
+  }
+
+  // If the current environment set in the context
+  // does not belong to the blueprint which is set, this function
+  // will return true and false otherwise
+  invalidEnvironment(context: BreadCrumbConfig) {
+    const environmentID &#x3D; context.environment;
+    const blueprint &#x3D; context.blueprint;
+    return !this.blueprintEnvironmentMap
+      ?.get(blueprint)
+      ?.find((env) &#x3D;&gt; env.id &#x3D;&#x3D;&#x3D; environmentID);
+  }
+
+  // DOM manipulation because nb-menu doesn&#x27;t have APIs to update the state for active menu items
+  // Goes through the anchor tabs of the other menu and updates their classList
+  removeAllOtherActiveTabs(currentlyActive: string) {
+    const allMenus: any &#x3D; document.querySelectorAll(&#x27;nb-menu&#x27;);
+    const allAnchorTags &#x3D; [...allMenus[1]?.getElementsByTagName(&#x27;a&#x27;)];
+    for (let i &#x3D; 0; i &lt; allAnchorTags?.length; i++) {
+      const item &#x3D; allAnchorTags[i];
+      item?.classList.remove(&#x27;active&#x27;);
+    }
+  }
+
+  markSettingsActive() {
+    const allMenus: any &#x3D; document.querySelectorAll(&#x27;nb-menu&#x27;);
+    if (allMenus?.length) {
+      const allAnchorTags &#x3D; [...allMenus?.[1]?.getElementsByTagName(&#x27;a&#x27;)];
+      allAnchorTags?.[1]?.classList?.add(&#x27;active&#x27;);
+    }
+  }
+
+  setActiveState() {
+    let urlParams;
+    const currentURL &#x3D; this.router.url;
+    if (currentURL?.length &gt; 0 &amp;&amp; currentURL.indexOf(&#x27;/&#x27;) &gt;&#x3D; 0) {
+      urlParams &#x3D; currentURL.split(&#x27;/&#x27;);
+      if (
+        urlParams?.length &gt; 1 &amp;&amp;
+        (urlParams[1] &#x3D;&#x3D;&#x3D; &#x27;home&#x27; || urlParams[1] &#x3D;&#x3D;&#x3D; &#x27;stack&#x27;) &amp;&amp;
+        !(urlParams[3] &#x3D;&#x3D;&#x3D; &#x27;artifacts&#x27;) &amp;&amp;
+        !(urlParams[3] &#x3D;&#x3D;&#x3D; &#x27;dashboards&#x27;)
+      ) {
+        this.currentSidebarConfig.forEach((item) &#x3D;&gt; {
+          if (item.title &#x3D;&#x3D;&#x3D; &#x27;Blueprint&#x27;) {
+            item.selected &#x3D; true;
+          }
+        });
+      } else if (urlParams?.length &gt; 1 &amp;&amp; urlParams[3] &#x3D;&#x3D;&#x3D; &#x27;artifacts&#x27;) {
+        this.currentSidebarConfig.forEach((item) &#x3D;&gt; {
+          if (item.title &#x3D;&#x3D;&#x3D; &#x27;Artifacts&#x27;) {
+            item.selected &#x3D; true;
+          }
+        });
+      } else if (urlParams?.length &gt; 1 &amp;&amp; urlParams[1] &#x3D;&#x3D;&#x3D; &#x27;settings&#x27;) {
+        this.currentSidebarConfig.forEach((item) &#x3D;&gt; {
+          if (item.title &#x3D;&#x3D;&#x3D; &#x27;Settings&#x27;) {
+            item.selected &#x3D; true;
+          }
+        });
+      } else if (urlParams?.length &gt; 2 &amp;&amp; urlParams[2] &#x3D;&#x3D;&#x3D; &#x27;cluster&#x27;) {
+        this.currentSidebarConfig.forEach((item) &#x3D;&gt; {
+          if (item.title &#x3D;&#x3D;&#x3D; &#x27;Environment&#x27;) {
+            item.selected &#x3D; true;
+          }
+        });
+      }
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div
+  (click)&#x3D;&quot;updateFooterMenuWithState()&quot;
+  [nbSpinner]&#x3D;&quot;!sidebarInitialized || sidebarReloading&quot;
+  nbSpinnerStatus&#x3D;&quot;basic&quot;
+  style&#x3D;&quot;height: -webkit-fill-available&quot;
+&gt;
+  &lt;nb-menu
+    *ngIf&#x3D;&quot;sidebarInitialized &amp;&amp; currentSidebarConfig&quot;
+    #mainSidebarMenu
+    tag&#x3D;&quot;mainMenu&quot;
+    [items]&#x3D;&quot;currentSidebarConfig&quot;
+    [ngClass]&#x3D;&quot;{ &#x27;font-weight-light&#x27;: 1, &#x27;loading-sidebar&#x27;: sidebarReloading }&quot;
+    id&#x3D;&quot;nav-step3&quot;
+  &gt;
+  &lt;/nb-menu&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./sidebar.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.loading-sidebar {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+:host ::ng-deep nb-spinner {
+  background: transparent !important;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div  (click)="updateFooterMenuWithState()"  [nbSpinner]="!sidebarInitialized || sidebarReloading"  nbSpinnerStatus="basic"  style="height: -webkit-fill-available">  <nb-menu    *ngIf="sidebarInitialized && currentSidebarConfig"    #mainSidebarMenu    tag="mainMenu"    [items]="currentSidebarConfig"    [ngClass]="{ \'font-weight-light\': 1, \'loading-sidebar\': sidebarReloading }"    id="nav-step3"  >  </nb-menu></div></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'SidebarV2Component'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SidebarV2Component.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

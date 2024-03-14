@@ -1,0 +1,1732 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  GetResourceHistoryUsingGETParams</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/cc-api/services/ui-application-controller.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Parameters for getResourceHistoryUsingGET</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#clusterId" 
+>
+                                            clusterId
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#resourceName" 
+>
+                                            resourceName
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#resourceType" 
+>
+                                            resourceType
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="clusterId"></a>
+                                        <span class="name "><b>clusterId</b>
+                                            <a href="#clusterId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>clusterId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>clusterId</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="resourceName"></a>
+                                        <span class="name "><b>resourceName</b>
+                                            <a href="#resourceName">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>resourceName:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>resourceName</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="resourceType"></a>
+                                        <span class="name "><b>resourceType</b>
+                                            <a href="#resourceType">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>resourceType:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>resourceType</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpHeaders,
+} from &#x27;@angular/common/http&#x27;;
+import { BaseService as __BaseService } from &#x27;../base-service&#x27;;
+import { ApiConfiguration as __Configuration } from &#x27;../api-configuration&#x27;;
+import { StrictHttpResponse as __StrictHttpResponse } from &#x27;../strict-http-response&#x27;;
+import { Observable as __Observable } from &#x27;rxjs&#x27;;
+import { map as __map, filter as __filter } from &#x27;rxjs/operators&#x27;;
+
+import { Event } from &#x27;../models/event&#x27;;
+import { StreamingResponseBody } from &#x27;../models/streaming-response-body&#x27;;
+import { HorizontalPodAutoscaler } from &#x27;../models/horizontal-pod-autoscaler&#x27;;
+import { Ingress } from &#x27;../models/ingress&#x27;;
+import { Pod } from &#x27;../models/pod&#x27;;
+import { OverrideObject } from &#x27;../models/override-object&#x27;;
+import { OverrideRequest } from &#x27;../models/override-request&#x27;;
+import { ResourceHistory } from &#x27;../models/resource-history&#x27;;
+import { ResourceOutProperties } from &#x27;../models/resource-out-properties&#x27;;
+import { ValidationResponse } from &#x27;../models/validation-response&#x27;;
+
+/**
+ * Ui Application Controller
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+class UiApplicationControllerService extends __BaseService {
+  static readonly promoteUsingPUTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/app-name/{appName}/promote&#x27;;
+  static readonly getEventsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/pods/{podName}/events&#x27;;
+  static readonly logsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/pods/{podName}/logs&#x27;;
+  static readonly getHPAUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/resourceName/{applicationName}/hpa&#x27;;
+  static readonly getIngressesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/resourceName/{applicationName}/ingresses&#x27;;
+  static readonly listPodsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/resourceName/{applicationName}/pods&#x27;;
+  static readonly getResourceByNameV2UsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/resourceType/{resourceType}/resourceName/{resourceName}&#x27;;
+  static readonly getDeployedCommitIdForResourceUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/resourceType/{resourceType}/resourceName/{resourceName}/deployed-commit-id&#x27;;
+  static readonly getResourceOverrideObjectUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/resourceType/{resourceType}/resourceName/{resourceName}/overrides&#x27;;
+  static readonly postResourceOverrideObjectUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/resourceType/{resourceType}/resourceName/{resourceName}/overrides&#x27;;
+  static readonly getResourceHistoryUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/resourceType/{resourceType}/resourceName/{resourceName}/resource-history&#x27;;
+  static readonly getResourceOutPropertiesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/resourceType/{resourceType}/resourceName/{resourceName}/resource-out-properties&#x27;;
+  static readonly rollingRestartUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/restart/{applicationName}&#x27;;
+  static readonly runValidationUsingPOSTPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/validate&#x27;;
+  static readonly getValidationsUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/validation-errors&#x27;;
+  static readonly getResourceByNameUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/{resourceType}/{appName}&#x27;;
+  static readonly getApplicationOverridesUsingGETPath &#x3D;
+    &#x27;/cc-ui/v1/clusters/{clusterId}/{resourceType}/{appName}/overrides&#x27;;
+
+  constructor(config: __Configuration, http: HttpClient) {
+    super(config, http);
+  }
+
+  /**
+   * promote
+   * @param params The &#x60;UiApplicationControllerService.PromoteUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;appName&#x60;: appName
+   */
+  promoteUsingPUTResponse(
+    params: UiApplicationControllerService.PromoteUsingPUTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;PUT&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/app-name/${encodeURIComponent(String(params.appName))}/promote&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * promote
+   * @param params The &#x60;UiApplicationControllerService.PromoteUsingPUTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;appName&#x60;: appName
+   */
+  promoteUsingPUT(
+    params: UiApplicationControllerService.PromoteUsingPUTParams,
+  ): __Observable&lt;null&gt; {
+    return this.promoteUsingPUTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * getEvents
+   * @param params The &#x60;UiApplicationControllerService.GetEventsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;podName&#x60;: podName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getEventsUsingGETResponse(
+    params: UiApplicationControllerService.GetEventsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;Event&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/pods/${encodeURIComponent(String(params.podName))}/events&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Event&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getEvents
+   * @param params The &#x60;UiApplicationControllerService.GetEventsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;podName&#x60;: podName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getEventsUsingGET(
+    params: UiApplicationControllerService.GetEventsUsingGETParams,
+  ): __Observable&lt;Array&lt;Event&gt;&gt; {
+    return this.getEventsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Event&gt;),
+    );
+  }
+
+  /**
+   * logs
+   * @param params The &#x60;UiApplicationControllerService.LogsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;podName&#x60;: podName
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  logsUsingGETResponse(
+    params: UiApplicationControllerService.LogsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;StreamingResponseBody&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/pods/${encodeURIComponent(String(params.podName))}/logs&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;StreamingResponseBody&gt;;
+      }),
+    );
+  }
+  /**
+   * logs
+   * @param params The &#x60;UiApplicationControllerService.LogsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;podName&#x60;: podName
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  logsUsingGET(
+    params: UiApplicationControllerService.LogsUsingGETParams,
+  ): __Observable&lt;StreamingResponseBody&gt; {
+    return this.logsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as StreamingResponseBody),
+    );
+  }
+
+  /**
+   * getHPA
+   * @param params The &#x60;UiApplicationControllerService.GetHPAUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;applicationName&#x60;: applicationName
+   *
+   * @return OK
+   */
+  getHPAUsingGETResponse(
+    params: UiApplicationControllerService.GetHPAUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;HorizontalPodAutoscaler&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resourceName/${encodeURIComponent(
+          String(params.applicationName),
+        )}/hpa&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;HorizontalPodAutoscaler&gt;;
+      }),
+    );
+  }
+  /**
+   * getHPA
+   * @param params The &#x60;UiApplicationControllerService.GetHPAUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;applicationName&#x60;: applicationName
+   *
+   * @return OK
+   */
+  getHPAUsingGET(
+    params: UiApplicationControllerService.GetHPAUsingGETParams,
+  ): __Observable&lt;HorizontalPodAutoscaler&gt; {
+    return this.getHPAUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as HorizontalPodAutoscaler),
+    );
+  }
+
+  /**
+   * getIngresses
+   * @param params The &#x60;UiApplicationControllerService.GetIngressesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;applicationName&#x60;: applicationName
+   *
+   * @return OK
+   */
+  getIngressesUsingGETResponse(
+    params: UiApplicationControllerService.GetIngressesUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;Ingress&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resourceName/${encodeURIComponent(
+          String(params.applicationName),
+        )}/ingresses&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Ingress&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getIngresses
+   * @param params The &#x60;UiApplicationControllerService.GetIngressesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;applicationName&#x60;: applicationName
+   *
+   * @return OK
+   */
+  getIngressesUsingGET(
+    params: UiApplicationControllerService.GetIngressesUsingGETParams,
+  ): __Observable&lt;Array&lt;Ingress&gt;&gt; {
+    return this.getIngressesUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Ingress&gt;),
+    );
+  }
+
+  /**
+   * listPods
+   * @param params The &#x60;UiApplicationControllerService.ListPodsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;applicationName&#x60;: applicationName
+   *
+   * @return OK
+   */
+  listPodsUsingGETResponse(
+    params: UiApplicationControllerService.ListPodsUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;Pod&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resourceName/${encodeURIComponent(
+          String(params.applicationName),
+        )}/pods&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;Pod&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * listPods
+   * @param params The &#x60;UiApplicationControllerService.ListPodsUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;applicationName&#x60;: applicationName
+   *
+   * @return OK
+   */
+  listPodsUsingGET(
+    params: UiApplicationControllerService.ListPodsUsingGETParams,
+  ): __Observable&lt;Array&lt;Pod&gt;&gt; {
+    return this.listPodsUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;Pod&gt;),
+    );
+  }
+
+  /**
+   * getResourceByNameV2
+   * @param params The &#x60;UiApplicationControllerService.GetResourceByNameV2UsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getResourceByNameV2UsingGETResponse(
+    params: UiApplicationControllerService.GetResourceByNameV2UsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;{}&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resourceType/${encodeURIComponent(
+          String(params.resourceType),
+        )}/resourceName/${encodeURIComponent(String(params.resourceName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{}&gt;;
+      }),
+    );
+  }
+  /**
+   * getResourceByNameV2
+   * @param params The &#x60;UiApplicationControllerService.GetResourceByNameV2UsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getResourceByNameV2UsingGET(
+    params: UiApplicationControllerService.GetResourceByNameV2UsingGETParams,
+  ): __Observable&lt;{}&gt; {
+    return this.getResourceByNameV2UsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as {}),
+    );
+  }
+
+  /**
+   * getDeployedCommitIdForResource
+   * @param params The &#x60;UiApplicationControllerService.GetDeployedCommitIdForResourceUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getDeployedCommitIdForResourceUsingGETResponse(
+    params: UiApplicationControllerService.GetDeployedCommitIdForResourceUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;string&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resourceType/${encodeURIComponent(
+          String(params.resourceType),
+        )}/resourceName/${encodeURIComponent(
+          String(params.resourceName),
+        )}/deployed-commit-id&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;text&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;string&gt;;
+      }),
+    );
+  }
+  /**
+   * getDeployedCommitIdForResource
+   * @param params The &#x60;UiApplicationControllerService.GetDeployedCommitIdForResourceUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getDeployedCommitIdForResourceUsingGET(
+    params: UiApplicationControllerService.GetDeployedCommitIdForResourceUsingGETParams,
+  ): __Observable&lt;string&gt; {
+    return this.getDeployedCommitIdForResourceUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as string),
+    );
+  }
+
+  /**
+   * getResourceOverrideObject
+   * @param params The &#x60;UiApplicationControllerService.GetResourceOverrideObjectUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getResourceOverrideObjectUsingGETResponse(
+    params: UiApplicationControllerService.GetResourceOverrideObjectUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;OverrideObject&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resourceType/${encodeURIComponent(
+          String(params.resourceType),
+        )}/resourceName/${encodeURIComponent(
+          String(params.resourceName),
+        )}/overrides&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;OverrideObject&gt;;
+      }),
+    );
+  }
+  /**
+   * getResourceOverrideObject
+   * @param params The &#x60;UiApplicationControllerService.GetResourceOverrideObjectUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getResourceOverrideObjectUsingGET(
+    params: UiApplicationControllerService.GetResourceOverrideObjectUsingGETParams,
+  ): __Observable&lt;OverrideObject&gt; {
+    return this.getResourceOverrideObjectUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as OverrideObject),
+    );
+  }
+
+  /**
+   * postResourceOverrideObject
+   * @param params The &#x60;UiApplicationControllerService.PostResourceOverrideObjectUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;overrideRequest&#x60;: overrideRequest
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  postResourceOverrideObjectUsingPOSTResponse(
+    params: UiApplicationControllerService.PostResourceOverrideObjectUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;OverrideObject&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    __body &#x3D; params.overrideRequest;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resourceType/${encodeURIComponent(
+          String(params.resourceType),
+        )}/resourceName/${encodeURIComponent(
+          String(params.resourceName),
+        )}/overrides&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;OverrideObject&gt;;
+      }),
+    );
+  }
+  /**
+   * postResourceOverrideObject
+   * @param params The &#x60;UiApplicationControllerService.PostResourceOverrideObjectUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;overrideRequest&#x60;: overrideRequest
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  postResourceOverrideObjectUsingPOST(
+    params: UiApplicationControllerService.PostResourceOverrideObjectUsingPOSTParams,
+  ): __Observable&lt;OverrideObject&gt; {
+    return this.postResourceOverrideObjectUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as OverrideObject),
+    );
+  }
+
+  /**
+   * getResourceHistory
+   * @param params The &#x60;UiApplicationControllerService.GetResourceHistoryUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getResourceHistoryUsingGETResponse(
+    params: UiApplicationControllerService.GetResourceHistoryUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;ResourceHistory&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resourceType/${encodeURIComponent(
+          String(params.resourceType),
+        )}/resourceName/${encodeURIComponent(
+          String(params.resourceName),
+        )}/resource-history&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ResourceHistory&gt;;
+      }),
+    );
+  }
+  /**
+   * getResourceHistory
+   * @param params The &#x60;UiApplicationControllerService.GetResourceHistoryUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getResourceHistoryUsingGET(
+    params: UiApplicationControllerService.GetResourceHistoryUsingGETParams,
+  ): __Observable&lt;ResourceHistory&gt; {
+    return this.getResourceHistoryUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ResourceHistory),
+    );
+  }
+
+  /**
+   * getResourceOutProperties
+   * @param params The &#x60;UiApplicationControllerService.GetResourceOutPropertiesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getResourceOutPropertiesUsingGETResponse(
+    params: UiApplicationControllerService.GetResourceOutPropertiesUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;ResourceOutProperties&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/resourceType/${encodeURIComponent(
+          String(params.resourceType),
+        )}/resourceName/${encodeURIComponent(
+          String(params.resourceName),
+        )}/resource-out-properties&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;ResourceOutProperties&gt;;
+      }),
+    );
+  }
+  /**
+   * getResourceOutProperties
+   * @param params The &#x60;UiApplicationControllerService.GetResourceOutPropertiesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;resourceName&#x60;: resourceName
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * @return OK
+   */
+  getResourceOutPropertiesUsingGET(
+    params: UiApplicationControllerService.GetResourceOutPropertiesUsingGETParams,
+  ): __Observable&lt;ResourceOutProperties&gt; {
+    return this.getResourceOutPropertiesUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as ResourceOutProperties),
+    );
+  }
+
+  /**
+   * rollingRestart
+   * @param params The &#x60;UiApplicationControllerService.RollingRestartUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;applicationName&#x60;: applicationName
+   */
+  rollingRestartUsingPOSTResponse(
+    params: UiApplicationControllerService.RollingRestartUsingPOSTParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+    if (params.labels !&#x3D; null)
+      __params &#x3D; __params.set(&#x27;labels&#x27;, params.labels.toString());
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/restart/${encodeURIComponent(String(params.applicationName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * rollingRestart
+   * @param params The &#x60;UiApplicationControllerService.RollingRestartUsingPOSTParams&#x60; containing the following parameters:
+   *
+   * - &#x60;labels&#x60;: labels
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;applicationName&#x60;: applicationName
+   */
+  rollingRestartUsingPOST(
+    params: UiApplicationControllerService.RollingRestartUsingPOSTParams,
+  ): __Observable&lt;null&gt; {
+    return this.rollingRestartUsingPOSTResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * runValidation
+   * @param clusterId clusterId
+   */
+  runValidationUsingPOSTResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;null&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;POST&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(String(clusterId))}/validate&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;null&gt;;
+      }),
+    );
+  }
+  /**
+   * runValidation
+   * @param clusterId clusterId
+   */
+  runValidationUsingPOST(clusterId: string): __Observable&lt;null&gt; {
+    return this.runValidationUsingPOSTResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as null),
+    );
+  }
+
+  /**
+   * getValidations
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getValidationsUsingGETResponse(
+    clusterId: string,
+  ): __Observable&lt;__StrictHttpResponse&lt;Array&lt;ValidationResponse&gt;&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(clusterId),
+        )}/validation-errors&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;Array&lt;ValidationResponse&gt;&gt;;
+      }),
+    );
+  }
+  /**
+   * getValidations
+   * @param clusterId clusterId
+   * @return OK
+   */
+  getValidationsUsingGET(
+    clusterId: string,
+  ): __Observable&lt;Array&lt;ValidationResponse&gt;&gt; {
+    return this.getValidationsUsingGETResponse(clusterId).pipe(
+      __map((_r) &#x3D;&gt; _r.body as Array&lt;ValidationResponse&gt;),
+    );
+  }
+
+  /**
+   * getResourceByName
+   * @param params The &#x60;UiApplicationControllerService.GetResourceByNameUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;appName&#x60;: appName
+   *
+   * @return OK
+   */
+  getResourceByNameUsingGETResponse(
+    params: UiApplicationControllerService.GetResourceByNameUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;{}&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/${encodeURIComponent(
+          String(params.resourceType),
+        )}/${encodeURIComponent(String(params.appName))}&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{}&gt;;
+      }),
+    );
+  }
+  /**
+   * getResourceByName
+   * @param params The &#x60;UiApplicationControllerService.GetResourceByNameUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;appName&#x60;: appName
+   *
+   * @return OK
+   */
+  getResourceByNameUsingGET(
+    params: UiApplicationControllerService.GetResourceByNameUsingGETParams,
+  ): __Observable&lt;{}&gt; {
+    return this.getResourceByNameUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as {}),
+    );
+  }
+
+  /**
+   * getApplicationOverrides
+   * @param params The &#x60;UiApplicationControllerService.GetApplicationOverridesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;appName&#x60;: appName
+   *
+   * @return OK
+   */
+  getApplicationOverridesUsingGETResponse(
+    params: UiApplicationControllerService.GetApplicationOverridesUsingGETParams,
+  ): __Observable&lt;__StrictHttpResponse&lt;{}&gt;&gt; {
+    let __params &#x3D; this.newParams();
+    let __headers &#x3D; new HttpHeaders();
+    let __body: any &#x3D; null;
+
+    let req &#x3D; new HttpRequest&lt;any&gt;(
+      &#x27;GET&#x27;,
+      this.rootUrl +
+        &#x60;/cc-ui/v1/clusters/${encodeURIComponent(
+          String(params.clusterId),
+        )}/${encodeURIComponent(
+          String(params.resourceType),
+        )}/${encodeURIComponent(String(params.appName))}/overrides&#x60;,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: &#x27;json&#x27;,
+      },
+    );
+
+    return this.http.request&lt;any&gt;(req).pipe(
+      __filter((_r) &#x3D;&gt; _r instanceof HttpResponse),
+      __map((_r) &#x3D;&gt; {
+        return _r as __StrictHttpResponse&lt;{}&gt;;
+      }),
+    );
+  }
+  /**
+   * getApplicationOverrides
+   * @param params The &#x60;UiApplicationControllerService.GetApplicationOverridesUsingGETParams&#x60; containing the following parameters:
+   *
+   * - &#x60;resourceType&#x60;: resourceType
+   *
+   * - &#x60;clusterId&#x60;: clusterId
+   *
+   * - &#x60;appName&#x60;: appName
+   *
+   * @return OK
+   */
+  getApplicationOverridesUsingGET(
+    params: UiApplicationControllerService.GetApplicationOverridesUsingGETParams,
+  ): __Observable&lt;{}&gt; {
+    return this.getApplicationOverridesUsingGETResponse(params).pipe(
+      __map((_r) &#x3D;&gt; _r.body as {}),
+    );
+  }
+}
+
+module UiApplicationControllerService {
+  /**
+   * Parameters for promoteUsingPUT
+   */
+  export interface PromoteUsingPUTParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * appName
+     */
+    appName: string;
+  }
+
+  /**
+   * Parameters for getEventsUsingGET
+   */
+  export interface GetEventsUsingGETParams {
+    /**
+     * podName
+     */
+    podName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for logsUsingGET
+   */
+  export interface LogsUsingGETParams {
+    /**
+     * podName
+     */
+    podName: string;
+
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getHPAUsingGET
+   */
+  export interface GetHPAUsingGETParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * applicationName
+     */
+    applicationName: string;
+  }
+
+  /**
+   * Parameters for getIngressesUsingGET
+   */
+  export interface GetIngressesUsingGETParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * applicationName
+     */
+    applicationName: string;
+  }
+
+  /**
+   * Parameters for listPodsUsingGET
+   */
+  export interface ListPodsUsingGETParams {
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * applicationName
+     */
+    applicationName: string;
+  }
+
+  /**
+   * Parameters for getResourceByNameV2UsingGET
+   */
+  export interface GetResourceByNameV2UsingGETParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getDeployedCommitIdForResourceUsingGET
+   */
+  export interface GetDeployedCommitIdForResourceUsingGETParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getResourceOverrideObjectUsingGET
+   */
+  export interface GetResourceOverrideObjectUsingGETParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for postResourceOverrideObjectUsingPOST
+   */
+  export interface PostResourceOverrideObjectUsingPOSTParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+
+    /**
+     * overrideRequest
+     */
+    overrideRequest: OverrideRequest;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getResourceHistoryUsingGET
+   */
+  export interface GetResourceHistoryUsingGETParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for getResourceOutPropertiesUsingGET
+   */
+  export interface GetResourceOutPropertiesUsingGETParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * resourceName
+     */
+    resourceName: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+  }
+
+  /**
+   * Parameters for rollingRestartUsingPOST
+   */
+  export interface RollingRestartUsingPOSTParams {
+    /**
+     * labels
+     */
+    labels: any;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * applicationName
+     */
+    applicationName: string;
+  }
+
+  /**
+   * Parameters for getResourceByNameUsingGET
+   */
+  export interface GetResourceByNameUsingGETParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * appName
+     */
+    appName: string;
+  }
+
+  /**
+   * Parameters for getApplicationOverridesUsingGET
+   */
+  export interface GetApplicationOverridesUsingGETParams {
+    /**
+     * resourceType
+     */
+    resourceType: string;
+
+    /**
+     * clusterId
+     */
+    clusterId: string;
+
+    /**
+     * appName
+     */
+    appName: string;
+  }
+}
+
+export { UiApplicationControllerService };
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'GetResourceHistoryUsingGETParams.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

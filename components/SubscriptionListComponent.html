@@ -1,0 +1,3073 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cc-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">cc-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SubscriptionListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/notification-center/subscription-list/subscription-list.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+    </p>
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-subscription-list</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./subscription-list.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./subscription-list.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actionButtons" >actionButtons</a>
+                            </li>
+                            <li>
+                                <a href="#blueprintEnvironments" >blueprintEnvironments</a>
+                            </li>
+                            <li>
+                                <a href="#buttonTextSub" >buttonTextSub</a>
+                            </li>
+                            <li>
+                                <a href="#channelMap" >channelMap</a>
+                            </li>
+                            <li>
+                                <a href="#channels" >channels</a>
+                            </li>
+                            <li>
+                                <a href="#convertToSentenceCase" >convertToSentenceCase</a>
+                            </li>
+                            <li>
+                                <a href="#deleteInProgress" >deleteInProgress</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Private</span>
+                                <a href="#deleteSubscriptionConfirmUI" >deleteSubscriptionConfirmUI</a>
+                            </li>
+                            <li>
+                                <a href="#emptyLogoSubs" >emptyLogoSubs</a>
+                            </li>
+                            <li>
+                                <a href="#errorLogo" >errorLogo</a>
+                            </li>
+                            <li>
+                                <a href="#filterLabels" >filterLabels</a>
+                            </li>
+                            <li>
+                                <a href="#getAllNotificationTypes" >getAllNotificationTypes</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#nc" >nc</a>
+                            </li>
+                            <li>
+                                <a href="#notificationError" >notificationError</a>
+                            </li>
+                            <li>
+                                <a href="#notificationTypeNameMap" >notificationTypeNameMap</a>
+                            </li>
+                            <li>
+                                <a href="#primarySub" >primarySub</a>
+                            </li>
+                            <li>
+                                <a href="#secondarySub" >secondarySub</a>
+                            </li>
+                            <li>
+                                <a href="#showBtnSub" >showBtnSub</a>
+                            </li>
+                            <li>
+                                <a href="#showEmptySub" >showEmptySub</a>
+                            </li>
+                            <li>
+                                <a href="#statusSub" >statusSub</a>
+                            </li>
+                            <li>
+                                <a href="#sub" >sub</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Private</span>
+                                <a href="#subscriptionFiltersPopup" >subscriptionFiltersPopup</a>
+                            </li>
+                            <li>
+                                <a href="#subscriptions" >subscriptions</a>
+                            </li>
+                            <li>
+                                <a href="#subscriptionSettings" >subscriptionSettings</a>
+                            </li>
+                            <li>
+                                <a href="#subscriptionWritePermission" >subscriptionWritePermission</a>
+                            </li>
+                            <li>
+                                <a href="#testingResult" >testingResult</a>
+                            </li>
+                            <li>
+                                <a href="#tooltipSub" >tooltipSub</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#deleteSubscription" >deleteSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#getAllChannels" >getAllChannels</a>
+                            </li>
+                            <li>
+                                <a href="#getAllSubscriptions" >getAllSubscriptions</a>
+                            </li>
+                            <li>
+                                <a href="#getEnvironmentsAsLink" >getEnvironmentsAsLink</a>
+                            </li>
+                            <li>
+                                <a href="#getEnvironmentsMap" >getEnvironmentsMap</a>
+                            </li>
+                            <li>
+                                <a href="#getFilters" >getFilters</a>
+                            </li>
+                            <li>
+                                <a href="#handleCreateSubscription" >handleCreateSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#handleDeleteSubscription" >handleDeleteSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#handleEditSubscription" >handleEditSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageLoad" >OnPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#populateChannels" >populateChannels</a>
+                            </li>
+                            <li>
+                                <a href="#populateSubscriptions" >populateSubscriptions</a>
+                            </li>
+                            <li>
+                                <a href="#prepareFiltersData" >prepareFiltersData</a>
+                            </li>
+                            <li>
+                                <a href="#setErrorVars" >setErrorVars</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#OnPageInit" >OnPageInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(activatedRoute: ActivatedRoute, uiNotificationControllerService: <a href="../injectables/UiNotificationControllerService.html" target="_self">UiNotificationControllerService</a>, dialogService: NbDialogService, router: Router, stackControllerService: <a href="../injectables/UiStackControllerService.html" target="_self">UiStackControllerService</a>, customToastService: <a href="../injectables/CustomToastService.html" target="_self">CustomToastService</a>, onAPIErrorService: <a href="../injectables/OnAPIErrorService.html" target="_self">OnAPIErrorService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="184" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:184</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uiNotificationControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiNotificationControllerService.html" target="_self" >UiNotificationControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NbDialogService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>stackControllerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UiStackControllerService.html" target="_self" >UiStackControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>customToastService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomToastService.html" target="_self" >CustomToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>onAPIErrorService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OnAPIErrorService.html" target="_self" >OnAPIErrorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteSubscription"></a>
+                    <span class="name">
+                        <span ><b>deleteSubscription</b></span>
+                        <a href="#deleteSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteSubscription(data, ref)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="355"
+                                    class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:355</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>ref</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllChannels"></a>
+                    <span class="name">
+                        <span ><b>getAllChannels</b></span>
+                        <a href="#getAllChannels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllChannels()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="221"
+                                    class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:221</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllSubscriptions"></a>
+                    <span class="name">
+                        <span ><b>getAllSubscriptions</b></span>
+                        <a href="#getAllSubscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllSubscriptions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="235"
+                                    class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:235</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEnvironmentsAsLink"></a>
+                    <span class="name">
+                        <span ><b>getEnvironmentsAsLink</b></span>
+                        <a href="#getEnvironmentsAsLink"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getEnvironmentsAsLink(stackName, environments)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="409"
+                                    class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:409</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>stackName</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>environments</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEnvironmentsMap"></a>
+                    <span class="name">
+                        <span ><b>getEnvironmentsMap</b></span>
+                        <a href="#getEnvironmentsMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getEnvironmentsMap()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="277"
+                                    class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:277</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFilters"></a>
+                    <span class="name">
+                        <span ><b>getFilters</b></span>
+                        <a href="#getFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFilters(filters, stackName)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="377"
+                                    class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:377</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filters</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>stackName</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCreateSubscription"></a>
+                    <span class="name">
+                        <span ><b>handleCreateSubscription</b></span>
+                        <a href="#handleCreateSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleCreateSubscription()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="337"
+                                    class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:337</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleDeleteSubscription"></a>
+                    <span class="name">
+                        <span ><b>handleDeleteSubscription</b></span>
+                        <a href="#handleDeleteSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleDeleteSubscription(rowData: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="349"
+                                    class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:349</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rowData</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleEditSubscription"></a>
+                    <span class="name">
+                        <span ><b>handleEditSubscription</b></span>
+                        <a href="#handleEditSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleEditSubscription(rowData: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="343"
+                                    class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:343</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rowData</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageLoad"></a>
+                    <span class="name">
+                        <span ><b>OnPageLoad</b></span>
+                        <a href="#OnPageLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageLoad(p: Params)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:198</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="populateChannels"></a>
+                    <span class="name">
+                        <span ><b>populateChannels</b></span>
+                        <a href="#populateChannels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>populateChannels(channels: <a href="../interfaces/NotificationChannel.html" target="_self">Array&lt;NotificationChannel&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="318"
+                                    class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:318</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>channels</td>
+                                            <td>
+                                                            <code><a href="../interfaces/NotificationChannel.html" target="_self" >Array&lt;NotificationChannel&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="populateSubscriptions"></a>
+                    <span class="name">
+                        <span ><b>populateSubscriptions</b></span>
+                        <a href="#populateSubscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>populateSubscriptions(res: <a href="../interfaces/Subscription.html" target="_self">Array&lt;Subscription&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="325"
+                                    class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:325</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>res</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Subscription.html" target="_self" >Array&lt;Subscription&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prepareFiltersData"></a>
+                    <span class="name">
+                        <span ><b>prepareFiltersData</b></span>
+                        <a href="#prepareFiltersData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>prepareFiltersData(filters, stackName)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="383"
+                                    class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:383</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filters</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>stackName</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setErrorVars"></a>
+                    <span class="name">
+                        <span ><b>setErrorVars</b></span>
+                        <a href="#setErrorVars"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setErrorVars(error: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="308"
+                                    class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:308</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>error</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnPageInit"></a>
+                    <span class="name">
+                        <span ><b>OnPageInit</b></span>
+                        <a href="#OnPageInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>OnPageInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../components/FacetsPage.html" target="_self" >FacetsPage</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../components/FacetsPage.html#source" target="_self" >FacetsPage:20</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actionButtons"></a>
+                    <span class="name">
+                        <span ><b>actionButtons</b></span>
+                        <a href="#actionButtons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      id: &#x27;filter&#x27;,
+      icon: &#x27;filter-outline&#x27;,
+      isFciPack: true,
+      toolTip: &#x27;Available filters&#x27;,
+      status: &#x27;primary&#x27;,
+      size: &#x27;medium&#x27;,
+      appearance: &#x27;ghost&#x27;,
+      onClick: (data) &#x3D;&gt; {
+        this.getFilters(data?.filters, data?.stackName);
+      },
+    },
+    {
+      id: &#x27;edit&#x27;,
+      icon: &#x27;edit-outline&#x27;,
+      isFciPack: true,
+      toolTip: &#x27;Edit Subscription&#x27;,
+      status: &#x27;primary&#x27;,
+      size: &#x27;medium&#x27;,
+      appearance: &#x27;ghost&#x27;,
+      action: &#x27;SUBSCRIPTION_WRITE&#x27;,
+      onClick: (data) &#x3D;&gt; {
+        this.handleEditSubscription(data);
+      },
+    },
+    {
+      id: &#x27;delete&#x27;,
+      icon: &#x27;trash-outline&#x27;,
+      isFciPack: true,
+      toolTip: &#x27;Delete Subscription&#x27;,
+      status: &#x27;danger&#x27;,
+      size: &#x27;medium&#x27;,
+      appearance: &#x27;ghost&#x27;,
+      action: &#x27;SUBSCRIPTION_DELETE&#x27;,
+      onClick: (data) &#x3D;&gt; {
+        this.handleDeleteSubscription(data);
+      },
+    },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blueprintEnvironments"></a>
+                    <span class="name">
+                        <span ><b>blueprintEnvironments</b></span>
+                        <a href="#blueprintEnvironments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="183" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:183</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buttonTextSub"></a>
+                    <span class="name">
+                        <span ><b>buttonTextSub</b></span>
+                        <a href="#buttonTextSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Add Subscription&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="channelMap"></a>
+                    <span class="name">
+                        <span ><b>channelMap</b></span>
+                        <a href="#channelMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="channels"></a>
+                    <span class="name">
+                        <span ><b>channels</b></span>
+                        <a href="#channels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/NotificationChannel.html" target="_self" >Array&lt;NotificationChannel&gt;</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="convertToSentenceCase"></a>
+                    <span class="name">
+                        <span ><b>convertToSentenceCase</b></span>
+                        <a href="#convertToSentenceCase"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>convertToSentenceCase</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteInProgress"></a>
+                    <span class="name">
+                        <span ><b>deleteInProgress</b></span>
+                        <a href="#deleteInProgress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:182</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteSubscriptionConfirmUI"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Private</span>
+                        <span ><b>deleteSubscriptionConfirmUI</b></span>
+                        <a href="#deleteSubscriptionConfirmUI"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;deleteSubscriptionConfirmUI&#x27;, {static: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="177" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:177</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="emptyLogoSubs"></a>
+                    <span class="name">
+                        <span ><b>emptyLogoSubs</b></span>
+                        <a href="#emptyLogoSubs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>emptyStateSubs</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorLogo"></a>
+                    <span class="name">
+                        <span ><b>errorLogo</b></span>
+                        <a href="#errorLogo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>errorIcon</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterLabels"></a>
+                    <span class="name">
+                        <span ><b>filterLabels</b></span>
+                        <a href="#filterLabels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    CLUSTER_NAME: &#x27;Environment Name&#x27;,
+    CLUSTER_TYPE: &#x27;Release Stream&#x27;,
+    SEVERITY: &#x27;Severity&#x27;,
+    ALERT_NAME: &#x27;Alert Name&#x27;,
+    QASUITE_RESULT: &#x27;QA Suite Result&#x27;,
+    DR_ACTION: &#x27;DR Action&#x27;,
+    DR_STATUS: &#x27;DR Status&#x27;,
+    DEPLOYMENT_STATUS: &#x27;Release Status&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllNotificationTypes"></a>
+                    <span class="name">
+                        <span ><b>getAllNotificationTypes</b></span>
+                        <a href="#getAllNotificationTypes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="258" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:258</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="184" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:184</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nc"></a>
+                    <span class="name">
+                        <span ><b>nc</b></span>
+                        <a href="#nc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/NotificationChannel.html" target="_self" >NotificationChannel</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notificationError"></a>
+                    <span class="name">
+                        <span ><b>notificationError</b></span>
+                        <a href="#notificationError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notificationTypeNameMap"></a>
+                    <span class="name">
+                        <span ><b>notificationTypeNameMap</b></span>
+                        <a href="#notificationTypeNameMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="primarySub"></a>
+                    <span class="name">
+                        <span ><b>primarySub</b></span>
+                        <a href="#primarySub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;No subscriptions created!&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="secondarySub"></a>
+                    <span class="name">
+                        <span ><b>secondarySub</b></span>
+                        <a href="#secondarySub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Create subscriptions for the channels created for notifications&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showBtnSub"></a>
+                    <span class="name">
+                        <span ><b>showBtnSub</b></span>
+                        <a href="#showBtnSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showEmptySub"></a>
+                    <span class="name">
+                        <span ><b>showEmptySub</b></span>
+                        <a href="#showEmptySub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="statusSub"></a>
+                    <span class="name">
+                        <span ><b>statusSub</b></span>
+                        <a href="#statusSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;info&quot; | &quot;error&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;info&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sub"></a>
+                    <span class="name">
+                        <span ><b>sub</b></span>
+                        <a href="#sub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Subscription.html" target="_self" >Subscription</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscriptionFiltersPopup"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Private</span>
+                        <span ><b>subscriptionFiltersPopup</b></span>
+                        <a href="#subscriptionFiltersPopup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;subscriptionFiltersPopup&#x27;, {static: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="180" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:180</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscriptions"></a>
+                    <span class="name">
+                        <span ><b>subscriptions</b></span>
+                        <a href="#subscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Subscription.html" target="_self" >Array&lt;Subscription&gt;</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscriptionSettings"></a>
+                    <span class="name">
+                        <span ><b>subscriptionSettings</b></span>
+                        <a href="#subscriptionSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    columns: {
+      name: {
+        title: &#x27;Subscription Name&#x27;,
+        filter: true,
+      },
+      notificationName: {
+        title: &#x27;Notification Type&#x27;,
+        filter: true,
+      },
+      channelName: {
+        title: &#x27;Channel Name&#x27;,
+        valuePrepareFunction: (value, row, cell) &#x3D;&gt; {
+          if (!value) {
+            return &#x27;Legacy Integration&#x27;;
+          }
+          return value;
+        },
+      },
+      stackName: {
+        title: &#x27;Blueprint&#x27;,
+        filter: true,
+        valuePrepareFunction: (value, row, cell) &#x3D;&gt; {
+          // DATA FROM HERE GOES TO renderComponent
+          const displayVal &#x3D; {
+            url: [&#x27;/&#x27;, &#x27;stack&#x27;, value],
+            display: value,
+          };
+          return JSON.stringify(displayVal);
+        },
+        renderComponent: SmartTableRouterlinkComponent,
+        type: &#x27;custom&#x27;,
+      },
+      custom: {
+        type: &#x27;custom&#x27;,
+        title: &#x27;Actions&#x27;,
+        valuePrepareFunction: (value, row, cell) &#x3D;&gt; {
+          let displayVal;
+          if (
+            Object.keys(row?.filters).length &#x3D;&#x3D;&#x3D; 0 ||
+            (Object.keys(row?.filters).length &#x3D;&#x3D;&#x3D; 1 &amp;&amp;
+              row?.filters?.hasOwnProperty(&#x27;STACK_NAME&#x27;))
+          ) {
+            displayVal &#x3D; {
+              smartTableCustomActionButtons: this.actionButtons.filter(
+                (button) &#x3D;&gt; button.id !&#x3D;&#x3D; &#x27;filter&#x27;,
+              ),
+            };
+          } else {
+            displayVal &#x3D; {
+              smartTableCustomActionButtons: this.actionButtons,
+            };
+          }
+          // DATA FROM HERE GOES TO renderComponent. rowData property holds row data and any custom data sent will reside in value
+
+          return JSON.stringify(displayVal);
+        },
+        renderComponent: CustomActionsComponent,
+        onComponentInitFunction: (instance) &#x3D;&gt; {
+          instance.byCustomActionButtonClick.subscribe((data) &#x3D;&gt; {
+            let customActionButton &#x3D; this.actionButtons.filter(
+              (actionButton) &#x3D;&gt; {
+                return actionButton.id &#x3D;&#x3D;&#x3D; data.actionButton.id;
+              },
+            )[0];
+            customActionButton.onClick(data.rowData);
+          });
+        },
+        width: &#x27;12%&#x27;,
+        filter: false,
+      },
+    },
+    pager: {
+      display: false,
+    },
+    actions: false,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscriptionWritePermission"></a>
+                    <span class="name">
+                        <span ><b>subscriptionWritePermission</b></span>
+                        <a href="#subscriptionWritePermission"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>SUBSCRIPTION_WRITE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testingResult"></a>
+                    <span class="name">
+                        <span ><b>testingResult</b></span>
+                        <a href="#testingResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tooltipSub"></a>
+                    <span class="name">
+                        <span ><b>tooltipSub</b></span>
+                        <a href="#tooltipSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Add Subscription&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/pages/notification-center/subscription-list/subscription-list.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, TemplateRef, ViewChild } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Params, Router } from &#x27;@angular/router&#x27;;
+import { NbDialogService } from &#x27;@nebular/theme&#x27;;
+import { NotificationChannel, Subscription } from &#x27;src/app/cc-api/models&#x27;;
+import {
+  UiNotificationControllerService,
+  UiStackControllerService,
+} from &#x27;src/app/cc-api/services&#x27;;
+import { CustomActionsComponent } from &#x27;src/app/components/custom-actions/custom-actions.component&#x27;;
+import { SUBSCRIPTION_WRITE } from &#x27;src/app/constants/permissions&#x27;;
+import { FacetsPage } from &#x27;src/app/facets/facets-page/facets-page.component&#x27;;
+import { convertToSentenceCase } from &#x27;../../../utils/string-util&#x27;;
+import { SmartTableRouterlinkComponent } from &#x27;src/app/components/smart-table-routerlink/smart-table-routerlink.component&#x27;;
+import { CustomToastService } from &#x27;../../custom-toast/custom-toast.service&#x27;;
+import { OnAPIErrorService } from &#x27;src/app/services/on-api-error.service&#x27;;
+
+const emptyStateSubs &#x3D; &#x27;./assets/subs-empty.svg&#x27;;
+const errorIcon &#x3D; &#x27;./assets/error.svg&#x27;;
+@Component({
+  selector: &#x27;app-subscription-list&#x27;,
+  templateUrl: &#x27;./subscription-list.component.html&#x27;,
+  styleUrls: [&#x27;./subscription-list.component.scss&#x27;],
+})
+export class SubscriptionListComponent extends FacetsPage {
+  channels: Array&lt;NotificationChannel&gt;;
+  subscriptions: Array&lt;Subscription&gt;;
+  nc: NotificationChannel &#x3D; {};
+  sub: Subscription &#x3D; {};
+  notificationError: any &#x3D; &#x27;&#x27;;
+  channelMap &#x3D; {};
+  testingResult: string;
+  emptyLogoSubs &#x3D; emptyStateSubs;
+  errorLogo &#x3D; errorIcon;
+  primarySub: string &#x3D; &#x27;No subscriptions created!&#x27;;
+  secondarySub: string &#x3D;
+    &#x27;Create subscriptions for the channels created for notifications&#x27;;
+  showEmptySub: boolean &#x3D; false;
+  statusSub: &#x27;info&#x27; | &#x27;error&#x27; &#x3D; &#x27;info&#x27;;
+  showBtnSub: boolean &#x3D; true;
+  buttonTextSub: string &#x3D; &#x27;Add Subscription&#x27;;
+  tooltipSub: string &#x3D; &#x27;Add Subscription&#x27;;
+  subscriptionWritePermission &#x3D; SUBSCRIPTION_WRITE;
+  convertToSentenceCase &#x3D; convertToSentenceCase;
+  notificationTypeNameMap: {} &#x3D; {};
+
+  filterLabels &#x3D; {
+    CLUSTER_NAME: &#x27;Environment Name&#x27;,
+    CLUSTER_TYPE: &#x27;Release Stream&#x27;,
+    SEVERITY: &#x27;Severity&#x27;,
+    ALERT_NAME: &#x27;Alert Name&#x27;,
+    QASUITE_RESULT: &#x27;QA Suite Result&#x27;,
+    DR_ACTION: &#x27;DR Action&#x27;,
+    DR_STATUS: &#x27;DR Status&#x27;,
+    DEPLOYMENT_STATUS: &#x27;Release Status&#x27;,
+  };
+
+  actionButtons &#x3D; [
+    {
+      id: &#x27;filter&#x27;,
+      icon: &#x27;filter-outline&#x27;,
+      isFciPack: true,
+      toolTip: &#x27;Available filters&#x27;,
+      status: &#x27;primary&#x27;,
+      size: &#x27;medium&#x27;,
+      appearance: &#x27;ghost&#x27;,
+      onClick: (data) &#x3D;&gt; {
+        this.getFilters(data?.filters, data?.stackName);
+      },
+    },
+    {
+      id: &#x27;edit&#x27;,
+      icon: &#x27;edit-outline&#x27;,
+      isFciPack: true,
+      toolTip: &#x27;Edit Subscription&#x27;,
+      status: &#x27;primary&#x27;,
+      size: &#x27;medium&#x27;,
+      appearance: &#x27;ghost&#x27;,
+      action: &#x27;SUBSCRIPTION_WRITE&#x27;,
+      onClick: (data) &#x3D;&gt; {
+        this.handleEditSubscription(data);
+      },
+    },
+    {
+      id: &#x27;delete&#x27;,
+      icon: &#x27;trash-outline&#x27;,
+      isFciPack: true,
+      toolTip: &#x27;Delete Subscription&#x27;,
+      status: &#x27;danger&#x27;,
+      size: &#x27;medium&#x27;,
+      appearance: &#x27;ghost&#x27;,
+      action: &#x27;SUBSCRIPTION_DELETE&#x27;,
+      onClick: (data) &#x3D;&gt; {
+        this.handleDeleteSubscription(data);
+      },
+    },
+  ];
+
+  subscriptionSettings: any &#x3D; {
+    columns: {
+      name: {
+        title: &#x27;Subscription Name&#x27;,
+        filter: true,
+      },
+      notificationName: {
+        title: &#x27;Notification Type&#x27;,
+        filter: true,
+      },
+      channelName: {
+        title: &#x27;Channel Name&#x27;,
+        valuePrepareFunction: (value, row, cell) &#x3D;&gt; {
+          if (!value) {
+            return &#x27;Legacy Integration&#x27;;
+          }
+          return value;
+        },
+      },
+      stackName: {
+        title: &#x27;Blueprint&#x27;,
+        filter: true,
+        valuePrepareFunction: (value, row, cell) &#x3D;&gt; {
+          // DATA FROM HERE GOES TO renderComponent
+          const displayVal &#x3D; {
+            url: [&#x27;/&#x27;, &#x27;stack&#x27;, value],
+            display: value,
+          };
+          return JSON.stringify(displayVal);
+        },
+        renderComponent: SmartTableRouterlinkComponent,
+        type: &#x27;custom&#x27;,
+      },
+      custom: {
+        type: &#x27;custom&#x27;,
+        title: &#x27;Actions&#x27;,
+        valuePrepareFunction: (value, row, cell) &#x3D;&gt; {
+          let displayVal;
+          if (
+            Object.keys(row?.filters).length &#x3D;&#x3D;&#x3D; 0 ||
+            (Object.keys(row?.filters).length &#x3D;&#x3D;&#x3D; 1 &amp;&amp;
+              row?.filters?.hasOwnProperty(&#x27;STACK_NAME&#x27;))
+          ) {
+            displayVal &#x3D; {
+              smartTableCustomActionButtons: this.actionButtons.filter(
+                (button) &#x3D;&gt; button.id !&#x3D;&#x3D; &#x27;filter&#x27;,
+              ),
+            };
+          } else {
+            displayVal &#x3D; {
+              smartTableCustomActionButtons: this.actionButtons,
+            };
+          }
+          // DATA FROM HERE GOES TO renderComponent. rowData property holds row data and any custom data sent will reside in value
+
+          return JSON.stringify(displayVal);
+        },
+        renderComponent: CustomActionsComponent,
+        onComponentInitFunction: (instance) &#x3D;&gt; {
+          instance.byCustomActionButtonClick.subscribe((data) &#x3D;&gt; {
+            let customActionButton &#x3D; this.actionButtons.filter(
+              (actionButton) &#x3D;&gt; {
+                return actionButton.id &#x3D;&#x3D;&#x3D; data.actionButton.id;
+              },
+            )[0];
+            customActionButton.onClick(data.rowData);
+          });
+        },
+        width: &#x27;12%&#x27;,
+        filter: false,
+      },
+    },
+    pager: {
+      display: false,
+    },
+    actions: false,
+  };
+
+  @ViewChild(&#x27;deleteSubscriptionConfirmUI&#x27;, { static: true })
+  private deleteSubscriptionConfirmUI: TemplateRef&lt;any&gt;;
+
+  @ViewChild(&#x27;subscriptionFiltersPopup&#x27;, { static: true })
+  private subscriptionFiltersPopup: TemplateRef&lt;any&gt;;
+
+  deleteInProgress: boolean;
+  blueprintEnvironments: {};
+  loading: boolean;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private uiNotificationControllerService: UiNotificationControllerService,
+    private dialogService: NbDialogService,
+    private router: Router,
+    private stackControllerService: UiStackControllerService,
+    private customToastService: CustomToastService,
+    private onAPIErrorService: OnAPIErrorService,
+  ) {
+    super(activatedRoute);
+  }
+
+  OnPageLoad(p: Params): void {
+    this.loading &#x3D; true;
+    this.getAllChannels().then(
+      (data) &#x3D;&gt; {
+        this.getAllSubscriptions().then(
+          (data) &#x3D;&gt; {
+            this.loading &#x3D; false;
+          },
+          (error) &#x3D;&gt; {
+            this.loading &#x3D; false;
+            this.showEmptySub &#x3D; true;
+            this.setErrorVars(error);
+          },
+        );
+      },
+      (error) &#x3D;&gt; {
+        this.loading &#x3D; false;
+        this.showEmptySub &#x3D; true;
+        this.setErrorVars(error);
+      },
+    );
+  }
+
+  getAllChannels() {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.uiNotificationControllerService.getAllChannelsUsingGET().subscribe(
+        (channels) &#x3D;&gt; {
+          this.populateChannels(channels);
+          resolve(true);
+        },
+        (error) &#x3D;&gt; {
+          reject(error);
+        },
+      );
+    });
+  }
+
+  getAllSubscriptions() {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.uiNotificationControllerService
+        .getAllSubscriptionsUsingGET()
+        .subscribe(
+          async (susbcriptions) &#x3D;&gt; {
+            if (susbcriptions?.length &lt;&#x3D; 0) {
+              this.showEmptySub &#x3D; true;
+            } else {
+              await this.getEnvironmentsMap();
+              await this.getAllNotificationTypes();
+              this.populateSubscriptions(susbcriptions);
+            }
+            resolve(true);
+          },
+          (error) &#x3D;&gt; {
+            reject(error);
+          },
+        );
+    });
+  }
+
+  //Fetch all the Notification Types available
+  getAllNotificationTypes &#x3D; () &#x3D;&gt; {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.uiNotificationControllerService
+        .getAllNotificationTypesUsingGET()
+        .subscribe(
+          (res) &#x3D;&gt; {
+            res?.forEach((notifType) &#x3D;&gt; {
+              this.notificationTypeNameMap[notifType?.notificationType] &#x3D;
+                notifType?.notificationName;
+            });
+            resolve(true);
+          },
+          (error) &#x3D;&gt; {
+            reject(error);
+          },
+        );
+    });
+  };
+
+  getEnvironmentsMap() {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.stackControllerService
+        .getAllClustersUsingGET({
+          page: 0,
+          perPage: 20000,
+          sortBy: &#x27;ID&#x27;,
+        })
+        .subscribe(
+          (envs) &#x3D;&gt; {
+            this.blueprintEnvironments &#x3D; {};
+            envs.content.forEach((cluster) &#x3D;&gt; {
+              const stackName &#x3D; cluster?.stackName;
+              if (this.blueprintEnvironments.hasOwnProperty(stackName)) {
+                this.blueprintEnvironments[stackName][cluster.name] &#x3D;
+                  cluster.id;
+              } else {
+                this.blueprintEnvironments[stackName] &#x3D; {
+                  [cluster.name]: cluster.id,
+                };
+              }
+            });
+            resolve(true);
+          },
+          (error) &#x3D;&gt; {
+            reject(error);
+          },
+        );
+    });
+  }
+
+  setErrorVars(error: any) {
+    this.primarySub &#x3D; &#x27;&#x27;;
+    this.secondarySub &#x3D;
+      error?.error?.message ||
+      &#x27; There is some error fetching subscription information&#x27;;
+    this.showBtnSub &#x3D; false;
+    this.statusSub &#x3D; &#x27;error&#x27;;
+    this.emptyLogoSubs &#x3D; this.errorLogo;
+  }
+
+  populateChannels(channels: Array&lt;NotificationChannel&gt;) {
+    this.channels &#x3D; channels;
+    this.channels.forEach((channel) &#x3D;&gt; {
+      this.channelMap[channel.id] &#x3D; channel.name;
+    });
+  }
+
+  populateSubscriptions(res: Array&lt;Subscription&gt;) {
+    this.subscriptions &#x3D; res;
+    this.subscriptions.forEach((subscription) &#x3D;&gt; {
+      subscription[&#x27;name&#x27;] &#x3D; subscription[&#x27;name&#x27;] || &#x27;N/A&#x27;;
+      subscription[&#x27;notificationName&#x27;] &#x3D;
+        this.notificationTypeNameMap[subscription?.notificationType] || &#x27;N/A&#x27;;
+      if (subscription.channelId) {
+        subscription[&#x27;channelName&#x27;] &#x3D; this.channelMap[subscription.channelId];
+      }
+    });
+  }
+
+  handleCreateSubscription() {
+    this.router.navigate([&#x27;../subscription/create&#x27;], {
+      relativeTo: this.activatedRoute,
+    });
+  }
+
+  handleEditSubscription(rowData: any) {
+    this.router.navigate([&#x27;../subscription/edit/&#x27; + rowData.id], {
+      relativeTo: this.activatedRoute,
+    });
+  }
+
+  handleDeleteSubscription(rowData: any) {
+    this.dialogService.open(this.deleteSubscriptionConfirmUI, {
+      context: rowData,
+    });
+  }
+
+  deleteSubscription(data, ref) {
+    this.deleteInProgress &#x3D; true;
+    this.uiNotificationControllerService
+      .deleteSubscriptionUsingDELETE(data.id)
+      .subscribe(
+        (response) &#x3D;&gt; {
+          this.populateSubscriptions(response);
+          this.customToastService.success(&#x27;Successfully deleted subscription&#x27;);
+          this.deleteInProgress &#x3D; false;
+          ref.close();
+        },
+        (error) &#x3D;&gt; {
+          this.onAPIErrorService.onAPIError(
+            error?.error?.message || &#x27;Failed to delete the subscription&#x27;,
+            error,
+          );
+          this.deleteInProgress &#x3D; false;
+          ref.close();
+        },
+      );
+  }
+
+  getFilters(filters, stackName) {
+    this.dialogService.open(this.subscriptionFiltersPopup, {
+      context: this.prepareFiltersData(filters, stackName),
+    });
+  }
+
+  prepareFiltersData(filters, stackName) {
+    let subscriptionFilters &#x3D; [];
+
+    Object.entries(filters)
+      .filter(([key, value]) &#x3D;&gt; key !&#x3D;&#x3D; &#x27;STACK_NAME&#x27;)
+      .forEach(([key, value]) &#x3D;&gt; {
+        let obj &#x3D; {
+          id: key,
+          label: this.filterLabels[key] || convertToSentenceCase(key),
+          displayType: &#x27;&#x27;,
+        };
+        if (key &#x3D;&#x3D;&#x3D; &#x27;CLUSTER_NAME&#x27;) {
+          obj.displayType &#x3D; &#x27;link&#x27;;
+          obj[&#x27;value&#x27;] &#x3D; this.getEnvironmentsAsLink(stackName, value);
+        } else if (key &#x3D;&#x3D;&#x3D; &#x27;SEVERITY&#x27;) {
+          obj.displayType &#x3D; &#x27;badge&#x27;;
+          obj[&#x27;value&#x27;] &#x3D; value;
+        } else {
+          obj.displayType &#x3D; &#x27;text&#x27;;
+          obj[&#x27;value&#x27;] &#x3D; value;
+        }
+        subscriptionFilters.push(obj);
+      });
+    return subscriptionFilters;
+  }
+
+  getEnvironmentsAsLink(stackName, environments) {
+    let environmentsLink &#x3D; environments.map((env) &#x3D;&gt; {
+      return {
+        display: env,
+        url: [
+          &#x27;/&#x27;,
+          stackName,
+          &#x27;cluster&#x27;,
+          this.blueprintEnvironments[stackName][env],
+        ],
+        class: &#x27;primary-text&#x27;,
+      };
+    });
+    return environmentsLink;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;!loading &amp;&amp; !showEmptySub&quot; class&#x3D;&quot;d-flex justify-content-end&quot;&gt;
+  &lt;app-rbac-button
+    label&#x3D;&quot;Create Subscription&quot;
+    toolTip&#x3D;&quot;Create Subscription&quot;
+    status&#x3D;&quot;primary&quot;
+    (onClick)&#x3D;&quot;handleCreateSubscription()&quot;
+    class&#x3D;&quot;float-right&quot;
+    action&#x3D;&quot;{{ subscriptionWritePermission }}&quot;
+  &gt;&lt;/app-rbac-button&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;mt-4&quot;&gt;
+  &lt;nb-card
+    [ngClass]&#x3D;&quot;{
+      &#x27;py-5 background-grey&#x27;: loading
+    }&quot;
+    [nbSpinner]&#x3D;&quot;loading&quot;
+  &gt;
+    &lt;nb-card-body *ngIf&#x3D;&quot;!loading &amp;&amp; !showEmptySub&quot;&gt;
+      &lt;ng2-smart-table
+        class&#x3D;&quot;cc-no-standard&quot;
+        [settings]&#x3D;&quot;subscriptionSettings&quot;
+        [source]&#x3D;&quot;this.subscriptions&quot;
+      &gt;
+      &lt;/ng2-smart-table&gt;
+    &lt;/nb-card-body&gt;
+    &lt;nb-card-body *ngIf&#x3D;&quot;!loading &amp;&amp; showEmptySub&quot;&gt;
+      &lt;app-message
+        [imgUrl]&#x3D;&quot;emptyLogoSubs&quot;
+        [primaryMsg]&#x3D;&quot;primarySub&quot;
+        [secondaryMsg]&#x3D;&quot;secondarySub&quot;
+        [status]&#x3D;&quot;statusSub&quot;
+        [showBtn]&#x3D;&quot;showBtnSub&quot;
+        [buttonText]&#x3D;&quot;buttonTextSub&quot;
+        [toolTip]&#x3D;&quot;tooltipSub&quot;
+        (buttonClick)&#x3D;&quot;handleCreateSubscription()&quot;
+      &gt;&lt;/app-message&gt;
+    &lt;/nb-card-body&gt;
+  &lt;/nb-card&gt;
+&lt;/div&gt;
+
+&lt;ng-template #deleteSubscriptionConfirmUI let-data let-ref&#x3D;&quot;dialogRef&quot;&gt;
+  &lt;nb-card&gt;
+    &lt;nb-card-header&gt;Confirm Subscription Delete&lt;/nb-card-header&gt;
+    &lt;nb-card-body&gt;
+      &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+        &lt;p&gt;
+          This action is going to delete your subscription
+          &lt;b&gt;{{ data?.name !&#x3D;&#x3D; &#x27;N/A&#x27; ? data?.name : &#x27;&#x27; }}&lt;/b
+          &gt;. Do you want to proceed?
+        &lt;/p&gt;
+        &lt;p&gt;
+          Please type
+          &lt;b&gt;{{ data?.name !&#x3D;&#x3D; &#x27;N/A&#x27; ? data?.name : &#x27;subscription&#x27; }}&lt;/b&gt; to
+          confirm the deletion
+        &lt;/p&gt;
+        &lt;input
+          nbInput
+          fullWidth
+          fieldSize&#x3D;&quot;small&quot;
+          type&#x3D;&quot;text&quot;
+          placeholder&#x3D;&quot;Enter {{
+            data?.name !&#x3D;&#x3D; &#x27;N/A&#x27; ? data?.name : &#x27;subscription&#x27;
+          }} here&quot;
+          #subscriptionInputValue
+        /&gt;
+      &lt;/div&gt;
+    &lt;/nb-card-body&gt;
+    &lt;nb-card-footer&gt;
+      &lt;button
+        nbButton
+        status&#x3D;&quot;primary&quot;
+        size&#x3D;&quot;small&quot;
+        class&#x3D;&quot;cc-margin-right&quot;
+        [nbSpinner]&#x3D;&quot;deleteInProgress&quot;
+        [disabled]&#x3D;&quot;
+          deleteInProgress ||
+          subscriptionInputValue?.value !&#x3D;&#x3D;
+            (data?.name !&#x3D;&#x3D; &#x27;N/A&#x27; ? data?.name : &#x27;subscription&#x27;)
+        &quot;
+        (click)&#x3D;&quot;deleteSubscription(data, ref)&quot;
+      &gt;
+        Confirm
+      &lt;/button&gt;
+      &lt;button
+        nbButton
+        size&#x3D;&quot;small&quot;
+        [disabled]&#x3D;&quot;deleteInProgress&quot;
+        (click)&#x3D;&quot;ref.close()&quot;
+      &gt;
+        Cancel
+      &lt;/button&gt;
+    &lt;/nb-card-footer&gt;
+  &lt;/nb-card&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #subscriptionFiltersPopup let-data let-ref&#x3D;&quot;dialogRef&quot;&gt;
+  &lt;nb-card style&#x3D;&quot;min-width: 30rem; max-width: 45rem&quot;&gt;
+    &lt;nb-card-header&gt;
+      &lt;h6 class&#x3D;&quot;float-left&quot;&gt;Filters&lt;/h6&gt;
+      &lt;nb-icon
+        icon&#x3D;&quot;close-outline&quot;
+        class&#x3D;&quot;float-right cursor-pointer&quot;
+        (click)&#x3D;&quot;ref.close()&quot;
+      &gt;&lt;/nb-icon&gt;
+    &lt;/nb-card-header&gt;
+    &lt;nb-card-body class&#x3D;&quot;row&quot;&gt;
+      &lt;ng-container *ngFor&#x3D;&quot;let filter of data&quot;&gt;
+        &lt;div
+          class&#x3D;&quot;mb-4&quot;
+          [ngClass]&#x3D;&quot;{
+            &#x27;col-12&#x27;: data?.length &#x3D;&#x3D;&#x3D; 1,
+            &#x27;col-6&#x27;: data?.length &gt;&#x3D; 2
+          }&quot;
+          *ngIf&#x3D;&quot;filter?.value?.length &gt; 0&quot;
+        &gt;
+          &lt;p class&#x3D;&quot;caption-2 mb-2&quot;&gt;
+            {{ filter?.label }}
+          &lt;/p&gt;
+
+          &lt;ng-container *ngIf&#x3D;&quot;filter?.displayType &#x3D;&#x3D;&#x3D; &#x27;link&#x27;&quot;&gt;
+            &lt;div class&#x3D;&quot;d-flex flex-wrap&quot;&gt;
+              &lt;app-smart-table-routerlink
+                *ngFor&#x3D;&quot;let env of filter?.value&quot;
+                [renderValue]&#x3D;&quot;env&quot;
+                class&#x3D;&quot;mr-2&quot;
+                (byLinkClick)&#x3D;&quot;ref.close()&quot;
+              &gt;&lt;/app-smart-table-routerlink&gt;
+            &lt;/div&gt;
+          &lt;/ng-container&gt;
+
+          &lt;ng-container *ngIf&#x3D;&quot;filter?.displayType &#x3D;&#x3D;&#x3D; &#x27;badge&#x27;&quot;&gt;
+            &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+              &lt;app-smart-table-with-badge
+                [severityInput]&#x3D;&quot;severity&quot;
+                *ngFor&#x3D;&quot;let severity of filter?.value&quot;
+                class&#x3D;&quot;mr-2&quot;
+              &gt;&lt;/app-smart-table-with-badge&gt;
+            &lt;/div&gt;
+          &lt;/ng-container&gt;
+
+          &lt;ng-container *ngIf&#x3D;&quot;filter?.displayType &#x3D;&#x3D;&#x3D; &#x27;text&#x27;&quot;&gt;
+            &lt;p class&#x3D;&quot;subtitle mb-0&quot;&gt;
+              {{ filter?.value.join(&#x27;, &#x27;) }}
+            &lt;/p&gt;
+          &lt;/ng-container&gt;
+        &lt;/div&gt;
+      &lt;/ng-container&gt;
+    &lt;/nb-card-body&gt;
+  &lt;/nb-card&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./subscription-list.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="!loading && !showEmptySub" class="d-flex justify-content-end">  <app-rbac-button    label="Create Subscription"    toolTip="Create Subscription"    status="primary"    (onClick)="handleCreateSubscription()"    class="float-right"    action="{{ subscriptionWritePermission }}"  ></app-rbac-button></div><div class="mt-4">  <nb-card    [ngClass]="{      \'py-5 background-grey\': loading    }"    [nbSpinner]="loading"  >    <nb-card-body *ngIf="!loading && !showEmptySub">      <ng2-smart-table        class="cc-no-standard"        [settings]="subscriptionSettings"        [source]="this.subscriptions"      >      </ng2-smart-table>    </nb-card-body>    <nb-card-body *ngIf="!loading && showEmptySub">      <app-message        [imgUrl]="emptyLogoSubs"        [primaryMsg]="primarySub"        [secondaryMsg]="secondarySub"        [status]="statusSub"        [showBtn]="showBtnSub"        [buttonText]="buttonTextSub"        [toolTip]="tooltipSub"        (buttonClick)="handleCreateSubscription()"      ></app-message>    </nb-card-body>  </nb-card></div><ng-template #deleteSubscriptionConfirmUI let-data let-ref="dialogRef">  <nb-card>    <nb-card-header>Confirm Subscription Delete</nb-card-header>    <nb-card-body>      <div class="mb-3">        <p>          This action is going to delete your subscription          <b>{{ data?.name !== \'N/A\' ? data?.name : \'\' }}</b          >. Do you want to proceed?        </p>        <p>          Please type          <b>{{ data?.name !== \'N/A\' ? data?.name : \'subscription\' }}</b> to          confirm the deletion        </p>        <input          nbInput          fullWidth          fieldSize="small"          type="text"          placeholder="Enter {{            data?.name !== \'N/A\' ? data?.name : \'subscription\'          }} here"          #subscriptionInputValue        />      </div>    </nb-card-body>    <nb-card-footer>      <button        nbButton        status="primary"        size="small"        class="cc-margin-right"        [nbSpinner]="deleteInProgress"        [disabled]="          deleteInProgress ||          subscriptionInputValue?.value !==            (data?.name !== \'N/A\' ? data?.name : \'subscription\')        "        (click)="deleteSubscription(data, ref)"      >        Confirm      </button>      <button        nbButton        size="small"        [disabled]="deleteInProgress"        (click)="ref.close()"      >        Cancel      </button>    </nb-card-footer>  </nb-card></ng-template><ng-template #subscriptionFiltersPopup let-data let-ref="dialogRef">  <nb-card style="min-width: 30rem; max-width: 45rem">    <nb-card-header>      <h6 class="float-left">Filters</h6>      <nb-icon        icon="close-outline"        class="float-right cursor-pointer"        (click)="ref.close()"      ></nb-icon>    </nb-card-header>    <nb-card-body class="row">      <ng-container *ngFor="let filter of data">        <div          class="mb-4"          [ngClass]="{            \'col-12\': data?.length === 1,            \'col-6\': data?.length >= 2          }"          *ngIf="filter?.value?.length > 0"        >          <p class="caption-2 mb-2">            {{ filter?.label }}          </p>          <ng-container *ngIf="filter?.displayType === \'link\'">            <div class="d-flex flex-wrap">              <app-smart-table-routerlink                *ngFor="let env of filter?.value"                [renderValue]="env"                class="mr-2"                (byLinkClick)="ref.close()"              ></app-smart-table-routerlink>            </div>          </ng-container>          <ng-container *ngIf="filter?.displayType === \'badge\'">            <div class="d-flex">              <app-smart-table-with-badge                [severityInput]="severity"                *ngFor="let severity of filter?.value"                class="mr-2"              ></app-smart-table-with-badge>            </div>          </ng-container>          <ng-container *ngIf="filter?.displayType === \'text\'">            <p class="subtitle mb-0">              {{ filter?.value.join(\', \') }}            </p>          </ng-container>        </div>      </ng-container>    </nb-card-body>  </nb-card></ng-template></div>'
+    var COMPONENTS = [{'name': 'AccessForbiddenComponent', 'selector': 'app-access-forbidden'},{'name': 'AccountDetailsComponent', 'selector': 'app-account-details'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AccountsManagementComponent', 'selector': 'app-accounts-management'},{'name': 'ActionTimingComponent', 'selector': 'app-action-timing'},{'name': 'AddIntegrationComponent', 'selector': 'app-add-integration'},{'name': 'AddIntentComponent', 'selector': 'app-add-intent'},{'name': 'AddNewResourceComponent', 'selector': 'app-add-new-resource'},{'name': 'AddSubscriptionPayloadComponent', 'selector': 'app-add-subscription-payload'},{'name': 'AlertsChartComponent', 'selector': 'app-alerts-chart'},{'name': 'AlertsDefinitionComponent', 'selector': 'app-alerts-definition'},{'name': 'AppAlertsComponent', 'selector': 'app-alerts'},{'name': 'AppCollapsibleButtonComponent', 'selector': 'app-collapsible-button'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppConfigEditComponent', 'selector': 'app-app-config-edit'},{'name': 'AppConfigurationComponent', 'selector': 'app-app-configuration'},{'name': 'AppDiffCompareComponent', 'selector': 'app-app-diff-compare'},{'name': 'AppDiffSelectComponent', 'selector': 'app-app-diff-select'},{'name': 'AppIntentComponent', 'selector': 'app-app-intent'},{'name': 'AppLayoutComponent', 'selector': 'app-layout'},{'name': 'AppNativeChartsComponent', 'selector': 'app-app-native-charts'},{'name': 'AppPodsComponent', 'selector': 'app-app-pods'},{'name': 'AppSearchComponent', 'selector': 'app-search'},{'name': 'AppStackVarsAddComponent', 'selector': 'app-stack-vars-add'},{'name': 'ArtifactHistoryComponent', 'selector': 'app-artifact-history'},{'name': 'ArtifactoryManagementComponent', 'selector': 'app-artifactory-management'},{'name': 'ArtifactsComponent', 'selector': 'app-artifacts'},{'name': 'ArtifactsCreateCIComponent', 'selector': 'app-artifacts-create-ci'},{'name': 'ArtifactsCreatePromotionComponent', 'selector': 'app-artifacts-create-promotion'},{'name': 'ArtifactsListComponent', 'selector': 'app-artifacts-list'},{'name': 'ArtifactsPagesComponent', 'selector': 'app-artifacts-pages'},{'name': 'ArtifactsPromotionComponent', 'selector': 'app-artifacts-promotion'},{'name': 'ArtifactUriComponent', 'selector': 'app-artifact-uri'},{'name': 'AwsAccountCreateEditComponent', 'selector': 'app-aws-account-create-edit'},{'name': 'AzureAccountCreateEditComponent', 'selector': 'app-azure-account-create-edit'},{'name': 'BadgeWithIconComponent', 'selector': 'app-badge-with-icon'},{'name': 'BaseNodeComponent', 'selector': 'app-base-node'},{'name': 'BlueprintDesignerComponent', 'selector': 'app-blueprint-designer'},{'name': 'BlueprintDesignerGraphComponent', 'selector': 'app-blueprint-designer-graph'},{'name': 'BlueprintDesignerTableComponent', 'selector': 'app-blueprint-designer-table'},{'name': 'BorderedTextListWithIconComponent', 'selector': 'app-bordered-text-list-with-icon'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'BreadcrumbsV2Component', 'selector': 'app-breadcrumbs-v2'},{'name': 'ButtonDropdownComponent', 'selector': 'app-button-dropdown'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChannelListComponent', 'selector': 'app-channel-list'},{'name': 'ChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'ChatListComponent', 'selector': 'app-chat-list'},{'name': 'CheckboxComponent', 'selector': 'app-checkbox'},{'name': 'CIDetailsComponent', 'selector': 'app-ci-details'},{'name': 'CiRulesComponent', 'selector': 'app-ci-rules'},{'name': 'ClusterAlertsManagerComponent', 'selector': 'app-cluster-alerts-manager'},{'name': 'ClusterAvailabilitySchedulerComponent', 'selector': 'app-cluster-availability-scheduler'},{'name': 'ClusterChooserComponent', 'selector': 'app-cluster-chooser'},{'name': 'ClusterCreateUpdateComponent', 'selector': 'app-cluster-create-update'},{'name': 'ClusterDisasterRecoveryComponent', 'selector': 'app-cluster-disaster-recovery'},{'name': 'ClusterErrorDetailsComponent', 'selector': 'app-cluster-error-details'},{'name': 'ClusterOverviewAssemblerComponent', 'selector': 'app-cluster-overview-assembler'},{'name': 'ClusterPagesComponent', 'selector': 'app-cluster-pages'},{'name': 'ClusterReleaseDetailsComponent', 'selector': 'app-cluster-release-details'},{'name': 'ClusterReleaseModalComponent', 'selector': 'app-cluster-release-modal'},{'name': 'ClusterReleaseSchedulerComponent', 'selector': 'app-cluster-release-scheduler'},{'name': 'ClusterReleasesNewComponent', 'selector': 'app-cluster-releases-new'},{'name': 'ClusterReleasesOverviewComponent', 'selector': 'app-cluster-releases-overview'},{'name': 'ClusterReleasesValidationsComponent', 'selector': 'app-cluster-releases-validations'},{'name': 'ClusterResourceAllocationComponent', 'selector': 'app-cluster-resource-allocation'},{'name': 'ClusterResourceDetailsComponent', 'selector': 'app-cluster-resource-details'},{'name': 'ClusterSettingsComponent', 'selector': 'app-cluster-settings'},{'name': 'ClusterTemplateInputsComponent', 'selector': 'app-cluster-template-inputs'},{'name': 'ClusterTerminalComponent', 'selector': 'app-cluster-terminal'},{'name': 'ClusterTfVersionComponent', 'selector': 'app-cluster-tf-version'},{'name': 'ClusterToolsComponent', 'selector': 'app-cluster-tools'},{'name': 'ClusterTunnelComponent', 'selector': 'app-cluster-tunnel'},{'name': 'ClusterVarsComponent', 'selector': 'app-cluster-vars'},{'name': 'CoderAccountCreateEditComponent', 'selector': 'app-coder-account-create-edit'},{'name': 'ComponentUpgradeComponent', 'selector': 'app-component-upgrade'},{'name': 'ConfigFieldsComponent', 'selector': 'app-config-field'},{'name': 'ConfigurationEditorComponent', 'selector': 'app-configuration-editor'},{'name': 'ContainersCpuUsageChartComponent', 'selector': 'app-containers-cpu-usage-chart'},{'name': 'ControlPlaneConfigComponent', 'selector': 'app-control-plane-config'},{'name': 'ControlPlaneSettingsComponent', 'selector': 'app-control-plane-settings'},{'name': 'CostExplorerComponent', 'selector': 'app-cost-explorer'},{'name': 'CostExplorerRunbookComponent', 'selector': 'app-cost-explorer-runbook'},{'name': 'CostExplorerUserMessageComponent', 'selector': 'app-cost-explorer-user-message'},{'name': 'CountdownComponent', 'selector': 'app-countdown'},{'name': 'CreateEditChannelComponent', 'selector': 'app-create-edit-channel'},{'name': 'CreateEditCiRulesComponent', 'selector': 'app-create-edit-ci-rules'},{'name': 'CreateEditContainerRegistryComponent', 'selector': 'app-create-edit-container-registry'},{'name': 'CreateEditCustomRoleComponent', 'selector': 'app-create-edit-custom-role'},{'name': 'CreateEditSubscriptionComponent', 'selector': 'app-create-edit-subscription'},{'name': 'CreateEditSubscriptionNewComponent', 'selector': 'app-create-edit-subscription-new'},{'name': 'CreateEditTemplateInputsComponent', 'selector': 'app-create-edit-template-inputs'},{'name': 'CreateGuardrailsComponent', 'selector': 'app-create-guardrails'},{'name': 'CreateResourceGroupComponent', 'selector': 'app-create-resource-group'},{'name': 'CreateSnapshotDialogComponent', 'selector': 'app-create-snapshot-dialog'},{'name': 'CreateUserComponent', 'selector': ''},{'name': 'CreateUserGroupComponent', 'selector': 'app-create-user-group'},{'name': 'CriteriaComponent', 'selector': 'app-criteria'},{'name': 'CurrentVersionComponent', 'selector': 'app-current-version'},{'name': 'CustomActionsComponent', 'selector': 'app-custom-actions'},{'name': 'CustomBadgeWithTooltipComponent', 'selector': 'app-custom-badge-with-tooltip'},{'name': 'CustomSpinnerComponent', 'selector': 'app-spinner-custom'},{'name': 'CustomThemeEditorComponent', 'selector': 'app-custom-theme-editor'},{'name': 'CustomToastComponent', 'selector': 'app-custom-toast'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DeleteConfirmationComponent', 'selector': 'app-delete-confirmation'},{'name': 'DeliveryPipelineV2Component', 'selector': 'app-delivery-pipeline-v2'},{'name': 'DesignerCoderComponent', 'selector': 'app-designer-coder'},{'name': 'DesignerLayoutComponent', 'selector': 'app-designer-layout'},{'name': 'DesignerResourcesComponent', 'selector': 'app-designer-resources'},{'name': 'DiffIconComponent', 'selector': 'app-diff-icon'},{'name': 'DiffValueComponent', 'selector': 'app-diff-value'},{'name': 'DisplayFieldComponent', 'selector': 'app-display-field'},{'name': 'DlvPplEnvironmentNodeComponent', 'selector': 'app-dlv-ppl-environment-node'},{'name': 'DynamicGrafanaDashboardComponent', 'selector': 'app-dynamic-grafana-dashboard'},{'name': 'EnableDisableResourceComponent', 'selector': 'app-enable-disable-resource'},{'name': 'FacetsPage', 'selector': ''},{'name': 'FiringAlertsComponent', 'selector': 'app-firing-alerts'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormFieldComponent', 'selector': 'app-form-field'},{'name': 'FormLabelComponent', 'selector': 'app-custom-form-label'},{'name': 'GcpAccountCreateEditComponent', 'selector': 'app-gcp-account-create-edit'},{'name': 'GithubActionsComponent', 'selector': 'app-github-actions'},{'name': 'GithubCredentialComponent', 'selector': 'app-github-credential'},{'name': 'GuardrailsComponent', 'selector': 'app-guardrails'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderComponent', 'selector': 'app-blueprint-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfoComponent', 'selector': 'app-info'},{'name': 'IngressDetailsComponent', 'selector': 'app-ingress-details'},{'name': 'IngressOverviewDashboardComponent', 'selector': 'app-ingress-overview-dashboard'},{'name': 'IntentIdeComponent', 'selector': 'app-intent-ide'},{'name': 'InterfacesAttributesComponent', 'selector': 'app-interfaces-attributes'},{'name': 'K8SChatDetailComponent', 'selector': 'app-chat-detail'},{'name': 'K8sExplorerComponent', 'selector': 'app-k8s-explorer'},{'name': 'KubernetesAccountCreateEditComponent', 'selector': 'app-kubernetes-account-create-edit'},{'name': 'KubernetesComponent', 'selector': 'app-kubernetes'},{'name': 'LayoutOneColumnComponent', 'selector': 'app-layout-one-column'},{'name': 'LinkWithEllipsisComponent', 'selector': 'app-link-with-ellipsis'},{'name': 'ListCiRulesComponent', 'selector': 'app-list-ci-rules'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MemoryUsageChartComponent', 'selector': 'app-memory-usage-chart'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'MonacoEditorSchemaBasedComponent', 'selector': 'app-monaco-editor-schema-based'},{'name': 'MultiSelectSearchComponent', 'selector': 'app-multi-select-search'},{'name': 'MultiSelectSearchV2Component', 'selector': 'app-multi-select-search-v2'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotificationCenterComponent', 'selector': 'app-notification-center'},{'name': 'NumberInputComponent', 'selector': 'app-number-input'},{'name': 'OauthClientsComponent', 'selector': 'app-oauth-clients'},{'name': 'OrganizationAccountDetailsComponent', 'selector': 'app-organization-account-details'},{'name': 'OtherNodesComponent', 'selector': 'app-other-nodes'},{'name': 'OverrideDetailsComponent', 'selector': 'app-override-details'},{'name': 'OverrideStatusBadgeComponent', 'selector': 'app-override-status-badge'},{'name': 'PageFooterComponent', 'selector': 'app-page-footer'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PageWrapperComponent', 'selector': 'app-page-wrapper-component'},{'name': 'PauseReleaseDialogComponent', 'selector': 'app-pause-release-dialog'},{'name': 'PinSnapshotDialogComponent', 'selector': 'app-pin-snapshot-dialog'},{'name': 'PodsResourcesChartComponent', 'selector': 'app-pods-resources-chart'},{'name': 'ProfilesComponent', 'selector': 'app-profiles'},{'name': 'PromotionWorkflowsComponent', 'selector': 'app-promotion-workflows'},{'name': 'ProvidedResourcesComponent', 'selector': 'app-provided-resources'},{'name': 'PullRequestsComponent', 'selector': 'app-pull-requests'},{'name': 'QueuedReleasesComponent', 'selector': 'app-queued-releases'},{'name': 'QuickLogSearchComponent', 'selector': 'app-quick-log-search'},{'name': 'RadioComponent', 'selector': 'app-radio'},{'name': 'RBACButtonComponent', 'selector': 'app-rbac-button'},{'name': 'ReactiveFormFieldComponent', 'selector': 'app-reactive-form-field'},{'name': 'ReactiveRadioGroupComponent', 'selector': 'app-reactive-radio-group'},{'name': 'ReactiveTextAreaComponent', 'selector': 'app-reactive-text-area'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReactiveToggleComponent', 'selector': 'app-reactive-toggle'},{'name': 'ReleaseStreamsComponent', 'selector': 'app-release-streams'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResourceArtifactHistoryComponent', 'selector': 'app-resource-artifact-history'},{'name': 'ResourceArtifactsComponent', 'selector': 'app-resource-artifacts'},{'name': 'ResourceBlueprintHistoryComponent', 'selector': 'app-resource-blueprint-history'},{'name': 'ResourceCenterComponent', 'selector': 'app-resource-center'},{'name': 'ResourceConfigEditComponent', 'selector': 'app-resource-config-edit'},{'name': 'ResourceConfigurationComponent', 'selector': 'app-resource-configuration'},{'name': 'ResourceConfigViewerComponent', 'selector': 'app-resource-config-viewer'},{'name': 'ResourceConnectionsGraphComponent', 'selector': 'app-resource-connections-graph'},{'name': 'ResourceDetailsComponent', 'selector': 'app-designer-resource-details'},{'name': 'ResourceDetailsComponent', 'selector': 'app-resource-details'},{'name': 'ResourceDiffCompareComponent', 'selector': 'app-resource-diff-compare'},{'name': 'ResourceDiffSelectComponent', 'selector': 'app-resource-diff-select'},{'name': 'ResourceDomainCreateEditComponent', 'selector': 'app-resource-domain-create-edit'},{'name': 'ResourceEnvironmentsComponent', 'selector': 'app-resource-environments'},{'name': 'ResourceGrafanaComponent', 'selector': 'app-resource-grafana'},{'name': 'ResourceGroupDetailsComponent', 'selector': 'app-resource-group-details'},{'name': 'ResourceGroupsComponent', 'selector': 'app-resource-groups'},{'name': 'ResourceGroupsTableComponent', 'selector': 'app-resource-groups-table'},{'name': 'ResourceIngressDomainComponent', 'selector': 'app-resource-ingress-domain'},{'name': 'ResourceListComponent', 'selector': 'app-resource-list'},{'name': 'ResourceListOldComponent', 'selector': 'app-resource-list-old'},{'name': 'ResourceLiveReleaseComponent', 'selector': 'app-resource-live-release'},{'name': 'ResourceNodeComponent', 'selector': 'app-resource-node'},{'name': 'ResourceOutPropertiesComponent', 'selector': 'app-resource-out-properties'},{'name': 'ResourceOverrideHistoryComponent', 'selector': 'app-resource-override-history'},{'name': 'ResourceOverridesComponent', 'selector': 'app-resource-overrides'},{'name': 'ResourceOverviewComponent', 'selector': 'app-designer-resource-overview'},{'name': 'ResourceOverviewComponent', 'selector': 'app-resource-overview'},{'name': 'ResourcePodContainersComponent', 'selector': 'app-resource-pod-containers'},{'name': 'ResourceSpecComponent', 'selector': 'app-resource-spec'},{'name': 'RestartsChartComponent', 'selector': 'app-restarts-chart'},{'name': 'SaveAsTemplateComponent', 'selector': 'app-save-as-template'},{'name': 'SaveChangesFooterComponent', 'selector': 'app-save-changes-footer'},{'name': 'SearchComponent', 'selector': 'app-blueprint-search'},{'name': 'SelectSingleSearchComponent', 'selector': 'app-select-single-search'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarV2Component', 'selector': 'app-sidebar-v2'},{'name': 'SimpleResourceConfigComponent', 'selector': 'app-simple-resource-config'},{'name': 'SimpleResourceConfigEditComponent', 'selector': 'app-simple-resource-config-edit'},{'name': 'SimpleResourceNodeComponent', 'selector': 'app-simple-resource-node'},{'name': 'SingleDiffCompareComponent', 'selector': 'app-single-diff-compare'},{'name': 'SingleDiffSelectComponent', 'selector': 'app-single-diff-select'},{'name': 'SmartTableCellWithEllipsisComponent', 'selector': 'app-smart-table-cell-with-ellipsis'},{'name': 'SmartTableEditToggleComponent', 'selector': 'app-smart-table-edit-toggle'},{'name': 'SmartTableHierarchyComponent', 'selector': ''},{'name': 'SmartTableHyperlinkComponent', 'selector': 'app-smart-table-hyperlink'},{'name': 'SmartTableIconSubheadingComponent', 'selector': 'app-smart-table-icon-subheading'},{'name': 'SmartTableIconTooltipComponent', 'selector': 'app-smart-table-icon-tooltip'},{'name': 'SmartTableLinkComponent', 'selector': ''},{'name': 'SmartTableLinkWithIconComponent', 'selector': 'app-smart-table-link-with-icon'},{'name': 'SmartTableLongStringEllipsisComponent', 'selector': 'app-smart-table-long-string-ellipsis'},{'name': 'SmartTableMultiTypeComponent', 'selector': 'app-smart-table-multi-type'},{'name': 'SmartTableRouterlinkComponent', 'selector': 'app-smart-table-routerlink'},{'name': 'SmartTableTextareaEditorComponent', 'selector': 'app-smart-table-textarea-editor'},{'name': 'SmartTableTextTooltipComponent', 'selector': 'app-smart-table-text-tooltip'},{'name': 'SmartTableTimeagoTooltipComponent', 'selector': 'app-smart-table-timeago-tooltip'},{'name': 'SmartTableToggleComponent', 'selector': 'app-smart-table-toggle'},{'name': 'SmartTableWithBadgeComponent', 'selector': 'app-smart-table-with-badge'},{'name': 'SmartTableWithBulkSelectComponent', 'selector': 'app-smart-table-with-bulk-select'},{'name': 'SmartTableWithCountdownComponent', 'selector': 'app-smart-table-with-countdown'},{'name': 'SmartTableWithIconComponent', 'selector': 'app-smart-table-with-icon'},{'name': 'SmoothHeightComponent', 'selector': 'app-smooth-height'},{'name': 'SmoothWidthComponent', 'selector': 'app-smooth-width'},{'name': 'SoftDeleteCheckboxComponent', 'selector': 'app-soft-delete-checkbox'},{'name': 'SoftDeleteEntitiesComponent', 'selector': 'app-soft-delete-entities'},{'name': 'SpinnerComponent', 'selector': ''},{'name': 'SpinnerComponentWithSecondaryColorComponent', 'selector': ''},{'name': 'SSOLogoutComponent', 'selector': 'app-sso-logout-page'},{'name': 'StackComponent', 'selector': 'app-stack-component'},{'name': 'StackCreateComponent', 'selector': 'app-stack-create'},{'name': 'StackCreateV2Component', 'selector': 'app-stack-create-v2'},{'name': 'StackOverviewComponent', 'selector': 'app-stack-overview'},{'name': 'StackVarsComponent', 'selector': 'app-stack-vars'},{'name': 'StepperListItemComponent', 'selector': 'app-stepper-list-item'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'SubscriptionListComponent', 'selector': 'app-subscription-list'},{'name': 'TableAddComponent', 'selector': 'app-table-add'},{'name': 'TableSkeletonLoaderComponent', 'selector': 'app-table-skeleton-loader'},{'name': 'TabPageHeaderComponent', 'selector': 'app-tab-page-header'},{'name': 'TagComponent', 'selector': 'app-tag'},{'name': 'TagListComponent', 'selector': 'app-tag-list'},{'name': 'TailLogsComponent', 'selector': 'app-tail-logs'},{'name': 'TerminalComponent', 'selector': 'app-terminal'},{'name': 'TextCircleTooltipComponent', 'selector': ''},{'name': 'ToastersComponent', 'selector': 'app-toasters'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'ToolsExternalComponent', 'selector': 'app-tools-external'},{'name': 'ToolsGrafanaComponent', 'selector': 'app-tools-grafana'},{'name': 'ToolsK8sComponent', 'selector': 'app-tools-k8s'},{'name': 'TopNavigationComponent', 'selector': 'app-top-navigation'},{'name': 'TransitionLoaderComponent', 'selector': 'app-transition-loader'},{'name': 'UpdatePasswordComponent', 'selector': 'app-update-password'},{'name': 'UserAccessTokenComponent', 'selector': 'app-user-access-token'},{'name': 'UserGroupTableComponent', 'selector': 'app-user-group-table'},{'name': 'UserManagementComponent', 'selector': 'app-user-management'},{'name': 'UserNoteAlertComponent', 'selector': 'app-user-note-alert'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'UserRendererComponent', 'selector': ''},{'name': 'UserRolesComponent', 'selector': 'app-user-roles'},{'name': 'UserTableComponent', 'selector': 'app-user-table'},{'name': 'ValidationInfoCardComponent', 'selector': 'app-validation-card'},{'name': 'VpnInstructionsComponent', 'selector': 'app-vpn-instructions'},{'name': 'WorkflowDetailsComponent', 'selector': 'app-workflow-details'}];
+    var DIRECTIVES = [{'name': 'MinimumOptionSelectionValidationDirective', 'selector': '[appMinimumOptionSelectionValidation]'},{'name': 'UserRoleDirective', 'selector': '[appUserRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'SubscriptionListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SubscriptionListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
